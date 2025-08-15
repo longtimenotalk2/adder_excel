@@ -17,8 +17,18 @@ impl LogicBlock {
             Self::AOAI211 | Self::OAOI211 | Self::AOA211 | Self::OAO211
                 => vec!["A1", "A2", "B", "C"],
         };
-
         ports.iter().map(|p| Port(p.to_string())).collect()
+    }
 
+    pub fn ports_output(&self) -> HashSet<Port> {
+        let ports = match self {
+            Self::XNR2DOUT => vec!["O1", "ZN"],
+            Self::XOR2DOUT => vec!["O1", "Z"],
+            Self::AN2 | Self::OR2 | Self::XOR2 |
+                Self::AO21 | Self::OA21 | Self::AOA211 | Self::OAO211
+                => vec!["Z"],
+            _ => vec!["ZN"],
+        };
+        ports.iter().map(|p| Port(p.to_string())).collect()
     }
 }
