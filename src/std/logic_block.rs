@@ -27,5 +27,5 @@ pub enum LogicBlock {
     OAO211,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub struct Port(String);
