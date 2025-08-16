@@ -4,9 +4,11 @@ mod ambiguous;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum Flag {
     G,
-    P,
+    P, // 最低bit是或逻辑
+    Q, // 最低bit是异或逻辑
     H,
-    AB,
+    A,
+    B,
     S,
 }
 
@@ -14,7 +16,6 @@ pub enum Flag {
 pub struct Wire {
     flag : Flag,
     is_neg : bool,
-    is_ab_xr : bool,
     index : usize,
     len : usize,
 }

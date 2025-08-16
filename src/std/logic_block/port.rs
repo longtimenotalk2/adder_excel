@@ -1,9 +1,15 @@
-use std::collections::HashSet;
+use std::collections::BTreeSet;
 
 use crate::std::logic_block::{LogicBlock, Port};
 
+impl Port {
+    pub fn new(s : &str) -> Self {
+        Self(s.to_string())
+    }
+}
+
 impl LogicBlock {
-    pub fn ports_input(&self) -> HashSet<Port> {
+    pub fn ports_input(&self) -> BTreeSet<Port> {
         let ports = match self {
             Self::INV => vec!["I"],
             Self::ND2 | Self::NR2 | Self::AN2 | Self::OR2 |
@@ -20,7 +26,7 @@ impl LogicBlock {
         ports.iter().map(|p| Port(p.to_string())).collect()
     }
 
-    pub fn ports_output(&self) -> HashSet<Port> {
+    pub fn ports_output(&self) -> BTreeSet<Port> {
         let ports = match self {
             Self::XNR2DOUT => vec!["O1", "ZN"],
             Self::XOR2DOUT => vec!["O1", "Z"],
