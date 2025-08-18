@@ -14,10 +14,10 @@ pub enum Flag {
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct Wire {
-    flag : Flag,
-    is_neg : bool,
-    index : usize,
-    len : usize,
+    pub flag : Flag,
+    pub is_neg : bool,
+    pub index : usize,
+    pub len : usize,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
