@@ -67,6 +67,13 @@ impl LogicBlock {
         } else {
             self
         }
-        
+    }
+
+    pub fn aoi21_like_input_inv(self) -> Self {
+        match self {
+            LogicBlock::AOI21 => LogicBlock::IAOI21,
+            LogicBlock::OAI21 => LogicBlock::IOAI21,
+            _ => unimplemented!()
+        }
     }
 }

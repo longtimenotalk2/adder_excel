@@ -17,7 +17,7 @@ impl LogicBlock {
                 => vec!["A1", "A2"],
             Self::IND2 | Self::INR2 => vec!["A1", "B1"], // A1 add INV
             Self::AOI21 | Self::OAI21 | Self::AO21 | Self::OA21 |
-                Self::IAOI21 | Self::IOAI21
+                Self::IAOI21 | Self::IOAI21 // A2 add INV
                 => vec!["A1", "A2", "B"],
             Self::AOI22 | Self::OAI22 => vec!["A1", "A2", "B1", "B2"],
             Self::AOAI211 | Self::OAOI211 | Self::AOA211 | Self::OAO211

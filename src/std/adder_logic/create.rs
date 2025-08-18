@@ -1,6 +1,6 @@
 use std::collections::{BTreeMap, BTreeSet};
 
-use crate::std::{adder_logic::{LogiBlockHint, LogicBlockCreateError, LogicBlockMappingTable}, logic_block::{LogicBlock, Port}, wire::{ambiguous::AmbiguousWire, Flag, Wire}};
+use crate::std::{adder_logic::{LogiBlockHint, LogicBlockCreateError, LogicBlockMappingTable}, logic_block::{self, LogicBlock, Port}, wire::{ambiguous::AmbiguousWire, Flag, Wire}};
 
 struct WireSet(Vec<Wire>);
 
@@ -27,6 +27,14 @@ impl WireSet {
                     match_list.sort_by(|a, b| b.len.cmp(&a.len));
                     match_list.get(0).cloned()
                 }
+            }
+            AmbiguousWire::LenGivenByOrder { flag, is_neg, index, len_choice } => {
+                for len in len_choice {
+                    if let Some(wire) = self.find(&AmbiguousWire::Precise(Wire::new(flag.clone(), *is_neg, *index, *len))) {
+                        return Some(wire);
+                    }
+                }
+                None
             }
         }
     }
@@ -100,6 +108,43 @@ impl LogicBlockMappingTable {
             },
             _ => unimplemented!()
         }
+    }
+
+    pub fn new_aoi21_like(logic_block : LogicBlock, out : Wire, a1 : Wire, a2 : Wire, b : Wire, a1_is_neg : bool, a2_is_neg : bool, b_is_neg : bool, out_is_neg : bool) -> Self {
+        assert_eq!(b_is_neg, false);
+        assert!([LogicBlock::AOI21, LogicBlock::OAI21].contains(&logic_block));
+        if a1_is_neg != a2_is_neg {
+            let logic_block = logic_block.aoi21_like_input_inv();
+            assert_eq!(out_is_neg, false);
+            if a2_is_neg {
+                Self::new_from_vec(
+                    logic_block,
+                    vec![a1, a2, b],
+                    vec![out],
+                )
+            } else {
+                Self::new_from_vec(
+                    logic_block,
+                    vec![a2, a1, b],
+                    vec![out],
+                )
+            }
+        } else {
+            if out_is_neg {
+                Self::new_from_vec(
+                    logic_block.if_add_out_inv(true),
+                    vec![a1, a2, b],
+                    vec![out],
+                )
+            } else {
+                Self::new_from_vec(
+                    logic_block,
+                    vec![a1, a2, b],
+                    vec![out],
+                )
+            }
+        }
+        
     }
 }
 
@@ -234,6 +279,7 @@ impl LogicBlockMappingTable {
                         match flags.len() {
                             2 => {
                                 assert_eq!(&flags[0], &Flag::P);
+                                assert_eq!(&flags[1], &Flag::H);
                                 let source_p_is_neg = !target_wire.is_neg ^ is_out_inv ^ custom_input_invs.contains(&0);
                                 let source_h_is_neg = !target_wire.is_neg ^ is_out_inv ^ custom_input_invs.contains(&1);
                                 let source_p = manager.find(&AmbiguousWire::Precise(
@@ -264,7 +310,105 @@ impl LogicBlockMappingTable {
                                 }
                             },
                             3 => {
-                                todo!()
+                                assert_eq!(&flags[0], &Flag::G);
+                                let logic_block = LogicBlock::AOI21.if_rev(!target_wire.is_neg ^ is_out_inv);
+                                let source_first_g_is_neg = !target_wire.is_neg ^ is_out_inv ^ custom_input_invs.contains(&0);
+                                let source_first_g = manager.find(&AmbiguousWire::MayLenNotGivenOrSearchMax { 
+                                    flag: Flag::G, 
+                                    is_neg: source_first_g_is_neg, 
+                                    index: target_wire.index, 
+                                    may_len: custom_input_lens.get(&0).copied(), 
+                                })?;
+                                let source_first_g_len = source_first_g.len;
+
+                                match (&flags[1], &flags[2]) {
+                                    (Flag::P, Flag::G) | (Flag::Q, Flag::G) | (Flag::P, Flag::H) => {
+                                        let source_pq_is_neg = !target_wire.is_neg ^ is_out_inv ^ custom_input_invs.contains(&1);
+                                        let source_pq_index = if &flags[2] == &Flag::H {
+                                            target_wire.index + 1
+                                        } else {
+                                            target_wire.index
+                                        };
+                                        let source_pg_len_shoice = if &flags[2] == &Flag::G && &flags[1] == &Flag::P {
+                                            vec![source_first_g_len, source_first_g_len+1]
+                                        } else {
+                                            vec![source_first_g_len]
+                                        };
+                                        let source_pq = manager.find(&AmbiguousWire::LenGivenByOrder  {
+                                                flag: flags[1],
+                                                index: source_pq_index,
+                                                len_choice: source_pg_len_shoice,
+                                                is_neg: source_pq_is_neg,
+                                            
+                                        })?;
+                                        let source_end_g_is_neg = !target_wire.is_neg ^ is_out_inv ^ custom_input_invs.contains(&2);
+                                        let source_end_g_index = target_wire.index - source_first_g_len;
+                                        let source_end_g_len = target_wire.len - source_first_g_len;
+                                        let source_end_g = manager.find(&AmbiguousWire::Precise (
+                                            Wire {
+                                                flag: flags[2],
+                                                index: source_end_g_index,
+                                                len: source_end_g_len,
+                                                is_neg: source_end_g_is_neg,
+                                            }
+                                        ))?;
+                                        Ok(Self::new_aoi21_like(logic_block, target_wire.clone(), 
+                                            source_pq, source_end_g, source_first_g, 
+                                            custom_input_invs.contains(&1), custom_input_invs.contains(&2), custom_input_invs.contains(&0), 
+                                            *is_out_inv
+                                        ))
+                                    },
+                                    _ => panic!("3 input gen G, index 1 and 2 flag can't be {:?}, {:?}", &flags[1],&flags[2])
+                                }
+                            }
+                            4 => {
+                                assert_eq!(&flags[0], &Flag::P);
+                                assert_eq!(&flags[1], &Flag::H);
+                                assert_eq!(custom_input_invs.len(), 0);
+                                let input_is_neg = !target_wire.is_neg ^ is_out_inv;
+                                let source_this_p = manager.find(&AmbiguousWire::Precise(
+                                    Wire {
+                                        flag: Flag::P,
+                                        index: target_wire.index,
+                                        len: 1,
+                                        is_neg: input_is_neg,
+                                    }
+                                ))?;
+                                let source_first_h = manager.find(&AmbiguousWire::MayLenNotGivenOrSearchMax {
+                                    flag : Flag::H,
+                                    is_neg: input_is_neg,
+                                    index: target_wire.index,
+                                    may_len: custom_input_lens.get(&1).copied(),
+                                })?;
+                                let source_first_h_len = source_first_h.len;
+                                let source_pq_index = target_wire.index + 1;
+                                let source_pg_len_shoice = if &flags[2] == &Flag::G && &flags[1] == &Flag::P {
+                                    vec![source_first_h_len-1, source_first_h_len]
+                                } else {
+                                    vec![source_first_h_len]
+                                };
+                                let source_pq = manager.find(&AmbiguousWire::LenGivenByOrder  {
+                                    flag: flags[2],
+                                    index: source_pq_index,
+                                    len_choice: source_pg_len_shoice,
+                                    is_neg: input_is_neg,
+                                })?;
+                                let source_end_g_index = target_wire.index - source_first_h_len;
+                                let source_end_g_len = target_wire.len - source_first_h_len;
+                                let source_end_g = manager.find(&AmbiguousWire::Precise (
+                                    Wire {
+                                        flag: flags[2],
+                                        index: source_end_g_index,
+                                        len: source_end_g_len,
+                                        is_neg: input_is_neg,
+                                    }
+                                ))?;
+
+                                Ok(Self::new_from_vec(
+                                    LogicBlock::AOAI211.if_rev(input_is_neg).if_add_out_inv(*is_out_inv), 
+                                    vec![source_end_g, source_pq, source_first_h, source_this_p], 
+                                    vec![target_wire.clone()], 
+                                ))
                             }
                             _ => {unimplemented!()}
                         }

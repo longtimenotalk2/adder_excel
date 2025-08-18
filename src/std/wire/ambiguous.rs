@@ -4,6 +4,7 @@ use crate::std::wire::{Flag, Wire};
 pub enum AmbiguousWire {
     Precise(Wire),
     MayLenNotGivenOrSearchMax { flag : Flag, is_neg : bool, index : usize, may_len : Option<usize> },
+    LenGivenByOrder { flag : Flag, is_neg : bool, index : usize, len_choice : Vec<usize> },
 }
 
 impl Wire {
