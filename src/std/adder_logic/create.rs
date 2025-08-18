@@ -380,7 +380,7 @@ impl LogicBlockMappingTable {
                                     })?;
                                     let source_first_h_len = source_first_h.len;
                                     let source_pq_index = target_wire.index + 1;
-                                    let source_pg_len_shoice = if &flags[3] == &Flag::G && &flags[2] == &Flag::P {
+                                    let source_pq_len_shoice = if &flags[3] == &Flag::G && &flags[2] == &Flag::P {
                                         vec![source_first_h_len-1, source_first_h_len]
                                     } else if &flags[3] == &Flag::H {
                                         vec![source_first_h_len]
@@ -390,14 +390,14 @@ impl LogicBlockMappingTable {
                                     let source_pq = manager.find(&AmbiguousWire::LenGivenByOrder  {
                                         flag: flags[2],
                                         index: source_pq_index,
-                                        len_choice: source_pg_len_shoice,
+                                        len_choice: source_pq_len_shoice,
                                         is_neg: input_is_neg,
                                     })?;
                                     let source_end_g_index = target_wire.index - source_first_h_len;
                                     let source_end_g_len = target_wire.len - source_first_h_len;
                                     let source_end_g = manager.find(&AmbiguousWire::Precise (
                                         Wire {
-                                            flag: flags[2],
+                                            flag: flags[3],
                                             index: source_end_g_index,
                                             len: source_end_g_len,
                                             is_neg: input_is_neg,
@@ -412,7 +412,40 @@ impl LogicBlockMappingTable {
                                 } else if &flags[0] == &Flag::A {
                                     // 从AB直接出
                                     assert_eq!(&flags[1], &Flag::B);
-                                    todo!()
+                                    let source_pq_index = target_wire.index;
+                                    let source_pq_len_shoice = if &flags[3] == &Flag::G && &flags[2] == &Flag::P {
+                                        vec![1, 2]
+                                    } else if &flags[3] == &Flag::H {
+                                        vec![2]
+                                    } else {
+                                        vec![1]
+                                    };
+                                    let source_pq = manager.find(&AmbiguousWire::LenGivenByOrder  {
+                                        flag: flags[2],
+                                        index: source_pq_index,
+                                        len_choice: source_pq_len_shoice,
+                                        is_neg: false,
+                                    })?;
+                                    let source_end_g_index = target_wire.index - 1;
+                                    let source_end_g_len = target_wire.len - 1;
+                                    let source_end_g = manager.find(&AmbiguousWire::Precise (
+                                        Wire {
+                                            flag: flags[3],
+                                            index: source_end_g_index,
+                                            len: source_end_g_len,
+                                            is_neg: false,
+                                        }
+                                    ))?;
+                                    Ok(Self::new_from_vec(
+                                        LogicBlock::AOI22, 
+                                        vec![
+                                            Wire::from_str(&format!("a{}",target_wire.index)), 
+                                            Wire::from_str(&format!("b{}",target_wire.index)), 
+                                            source_pq,
+                                            source_end_g,
+                                        ], 
+                                        vec![target_wire.clone()], 
+                                    ))
 
                                 } else {
                                     unimplemented!()
