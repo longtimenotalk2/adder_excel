@@ -25,6 +25,7 @@ pub struct LogicBlockMappingTable {
     outputs : BTreeMap<Port, Wire>,
 }
 
+#[derive(Debug, Clone)]
 pub struct LogicBlockCreateError {
     hint : LogiBlockHint,
     found_wires : Vec<Wire>,

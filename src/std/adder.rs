@@ -1,4 +1,6 @@
 
+pub mod create;
+
 use crate::std::{logic_block::LogicBlock, node_create::{LogiBlockHint, LogicBlockMappingTable}};
 
 #[derive(Debug, Clone, Copy)]
@@ -11,7 +13,9 @@ pub enum Drive {
 pub struct Cell {
     logic_block_map : LogicBlockMappingTable,
     drive : Drive,
-    custom_demand : CustomDemand,
+    custom_demand : Vec<CustomDemand>,
+    layer : i32,
+    index : usize,
 }
 
 #[derive(Debug, Clone)]
@@ -29,4 +33,5 @@ pub struct Adder {
     bits : usize,
     input_is_neg : bool,
     output_is_neg : bool,
+    cells : Vec<Cell>,
 }
