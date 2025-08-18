@@ -1,6 +1,6 @@
 use std::collections::{BTreeMap, BTreeSet};
 
-use crate::std::{adder_logic::{LogiBlockHint, LogicBlockCreateError, LogicBlockMappingTable}, logic_block::{self, LogicBlock, Port}, wire::{ambiguous::AmbiguousWire, Flag, Wire}};
+use crate::std::{node_create::{LogiBlockHint, LogicBlockCreateError, LogicBlockMappingTable}, logic_block::{self, LogicBlock, Port}, wire::{ambiguous::AmbiguousWire, Flag, Wire}};
 
 struct WireSet(Vec<Wire>);
 

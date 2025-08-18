@@ -82,6 +82,32 @@ impl Wire {
         }
     }
 
+    pub fn from_str_index(s : &str, index : usize) -> Self {
+        let (is_neg, mut remained) = if s.starts_with("n") {
+            (true, s[1..].to_string())
+        } else {
+            (false, s.to_string())
+        };
+        
+        let flag = Flag::from_str(&remained[0..1]);
+        remained = remained[1..].to_string();
+
+        let len =if remained.len() == 0 {
+            1
+        } else {
+            remained.parse::<usize>().expect(&format!("wire {s} can not parse from_str_index"))
+        };
+
+         
+
+        Wire {
+            flag,
+            is_neg,
+            index,
+            len,
+        }
+    }
+
     pub fn if_rev(self, is_rev: bool) -> Self {
         if is_rev {
             self.rev()

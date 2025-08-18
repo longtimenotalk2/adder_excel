@@ -18,6 +18,7 @@ pub enum LogiBlockHint {
     XORDOUT(bool), // is z out
 }
 
+#[derive(Debug, Clone)]
 pub struct LogicBlockMappingTable {
     logic_block : LogicBlock,
     inputs : BTreeMap<Port, Wire>,
