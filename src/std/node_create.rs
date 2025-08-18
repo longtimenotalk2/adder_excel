@@ -1,4 +1,5 @@
 mod create_middle_node;
+pub mod basic;
 
 use std::collections::{BTreeMap, BTreeSet};
 
@@ -25,7 +26,7 @@ pub struct LogicBlockMappingTable {
     outputs : BTreeMap<Port, Wire>,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Clone)]
 pub struct LogicBlockCreateError {
     hint : LogiBlockHint,
     found_wires : Vec<Wire>,

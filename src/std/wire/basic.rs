@@ -1,3 +1,5 @@
+use std::fmt::Debug;
+
 use crate::std::wire::{Flag, Wire};
 
 impl Flag {
@@ -12,6 +14,24 @@ impl Flag {
             "b" => Flag::B,
             _ => panic!("can not parse Flag with {s}"),
         }
+    }
+
+    pub fn to_str(&self) -> &'static str {
+        match self {
+            Flag::G => "g",
+            Flag::P => "p",
+            Flag::Q => "q",
+            Flag::H => "h",
+            Flag::S => "s",
+            Flag::A => "a",
+            Flag::B => "b",
+        }
+    }
+}
+
+impl Debug for Wire {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.to_string())
     }
 }
 
@@ -28,6 +48,21 @@ impl Wire {
     pub fn rev(&self) -> Self {
         let mut ret = self.clone();
         ret.is_neg = !ret.is_neg;
+        ret
+    }
+
+    pub fn to_string(&self) -> String {
+        let mut ret = String::new();
+        if self.is_neg {
+            ret.push('n');
+        }
+        ret.push_str(self.flag.to_str());
+        if self.len > 1 {
+            ret.push_str(&format!("{index}_{len}", index = self.index, len = self.index + 1 - self.len));
+        } else {
+            ret.push_str(&format!("{}", self.index));
+        }
+
         ret
     }
 

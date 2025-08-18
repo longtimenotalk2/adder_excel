@@ -12,7 +12,7 @@ pub enum Flag {
     S,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[derive(Clone, PartialEq, Eq, Hash)]
 pub struct Wire {
     pub flag : Flag,
     pub is_neg : bool,

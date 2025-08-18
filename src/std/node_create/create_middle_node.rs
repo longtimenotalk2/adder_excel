@@ -508,7 +508,7 @@ impl LogicBlockMappingTable {
                         match (&flags[1], &flags[2]) {
                             (Flag::P, Flag::G) | (Flag::Q, Flag::G) | (Flag::P, Flag::H) => {
                                 let source_pq_is_neg = !target_wire.is_neg ^ is_out_inv ^ custom_input_invs.contains(&1);
-                                let source_pq_index = target_wire.index + 1;
+                                let source_pq_index = target_wire.index - 1;
                                 let source_pg_len_shoice = if &flags[2] == &Flag::G && &flags[1] == &Flag::P {
                                     vec![source_first_h_len - 1, source_first_h_len]
                                 } else if &flags[2] == &Flag::H {

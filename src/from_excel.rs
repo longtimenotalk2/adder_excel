@@ -1,6 +1,6 @@
 pub mod load;
 pub mod to_cell_hinter;
-pub mod create;
+pub mod create_from_excel;
 
 #[derive(Debug, Clone)]
 enum LayerType {

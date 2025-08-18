@@ -1,11 +1,11 @@
 LY	LT	type	30	29	28	27	26	25	24	23	22	21	20	19	18	17	16	15	14	13	12	11	10	9	8	7	6	5	4	3	2	1	0
 1	cri	wire							q~	nq~	nq~	np2	nh2	np	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	
-1	cri	code										A	A		A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	AD	
+1	cri	code										A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	AD	
 1	cri	wire										nq~			nq~																		
 1	cri	code																															
-2	cri	wire								g2	<p2	g3	<p3		g3	<p4		h4	p4			h4	p4			h4	p4			h4			
-2	cri	code																												D			
-3	cri	wire							ng3	<p3		ng6	<np7					nh8	np8							nh8							
+2	cri	wire								g2	<q2	g3	<p3		g3	<p4		h4	p4			h4	p4			h4	p4			h4			
+2	cri	code										L{gph}			L{gph}															D			
+3	cri	wire							ng3	<q3		ng6	<np7					nh8	np8							nh8							
 3	cri	code							L{abpg}																	D							
 4	cri	wire							g9	<p10								h16															
 4	cri	code																D															

@@ -5,7 +5,7 @@ impl Adder {
         bits : usize,
         input_is_neg : bool,
         output_is_neg : bool,
-        hints : Vec<(Vec<Wire>, CellHinter, i32)>, // index
+        hints : Vec<(Vec<Wire>, CellHinter, i32)>, // layer
     ) -> Self {
         let mut cells = vec![];
         let mut history_wires = vec![];
@@ -38,7 +38,8 @@ impl Adder {
                     index : wires.get(0).unwrap().index,
                 });
             } else {
-                panic!("{}", error_infos);
+                dbg!(&history_wires);
+                panic!("when create wire {wires:?} at layer {layer} :\n {}", error_infos);
             }
             history_wires.append(&mut wires);
         }
