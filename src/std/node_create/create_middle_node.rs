@@ -277,12 +277,14 @@ impl LogicBlockMappingTable {
                     Flag::Q => {
                         assert_eq!(target_wire.len, 1);
                         let index = target_wire.index;
-                        let is_out_inv = !target_wire.is_neg;
-                        let logic_block = LogicBlock::XNR2.if_add_out_inv(is_out_inv);
+                        let logic_block = match target_wire.is_neg {
+                            true => LogicBlock::XNR2,
+                            false => LogicBlock::XOR2,
+                        };
                         Ok(Self::new_from_vec(
                             logic_block, 
                             vec![Wire::from_str(&format!("a{index}")), Wire::from_str(&format!("b{index}"))],
-                            vec![Wire::from_str(&format!("nq{index}")).if_rev(is_out_inv)]
+                            vec![Wire::from_str(&format!("nq{index}"))]
                         ))
                     },
                     _ => panic!("Flag {:?} can not create by ab", target_wire.flag)

@@ -1,5 +1,7 @@
 use std::fmt::Debug;
 
+use colorful::{Color, Colorful};
+
 use crate::std::node_create::LogicBlockCreateError;
 
 impl LogicBlockCreateError {
@@ -8,10 +10,10 @@ impl LogicBlockCreateError {
         ret += &format!("hint : {:?}\n", self.hint);
         ret += "founded : \n";
         for wire in &self.found_wires {
-            ret += &format!("> {:?}\n", wire);
+            ret += &format!("> {}\n", format!("{:?}", wire).color(Color::Green));
         }
         ret += "expected but not match: \n";
-        ret += &format!("{:?}", self.misfound_wire);
+        ret += &format!("? {}", format!("{:?}", self.misfound_wire).color(Color::Red));
         ret
     }
 }

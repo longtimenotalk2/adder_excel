@@ -5,3 +5,12 @@ version = 3
 [[package]]
 name = "adder_excel"
 version = "0.1.0"
+dependencies = [
+ "colorful",
+]
+
+[[package]]
+name = "colorful"
+version = "0.3.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ffb474a9c3219a8254ead020421ecf1b90427f29b55f6aae9a2471fa62c126ef"

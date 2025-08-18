@@ -1,3 +1,5 @@
+use colorful::{Color, Colorful};
+
 use crate::std::{adder::{Adder, Cell, CellHinter}, node_create::LogicBlockMappingTable, wire::Wire};
 
 impl Adder {
@@ -39,7 +41,7 @@ impl Adder {
                 });
             } else {
                 dbg!(&history_wires);
-                panic!("when create wire {wires:?} at layer {layer} :\n {}", error_infos);
+                panic!("\n\nwhen create wire {} at layer {layer} :\n\n {}", format!("{wires:?}").color(Color::Yellow), error_infos);
             }
             history_wires.append(&mut wires);
         }

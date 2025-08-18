@@ -41,7 +41,7 @@ impl CellHinter {
                                         flags,
                                         custom_input_invs : BTreeSet::new(),
                                         custom_input_lens : BTreeMap::new(),
-                                        is_out_inv : false,
+                                        is_out_inv,
                                     }
                                 }).collect()
                             }
@@ -53,7 +53,7 @@ impl CellHinter {
                                         flags,
                                         custom_input_invs : BTreeSet::new(),
                                         custom_input_lens : BTreeMap::new(),
-                                        is_out_inv : false,
+                                        is_out_inv,
                                     }
                                 }).collect()
                             }
@@ -66,7 +66,7 @@ impl CellHinter {
                                         flags,
                                         custom_input_invs : BTreeSet::new(),
                                         custom_input_lens : BTreeMap::new(),
-                                        is_out_inv : false,
+                                        is_out_inv,
                                     }
                                 }).collect()
                             }
@@ -79,7 +79,7 @@ impl CellHinter {
                                         flags,
                                         custom_input_invs : BTreeSet::new(),
                                         custom_input_lens : BTreeMap::new(),
-                                        is_out_inv : false,
+                                        is_out_inv,
                                     }
                                 }).collect()
                             }
