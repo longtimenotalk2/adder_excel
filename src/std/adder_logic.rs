@@ -12,7 +12,7 @@ pub enum LogiBlockHint {
         is_out_inv : bool,
         input_invs : BTreeSet<usize>,
     },
-    OnlyFromAB,
+    OnlyFromAB {is_out_inv : bool},
     XNRDOUT(bool), // is zn out
     XORDOUT(bool), // is z out
 }

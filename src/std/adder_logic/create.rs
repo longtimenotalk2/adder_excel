@@ -45,10 +45,11 @@ impl LogicBlockMappingTable {
                     )})
                 }
             }
-            LogiBlockHint::OnlyFromAB => {
+            LogiBlockHint::OnlyFromAB {is_out_inv} => {
                 match target_wire.flag {
                     Flag::G => {
                         assert_eq!(target_wire.len, 1);
+                        // assert adder input all positive
                         todo!()
                     },
                     _ => todo!()
