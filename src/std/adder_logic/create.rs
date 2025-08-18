@@ -1,6 +1,6 @@
 use std::collections::{BTreeMap, BTreeSet};
 
-use crate::std::{adder_logic::{LogiBlockHint, LogicBlockCreateError, LogicBlockMappingTable}, logic_block::{LogicBlock, Port}, wire::{AmbiguousWire, Flag, Wire}};
+use crate::std::{adder_logic::{LogiBlockHint, LogicBlockCreateError, LogicBlockMappingTable}, logic_block::{LogicBlock, Port}, wire::{ambiguous::AmbiguousWire, Flag, Wire}};
 
 struct WireSet(Vec<Wire>);
 
@@ -12,6 +12,20 @@ impl WireSet {
                     Some(wire.clone())
                 } else {
                     None
+                }
+            }
+            AmbiguousWire::MayLenNotGivenOrSearchMax { flag, is_neg, index, may_len } => {
+                if let Some(len) = may_len {
+                    self.find(&AmbiguousWire::Precise(Wire::new(flag.clone(), *is_neg, *index, *len)))
+                } else {
+                    let mut match_list = vec![];
+                    for wire in &self.0 {
+                        if &wire.flag == flag && wire.is_neg == *is_neg && wire.index == *index {
+                            match_list.push(wire.clone());
+                        }
+                    }
+                    match_list.sort_by(|a, b| b.len.cmp(&a.len));
+                    match_list.get(0).cloned()
                 }
             }
         }
@@ -51,6 +65,41 @@ impl LogicBlockMappingTable {
             inputs_dict,
             outputs_dict,
         )
+    }
+
+    pub fn new_ind_inr_origin_is_or(out : Wire, a1 : Wire, a2 : Wire, a1_is_neg : bool, a2_is_neg : bool, out_is_neg : bool) -> Self {
+        assert_ne!(a1_is_neg, a2_is_neg);
+        match (a1_is_neg, a2_is_neg, out_is_neg) {
+            (true, false, false) => {
+                Self::new_from_vec(
+                    LogicBlock::INR2,
+                    vec![a1, a2],
+                    vec![out],
+                )
+            },
+            (false, true, false) => {
+                Self::new_from_vec(
+                    LogicBlock::INR2,
+                    vec![a2, a1],
+                    vec![out],
+                )
+            },
+            (true, false, true) => {
+                Self::new_from_vec(
+                    LogicBlock::IND2,
+                    vec![a2, a1],
+                    vec![out],
+                )
+            },
+            (false, true, true) => {
+                Self::new_from_vec(
+                    LogicBlock::IND2,
+                    vec![a1, a2],
+                    vec![out],
+                )
+            },
+            _ => unimplemented!()
+        }
     }
 }
 
@@ -180,7 +229,7 @@ impl LogicBlockMappingTable {
                     Flag::G => {
                         // 合成G的方式：
                         // 2输入，这种一定是P和H的组合，P长度为1，H的长度为目标长度
-                        // 3输入
+                        // 3输入，第一个默认找最长的，第二个数和第一个等长，第三个数计算具体长度
                         // 4输入
                         match flags.len() {
                             2 => {
@@ -193,9 +242,30 @@ impl LogicBlockMappingTable {
                                 let source_h = manager.find(&AmbiguousWire::Precise(
                                     Wire::from_str_index_len("h", target_wire.index, target_wire.len).if_rev(source_h_is_neg)
                                 ))?;
+
+                                let logic_block_base = LogicBlock::NR2;
                                 
-                                todo!();
+                                if source_p_is_neg == source_h_is_neg {
+                                    let logic_block = logic_block_base.if_rev(source_p_is_neg).if_add_out_inv(*is_out_inv);
+                                    Ok(Self::new_from_vec(
+                                        logic_block, 
+                                        vec![source_p, source_h],
+                                        vec![target_wire.clone()]
+                                    ))
+                                } else {
+                                    Ok(Self::new_ind_inr_origin_is_or(
+                                        target_wire.clone(), 
+                                        source_p, 
+                                        source_h, 
+                                        source_p_is_neg, 
+                                        source_h_is_neg, 
+                                        target_wire.is_neg
+                                    ))
+                                }
                             },
+                            3 => {
+                                todo!()
+                            }
                             _ => {unimplemented!()}
                         }
                     },

@@ -16,6 +16,15 @@ impl Flag {
 }
 
 impl Wire {
+    pub fn new(flag: Flag, is_neg: bool, index: usize, len: usize) -> Self {
+        Wire {
+            flag,
+            is_neg,
+            index,
+            len,
+        }
+    }
+
     pub fn rev(&self) -> Self {
         let mut ret = self.clone();
         ret.is_neg = !ret.is_neg;

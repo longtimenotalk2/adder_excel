@@ -1,4 +1,10 @@
-use crate::std::wire::{AmbiguousWire, Wire};
+use crate::std::wire::{Flag, Wire};
+
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+pub enum AmbiguousWire {
+    Precise(Wire),
+    MayLenNotGivenOrSearchMax { flag : Flag, is_neg : bool, index : usize, may_len : Option<usize> },
+}
 
 impl Wire {
     pub fn to_ambiguous(self) -> AmbiguousWire {

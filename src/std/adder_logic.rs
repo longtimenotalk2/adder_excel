@@ -2,7 +2,7 @@ mod create;
 
 use std::collections::{BTreeMap, BTreeSet};
 
-use crate::std::{logic_block::{LogicBlock, Port}, wire::{AmbiguousWire, Flag, Wire}};
+use crate::std::{logic_block::{LogicBlock, Port}, wire::{ambiguous::AmbiguousWire, Flag, Wire}};
 
 #[derive(Debug, Clone)]
 pub enum LogiBlockHint {

@@ -1,5 +1,5 @@
 mod basic;
-mod ambiguous;
+pub mod ambiguous;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum Flag {
@@ -20,7 +20,3 @@ pub struct Wire {
     pub len : usize,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub enum AmbiguousWire {
-    Precise(Wire),
-}
