@@ -70,7 +70,7 @@ impl Adder {
                     // 寻找最新的q或者nq
                     let mut wire_q = None;
                     for wire in history_wires.iter().rev() {
-                        if wire.flag == Flag::Q && wire.index == index {
+                        if wire.flag == Flag::Q && wire.index == index && wire.len == 1 {
                             wire_q = Some(wire.clone());
                             break;
                         }

@@ -169,8 +169,8 @@ fn u31_to_vec(v : u32) -> Vec<bool> {
 fn test_function() {
     let excel_data = ExcelData::load("src/from_excel/data/uf31.txt");
     let adder = excel_data.create(31, false, true);
-    dbg!(&adder);
-    adder.function_check_random(10, 0);
+    // dbg!(&adder);
+    adder.function_check_random(100000, 0);
     
     // adder.function_check_given_patterns(vec![
     //     (u31_to_vec(0), u31_to_vec(0)),

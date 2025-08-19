@@ -381,7 +381,7 @@ impl LogicBlockMappingTable {
                                         may_len: custom_input_lens.get(&1).copied(),
                                     })?;
                                     let source_first_h_len = source_first_h.len;
-                                    let source_pq_index = target_wire.index + 1;
+                                    let source_pq_index = target_wire.index - 1;
                                     let source_pq_len_shoice = if &flags[3] == &Flag::G && &flags[2] == &Flag::P {
                                         vec![source_first_h_len-1, source_first_h_len]
                                     } else if &flags[3] == &Flag::H {
