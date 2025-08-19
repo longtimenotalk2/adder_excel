@@ -35,6 +35,6 @@ impl ExcelData {
 #[test]
 fn test_create() {
     let excel_data = ExcelData::load("src/from_excel/data/uf31.txt");
-    let adder = excel_data.create(31, true, false);
+    let adder = excel_data.create(31, false, true);
     dbg!(adder);
 }

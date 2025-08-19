@@ -23,7 +23,7 @@ pub enum LogiBlockHint {
 pub struct LogicBlockMappingTable {
     logic_block : LogicBlock,
     inputs : BTreeMap<Port, Wire>,
-    outputs : BTreeMap<Port, Wire>,
+    pub outputs : BTreeMap<Port, Wire>,
 }
 
 #[derive(Clone)]

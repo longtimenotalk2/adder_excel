@@ -284,7 +284,7 @@ impl LogicBlockMappingTable {
                         Ok(Self::new_from_vec(
                             logic_block, 
                             vec![Wire::from_str(&format!("a{index}")), Wire::from_str(&format!("b{index}"))],
-                            vec![Wire::from_str(&format!("nq{index}"))]
+                            vec![target_wire.clone()]
                         ))
                     },
                     _ => panic!("Flag {:?} can not create by ab", target_wire.flag)
@@ -303,7 +303,7 @@ impl LogicBlockMappingTable {
                 Ok(Self::new_from_vec(
                     LogicBlock::XNR2DOUT, 
                     vec![Wire::from_str(&format!("a{index}")), Wire::from_str(&format!("b{index}"))],
-                    vec![Wire::from_str(&format!("np{index}")), if *is_out_s {Wire::from_str(&format!("n{index}"))} else {Wire::from_str(&format!("q{index}"))}]
+                    vec![Wire::from_str(&format!("np{index}")), if *is_out_s {Wire::from_str(&format!("s{index}"))} else {Wire::from_str(&format!("q{index}"))}]
                 ))
             }
             LogiBlockHint::Normal { flags, is_out_inv, custom_input_invs, custom_input_lens } => {

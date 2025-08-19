@@ -1,7 +1,7 @@
 
 pub mod create;
 
-use crate::std::{logic_block::LogicBlock, node_create::{LogiBlockHint, LogicBlockMappingTable}};
+use crate::std::{logic_block::LogicBlock, node_create::{LogiBlockHint, LogicBlockMappingTable}, wire::Wire};
 
 #[derive(Debug, Clone, Copy)]
 pub enum Drive {
@@ -34,4 +34,5 @@ pub struct Adder {
     input_is_neg : bool,
     output_is_neg : bool,
     cells : Vec<Cell>,
+    wires : Vec<Wire>,
 }

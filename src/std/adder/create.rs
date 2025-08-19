@@ -1,6 +1,6 @@
 use colorful::{Color, Colorful};
 
-use crate::std::{adder::{Adder, Cell, CellHinter}, node_create::LogicBlockMappingTable, wire::Wire};
+use crate::std::{adder::{Adder, Cell, CellHinter, Drive}, logic_block::LogicBlock, node_create::LogicBlockMappingTable, wire::{Flag, Wire}};
 
 impl Adder {
     pub fn create_by_cell_hint(
@@ -11,7 +11,11 @@ impl Adder {
     ) -> Self {
         let mut cells = vec![];
         let mut history_wires = vec![];
-        for (mut wires, hint, layer) in hints {
+        for i in 0..bits {
+            history_wires.push(Wire::from_str(&format!("a{i}")));
+            history_wires.push(Wire::from_str(&format!("b{i}")));
+        }
+        for (wires, hint, layer) in hints {
             let drive = hint.drive;
 
             let mut error_infos = String::new();
@@ -31,7 +35,7 @@ impl Adder {
                     }
                 }
             }
-            if let Some(logic_block_map) = result {
+            if let Some(logic_block_map) = result.clone() {
                 cells.push(Cell {
                     logic_block_map,
                     drive,
@@ -43,14 +47,84 @@ impl Adder {
                 dbg!(&history_wires);
                 panic!("\n\nwhen create wire {} at layer {layer} :\n\n {}", format!("{wires:?}").color(Color::Yellow), error_infos);
             }
-            history_wires.append(&mut wires);
+            let mut actual_wires = vec![];
+            for a in result.unwrap().outputs.values() {
+                actual_wires.push(a.clone());
+            }
+
+            history_wires.append(&mut actual_wires);
         }
+
+        assert_eq!(input_is_neg, false);
+        if output_is_neg {
+            // 检查当前的S是否都是负的
+            let mut has_s = vec![];
+            for wire in &history_wires {
+                if wire.flag == Flag::S {
+                    assert_eq!(wire.is_neg, true);
+                    has_s.push(wire.index);
+                }
+            }
+            dbg!(&has_s);
+            for index in 0..bits {
+                if !has_s.contains(&index) {
+                    // 寻找最新的q或者nq
+                    let mut wire_q = None;
+                    for wire in history_wires.iter().rev() {
+                        if wire.flag == Flag::Q && wire.index == index {
+                            wire_q = Some(wire.clone());
+                            break;
+                        }
+                    }
+                    let wire_q = wire_q.expect(&format!("can not find q for index {} in adder", index));
+                    // 寻找最新的g
+                    let mut wire_g = None;
+                    for wire in history_wires.iter().rev() {
+                        if wire.flag == Flag::G && wire.index == index - 1 && wire.len == index {
+                            wire_g = Some(wire.clone());
+                            break;
+                        }
+                    }
+                    let wire_g = wire_g.expect(&format!("can not find g{}_0 for in adder", index -1));
+
+                    let use_xnr = wire_q.is_neg ^ wire_g.is_neg ^ output_is_neg;
+                    let logic_block = if use_xnr {
+                        LogicBlock::XNR2
+                    } else {
+                        LogicBlock::XOR2
+                    };
+                    let wire_s = Wire {
+                        flag : Flag::S,
+                        index,
+                        len   : 1,
+                        is_neg: output_is_neg,
+                    };
+                    cells.push(Cell {
+                        logic_block_map : LogicBlockMappingTable::new_from_vec(
+                            logic_block, 
+                            vec![wire_q, wire_g], 
+                            vec![wire_s.clone()],
+                        ),
+                        drive : Drive::D1,
+                        custom_demand : vec![],
+                        layer : 10,
+                        index,
+                    });
+                    history_wires.push(wire_s);
+                }
+            }
+        } else {
+            todo!()
+        }
+
+
         
         Self {
             bits,
             input_is_neg,
             output_is_neg,
             cells,
+            wires : history_wires,
         }
     }
 }

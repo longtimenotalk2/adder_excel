@@ -1,5 +1,6 @@
 pub mod port;
 pub mod basic;
+pub mod function;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum LogicBlock {
