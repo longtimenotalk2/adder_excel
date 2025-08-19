@@ -1,5 +1,6 @@
 
 pub mod create;
+pub mod function_check;
 
 use crate::std::{logic_block::LogicBlock, node_create::{LogiBlockHint, LogicBlockMappingTable}, wire::Wire};
 
@@ -34,5 +35,5 @@ pub struct Adder {
     input_is_neg : bool,
     output_is_neg : bool,
     cells : Vec<Cell>,
-    wires : Vec<Wire>,
+    // wires : Vec<Wire>,
 }

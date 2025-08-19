@@ -1,7 +1,7 @@
 mod basic;
 pub mod ambiguous;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub enum Flag {
     G,
     P, // 最低bit是或逻辑
@@ -12,7 +12,7 @@ pub enum Flag {
     S,
 }
 
-#[derive(Clone, PartialEq, Eq, Hash)]
+#[derive(Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub struct Wire {
     pub flag : Flag,
     pub is_neg : bool,

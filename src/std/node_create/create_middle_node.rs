@@ -301,7 +301,7 @@ impl LogicBlockMappingTable {
             LogiBlockHint::XORDOUT(is_out_s) => {
                 let index = target_wire.index;
                 Ok(Self::new_from_vec(
-                    LogicBlock::XNR2DOUT, 
+                    LogicBlock::XOR2DOUT, 
                     vec![Wire::from_str(&format!("a{index}")), Wire::from_str(&format!("b{index}"))],
                     vec![Wire::from_str(&format!("np{index}")), if *is_out_s {Wire::from_str(&format!("s{index}"))} else {Wire::from_str(&format!("q{index}"))}]
                 ))

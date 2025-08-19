@@ -1,5 +1,6 @@
 mod create_middle_node;
 pub mod basic;
+pub mod function;
 
 use std::collections::{BTreeMap, BTreeSet};
 
@@ -21,8 +22,8 @@ pub enum LogiBlockHint {
 
 #[derive(Debug, Clone)]
 pub struct LogicBlockMappingTable {
-    logic_block : LogicBlock,
-    inputs : BTreeMap<Port, Wire>,
+    pub logic_block : LogicBlock,
+    pub inputs : BTreeMap<Port, Wire>,
     pub outputs : BTreeMap<Port, Wire>,
 }
 

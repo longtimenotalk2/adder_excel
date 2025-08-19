@@ -65,7 +65,6 @@ impl Adder {
                     has_s.push(wire.index);
                 }
             }
-            dbg!(&has_s);
             for index in 0..bits {
                 if !has_s.contains(&index) {
                     // 寻找最新的q或者nq
@@ -124,7 +123,7 @@ impl Adder {
             input_is_neg,
             output_is_neg,
             cells,
-            wires : history_wires,
+            // wires : history_wires,
         }
     }
 }
