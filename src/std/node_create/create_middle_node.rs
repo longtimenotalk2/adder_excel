@@ -75,66 +75,31 @@ impl LogicBlockMappingTable {
         )
     }
 
-    pub fn new_ind_inr_origin_is_or(out : Wire, a1 : Wire, a2 : Wire, a1_is_neg : bool, a2_is_neg : bool, out_is_neg : bool) -> Self {
-        assert_ne!(a1_is_neg, a2_is_neg);
-        match (a1_is_neg, a2_is_neg, out_is_neg) {
-            (true, false, false) => {
-                Self::new_from_vec(
-                    LogicBlock::INR2,
-                    vec![a1, a2],
-                    vec![out],
-                )
-            },
-            (false, true, false) => {
-                Self::new_from_vec(
-                    LogicBlock::INR2,
-                    vec![a2, a1],
-                    vec![out],
-                )
-            },
-            (true, false, true) => {
-                Self::new_from_vec(
-                    LogicBlock::IND2,
-                    vec![a2, a1],
-                    vec![out],
-                )
-            },
-            (false, true, true) => {
-                Self::new_from_vec(
-                    LogicBlock::IND2,
-                    vec![a1, a2],
-                    vec![out],
-                )
-            },
-            _ => unimplemented!()
-        }
-    }
-
     pub fn new_ind_inr_origin_is_and(out : Wire, a1 : Wire, a2 : Wire, a1_is_neg : bool, a2_is_neg : bool, out_is_neg : bool) -> Self {
         assert_ne!(a1_is_neg, a2_is_neg);
         match (a1_is_neg, a2_is_neg, out_is_neg) {
-            (true, false, false) => {
+            (true, false, true) => {
                 Self::new_from_vec(
                     LogicBlock::IND2,
                     vec![a1, a2],
                     vec![out],
                 )
             },
-            (false, true, false) => {
+            (false, true, true) => {
                 Self::new_from_vec(
                     LogicBlock::IND2,
                     vec![a2, a1],
                     vec![out],
                 )
             },
-            (true, false, true) => {
+            (true, false, false) => {
                 Self::new_from_vec(
                     LogicBlock::INR2,
                     vec![a2, a1],
                     vec![out],
                 )
             },
-            (false, true, true) => {
+            (false, true, false) => {
                 Self::new_from_vec(
                     LogicBlock::INR2,
                     vec![a1, a2],
@@ -336,7 +301,7 @@ impl LogicBlockMappingTable {
                                         vec![target_wire.clone()]
                                     ))
                                 } else {
-                                    Ok(Self::new_ind_inr_origin_is_or(
+                                    Ok(Self::new_ind_inr_origin_is_and(
                                         target_wire.clone(), 
                                         source_p, 
                                         source_h, 
