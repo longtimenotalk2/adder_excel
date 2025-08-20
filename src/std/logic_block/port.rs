@@ -22,6 +22,7 @@ impl LogicBlock {
             Self::AOI22 | Self::OAI22 => vec!["A1", "A2", "B1", "B2"],
             Self::AOAI211 | Self::OAOI211 | Self::AOA211 | Self::OAO211
                 => vec!["A1", "A2", "B", "C"],
+            Self::Custom(custom) => custom.ports_input_raw(),
         };
         ports.iter().map(|p| Port(p.to_string())).collect()
     }
@@ -33,6 +34,7 @@ impl LogicBlock {
             Self::AN2 | Self::OR2 | Self::XOR2 |
                 Self::AO21 | Self::OA21 | Self::AOA211 | Self::OAO211
                 => vec!["Z"],
+            Self::Custom(custom) => custom.ports_output_raw(),
             _ => vec!["ZN"],
         };
         ports.iter().map(|p| Port(p.to_string())).collect()

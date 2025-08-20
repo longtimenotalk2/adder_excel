@@ -1,6 +1,9 @@
+use crate::std::logic_block::custom::CustomLogicBlock;
+
 pub mod port;
 pub mod basic;
 pub mod function;
+pub mod custom;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum LogicBlock {
@@ -27,6 +30,7 @@ pub enum LogicBlock {
     OAOI211,
     AOA211,
     OAO211,
+    Custom(CustomLogicBlock)
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
