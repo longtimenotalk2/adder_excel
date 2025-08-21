@@ -60,66 +60,75 @@ impl Adder {
         }
 
         assert_eq!(input_is_neg, false);
-        if output_is_neg {
-            // 检查当前的S是否都是负的
-            let mut has_s = vec![];
-            for wire in &history_wires {
-                if wire.flag == Flag::S {
-                    assert_eq!(wire.is_neg, true);
-                    has_s.push(wire.index);
-                }
-            }
-            for index in 0..bits {
-                if !has_s.contains(&index) {
-                    // 寻找最新的q或者nq
-                    let mut wire_q = None;
-                    for wire in history_wires.iter().rev() {
-                        if wire.flag == Flag::Q && wire.index == index && wire.len == 1 {
-                            wire_q = Some(wire.clone());
-                            break;
-                        }
-                    }
-                    let wire_q = wire_q.expect(&format!("can not find q for index {} in adder", index));
-                    // 寻找最新的g
-                    let mut wire_g = None;
-                    for wire in history_wires.iter().rev() {
-                        if wire.flag == Flag::G && wire.index == index - 1 && wire.len == index {
-                            wire_g = Some(wire.clone());
-                            break;
-                        }
-                    }
-                    let wire_g = wire_g.expect(&format!("can not find g{}_0 for in adder", index -1));
 
-                    let use_xnr = wire_q.is_neg ^ wire_g.is_neg ^ output_is_neg;
-                    let logic_block = if use_xnr {
-                        LogicBlock::XNR2
-                    } else {
-                        LogicBlock::XOR2
-                    };
-                    let wire_s = Wire {
-                        flag : Flag::S,
-                        index,
-                        len   : 1,
-                        is_neg: output_is_neg,
-                    };
-                    cells.push(Cell {
-                        logic_block_map : LogicBlockMappingTable::new_from_vec(
-                            logic_block, 
-                            vec![wire_q, wire_g], 
-                            vec![wire_s.clone()],
-                        ),
-                        drive : Drive::D1,
-                        custom_demand : vec![],
-                        layer : 10,
-                        index,
-                    });
-                    history_wires.push(wire_s);
-                }
+        // 检查当前的S是否都是符合输出的
+        let mut has_s = vec![];
+        for wire in &history_wires {
+            if wire.flag == Flag::S {
+                assert_eq!(wire.is_neg, output_is_neg);
+                has_s.push(wire.index);
             }
-        } else {
-            todo!()
         }
+        if !has_s.contains(&0) {
+            cells.push(Cell {
+                logic_block_map : LogicBlockMappingTable::new_from_vec(
+                    LogicBlock::INV, 
+                    vec![Wire {flag : Flag::Q, index : 0, len : 1, is_neg : !output_is_neg}], 
+                    vec![Wire {flag : Flag::S, index : 0, len : 1, is_neg : output_is_neg}],
+                ),
+                drive : Drive::D1,
+                custom_demand : vec![],
+                layer : 10,
+                index : 0,
+            });
+        }
+        for index in 1..bits {
+            if !has_s.contains(&index) {
+                // 寻找最新的q或者nq
+                let mut wire_q = None;
+                for wire in history_wires.iter().rev() {
+                    if wire.flag == Flag::Q && wire.index == index && wire.len == 1 {
+                        wire_q = Some(wire.clone());
+                        break;
+                    }
+                }
+                let wire_q = wire_q.expect(&format!("can not find q for index {} in adder", index));
+                // 寻找最新的g
+                let mut wire_g = None;
+                for wire in history_wires.iter().rev() {
+                    if wire.flag == Flag::G && wire.index == index - 1 && wire.len == index {
+                        wire_g = Some(wire.clone());
+                        break;
+                    }
+                }
+                let wire_g = wire_g.expect(&format!("can not find g{}_0 for in adder", index -1));
 
+                let use_xnr = wire_q.is_neg ^ wire_g.is_neg ^ output_is_neg;
+                let logic_block = if use_xnr {
+                    LogicBlock::XNR2
+                } else {
+                    LogicBlock::XOR2
+                };
+                let wire_s = Wire {
+                    flag : Flag::S,
+                    index,
+                    len   : 1,
+                    is_neg: output_is_neg,
+                };
+                cells.push(Cell {
+                    logic_block_map : LogicBlockMappingTable::new_from_vec(
+                        logic_block, 
+                        vec![wire_q, wire_g], 
+                        vec![wire_s.clone()],
+                    ),
+                    drive : Drive::D1,
+                    custom_demand : vec![],
+                    layer : 10,
+                    index,
+                });
+                history_wires.push(wire_s);
+            }
+        }
 
         
         Self {
