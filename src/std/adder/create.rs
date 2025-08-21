@@ -17,14 +17,16 @@ impl Adder {
         }
         for (wires, hint, layer) in hints {
             let drive = hint.drive;
+            let custom_demand = hint.custom_demand;
 
             let mut error_infos = String::new();
             let mut result = None;
             for logic_block_hint in hint.logic_block_hints {
-                match LogicBlockMappingTable::create_from_wire_by_hint(
+                match LogicBlockMappingTable::create_from_wire_by_hint_and_custom_demand(
                     &wires.get(0).cloned().unwrap(),
                     logic_block_hint,
                     &history_wires,
+                    &custom_demand
                 ) {
                     Ok(r) => {
                         result = Some(r);

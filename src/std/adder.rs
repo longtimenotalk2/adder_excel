@@ -2,7 +2,7 @@
 pub mod create;
 pub mod function_check;
 
-use crate::std::{logic_block::LogicBlock, node_create::{LogiBlockHint, LogicBlockMappingTable}, wire::Wire};
+use crate::{custom::domino::DominoDemand, std::{logic_block::LogicBlock, node_create::{LogiBlockHint, LogicBlockMappingTable}, wire::Wire}};
 
 #[derive(Debug, Clone, Copy)]
 pub enum Drive {
@@ -20,7 +20,9 @@ pub struct Cell {
 }
 
 #[derive(Debug, Clone)]
-pub enum CustomDemand {}
+pub enum CustomDemand {
+    Domino(DominoDemand)
+}
 
 #[derive(Debug, Clone)]
 pub struct CellHinter {

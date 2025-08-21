@@ -1,6 +1,6 @@
 use std::collections::{BTreeMap, BTreeSet};
 
-use crate::std::{adder::{CellHinter, Drive}, node_create::LogiBlockHint, wire::{Flag, Wire}};
+use crate::{custom::domino::DominoDemand, std::{adder::{CellHinter, CustomDemand, Drive}, node_create::LogiBlockHint, wire::{Flag, Wire}}};
 
 
 impl CellHinter {
@@ -96,10 +96,22 @@ impl CellHinter {
             Drive::D1
         };
 
+        let mut custom_demand = vec![];
+
+        for custom_txts in code.custom {
+            let demand = match custom_txts[0].as_str() {
+                "DOM" => {
+                    CustomDemand::Domino(DominoDemand::from_strings(&custom_txts))
+                },
+                _ => panic!("can not parse custom {:?}", custom_txts),
+            };
+            custom_demand.push(demand);
+        }
+
         Self {
             logic_block_hints : logic_block_hints,
             drive,
-            custom_demand : vec![],
+            custom_demand,
         }
     }
 }
@@ -144,7 +156,7 @@ impl NormalHint {
 struct Code {
     char_single : BTreeSet<char>,
     char_string : BTreeMap<char, String>,
-    custom : String,
+    custom : Vec<Vec<String>>,
 }
 
 impl Code {
@@ -152,10 +164,16 @@ impl Code {
         let mut remained : String = code.to_string();
         let mut char_single : BTreeSet<char> = BTreeSet::new();
         let mut char_string : BTreeMap<char, String> = BTreeMap::new();
+        let mut custom: Vec<Vec<String>> = vec![];
         while remained.len() > 0 {
             if remained.len() > 1 && &remained[1..2] == "{" {
                 let kat_end = remained.find("}").unwrap();
                 char_string.insert(remained.chars().nth(0).unwrap(), remained[2..kat_end].to_string());
+                remained = remained[kat_end+1..].to_string();
+            } else if &remained[0..1] == "["{
+                let kat_end = remained.find("]").unwrap();
+                let tokens = remained[1..kat_end].split(",").map(|s| s.to_string()).collect();
+                custom.push(tokens);
                 remained = remained[kat_end+1..].to_string();
             } else {
                 char_single.insert(remained.chars().nth(0).unwrap());
@@ -166,7 +184,7 @@ impl Code {
         Code {
             char_single,
             char_string,
-            custom : "".to_string(),
+            custom,
         }
     }
 }

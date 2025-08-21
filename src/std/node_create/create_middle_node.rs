@@ -1,8 +1,8 @@
 use std::collections::{BTreeMap, BTreeSet};
 
-use crate::std::{node_create::{LogiBlockHint, LogicBlockCreateError, LogicBlockMappingTable}, logic_block::{self, LogicBlock, Port}, wire::{ambiguous::AmbiguousWire, Flag, Wire}};
+use crate::std::{adder::CustomDemand, logic_block::{self, LogicBlock, Port}, node_create::{LogiBlockHint, LogicBlockCreateError, LogicBlockMappingTable}, wire::{ambiguous::AmbiguousWire, Flag, Wire}};
 
-struct WireSet(Vec<Wire>);
+pub struct WireSet(Vec<Wire>);
 
 impl WireSet {
     pub fn find(&self, ambiguous_wire : &AmbiguousWire) -> Option<Wire> {
@@ -36,6 +36,27 @@ impl WireSet {
                 }
                 None
             }
+        }
+    }
+}
+
+pub struct WireManager {
+    pub hint : LogiBlockHint,
+    pub found_wires : Vec<Wire>,
+    pub history_wires : WireSet,
+}
+
+impl WireManager {
+    fn find(&mut self, ambiguous_wire : &AmbiguousWire) -> Result<Wire, LogicBlockCreateError> {
+        if let Some(wire) = self.history_wires.find(ambiguous_wire) {
+            self.found_wires.push(wire.clone());
+            Ok(wire)
+        } else {
+            Err(LogicBlockCreateError{
+                hint : self.hint.clone(),
+                misfound_wire : ambiguous_wire.clone(),
+                found_wires : self.found_wires.clone(),
+            })
         }
     }
 }
@@ -149,37 +170,26 @@ impl LogicBlockMappingTable {
 }
 
 impl LogicBlockMappingTable {
-    pub fn create_from_wire_by_hint(target_wire : &Wire, hint : LogiBlockHint, history_wires : &[Wire]) -> Result<Self, LogicBlockCreateError> {
+    pub fn create_from_wire_by_hint_and_custom_demand(target_wire : &Wire, hint : LogiBlockHint, history_wires : &[Wire], custom_demand : &[CustomDemand]) -> Result<Self, LogicBlockCreateError> {
         // 如需寻找，则从后向前寻找
         let history_wires  : Vec<Wire> = history_wires.iter().rev().cloned().collect();
         let history_wires = WireSet(history_wires);
         
-        struct WireManager {
-            hint : LogiBlockHint,
-            found_wires : Vec<Wire>,
-            history_wires : WireSet,
-        }
-
-        impl WireManager {
-            fn find(&mut self, ambiguous_wire : &AmbiguousWire) -> Result<Wire, LogicBlockCreateError> {
-                if let Some(wire) = self.history_wires.find(ambiguous_wire) {
-                    self.found_wires.push(wire.clone());
-                    Ok(wire)
-                } else {
-                    Err(LogicBlockCreateError{
-                        hint : self.hint.clone(),
-                        misfound_wire : ambiguous_wire.clone(),
-                        found_wires : self.found_wires.clone(),
-                    })
-                }
-            }
-        }
-
         let mut manager = WireManager {
             hint : hint.clone(),
             found_wires : vec![],
             history_wires,
         };
+
+        if custom_demand.len() > 0 {
+            assert_eq!(custom_demand.len(), 1);
+            let custom_demand = custom_demand[0].clone();
+            match custom_demand {
+                CustomDemand::Domino(domino_demand) => {
+                    todo!()
+                }
+            }
+        }
 
         match &hint {
             LogiBlockHint::INV => {
