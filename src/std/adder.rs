@@ -43,8 +43,8 @@ pub struct CellHinter {
 
 #[derive(Debug, Clone)]
 pub struct Adder {
-    bits : usize,
-    input_is_neg : bool,
-    output_is_neg : bool,
-    cells : Vec<CellFullInfoInAdder>,
+    pub bits : usize,
+    pub input_is_neg : bool,
+    pub output_is_neg : bool,
+    pub cells : Vec<CellFullInfoInAdder>,
 }

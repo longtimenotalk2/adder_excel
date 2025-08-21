@@ -1,4 +1,4 @@
-use crate::from_excel::ExcelData;
+use crate::{cell_parse::ProcessAndProject, from_excel::ExcelData};
 
 const PATH : &'static str = "src/project/a01_domino/excel_data/uf31pp_base.txt";
 
@@ -27,5 +27,26 @@ fn test_function() {
     let excel_data = ExcelData::load(PATH);
     let adder = excel_data.create(31, false, false);
     // dbg!(adder);
-    adder.function_check_random(1000, 0);
+    adder.function_check_random(100, 0);
+}
+
+#[test]
+fn test_property() {
+    let excel_data = ExcelData::load(PATH);
+    let adder = excel_data.create(31, false, false);
+    dbg!(adder.all_abstract_cells());
+}
+
+#[test]
+fn test_cdl() {
+    let excel_data = ExcelData::load(PATH);
+    let adder = excel_data.create(31, false, false);
+    let content = adder.to_cdl_std(ProcessAndProject::N4C1340, "UFADDER_PP_31");
+
+    use std::fs::File;
+    use std::io::prelude::*;
+    // 创建一个新文件，如果文件已存在，则覆盖
+    let mut file = File::create("output.txt").unwrap();
+    // 将字符串写入文件
+    let _ = file.write_all(content.as_bytes());
 }

@@ -39,7 +39,7 @@ impl RealCell {
                     LogicBlock::INV => ("INVMZD2BWP200H6P51CNODELVT", CellSourceType::Std),
                     LogicBlock::AOI21 => ("AOI21SAMZD2BM200H6P51CNODELVT", CellSourceType::Custom),
                     LogicBlock::OAI21 => ("OAI21SAMZD2BM200H6P51CNODELVT", CellSourceType::Custom),
-                    _ => unimplemented!()
+                    _ => panic!("{logic_block:?} dont impl D2")
                 }}
             }
         } else {

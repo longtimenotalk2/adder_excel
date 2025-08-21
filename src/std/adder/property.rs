@@ -13,7 +13,7 @@ impl CellFullInfoInAdder {
 }
 
 impl Adder {
-    pub fn all_custom_properties(&self) -> BTreeSet<AbstractCell> {
+    pub fn all_abstract_cells(&self) -> BTreeSet<AbstractCell> {
         let mut set = BTreeSet::new();
         for info in &self.cells {
             set.insert(info.to_abstract_cell());
