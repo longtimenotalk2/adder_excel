@@ -26,6 +26,7 @@ impl LogicBlock {
             LogicBlock::OAOI211 => LogicBlock::AOAI211,
             LogicBlock::AOA211 => LogicBlock::OAO211,
             LogicBlock::OAO211 => LogicBlock::AOA211,
+            LogicBlock::Custom(..) => todo!(),
         }
     }
 
@@ -63,6 +64,7 @@ impl LogicBlock {
                 LogicBlock::OAOI211 => LogicBlock::OAO211,
                 LogicBlock::AOA211 => unimplemented!(),
                 LogicBlock::OAO211 => unimplemented!(),
+                LogicBlock::Custom(..) => todo!(),
             }
         } else {
             self

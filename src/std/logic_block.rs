@@ -1,9 +1,10 @@
-use crate::std::logic_block::custom::CustomLogicBlock;
+use crate::custom::custom_logic_block::CustomLogicBlock;
+
+
 
 pub mod port;
 pub mod basic;
 pub mod function;
-pub mod custom;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum LogicBlock {
@@ -34,4 +35,4 @@ pub enum LogicBlock {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub struct Port(String);
+pub struct Port(pub String);

@@ -7,6 +7,7 @@ impl LogicBlock {
         assert_eq!(inputs.keys().cloned().collect::<BTreeSet<_>>(), self.ports_input());
 
         match self {
+            LogicBlock::Custom(custom) => custom.calc(inputs),
             LogicBlock::XOR2DOUT => {
                 let a1 = *inputs.get(&Port::new("A1")).unwrap();
                 let a2 = *inputs.get(&Port::new("A2")).unwrap();
@@ -147,6 +148,7 @@ impl LogicBlock {
                         let c = *inputs.get(&Port::new("C")).unwrap();
                         ((a1 || a2) && b) || c
                     },
+                    LogicBlock::Custom(..) => unimplemented!()
                 };
                 BTreeMap::from([(self.ports_output().first().unwrap().clone(), out)])
             }
