@@ -47,7 +47,7 @@ pub struct WireManager {
 }
 
 impl WireManager {
-    fn find(&mut self, ambiguous_wire : &AmbiguousWire) -> Result<Wire, LogicBlockCreateError> {
+    pub fn find(&mut self, ambiguous_wire : &AmbiguousWire) -> Result<Wire, LogicBlockCreateError> {
         if let Some(wire) = self.history_wires.find(ambiguous_wire) {
             self.found_wires.push(wire.clone());
             Ok(wire)
@@ -194,7 +194,7 @@ impl LogicBlockMappingTable {
         Self::create_logic_block_mapping_table(target_wire, &mut manager, hint)
     }
 
-    fn create_logic_block_mapping_table(
+    pub fn create_logic_block_mapping_table(
         target_wire : &Wire,
         manager : &mut WireManager,
         hint : &LogiBlockHint

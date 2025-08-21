@@ -31,7 +31,11 @@ impl FunctionError {
         }
         txt += &format!("{:>16} : {}\n", "a", bool_list_show(&self.a));
         txt += &format!("{:>16} : {}\n", "b", bool_list_show(&self.b));
-        txt += &format!("{:>16} : {}\n", "s_out", bool_list_match_with_color(&self.s_out, &bool_list_inv(&self.actual_s)));
+        txt += &format!("{:>16} : {}\n", "s_out", bool_list_match_with_color(&self.s_out, &if self.a[0] == self.actual_a[0] {
+            self.actual_s.to_vec()
+        } else {
+            bool_list_inv(&self.actual_s)
+        }));
         txt += &format!("{:>16} : {}\n", "actual_a", bool_list_show(&self.actual_a));
         txt += &format!("{:>16} : {}\n", "actual_b", bool_list_show(&self.actual_b));
         txt += &format!("{:>16} : {}\n", "actual_s", bool_list_show(&self.actual_s));

@@ -1,4 +1,6 @@
-use crate::{custom::custom_logic_block::CustomLogicBlock, std::{logic_block::LogicBlock, node_create::{create_middle_node::WireManager, LogiBlockHint, LogicBlockCreateError, LogicBlockMappingTable}, wire::{Flag, Wire}}};
+use std::collections::BTreeMap;
+
+use crate::{custom::custom_logic_block::CustomLogicBlock, std::{logic_block::{LogicBlock, Port}, node_create::{create_middle_node::WireManager, LogiBlockHint, LogicBlockCreateError, LogicBlockMappingTable}, wire::{ambiguous::AmbiguousWire, Flag, Wire}}};
 
 #[derive(Debug, Clone)]
 pub enum DominoPolar {
@@ -52,19 +54,159 @@ impl DominoDemand {
     ) -> Result<LogicBlockMappingTable, LogicBlockCreateError> {
         match hint {
             LogiBlockHint::Normal { flags, is_out_inv, custom_input_invs, custom_input_lens } => {
-                // if flags.len() == 1 {
-                //     match flags {
-                //         &vec![Flag::P; 4] => {
-                //             todo!()
-                //         }
-                //         _ => {
-                //             todo!()
-                //         }
-                //     }
-                // } else {
-                //     todo!()
-                // }
-                todo!()
+                if flags == &vec![Flag::P; 4] {
+                    assert_eq!(self.logic_block, LogicBlock::Custom(CustomLogicBlock::NR4));
+                    assert_eq!(target_wire.is_neg, false);
+                    let mut input_wires = vec![];
+                    let mut index_now = target_wire.index;
+                    for _ in 0..3 {
+                        let wire_need = AmbiguousWire::MayLenNotGivenOrSearchMax  {
+                            flag: Flag::P,
+                            index: index_now,
+                            may_len: None,
+                            is_neg: !target_wire.is_neg,
+                        };
+                        let wire = manager.find(&wire_need)?;
+                        index_now -= wire.len;
+                        input_wires.push(wire);
+                    }
+                    let wire_need = AmbiguousWire::Precise( Wire  {
+                        flag: Flag::P,
+                        index: index_now,
+                        len: target_wire.len + index_now - target_wire.index,
+                        is_neg: !target_wire.is_neg,
+                    });
+                    let wire = manager.find(&wire_need)?;
+                    input_wires.push(wire);
+                    Ok(LogicBlockMappingTable::new_from_vec(
+                        self.logic_block.clone(),
+                        input_wires,
+                        vec![target_wire.clone()],
+                    ))
+                } else if flags == &vec![Flag::P; 6] {
+                    assert_eq!(self.logic_block, LogicBlock::Custom(CustomLogicBlock::NR6));
+                    assert_eq!(target_wire.is_neg, false);
+                    let mut input_wires = vec![];
+                    let mut index_now = target_wire.index;
+                    for _ in 0..5 {
+                        let wire_need = AmbiguousWire::MayLenNotGivenOrSearchMax  {
+                            flag: Flag::P,
+                            index: index_now,
+                            may_len: None,
+                            is_neg: !target_wire.is_neg,
+                        };
+                        let wire = manager.find(&wire_need)?;
+                        index_now -= wire.len;
+                        input_wires.push(wire);
+                    }
+                    let wire_need = AmbiguousWire::Precise( Wire  {
+                        flag: Flag::P,
+                        index: index_now,
+                        len: target_wire.len + index_now - target_wire.index,
+                        is_neg: !target_wire.is_neg,
+                    });
+                    let wire = manager.find(&wire_need)?;
+                    input_wires.push(wire);
+                    Ok(LogicBlockMappingTable::new_from_vec(
+                        self.logic_block.clone(),
+                        input_wires,
+                        vec![target_wire.clone()],
+                    ))
+                } else if flags == &[vec![Flag::H; 3], vec![Flag::P; 2]].concat() {
+                    assert_eq!(self.logic_block, LogicBlock::Custom(CustomLogicBlock::AOI221));
+                    assert_eq!(target_wire.is_neg, true);
+
+                    let mut inputs : BTreeMap<Port, Wire> = BTreeMap::new();
+
+                    let port_order = [Port::new("C"), Port::new("B2"), Port::new("A2"), Port::new("B1"), Port::new("A1")];
+                    let n = 3;
+                    let mut index_now = target_wire.index;
+
+                    for (i, port) in port_order.iter().enumerate() {
+                        let wire_need = if i < n - 1 {
+                            AmbiguousWire::MayLenNotGivenOrSearchMax  {
+                                flag: Flag::H,
+                                index: index_now,
+                                may_len: None,
+                                is_neg: !target_wire.is_neg,
+                            }
+                        } else if i == n - 1 {
+                            AmbiguousWire::Precise (Wire  {
+                                flag: Flag::H,
+                                index: index_now,
+                                len: target_wire.len + index_now - target_wire.index,
+                                is_neg: !target_wire.is_neg,
+                            })
+                        } else {
+                            AmbiguousWire::Precise (Wire  {
+                                flag: Flag::P,
+                                index: target_wire.index - 1,
+                                len: target_wire.index - index_now,
+                                is_neg: !target_wire.is_neg,
+                            })
+                        };
+                        let wire = manager.find(&wire_need)?;
+                        if i < n - 1 {
+                            index_now -= wire.len;
+                        }
+                        inputs.insert(port.clone(), wire);
+                    }
+                    Ok(LogicBlockMappingTable::new(
+                        self.logic_block.clone(),
+                        inputs,
+                        BTreeMap::from([(Port::new("ZN"), target_wire.clone())]),
+                    ))
+                } else if flags == &[vec![Flag::H; 4], vec![Flag::P; 3]].concat() {
+                    assert_eq!(self.logic_block, LogicBlock::Custom(CustomLogicBlock::AOI2221));
+                    assert_eq!(target_wire.is_neg, true);
+
+                    let mut inputs : BTreeMap<Port, Wire> = BTreeMap::new();
+
+                    let port_order = [Port::new("D"), Port::new("C2"), Port::new("B2"), Port::new("A2"), Port::new("C1"), Port::new("B1"), Port::new("A1")];
+                    let n = 4;
+                    let mut index_now = target_wire.index;
+
+                    for (i, port) in port_order.iter().enumerate() {
+                        let wire_need = if i < n - 1 {
+                            AmbiguousWire::MayLenNotGivenOrSearchMax  {
+                                flag: Flag::H,
+                                index: index_now,
+                                may_len: None,
+                                is_neg: !target_wire.is_neg,
+                            }
+                        } else if i == n - 1 {
+                            AmbiguousWire::Precise (Wire  {
+                                flag: Flag::H,
+                                index: index_now,
+                                len: target_wire.len + index_now - target_wire.index,
+                                is_neg: !target_wire.is_neg,
+                            })
+                        } else {
+                            AmbiguousWire::Precise (Wire  {
+                                flag: Flag::P,
+                                index: target_wire.index - 1,
+                                len: target_wire.index - index_now,
+                                is_neg: !target_wire.is_neg,
+                            })
+                        };
+                        let wire = manager.find(&wire_need)?;
+                        if i < n - 1 {
+                            index_now -= wire.len;
+                        }
+                        inputs.insert(port.clone(), wire);
+                    }
+                    Ok(LogicBlockMappingTable::new(
+                        self.logic_block.clone(),
+                        inputs,
+                        BTreeMap::from([(Port::new("ZN"), target_wire.clone())]),
+                    ))
+                } else if flags.len() > 3 {
+                    panic!("{:?} logic for domino is not valid", flags)
+                } else {
+                    let result = LogicBlockMappingTable::create_logic_block_mapping_table(target_wire, manager, hint)?;
+                    assert_eq!(result.logic_block, self.logic_block);
+                    Ok(result)
+                }
             }
             _ => unimplemented!()
         }
