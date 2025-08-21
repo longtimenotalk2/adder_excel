@@ -10,6 +10,14 @@ impl CellFullInfoInAdder {
             custom_demand : self.custom_demand.clone(),
         }
     }
+
+    pub fn inst_name(&self) -> String {
+        let mut wire_name = String::new();
+        for wire in self.logic_block_map.outputs.values() {
+            wire_name.push_str(&wire.to_string());
+        }
+        format!("U{}_{}", self.layer, wire_name)
+    }
 }
 
 impl Adder {

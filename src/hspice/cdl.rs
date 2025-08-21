@@ -1,4 +1,4 @@
-use crate::{cell_parse::{ProcessAndProject, RealCell}, hspice::line_subckt, std::adder::Adder};
+use crate::{cell_parse::{ProcessAndProject, RealCell}, hspice::{adder_pins_std, line_end_subckt, line_subckt}, std::adder::Adder};
 
 impl Adder {
     pub fn to_cdl_std(&self, process : ProcessAndProject, name : &str) -> String {
@@ -12,22 +12,20 @@ impl Adder {
         txt += "\n";
 
         // subckt
-        let mut ports = vec![];
-        for i in 0..self.bits {
-            ports.push(format!("A{i}"));
-        }
-        for i in 0..self.bits {
-            ports.push(format!("B{i}"));
-        }
-        for i in 0..self.bits {
-            ports.push(format!("S{i}"));
-        }
-        ports.append(&mut vec!["VBB".to_string(), "VDD".to_string(), "VPP".to_string(), "VSS".to_string()]);
+        let ports = adder_pins_std(self.bits);
         txt += &line_subckt(name, &ports);
         
         // cells
-        
+        for cell_info in self.cells.iter() {
+            let inst_name = cell_info.inst_name();
+            let map = &cell_info.logic_block_map;
+            let abstract_cell = &cell_info.to_abstract_cell();
+            let real_cell = RealCell::parse(process, abstract_cell);
+            txt += &real_cell.line_cell(&inst_name, map);
+        }
 
+        // end
+        txt += &line_end_subckt();
 
         txt
     }

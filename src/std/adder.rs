@@ -13,11 +13,11 @@ pub enum Drive {
 
 #[derive(Debug, Clone)]
 pub struct CellFullInfoInAdder {
-    logic_block_map : LogicBlockMappingTable,
-    drive : Drive,
-    custom_demand : Vec<CustomDemand>,
-    layer : i32,
-    index : usize,
+    pub logic_block_map : LogicBlockMappingTable,
+    pub drive : Drive,
+    pub custom_demand : Vec<CustomDemand>,
+    pub layer : i32,
+    pub index : usize,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]

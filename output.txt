@@ -1,21 +1,49 @@
-.inc '/ic/projects/BM1340/public/5_custom/spf/stdcell/Cbest/INVMZD1BWP200H6P51CNODELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/stdcell/Cbest/INVMZD2BWP200H6P51CNODELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/stdcell/Cbest/ND2MZD1BWP200H6P51CNODELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/stdcell/Cbest/NR2MZD1BWP200H6P51CNODELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/stdcell/Cbest/OR2MZD1BWP200H6P51CNODELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/IND2MZD1BM200H6P51CNODELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/XOR2SAMZD1BM200H6P51CNODELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/XNR2SAMZD1BM200H6P51CNODELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/XOR2SAMZD1_DUAL_OUT_BM200H6P51CNODELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/XNR2SAMZD1_DUAL_OUT_BM200H6P51CNODELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/AOI21SAMZD1BM200H6P51CNODELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/AOI21SAMZD2BM200H6P51CNODELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/OAI21SAMZD1BM200H6P51CNODELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/OAI21SAMZD2BM200H6P51CNODELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/OA21SAMZD1BM200H6P51CNODELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/IAOI21SAMZD1BM200H6P51CNODELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/IOAI21SAMZD1BM200H6P51CNODELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/AOI22SAMZD1BM200H6P51CNODELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/OAI22SAMZD1BM200H6P51CNODELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/OAOI211SAMZD1BM200H6P51CNODELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/OAO211MZD1BM200H6P51CNODELVT.Cbest60.spf'
+.inc 'cdl/UFADDER_PP_31.cdl'
+
+VA0  A0  0  pulse  0  avdd  'td+clkper*0'  tr  tr  'clkper*1'  'time_all'
+VA1  A1  0  pulse  0  avdd  'td+clkper*2'  tr  tr  'clkper*1'  'time_all'
+VA2  A2  0  pulse  0  avdd  'td+clkper*4'  tr  tr  'clkper*1'  'time_all'
+VA3  A3  0  pulse  0  avdd  'td+clkper*6'  tr  tr  'clkper*1'  'time_all'
+VA4  A4  0  pulse  0  avdd  'td+clkper*8'  tr  tr  'clkper*1'  'time_all'
+VA5  A5  0  pulse  0  avdd  'td+clkper*10'  tr  tr  'clkper*1'  'time_all'
+VA6  A6  0  pulse  0  avdd  'td+clkper*12'  tr  tr  'clkper*1'  'time_all'
+VA7  A7  0  pulse  0  avdd  'td+clkper*14'  tr  tr  'clkper*1'  'time_all'
+VA8  A8  0  pulse  0  avdd  'td+clkper*16'  tr  tr  'clkper*1'  'time_all'
+VA9  A9  0  pulse  0  avdd  'td+clkper*18'  tr  tr  'clkper*1'  'time_all'
+VA10  A10  0  pulse  0  avdd  'td+clkper*20'  tr  tr  'clkper*1'  'time_all'
+VA11  A11  0  pulse  0  avdd  'td+clkper*22'  tr  tr  'clkper*1'  'time_all'
+VA12  A12  0  pulse  0  avdd  'td+clkper*24'  tr  tr  'clkper*1'  'time_all'
+VA13  A13  0  pulse  0  avdd  'td+clkper*26'  tr  tr  'clkper*1'  'time_all'
+VA14  A14  0  pulse  0  avdd  'td+clkper*28'  tr  tr  'clkper*1'  'time_all'
+VA15  A15  0  pulse  0  avdd  'td+clkper*30'  tr  tr  'clkper*1'  'time_all'
+VA16  A16  0  pulse  0  avdd  'td+clkper*32'  tr  tr  'clkper*1'  'time_all'
+VA17  A17  0  pulse  0  avdd  'td+clkper*34'  tr  tr  'clkper*1'  'time_all'
+VA18  A18  0  pulse  0  avdd  'td+clkper*36'  tr  tr  'clkper*1'  'time_all'
+VA19  A19  0  pulse  0  avdd  'td+clkper*38'  tr  tr  'clkper*1'  'time_all'
+VA20  A20  0  pulse  0  avdd  'td+clkper*40'  tr  tr  'clkper*1'  'time_all'
+VA21  A21  0  pulse  0  avdd  'td+clkper*42'  tr  tr  'clkper*1'  'time_all'
+VA22  A22  0  pulse  0  avdd  'td+clkper*44'  tr  tr  'clkper*1'  'time_all'
+VA23  A23  0  pulse  0  avdd  'td+clkper*46'  tr  tr  'clkper*1'  'time_all'
+VA24  A24  0  pulse  0  avdd  'td+clkper*48'  tr  tr  'clkper*1'  'time_all'
+VA25  A25  0  pulse  0  avdd  'td+clkper*50'  tr  tr  'clkper*1'  'time_all'
+VA26  A26  0  pulse  0  avdd  'td+clkper*52'  tr  tr  'clkper*1'  'time_all'
+VA27  A27  0  pulse  0  avdd  'td+clkper*54'  tr  tr  'clkper*1'  'time_all'
+VA28  A28  0  pulse  0  avdd  'td+clkper*56'  tr  tr  'clkper*1'  'time_all'
+VA29  A29  0  pulse  0  avdd  'td+clkper*58'  tr  tr  'clkper*1'  'time_all'
+VA30  A30  0  pulse  0  avdd  'td+clkper*60'  tr  tr  'clkper*1'  'time_all'
+
+x_ADDER
++ A0      A1      A2      A3      A4      A5      A6      A7      
++ A8      A9      A10     A11     A12     A13     A14     A15     
++ A16     A17     A18     A19     A20     A21     A22     A23     
++ A24     A25     A26     A27     A28     A29     A30     
++ B0      B1      B2      B3      B4      B5      B6      B7      
++ B8      B9      B10     B11     B12     B13     B14     B15     
++ B16     B17     B18     B19     B20     B21     B22     B23     
++ B24     B25     B26     B27     B28     B29     B30     
++ S0      S1      S2      S3      S4      S5      S6      S7      
++ S8      S9      S10     S11     S12     S13     S14     S15     
++ S16     S17     S18     S19     S20     S21     S22     S23     
++ S24     S25     S26     S27     S28     S29     S30     
++ VBB     VDD     VPP     VSS     
+UFADDER_PP_31

@@ -50,3 +50,18 @@ fn test_cdl() {
     // 将字符串写入文件
     let _ = file.write_all(content.as_bytes());
 }
+
+#[test]
+fn test_timing_rise() {
+    let adder_name = "UFADDER_PP_31";
+    let adder_cdl_path = "cdl/UFADDER_PP_31.cdl";
+    
+    let content = crate::hspice::timing::create_sp_of_adder_timing_rise(adder_name, adder_cdl_path, 31);
+
+    use std::fs::File;
+    use std::io::prelude::*;
+    // 创建一个新文件，如果文件已存在，则覆盖
+    let mut file = File::create("output.txt").unwrap();
+    // 将字符串写入文件
+    let _ = file.write_all(content.as_bytes());
+}
