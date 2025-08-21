@@ -112,75 +112,31 @@ impl DominoDemand {
                         input_wires,
                         vec![target_wire.clone()],
                     ))
-                } else if flags == &[vec![Flag::H; 3], vec![Flag::P; 2]].concat() {
-                    assert_eq!(self.logic_block, LogicBlock::Custom(CustomLogicBlock::AOI221));
-                    assert_eq!(target_wire.is_neg, true);
-
-                    let mut inputs : BTreeMap<Port, Wire> = BTreeMap::new();
-
-                    let port_order = [Port::new("C"), Port::new("B2"), Port::new("A2"), Port::new("B1"), Port::new("A1")];
-                    let n = 3;
-                    let mut index_now = target_wire.index;
-
-                    for (i, port) in port_order.iter().enumerate() {
-                        let wire_need = if i < n - 1 {
-                            AmbiguousWire::MayLenNotGivenOrSearchMax  {
-                                flag: Flag::H,
-                                index: index_now,
-                                may_len: None,
-                                is_neg: !target_wire.is_neg,
-                            }
-                        } else if i == n - 1 {
-                            AmbiguousWire::Precise (Wire  {
-                                flag: Flag::H,
-                                index: index_now,
-                                len: target_wire.len + index_now - target_wire.index,
-                                is_neg: !target_wire.is_neg,
-                            })
-                        } else {
-                            AmbiguousWire::Precise (Wire  {
-                                flag: Flag::P,
-                                index: target_wire.index - 1,
-                                len: target_wire.index - index_now,
-                                is_neg: !target_wire.is_neg,
-                            })
-                        };
-                        let wire = manager.find(&wire_need)?;
-                        if i < n - 1 {
-                            index_now -= wire.len;
-                        }
-                        inputs.insert(port.clone(), wire);
-                    }
-                    Ok(LogicBlockMappingTable::new(
-                        self.logic_block.clone(),
-                        inputs,
-                        BTreeMap::from([(Port::new("ZN"), target_wire.clone())]),
-                    ))
                 } else if flags == &[vec![Flag::H; 4], vec![Flag::P; 3]].concat() {
                     assert_eq!(self.logic_block, LogicBlock::Custom(CustomLogicBlock::AOI2221));
                     assert_eq!(target_wire.is_neg, true);
 
                     let mut inputs : BTreeMap<Port, Wire> = BTreeMap::new();
 
-                    let port_order = [Port::new("D"), Port::new("C2"), Port::new("B2"), Port::new("A2"), Port::new("C1"), Port::new("B1"), Port::new("A1")];
-                    let n = 4;
+                    let port_order = [Port::new("D"), Port::new("C1"), Port::new("C2"), Port::new("B1"), Port::new("B2"), Port::new("A1"), Port::new("A2")];
                     let mut index_now = target_wire.index;
 
                     for (i, port) in port_order.iter().enumerate() {
-                        let wire_need = if i < n - 1 {
-                            AmbiguousWire::MayLenNotGivenOrSearchMax  {
-                                flag: Flag::H,
-                                index: index_now,
-                                may_len: None,
-                                is_neg: !target_wire.is_neg,
-                            }
-                        } else if i == n - 1 {
+                        let wire_need = if i == port_order.len() - 1 {
                             AmbiguousWire::Precise (Wire  {
                                 flag: Flag::H,
                                 index: index_now,
                                 len: target_wire.len + index_now - target_wire.index,
                                 is_neg: !target_wire.is_neg,
                             })
+                            
+                        } else if i % 2 == 0 {
+                            AmbiguousWire::MayLenNotGivenOrSearchMax  {
+                                flag: Flag::H,
+                                index: index_now,
+                                may_len: None,
+                                is_neg: !target_wire.is_neg,
+                            }
                         } else {
                             AmbiguousWire::Precise (Wire  {
                                 flag: Flag::P,
@@ -190,7 +146,7 @@ impl DominoDemand {
                             })
                         };
                         let wire = manager.find(&wire_need)?;
-                        if i < n - 1 {
+                        if i != port_order.len() - 1 && i % 2 == 0 {
                             index_now -= wire.len;
                         }
                         inputs.insert(port.clone(), wire);
