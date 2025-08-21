@@ -1,6 +1,6 @@
 use colorful::{Color, Colorful};
 
-use crate::std::{adder::{Adder, Cell, CellHinter, Drive}, logic_block::LogicBlock, node_create::LogicBlockMappingTable, wire::{Flag, Wire}};
+use crate::std::{adder::{Adder, AbstractCell, CellHinter, Drive}, logic_block::LogicBlock, node_create::LogicBlockMappingTable, wire::{Flag, Wire}};
 
 impl Adder {
     pub fn create_by_cell_hint(
@@ -40,7 +40,7 @@ impl Adder {
                 }
             }
             if let Some(logic_block_map) = result.clone() {
-                cells.push(Cell {
+                cells.push(AbstractCell {
                     logic_block_map,
                     drive,
                     custom_demand : vec![],
@@ -70,7 +70,7 @@ impl Adder {
             }
         }
         if !has_s.contains(&0) {
-            cells.push(Cell {
+            cells.push(AbstractCell {
                 logic_block_map : LogicBlockMappingTable::new_from_vec(
                     LogicBlock::INV, 
                     vec![Wire {flag : Flag::Q, index : 0, len : 1, is_neg : !output_is_neg}], 
@@ -115,7 +115,7 @@ impl Adder {
                     len   : 1,
                     is_neg: output_is_neg,
                 };
-                cells.push(Cell {
+                cells.push(AbstractCell {
                     logic_block_map : LogicBlockMappingTable::new_from_vec(
                         logic_block, 
                         vec![wire_q, wire_g], 

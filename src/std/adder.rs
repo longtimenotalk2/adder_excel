@@ -11,7 +11,7 @@ pub enum Drive {
 }
 
 #[derive(Debug, Clone)]
-pub struct Cell {
+pub struct AbstractCell {
     logic_block_map : LogicBlockMappingTable,
     drive : Drive,
     custom_demand : Vec<CustomDemand>,
@@ -38,6 +38,5 @@ pub struct Adder {
     bits : usize,
     input_is_neg : bool,
     output_is_neg : bool,
-    cells : Vec<Cell>,
-    // wires : Vec<Wire>,
+    cells : Vec<AbstractCell>,
 }
