@@ -58,6 +58,9 @@ impl Wire {
         }
         ret.push_str(self.flag.to_str());
         if self.len > 1 {
+            if self.index + 1 < self.len {
+                panic!("bad index and len combination for flag : {:?}, index : {}, len : {}", self.flag, self.index, self.len);
+            }
             ret.push_str(&format!("{index}_{len}", index = self.index, len = self.index + 1 - self.len));
         } else {
             ret.push_str(&format!("{}", self.index));

@@ -8,9 +8,9 @@ fn test_load_excel() {
     dbg!(excel_data);
 }
 
-// #[test]
-// fn test_to_cell_hinter() {
-//     let excel_data = ExcelData::load(PATH);
-//     let cell_hinter = excel_data.
-//     dbg!(ExcelData::load(PATH));
-// }
+#[test]
+fn test_to_cell_hinter() {
+    let excel_data = ExcelData::load(PATH);
+    let cell_hinter = excel_data.to_cell_hinter_list();
+    dbg!(cell_hinter);
+}

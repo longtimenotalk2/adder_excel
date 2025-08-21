@@ -4,7 +4,7 @@ use crate::{custom::domino::DominoDemand, std::{adder::{CellHinter, CustomDemand
 
 
 impl CellHinter {
-    pub fn new(wire_txt : &str, code_txt : &str, index : usize) -> Self {
+    pub fn new(wire_txt : &str, code_txt : &str, index : usize, layer : i32) -> Self {
         let code = Code::from_code_txt(code_txt);
         let (index, wire_txt) = if wire_txt.starts_with('<') {
             (index + 1, &wire_txt[1..])
@@ -112,6 +112,8 @@ impl CellHinter {
             logic_block_hints : logic_block_hints,
             drive,
             custom_demand,
+            wire_ref : wire,
+            layer,
         }
     }
 }

@@ -29,6 +29,8 @@ pub struct CellHinter {
     pub logic_block_hints : Vec<LogiBlockHint>,
     pub drive : Drive,
     pub custom_demand : Vec<CustomDemand>,
+    pub wire_ref : Wire,
+    pub layer : i32,
 }
 
 #[derive(Debug, Clone)]

@@ -7,7 +7,7 @@ impl Adder {
         bits : usize,
         input_is_neg : bool,
         output_is_neg : bool,
-        hints : Vec<(Vec<Wire>, CellHinter, i32)>, // layer
+        hints : Vec<CellHinter>, // layer
     ) -> Self {
         let mut cells = vec![];
         let mut history_wires = vec![];
@@ -15,7 +15,9 @@ impl Adder {
             history_wires.push(Wire::from_str(&format!("a{i}")));
             history_wires.push(Wire::from_str(&format!("b{i}")));
         }
-        for (wires, hint, layer) in hints {
+        for hint in hints {
+            let wire = hint.wire_ref;
+            let layer = hint.layer;
             let drive = hint.drive;
             let custom_demand = hint.custom_demand;
 
@@ -23,8 +25,8 @@ impl Adder {
             let mut result = None;
             for logic_block_hint in hint.logic_block_hints {
                 match LogicBlockMappingTable::create_from_wire_by_hint_and_custom_demand(
-                    &wires.get(0).cloned().unwrap(),
-                    logic_block_hint,
+                    &wire,
+                    &logic_block_hint,
                     &history_wires,
                     &custom_demand
                 ) {
@@ -43,11 +45,11 @@ impl Adder {
                     drive,
                     custom_demand : vec![],
                     layer,
-                    index : wires.get(0).unwrap().index,
+                    index : wire.index,
                 });
             } else {
                 dbg!(&history_wires);
-                panic!("\n\nwhen create wire {} at layer {layer} :\n\n {}", format!("{wires:?}").color(Color::Yellow), error_infos);
+                panic!("\n\nwhen create wire {} at layer {layer} :\n\n {}", format!("{wire:?}").color(Color::Yellow), error_infos);
             }
             let mut actual_wires = vec![];
             for a in result.unwrap().outputs.values() {
