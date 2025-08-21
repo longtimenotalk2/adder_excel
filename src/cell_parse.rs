@@ -1,6 +1,6 @@
 use std::collections::BTreeMap;
 
-use crate::std::{logic_block::Port, wire::Wire};
+use crate::std::{adder::{CustomDemand, Drive}, logic_block::{LogicBlock, Port}, wire::Wire};
 
 
 pub mod n4c;
@@ -27,8 +27,25 @@ pub enum PortType {
 
 #[derive(Debug, Clone)]
 pub struct RealCell {
-    name : String,
-    source_type : CellSourceType,
-    process : ProcessAndProject,
+    pub name : String,
+    pub source_type : CellSourceType,
+    pub process : ProcessAndProject,
 }
-//ports : BTreeMap<Port, (Wire, PortType)>,
+
+impl RealCell {
+    pub fn parse(
+        process : ProcessAndProject,
+        logic_block : LogicBlock,
+        drive : Drive,
+        custom_demand : Vec<CustomDemand>,
+    ) -> Self {
+        match process {
+            ProcessAndProject::N3E1374 => {
+                todo!()
+            }
+            ProcessAndProject::N4C1340 => {
+                Self::parse_n4c(logic_block, drive, custom_demand)
+            }
+        }
+    }
+}

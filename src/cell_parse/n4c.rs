@@ -1,7 +1,7 @@
 use crate::{cell_parse::{CellSourceType, ProcessAndProject, RealCell}, std::{adder::{CustomDemand, Drive}, logic_block::LogicBlock}};
 
 impl RealCell {
-    fn parse_n4c(
+    pub fn parse_n4c(
         logic_block : LogicBlock,
         drive : Drive,
         custom_demand : Vec<CustomDemand>,
