@@ -1,4 +1,4 @@
-use crate::{custom::custom_logic_block::CustomLogicBlock, std::logic_block::LogicBlock};
+use crate::{custom::custom_logic_block::CustomLogicBlock, std::{logic_block::LogicBlock, node_create::{create_middle_node::WireManager, LogiBlockHint, LogicBlockCreateError, LogicBlockMappingTable}, wire::Wire}};
 
 #[derive(Debug, Clone)]
 pub enum DominoPolar {
@@ -41,5 +41,14 @@ impl DominoDemand {
             polar,
             is_start,
         }
+    }
+
+    pub fn create_logic_block_mapping_table(
+        &self, 
+        target_wire : &Wire,
+        manager : &mut WireManager,
+        hint : &LogiBlockHint,
+    ) -> Result<LogicBlockMappingTable, LogicBlockCreateError> {
+        todo!()
     }
 }

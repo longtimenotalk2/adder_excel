@@ -1,6 +1,6 @@
 use std::collections::{BTreeMap, BTreeSet};
 
-use crate::std::{adder::CustomDemand, logic_block::{self, LogicBlock, Port}, node_create::{LogiBlockHint, LogicBlockCreateError, LogicBlockMappingTable}, wire::{ambiguous::AmbiguousWire, Flag, Wire}};
+use crate::{custom::domino::DominoDemand, std::{adder::CustomDemand, logic_block::{self, LogicBlock, Port}, node_create::{LogiBlockHint, LogicBlockCreateError, LogicBlockMappingTable}, wire::{ambiguous::AmbiguousWire, Flag, Wire}}};
 
 pub struct WireSet(Vec<Wire>);
 
@@ -170,7 +170,7 @@ impl LogicBlockMappingTable {
 }
 
 impl LogicBlockMappingTable {
-    pub fn create_from_wire_by_hint_and_custom_demand(target_wire : &Wire, hint : LogiBlockHint, history_wires : &[Wire], custom_demand : &[CustomDemand]) -> Result<Self, LogicBlockCreateError> {
+    pub fn create_from_wire_by_hint_and_custom_demand(target_wire : &Wire, hint : &LogiBlockHint, history_wires : &[Wire], custom_demand : &[CustomDemand]) -> Result<Self, LogicBlockCreateError> {
         // 如需寻找，则从后向前寻找
         let history_wires  : Vec<Wire> = history_wires.iter().rev().cloned().collect();
         let history_wires = WireSet(history_wires);
@@ -186,11 +186,19 @@ impl LogicBlockMappingTable {
             let custom_demand = custom_demand[0].clone();
             match custom_demand {
                 CustomDemand::Domino(domino_demand) => {
-                    todo!()
+                    return domino_demand.create_logic_block_mapping_table(target_wire, &mut manager, hint)
                 }
             }
         }
 
+        Self::create_logic_block_mapping_table(target_wire, &mut manager, hint)
+    }
+
+    fn create_logic_block_mapping_table(
+        target_wire : &Wire,
+        manager : &mut WireManager,
+        hint : &LogiBlockHint
+    ) -> Result<Self, LogicBlockCreateError> {
         match &hint {
             LogiBlockHint::INV => {
                 let needed_wire = manager.find(&AmbiguousWire::Precise(target_wire.rev()))?;
@@ -561,4 +569,6 @@ impl LogicBlockMappingTable {
             }
         }
     }
+
+    
 }

@@ -1,4 +1,4 @@
-mod create_middle_node;
+pub mod create_middle_node;
 pub mod basic;
 pub mod function;
 
