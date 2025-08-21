@@ -1,6 +1,6 @@
 use std::collections::BTreeMap;
 
-use crate::std::{adder::{CustomDemand, Drive}, logic_block::{LogicBlock, Port}, wire::Wire};
+use crate::std::{adder::{AbstractCell, CustomDemand, Drive}, logic_block::{LogicBlock, Port}, wire::Wire};
 
 
 pub mod n4c;
@@ -35,16 +35,14 @@ pub struct RealCell {
 impl RealCell {
     pub fn parse(
         process : ProcessAndProject,
-        logic_block : LogicBlock,
-        drive : Drive,
-        custom_demand : Vec<CustomDemand>,
+        abstract_cell : &AbstractCell
     ) -> Self {
         match process {
             ProcessAndProject::N3E1374 => {
                 todo!()
             }
             ProcessAndProject::N4C1340 => {
-                Self::parse_n4c(logic_block, drive, custom_demand)
+                Self::parse_n4c(abstract_cell)
             }
         }
     }

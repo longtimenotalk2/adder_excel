@@ -6,7 +6,7 @@ pub mod port;
 pub mod basic;
 pub mod function;
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum LogicBlock {
     INV,
     ND2,

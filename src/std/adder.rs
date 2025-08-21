@@ -1,17 +1,18 @@
 
 pub mod create;
 pub mod function_check;
+pub mod property;
 
 use crate::{custom::domino::DominoDemand, std::{logic_block::LogicBlock, node_create::{LogiBlockHint, LogicBlockMappingTable}, wire::Wire}};
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum Drive {
     D1,
     D2,
 }
 
 #[derive(Debug, Clone)]
-pub struct AbstractCell {
+pub struct CellFullInfoInAdder {
     logic_block_map : LogicBlockMappingTable,
     drive : Drive,
     custom_demand : Vec<CustomDemand>,
@@ -19,7 +20,14 @@ pub struct AbstractCell {
     index : usize,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+pub struct AbstractCell {
+    pub logic_block : LogicBlock,
+    pub drive : Drive,
+    pub custom_demand : Vec<CustomDemand>,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum CustomDemand {
     Domino(DominoDemand)
 }
@@ -38,5 +46,5 @@ pub struct Adder {
     bits : usize,
     input_is_neg : bool,
     output_is_neg : bool,
-    cells : Vec<AbstractCell>,
+    cells : Vec<CellFullInfoInAdder>,
 }

@@ -4,9 +4,9 @@ use colorful::{Color, Colorful};
 use rand::{Rng, SeedableRng};
 use rand_chacha::ChaCha12Rng;
 
-use crate::{from_excel::ExcelData, std::{adder::{Adder, AbstractCell}, wire::Wire}};
+use crate::{from_excel::ExcelData, std::{adder::{Adder, CellFullInfoInAdder}, wire::Wire}};
 
-impl AbstractCell {
+impl CellFullInfoInAdder {
     fn execute_with_signals(&self, signals : &mut BTreeMap<Wire, bool>) {
         self.logic_block_map.execute_with_signals(signals);
     }

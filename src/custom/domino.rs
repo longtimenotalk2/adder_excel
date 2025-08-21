@@ -2,13 +2,13 @@ use std::collections::BTreeMap;
 
 use crate::{custom::custom_logic_block::CustomLogicBlock, std::{logic_block::{LogicBlock, Port}, node_create::{create_middle_node::WireManager, LogiBlockHint, LogicBlockCreateError, LogicBlockMappingTable}, wire::{ambiguous::AmbiguousWire, Flag, Wire}}};
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum DominoPolar {
     P,
     N,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct DominoDemand {
     pub logic_block : LogicBlock,
     pub polar : DominoPolar,

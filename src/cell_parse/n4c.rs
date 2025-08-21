@@ -1,11 +1,12 @@
-use crate::{cell_parse::{CellSourceType, ProcessAndProject, RealCell}, std::{adder::{CustomDemand, Drive}, logic_block::LogicBlock}};
+use crate::{cell_parse::{CellSourceType, ProcessAndProject, RealCell}, custom, std::{adder::{AbstractCell, CustomDemand, Drive}, logic_block::LogicBlock}};
 
 impl RealCell {
     pub fn parse_n4c(
-        logic_block : LogicBlock,
-        drive : Drive,
-        custom_demand : Vec<CustomDemand>,
+        abstract_cell : &AbstractCell
     ) -> Self {
+        let custom_demand = &abstract_cell.custom_demand;
+        let drive = &abstract_cell.drive;
+        let logic_block = &abstract_cell.logic_block;
         let (name, source_type) = if custom_demand.len() == 0 {
             match drive {
                 Drive::D1 => { match logic_block {
@@ -42,7 +43,8 @@ impl RealCell {
                 }}
             }
         } else {
-            return Self::parse_n4c_custom(logic_block, drive, custom_demand)
+            todo!()
+            // return Self::parse_n4c_custom(logic_block, drive, custom_demand)
         };
         Self {
             name : name.to_string(),
