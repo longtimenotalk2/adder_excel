@@ -1,4 +1,4 @@
-use crate::hspice::{adder_call_std, line_inc, line_source};
+use crate::hspice::{adder_call_std, line_inc, line_measure_delay, line_source};
 
 pub fn create_sp_of_adder_timing_rise(
     adder_name : &str,
@@ -17,6 +17,22 @@ pub fn create_sp_of_adder_timing_rise(
 
     // adder
     txt += &adder_call_std(bits, adder_name);
+    txt += "\n";
+
+    // measure
+    let target_wire = "S30";
+    for i in 0..bits {
+        let source_wire = format!("A{i}");
+        txt += &line_measure_delay(
+            &format!("{source_wire}_to_{target_wire}"),
+            target_wire, 
+            &source_wire, 
+            true, 
+            1, 
+            true, 
+            i+1
+        );
+    }
 
     txt
 }

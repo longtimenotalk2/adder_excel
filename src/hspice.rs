@@ -47,7 +47,7 @@ pub fn line_cell_given_lens(inst_name : &str, pins : &[impl ToString], inst_logo
         }
         s += "\n";
     }
-    s += &format!("{inst_logo}\n");
+    s += &format!("+ {inst_logo}\n");
     s
 }
 
@@ -63,6 +63,21 @@ pub fn line_source(wire_name : &str, v1 : &str, v2 : &str, start_pos : f64, step
 
 pub fn line_end_subckt() -> String {
     ".ENDS".to_string()
+}
+
+pub fn line_measure_delay(
+    name : &str,
+    target_wire : &str, 
+    source_wire : &str, 
+    source_is_rise : bool,
+    source_nth : usize,
+    target_is_rise : bool,
+    target_nth : usize,
+) -> String {
+    format!(".measure tran delay_{name}    trig v({source_wire}) val='avdd/2'   {}={source_nth}      targ v({target_wire}) val='avdd/2'   {}={target_nth}\n",
+        if source_is_rise { "rise" } else { "fall" },
+        if target_is_rise { "rise" } else { "fall" }
+    )
 }
 
 impl RealCell {

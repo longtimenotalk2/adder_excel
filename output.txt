@@ -46,4 +46,36 @@ x_ADDER
 + S16     S17     S18     S19     S20     S21     S22     S23     
 + S24     S25     S26     S27     S28     S29     S30     
 + VBB     VDD     VPP     VSS     
-UFADDER_PP_31
++ UFADDER_PP_31
+
+.measure tran delay_A0_to_S30    trig v(A0) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=1
+.measure tran delay_A1_to_S30    trig v(A1) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=2
+.measure tran delay_A2_to_S30    trig v(A2) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=3
+.measure tran delay_A3_to_S30    trig v(A3) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=4
+.measure tran delay_A4_to_S30    trig v(A4) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=5
+.measure tran delay_A5_to_S30    trig v(A5) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=6
+.measure tran delay_A6_to_S30    trig v(A6) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=7
+.measure tran delay_A7_to_S30    trig v(A7) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=8
+.measure tran delay_A8_to_S30    trig v(A8) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=9
+.measure tran delay_A9_to_S30    trig v(A9) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=10
+.measure tran delay_A10_to_S30    trig v(A10) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=11
+.measure tran delay_A11_to_S30    trig v(A11) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=12
+.measure tran delay_A12_to_S30    trig v(A12) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=13
+.measure tran delay_A13_to_S30    trig v(A13) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=14
+.measure tran delay_A14_to_S30    trig v(A14) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=15
+.measure tran delay_A15_to_S30    trig v(A15) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=16
+.measure tran delay_A16_to_S30    trig v(A16) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=17
+.measure tran delay_A17_to_S30    trig v(A17) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=18
+.measure tran delay_A18_to_S30    trig v(A18) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=19
+.measure tran delay_A19_to_S30    trig v(A19) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=20
+.measure tran delay_A20_to_S30    trig v(A20) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=21
+.measure tran delay_A21_to_S30    trig v(A21) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=22
+.measure tran delay_A22_to_S30    trig v(A22) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=23
+.measure tran delay_A23_to_S30    trig v(A23) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=24
+.measure tran delay_A24_to_S30    trig v(A24) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=25
+.measure tran delay_A25_to_S30    trig v(A25) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=26
+.measure tran delay_A26_to_S30    trig v(A26) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=27
+.measure tran delay_A27_to_S30    trig v(A27) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=28
+.measure tran delay_A28_to_S30    trig v(A28) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=29
+.measure tran delay_A29_to_S30    trig v(A29) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=30
+.measure tran delay_A30_to_S30    trig v(A30) val='avdd/2'   rise=1      targ v(S30) val='avdd/2'   rise=31
