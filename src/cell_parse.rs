@@ -1,4 +1,4 @@
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, BTreeSet};
 
 use crate::std::{adder::{AbstractCell, CustomDemand, Drive}, logic_block::{LogicBlock, Port}, wire::Wire};
 
@@ -30,6 +30,7 @@ pub struct RealCell {
     pub name : String,
     pub source_type : CellSourceType,
     pub process : ProcessAndProject,
+    pub addition_pg_port : BTreeSet<Port>,
 }
 
 impl RealCell {

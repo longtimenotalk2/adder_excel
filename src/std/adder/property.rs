@@ -28,4 +28,8 @@ impl Adder {
         }
         set
     }
+
+    pub fn all_custom_abstract_cells(&self) -> BTreeSet<AbstractCell> {
+        self.all_abstract_cells().iter().filter(|c| c.custom_demand.len() > 0).cloned().collect()
+    }
 }

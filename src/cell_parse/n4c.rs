@@ -1,3 +1,5 @@
+use std::collections::BTreeSet;
+
 use crate::{cell_parse::{CellSourceType, ProcessAndProject, RealCell}, custom, std::{adder::{AbstractCell, CustomDemand, Drive}, logic_block::LogicBlock}};
 
 impl RealCell {
@@ -7,16 +9,16 @@ impl RealCell {
         let custom_demand = &abstract_cell.custom_demand;
         let drive = &abstract_cell.drive;
         let logic_block = &abstract_cell.logic_block;
-        let (name, source_type) = if custom_demand.len() == 0 {
-            match drive {
+        if custom_demand.len() == 0 {
+            let (name, source_type) = match drive {
                 Drive::D1 => { match logic_block {
                     LogicBlock::INV => ("INVMZD1BWP200H6P51CNODELVT", CellSourceType::Std),
                     LogicBlock::ND2 => ("ND2MZD1BWP200H6P51CNODELVT", CellSourceType::Std),
                     LogicBlock::NR2 => ("NR2MZD1BWP200H6P51CNODELVT", CellSourceType::Std),
                     LogicBlock::AN2 => ("AN2MZD1BWP200H6P51CNODELVT", CellSourceType::Std),
                     LogicBlock::OR2 => ("OR2MZD1BWP200H6P51CNODELVT", CellSourceType::Std),
-                    LogicBlock::IND2 => ("IND2MZD1BM200H6P51CNODELVT", CellSourceType::Custom),
-                    LogicBlock::INR2 => ("INR2MZD1BM200H6P51CNODELVT", CellSourceType::Custom),
+                    LogicBlock::IND2 => ("IND2NOMSAMZD1BWP200H6P51CNODELVT", CellSourceType::Std),
+                    LogicBlock::INR2 => ("INR2MZD1BWP200H6P51CNODELVT", CellSourceType::Std),
                     LogicBlock::XOR2 => ("XOR2SAMZD1BM200H6P51CNODELVT", CellSourceType::Custom),
                     LogicBlock::XNR2 => ("XNR2SAMZD1BM200H6P51CNODELVT", CellSourceType::Custom),
                     LogicBlock::XOR2DOUT => ("XOR2SAMZD1_DUAL_OUT_BM200H6P51CNODELVT", CellSourceType::Custom),
@@ -41,15 +43,15 @@ impl RealCell {
                     LogicBlock::OAI21 => ("OAI21SAMZD2BM200H6P51CNODELVT", CellSourceType::Custom),
                     _ => panic!("{logic_block:?} dont impl D2")
                 }}
+            };
+            Self {
+                name : name.to_string(),
+                source_type,
+                process : ProcessAndProject::N4C1340,
+                addition_pg_port : BTreeSet::new(),
             }
         } else {
-            todo!()
-            // return Self::parse_n4c_custom(logic_block, drive, custom_demand)
-        };
-        Self {
-            name : name.to_string(),
-            source_type,
-            process : ProcessAndProject::N4C1340,
+            Self::parse_n4c_custom(logic_block, drive, custom_demand)
         }
         
     }

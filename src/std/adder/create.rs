@@ -43,7 +43,7 @@ impl Adder {
                 cells.push(CellFullInfoInAdder {
                     logic_block_map,
                     drive,
-                    custom_demand : vec![],
+                    custom_demand,
                     layer,
                     index : wire.index,
                 });
