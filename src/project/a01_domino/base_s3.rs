@@ -1,6 +1,6 @@
 use crate::{cell_parse::ProcessAndProject, from_excel::ExcelData};
 
-const PATH : &'static str = "src/project/a01_domino/excel_data/uf31pp_dom_t01.txt";
+const PATH : &'static str = "src/project/a01_domino/excel_data/uf31pp_base_s3.txt";
 
 #[test]
 fn test_load_excel() {
@@ -26,7 +26,7 @@ fn test_adder() {
 fn test_function() {
     let excel_data = ExcelData::load(PATH);
     let adder = excel_data.create(31, false, false);
-    dbg!(&adder);
+    // dbg!(adder);
     adder.function_check_random(100, 0);
 }
 
@@ -34,16 +34,15 @@ fn test_function() {
 fn test_property() {
     let excel_data = ExcelData::load(PATH);
     let adder = excel_data.create(31, false, false);
-    // dbg!(adder.all_abstract_cells());
     dbg!(adder.cells.len());
-    dbg!(adder.cells.iter().filter(|c| c.custom_demand.len()>0).count());
 }
 
 #[test]
 fn test_cdl() {
     let excel_data = ExcelData::load(PATH);
     let adder = excel_data.create(31, false, false);
-    let content = adder.to_cdl_std(ProcessAndProject::N4C1340, "DOMINO_UF_PP_31");
+    let content = adder.to_cdl_std(ProcessAndProject::N4C1340, "UFADDER_PP_31_S3");
+    // let content = adder.to_cdl_all_vdd_split(ProcessAndProject::N4C1340, "UFADDER_PP_31");
 
     use std::fs::File;
     use std::io::prelude::*;
@@ -53,18 +52,19 @@ fn test_cdl() {
     let _ = file.write_all(content.as_bytes());
 }
 
+
 #[test]
 fn test_sp() {
     let excel_data = ExcelData::load(PATH);
     let adder = excel_data.create(31, false, false);
-    let adder_name = "DOMINO_UF_PP_31";
-    let adder_cdl_path = "cdl/DOMINO_UF_PP_31_T01_2.cdl";
+    let adder_name = "UFADDER_PP_31";
+    // let adder_cdl_path = "cdl/UFADDER_PP_31.cdl";
+    let adder_cdl_path = "cdl/UFADDER_PP_31_ALL_VDD_SPLIT.cdl";
     
-    // let content = adder.create_sp_of_adder_timing_base_0_sp(ProcessAndProject::N4C1340, adder_name, adder_cdl_path, true, false);
-    // let content = adder.create_sp_of_adder_timing_base_1_sp(ProcessAndProject::N4C1340, adder_name, adder_cdl_path, true, false);
-    // let content = adder.create_sp_of_adder_timing_base_1(ProcessAndProject::N4C1340, adder_name, adder_cdl_path);
     // let content = adder.create_sp_of_adder_function(ProcessAndProject::N4C1340, adder_name, adder_cdl_path);
-    let content = adder.create_sp_of_adder_power(ProcessAndProject::N4C1340, adder_name, adder_cdl_path);
+    // let content = adder.create_sp_of_adder_power_all_vdd_split(ProcessAndProject::N4C1340, adder_name, adder_cdl_path);
+    let content = adder.create_sp_source_trival();
+    // let content = adder.create_sp_of_adder_power_2nd(ProcessAndProject::N4C1340, adder_name, adder_cdl_path, 7);
 
     use std::fs::File;
     use std::io::prelude::*;

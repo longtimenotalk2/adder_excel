@@ -34,7 +34,7 @@ fn test_function() {
 fn test_property() {
     let excel_data = ExcelData::load(PATH);
     let adder = excel_data.create(31, false, false);
-    dbg!(adder.all_abstract_cells());
+    dbg!(adder.cells.len());
 }
 
 #[test]
@@ -42,6 +42,7 @@ fn test_cdl() {
     let excel_data = ExcelData::load(PATH);
     let adder = excel_data.create(31, false, false);
     let content = adder.to_cdl_std(ProcessAndProject::N4C1340, "UFADDER_PP_31");
+    // let content = adder.to_cdl_all_vdd_split(ProcessAndProject::N4C1340, "UFADDER_PP_31");
 
     use std::fs::File;
     use std::io::prelude::*;
@@ -51,14 +52,19 @@ fn test_cdl() {
     let _ = file.write_all(content.as_bytes());
 }
 
+
 #[test]
 fn test_sp() {
     let excel_data = ExcelData::load(PATH);
     let adder = excel_data.create(31, false, false);
     let adder_name = "UFADDER_PP_31";
-    let adder_cdl_path = "cdl/UFADDER_PP_31.cdl";
+    // let adder_cdl_path = "cdl/UFADDER_PP_31.cdl";
+    let adder_cdl_path = "cdl/UFADDER_PP_31_ALL_VDD_SPLIT.cdl";
     
-    let content = adder.create_sp_of_adder_function(ProcessAndProject::N4C1340, adder_name, adder_cdl_path);
+    // let content = adder.create_sp_of_adder_function(ProcessAndProject::N4C1340, adder_name, adder_cdl_path);
+    // let content = adder.create_sp_of_adder_power_all_vdd_split(ProcessAndProject::N4C1340, adder_name, adder_cdl_path);
+    let content = adder.create_sp_source_trival();
+    // let content = adder.create_sp_of_adder_power_2nd(ProcessAndProject::N4C1340, adder_name, adder_cdl_path, 7);
 
     use std::fs::File;
     use std::io::prelude::*;

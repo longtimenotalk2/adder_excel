@@ -29,7 +29,8 @@ pub struct AbstractCell {
 
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum CustomDemand {
-    Domino(DominoDemand)
+    Domino(DominoDemand),
+    Gdi,
 }
 
 #[derive(Debug, Clone)]

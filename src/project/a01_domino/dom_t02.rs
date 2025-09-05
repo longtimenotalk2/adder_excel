@@ -1,6 +1,6 @@
 use crate::{cell_parse::ProcessAndProject, from_excel::ExcelData};
 
-const PATH : &'static str = "src/project/a01_domino/excel_data/uf31pp_dom_t01.txt";
+const PATH : &'static str = "src/project/a01_domino/excel_data/uf31pp_dom_t02.txt";
 
 #[test]
 fn test_load_excel() {
@@ -58,13 +58,13 @@ fn test_sp() {
     let excel_data = ExcelData::load(PATH);
     let adder = excel_data.create(31, false, false);
     let adder_name = "DOMINO_UF_PP_31";
-    let adder_cdl_path = "cdl/DOMINO_UF_PP_31_T01_2.cdl";
+    let adder_cdl_path = "cdl/DOMINO_UF_PP_31_T02.cdl";
     
     // let content = adder.create_sp_of_adder_timing_base_0_sp(ProcessAndProject::N4C1340, adder_name, adder_cdl_path, true, false);
-    // let content = adder.create_sp_of_adder_timing_base_1_sp(ProcessAndProject::N4C1340, adder_name, adder_cdl_path, true, false);
+    let content = adder.create_sp_of_adder_timing_base_1_sp(ProcessAndProject::N4C1340, adder_name, adder_cdl_path, true, false);
     // let content = adder.create_sp_of_adder_timing_base_1(ProcessAndProject::N4C1340, adder_name, adder_cdl_path);
     // let content = adder.create_sp_of_adder_function(ProcessAndProject::N4C1340, adder_name, adder_cdl_path);
-    let content = adder.create_sp_of_adder_power(ProcessAndProject::N4C1340, adder_name, adder_cdl_path);
+    // let content = adder.create_sp_of_adder_power(ProcessAndProject::N4C1340, adder_name, adder_cdl_path);
 
     use std::fs::File;
     use std::io::prelude::*;

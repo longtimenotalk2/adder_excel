@@ -1,6 +1,6 @@
 use colorful::{Color, Colorful};
 
-use crate::std::{adder::{Adder, CellFullInfoInAdder, CellHinter, Drive}, logic_block::LogicBlock, node_create::LogicBlockMappingTable, wire::{Flag, Wire}};
+use crate::std::{adder::{Adder, CellFullInfoInAdder, CellHinter, CustomDemand, Drive}, logic_block::LogicBlock, node_create::LogicBlockMappingTable, wire::{Flag, Wire}};
 
 impl Adder {
     pub fn create_by_cell_hint(
@@ -118,11 +118,11 @@ impl Adder {
                 cells.push(CellFullInfoInAdder {
                     logic_block_map : LogicBlockMappingTable::new_from_vec(
                         logic_block, 
-                        vec![wire_q, wire_g], 
+                        vec![wire_g, wire_q], // A1是更快的，输入g
                         vec![wire_s.clone()],
                     ),
                     drive : Drive::D1,
-                    custom_demand : vec![],
+                    custom_demand : vec![], 
                     layer : 10,
                     index,
                 });

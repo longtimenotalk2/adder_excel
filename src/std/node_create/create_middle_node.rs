@@ -188,6 +188,7 @@ impl LogicBlockMappingTable {
                 CustomDemand::Domino(domino_demand) => {
                     return domino_demand.create_logic_block_mapping_table(target_wire, &mut manager, hint)
                 }
+                _ => (),
             }
         }
 
@@ -309,7 +310,7 @@ impl LogicBlockMappingTable {
                                     Wire::from_str_index_len("h", target_wire.index, target_wire.len).if_rev(source_h_is_neg)
                                 ))?;
 
-                                let logic_block_base = LogicBlock::NR2;
+                                let logic_block_base = LogicBlock::ND2;
                                 
                                 if source_p_is_neg == source_h_is_neg {
                                     let logic_block = logic_block_base.if_rev(source_p_is_neg).if_add_out_inv(*is_out_inv);

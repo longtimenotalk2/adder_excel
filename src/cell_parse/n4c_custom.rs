@@ -16,29 +16,45 @@ impl RealCell {
                     (&LogicBlock::OAI21, &Drive::D1, &DominoPolar::P, false) => "OAI21D1_DOM_P_V06",
                     (&LogicBlock::OAI21, &Drive::D2, &DominoPolar::P, false) => "OAI21D2_DOM_P_V06",
                     (&LogicBlock::NR2, &Drive::D1, &DominoPolar::P, true) => "NR2D1_DOM_P_START_V06",
-                    (&LogicBlock::OAI21, &Drive::D1, &DominoPolar::P, true) => "OAI21D1_DOM_P_START_V06",
+                    (&LogicBlock::OAI21, &Drive::D1, &DominoPolar::P, true) => "OAI21D1_DOMV08_P_STARTD2",
                     (&LogicBlock::AOI21, &Drive::D1, &DominoPolar::N, false) => "AOI21D1_DOM_N_V06",
-                    (&LogicBlock::Custom(CustomLogicBlock::AOI2221), &Drive::D2, &DominoPolar::N, false) => "AOI2221D2_DOM_N_V06",
-                    (&LogicBlock::Custom(CustomLogicBlock::NR4), &Drive::D1, &DominoPolar::N, true) => "NR4D1_DOM_N_START_V06",
-                    (&LogicBlock::Custom(CustomLogicBlock::NR6), &Drive::D1, &DominoPolar::N, true) => "NR6D1_DOM_N_START_V06",
+                    (&LogicBlock::Custom(CustomLogicBlock::AOI2221), &Drive::D2, &DominoPolar::N, false) => "AOI2221D2_DOMV08_N",
+                    (&LogicBlock::Custom(CustomLogicBlock::NR4), &Drive::D1, &DominoPolar::N, true) => "NR4D1_DOMV08_N_STARTD2",
+                    (&LogicBlock::Custom(CustomLogicBlock::NR6), &Drive::D1, &DominoPolar::N, true) => "NR6D1_DOMV08_N_STARTD2",
                     _ => panic!("{:?},{:?},{:?},is_start = {} is not implemented", domino.logic_block, drive, domino.polar, domino.is_start)
+                }
+            },
+            CustomDemand::Gdi => {
+                match logic_block {
+                    &LogicBlock::XOR2  => "XOR2D1_GDI",
+                    &LogicBlock::XNR2  => "XNR2D1_GDI",
+                    _ => panic!("{:?} for gdi is not implemented", logic_block)
                 }
             },
             // _ => unimplemented!()
         };
-        let addition_pg_port  = match &custom_demand[0] {
+        match &custom_demand[0] {
             CustomDemand::Domino(domino) => {
-                match &domino.polar {
+                let addition_pg_port  = match &domino.polar {
                     &DominoPolar::P => "KN",
                     &DominoPolar::N => "K",
+                };
+                Self {
+                    name: name.to_string(),
+                    source_type : CellSourceType::Lhw,
+                    process : ProcessAndProject::N4C1340,
+                    addition_pg_port : BTreeSet::from([Port::new(addition_pg_port)])
                 }
             },
-        };
-        Self {
-            name: name.to_string(),
-            source_type : CellSourceType::Lhw,
-            process : ProcessAndProject::N4C1340,
-            addition_pg_port : BTreeSet::from([Port::new(addition_pg_port)])
+            CustomDemand::Gdi => {
+                Self {
+                    name: name.to_string(),
+                    source_type : CellSourceType::Lhw,
+                    process : ProcessAndProject::N4C1340,
+                    addition_pg_port : BTreeSet::new()
+                }
+            }
         }
+        
     }
 }

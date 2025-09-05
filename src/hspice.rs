@@ -8,6 +8,8 @@ use crate::{cell_parse::{CellSourceType, ProcessAndProject, RealCell}, std::node
 pub mod cdl;
 pub mod timing;
 pub mod function;
+pub mod power;
+mod other;
 
 const SPACE : &str = "    ";
 
@@ -56,7 +58,7 @@ pub fn line_cell_given_lens(inst_name : &str, pins : &[impl ToString], inst_logo
 }
 
 pub fn line_source_period(wire_name : &str, v1 : &str, v2 : &str, start_pos : f64, step_length : f64, period : Option<f64>) -> String {
-    format!("V{wire_name}  {wire_name}  0  pulse  {v1}  {v2}  'td+clkper*{start_pos}'  tr  tr  'clkper*{step_length}'  '{}'\n",  
+    format!("V{wire_name}  {wire_name}  0  pulse  {v1}  {v2}  'td+clkper*{start_pos}'  tr  tr  'clkper*{step_length}-tr'  '{}'\n",  
         if let Some(period) = period {
             format!("clkper*{period}")
         } else {
@@ -106,6 +108,31 @@ pub fn line_measure_delay(
     )
 }
 
+pub fn line_measure_delay_with_td(
+    name : &str,
+    target_wire : &str, 
+    source_wire : &str, 
+    source_is_rise : bool,
+    source_td : Option<String>,
+    source_nth : usize,
+    target_is_rise : bool,
+    target_td : Option<String>,
+    target_nth : usize,
+) -> String {
+    format!(".measure tran delay_{name}    trig v({source_wire}) val='avdd/2' {}  {}={source_nth}      targ v({target_wire}) val='avdd/2'   {}  {}={target_nth}\n",
+        if let Some(td) = source_td { format!("td={td}") } else { "".to_string() },
+        if source_is_rise { "rise" } else { "fall" },
+        if let Some(td) = target_td { format!("td={td}") } else { "".to_string() },
+        if target_is_rise { "rise" } else { "fall" }
+    )
+}
+
+pub fn line_measure_power(pin_name : &str) -> String {
+    let mut s = String::new();
+    s += &format!(".measure Tran power_{pin_name}    avg i(V{pin_name})   from='td' to='time_all'\n");
+    s
+}
+
 impl RealCell {
     fn line_inc(&self) -> String {
         let path = match self.process {
@@ -127,6 +154,26 @@ impl RealCell {
         let mut pg_port = vec!["VBB", "VDD", "VPP", "VSS"];
         for port in &self.addition_pg_port {
             pg_port.push(port.0.as_str());
+        }
+        let mut port_wire_map = BTreeMap::new();
+        for port in pg_port {
+            port_wire_map.insert(port.to_string(), port.to_string());
+        }
+        for (port, wire) in &map.inputs {
+            port_wire_map.insert(port.0.clone(), wire.to_string());
+        }
+        for (port, wire) in &map.outputs {
+            port_wire_map.insert(port.0.clone(), wire.to_string());
+        }
+        let pins : Vec<String> = port_wire_map.values().cloned().collect();
+
+        line_cell(inst_name, &pins, &self.name)
+    }
+
+    fn line_cell_vdd_split(&self, inst_name : &str, map : &LogicBlockMappingTable) -> String {
+        let mut pg_port = vec!["VBB".to_string(), format!("VDD_{}", inst_name), "VPP".to_string(), "VSS".to_string()];
+        for port in &self.addition_pg_port {
+            pg_port.push(port.0.clone());
         }
         let mut port_wire_map = BTreeMap::new();
         for port in pg_port {
