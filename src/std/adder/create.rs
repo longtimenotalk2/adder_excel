@@ -16,6 +16,7 @@ impl Adder {
             history_wires.push(Wire::from_str(&format!("b{i}")));
         }
         for hint in hints {
+            // dbg!(&hint);
             let wire = hint.wire_ref;
             let layer = hint.layer;
             let drive = hint.drive;

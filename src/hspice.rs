@@ -90,7 +90,7 @@ pub fn line_source_random(pin_name : &str, seed : u64, source_0 : &str, source_1
 }
 
 pub fn line_end_subckt() -> String {
-    ".ENDS".to_string()
+    ".ENDS\n".to_string()
 }
 
 pub fn line_measure_delay(

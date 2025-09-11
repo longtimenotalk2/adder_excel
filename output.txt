@@ -1,5 +1,4 @@
 .inc '/ic/projects/BM1340/public/5_custom/spf/stdcell/Cbest/INVMZD1BWP200H6P51CNODELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/stdcell/Cbest/INVMZD2BWP200H6P51CNODELVT.Cbest60.spf'
 .inc '/ic/projects/BM1340/public/5_custom/spf/stdcell/Cbest/ND2MZD1BWP200H6P51CNODELVT.Cbest60.spf'
 .inc '/ic/projects/BM1340/public/5_custom/spf/stdcell/Cbest/NR2MZD1BWP200H6P51CNODELVT.Cbest60.spf'
 .inc '/ic/projects/BM1340/public/5_custom/spf/stdcell/Cbest/OR2MZD1BWP200H6P51CNODELVT.Cbest60.spf'
@@ -20,7 +19,7 @@
 .inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/OAOI211SAMZD1BM200H6P51CNODELVT.Cbest60.spf'
 .inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/OAO211MZD1BM200H6P51CNODELVT.Cbest60.spf'
 
-.SUBCKT UFADDER_PP_31_S3 A0 A1 A2 A3 A4 A5 A6 A7 A8 A9 A10 A11 A12 A13 A14 A15 A16 A17 A18 A19 A20 A21 A22 A23 A24 A25 A26 A27 A28 A29 A30 B0 B1 B2 B3 B4 B5 B6 B7 B8 B9 B10 B11 B12 B13 B14 B15 B16 B17 B18 B19 B20 B21 B22 B23 B24 B25 B26 B27 B28 B29 B30 S0 S1 S2 S3 S4 S5 S6 S7 S8 S9 S10 S11 S12 S13 S14 S15 S16 S17 S18 S19 S20 S21 S22 S23 S24 S25 S26 S27 S28 S29 S30 VBB VDD VPP VSS 
+.SUBCKT UFADDER_PP_31_BASE_05 A0 A1 A2 A3 A4 A5 A6 A7 A8 A9 A10 A11 A12 A13 A14 A15 A16 A17 A18 A19 A20 A21 A22 A23 A24 A25 A26 A27 A28 A29 A30 B0 B1 B2 B3 B4 B5 B6 B7 B8 B9 B10 B11 B12 B13 B14 B15 B16 B17 B18 B19 B20 B21 B22 B23 B24 B25 B26 B27 B28 B29 B30 S0 S1 S2 S3 S4 S5 S6 S7 S8 S9 S10 S11 S12 S13 S14 S15 S16 S17 S18 S19 S20 S21 S22 S23 S24 S25 S26 S27 S28 S29 S30 VBB VDD VPP VSS 
 x_U1_nh1_0          a1      b1      a0      b0      VBB     VDD     VPP     VSS     nh1_0    AOI22SAMZD1BM200H6P51CNODELVT
 x_U1_np2_1          a2      b2      a1      b1      VBB     VDD     VPP     VSS     np2_1    OAI22SAMZD1BM200H6P51CNODELVT
 x_U1_nh3_2          a3      b3      a2      b2      VBB     VDD     VPP     VSS     nh3_2    AOI22SAMZD1BM200H6P51CNODELVT
@@ -47,7 +46,7 @@ x_U1_ng23nq23       a23     b23     ng23    VBB     VDD     VPP     VSS     nq23
 x_U1_np24q24        a24     b24     np24    VBB     VDD     VPP     VSS     q24     XOR2SAMZD1_DUAL_OUT_BM200H6P51CNODELVT
 x_U1_ng18nq18       a18     b18     ng18    VBB     VDD     VPP     VSS     nq18    XNR2SAMZD1_DUAL_OUT_BM200H6P51CNODELVT
 x_U1_ng21nq21       a21     b21     ng21    VBB     VDD     VPP     VSS     nq21    XNR2SAMZD1_DUAL_OUT_BM200H6P51CNODELVT
-x_U2_h3_0           np2_1    nh1_0    nh3_2    VBB     VDD     VPP     VSS     h3_0    OAI21SAMZD1BM200H6P51CNODELVT
+x_U2_h3_0           np2_1    nh1_0    nh3_2    VBB     VDD     VPP     VSS     h3_0    OAI21SAMZD2BM200H6P51CNODELVT
 x_U2_p6_3           np6_5    np4_3    VBB     VDD     VPP     VSS     p6_3    NR2MZD1BWP200H6P51CNODELVT
 x_U2_h7_4           np6_5    nh5_4    nh7_6    VBB     VDD     VPP     VSS     h7_4    OAI21SAMZD1BM200H6P51CNODELVT
 x_U2_p10_7          np10_9    np8_7    VBB     VDD     VPP     VSS     p10_7    NR2MZD1BWP200H6P51CNODELVT
@@ -60,7 +59,7 @@ x_U2_p21_19         np21_20    np19    VBB     VDD     VPP     VSS     p21_19   
 x_U2_g21_19         np21_20    nh20_19    ng21    VBB     VDD     VPP     VSS     g21_19    OAI21SAMZD1BM200H6P51CNODELVT
 x_U2_q23_22         nq23    nq22    VBB     VDD     VPP     VSS     q23_22    NR2MZD1BWP200H6P51CNODELVT
 x_U2_g23_22         nq23    ng22    ng23    VBB     VDD     VPP     VSS     g23_22    OAI21SAMZD1BM200H6P51CNODELVT
-x_U3_nh7_0          p6_3    h3_0    h7_4    VBB     VDD     VPP     VSS     nh7_0    AOI21SAMZD1BM200H6P51CNODELVT
+x_U3_nh7_0          p6_3    h3_0    h7_4    VBB     VDD     VPP     VSS     nh7_0    AOI21SAMZD2BM200H6P51CNODELVT
 x_U3_np14_7         p14_11    p10_7    VBB     VDD     VPP     VSS     np14_7    ND2MZD1BWP200H6P51CNODELVT
 x_U3_nh15_8         p14_11    h11_8    h15_12    VBB     VDD     VPP     VSS     nh15_8    AOI21SAMZD1BM200H6P51CNODELVT
 x_U3_np21_15        p21_19    p18_15    VBB     VDD     VPP     VSS     np21_15    ND2MZD1BWP200H6P51CNODELVT
@@ -104,6 +103,10 @@ x_U3_g2_0           np2_1    ng1_0    ng2     VBB     VDD     VPP     VSS     g2
 x_U3_ng3_0          np3     h3_0    VBB     VDD     VPP     VSS     ng3_0    IND2NOMSAMZD1BWP200H6P51CNODELVT
 x_U3_nq27_25        q27     q26_25    VBB     VDD     VPP     VSS     nq27_25    ND2MZD1BWP200H6P51CNODELVT
 x_U3_ng27_25        a27     b27     q27     g26_25    VBB     VDD     VPP     VSS     ng27_25    AOI22SAMZD1BM200H6P51CNODELVT
+x_U3_nq23_22        q23_22    VBB     VDD     VPP     VSS     nq23_22    INVMZD1BWP200H6P51CNODELVT
+x_U3_ng23_22        g23_22    VBB     VDD     VPP     VSS     ng23_22    INVMZD1BWP200H6P51CNODELVT
+x_U3_nq26_25        q26_25    VBB     VDD     VPP     VSS     nq26_25    INVMZD1BWP200H6P51CNODELVT
+x_U3_ng26_25        g26_25    VBB     VDD     VPP     VSS     ng26_25    INVMZD1BWP200H6P51CNODELVT
 x_U4_ng4_0          np4_3    ng3_0    ng4     VBB     VDD     VPP     VSS     ng4_0    OA21SAMZD1BM200H6P51CNODELVT
 x_U4_ng7_0          np7     nh7_0    VBB     VDD     VPP     VSS     ng7_0    OR2MZD1BWP200H6P51CNODELVT
 x_U4_nh11_0         p10_7    nh7_0    h11_8    VBB     VDD     VPP     VSS     nh11_0    IAOI21SAMZD1BM200H6P51CNODELVT
@@ -123,21 +126,26 @@ x_U5_ng21_0         p21_15    h15_0    g21_16    VBB     VDD     VPP     VSS    
 x_U5_ng24_0         p24_15    h15_0    g24_16    VBB     VDD     VPP     VSS     ng24_0    AOI21SAMZD2BM200H6P51CNODELVT
 x_U5_nq29_25        q29     q28_25    VBB     VDD     VPP     VSS     nq29_25    ND2MZD1BWP200H6P51CNODELVT
 x_U5_ng29_25        a29     b29     q29     g28_25    VBB     VDD     VPP     VSS     ng29_25    AOI22SAMZD1BM200H6P51CNODELVT
+x_U5_nq28_25        q28_25    VBB     VDD     VPP     VSS     nq28_25    INVMZD1BWP200H6P51CNODELVT
+x_U5_ng28_25        g28_25    VBB     VDD     VPP     VSS     ng28_25    INVMZD1BWP200H6P51CNODELVT
 x_U6_g6_0           np6_5    ng5_0    ng6     VBB     VDD     VPP     VSS     g6_0    OAI21SAMZD1BM200H6P51CNODELVT
 x_U6_g10_0          np10_9    g9_0    ng10    VBB     VDD     VPP     VSS     g10_0    IOAI21SAMZD1BM200H6P51CNODELVT
 x_U6_g14_0          np14_13    ng13_0    ng14    VBB     VDD     VPP     VSS     g14_0    OAI21SAMZD1BM200H6P51CNODELVT
+x_U6_g15_0          ng15_0    VBB     VDD     VPP     VSS     g15_0    INVMZD1BWP200H6P51CNODELVT
 x_U6_g16_0          np16_15    ng15_0    ng16    VBB     VDD     VPP     VSS     g16_0    OAI21SAMZD1BM200H6P51CNODELVT
 x_U6_g17_0          ng15_0    np16_15    nh17_16    np17    VBB     VDD     VPP     VSS     g17_0    OAOI211SAMZD1BM200H6P51CNODELVT
+x_U6_g18_0          ng18_0    VBB     VDD     VPP     VSS     g18_0    INVMZD1BWP200H6P51CNODELVT
 x_U6_g19_0          np19    ng18_0    ng19    VBB     VDD     VPP     VSS     g19_0    OAI21SAMZD1BM200H6P51CNODELVT
 x_U6_g20_0          ng18_0    np19    nh20_19    np20    VBB     VDD     VPP     VSS     g20_0    OAOI211SAMZD1BM200H6P51CNODELVT
+x_U6_g21_0          ng21_0    VBB     VDD     VPP     VSS     g21_0    INVMZD1BWP200H6P51CNODELVT
 x_U6_g22_0          nq22    ng21_0    ng22    VBB     VDD     VPP     VSS     g22_0    OAI21SAMZD1BM200H6P51CNODELVT
-x_U6_ng23_0         q23_22    ng21_0    g23_22    VBB     VDD     VPP     VSS     ng23_0    IAOI21SAMZD1BM200H6P51CNODELVT
-x_U6_g24_0          ng24_0    VBB     VDD     VPP     VSS     g24_0    INVMZD2BWP200H6P51CNODELVT
+x_U6_g23_0          nq23_22    ng21_0    ng23_22    VBB     VDD     VPP     VSS     g23_0    OAI21SAMZD1BM200H6P51CNODELVT
+x_U6_g24_0          ng24_0    VBB     VDD     VPP     VSS     g24_0    INVMZD1BWP200H6P51CNODELVT
 x_U6_g25_0          nq25    ng24_0    ng25    VBB     VDD     VPP     VSS     g25_0    OAI21SAMZD1BM200H6P51CNODELVT
+x_U6_g26_0          nq26_25    ng24_0    ng26_25    VBB     VDD     VPP     VSS     g26_0    OAI21SAMZD1BM200H6P51CNODELVT
 x_U6_g27_0          nq27_25    ng24_0    ng27_25    VBB     VDD     VPP     VSS     g27_0    OAI21SAMZD1BM200H6P51CNODELVT
+x_U6_g28_0          nq28_25    ng24_0    ng28_25    VBB     VDD     VPP     VSS     g28_0    OAI21SAMZD1BM200H6P51CNODELVT
 x_U6_g29_0          nq29_25    ng24_0    ng29_25    VBB     VDD     VPP     VSS     g29_0    OAI21SAMZD1BM200H6P51CNODELVT
-x_U7_ng26_0         q26_25    g24_0    g26_25    VBB     VDD     VPP     VSS     ng26_0    AOI21SAMZD1BM200H6P51CNODELVT
-x_U7_ng28_0         q28_25    g24_0    g28_25    VBB     VDD     VPP     VSS     ng28_0    AOI21SAMZD1BM200H6P51CNODELVT
 x_U10_s0            nq0     VBB     VDD     VPP     VSS     s0      INVMZD1BWP200H6P51CNODELVT
 x_U10_s1            ng0     q1      VBB     VDD     VPP     VSS     s1      XNR2SAMZD1BM200H6P51CNODELVT
 x_U10_s2            ng1_0    nq2     VBB     VDD     VPP     VSS     s2      XOR2SAMZD1BM200H6P51CNODELVT
@@ -154,19 +162,19 @@ x_U10_s12           g11_0    nq12    VBB     VDD     VPP     VSS     s12     XNR
 x_U10_s13           g12_0    q13     VBB     VDD     VPP     VSS     s13     XOR2SAMZD1BM200H6P51CNODELVT
 x_U10_s14           ng13_0    nq14    VBB     VDD     VPP     VSS     s14     XOR2SAMZD1BM200H6P51CNODELVT
 x_U10_s15           g14_0    q15     VBB     VDD     VPP     VSS     s15     XOR2SAMZD1BM200H6P51CNODELVT
-x_U10_s16           ng15_0    nq16    VBB     VDD     VPP     VSS     s16     XOR2SAMZD1BM200H6P51CNODELVT
+x_U10_s16           g15_0    nq16    VBB     VDD     VPP     VSS     s16     XNR2SAMZD1BM200H6P51CNODELVT
 x_U10_s17           g16_0    q17     VBB     VDD     VPP     VSS     s17     XOR2SAMZD1BM200H6P51CNODELVT
 x_U10_s18           g17_0    nq18    VBB     VDD     VPP     VSS     s18     XNR2SAMZD1BM200H6P51CNODELVT
-x_U10_s19           ng18_0    nq19    VBB     VDD     VPP     VSS     s19     XOR2SAMZD1BM200H6P51CNODELVT
+x_U10_s19           g18_0    nq19    VBB     VDD     VPP     VSS     s19     XNR2SAMZD1BM200H6P51CNODELVT
 x_U10_s20           g19_0    q20     VBB     VDD     VPP     VSS     s20     XOR2SAMZD1BM200H6P51CNODELVT
 x_U10_s21           g20_0    nq21    VBB     VDD     VPP     VSS     s21     XNR2SAMZD1BM200H6P51CNODELVT
-x_U10_s22           ng21_0    nq22    VBB     VDD     VPP     VSS     s22     XOR2SAMZD1BM200H6P51CNODELVT
+x_U10_s22           g21_0    nq22    VBB     VDD     VPP     VSS     s22     XNR2SAMZD1BM200H6P51CNODELVT
 x_U10_s23           g22_0    nq23    VBB     VDD     VPP     VSS     s23     XNR2SAMZD1BM200H6P51CNODELVT
-x_U10_s24           ng23_0    q24     VBB     VDD     VPP     VSS     s24     XNR2SAMZD1BM200H6P51CNODELVT
+x_U10_s24           g23_0    q24     VBB     VDD     VPP     VSS     s24     XOR2SAMZD1BM200H6P51CNODELVT
 x_U10_s25           g24_0    nq25    VBB     VDD     VPP     VSS     s25     XNR2SAMZD1BM200H6P51CNODELVT
 x_U10_s26           g25_0    nq26    VBB     VDD     VPP     VSS     s26     XNR2SAMZD1BM200H6P51CNODELVT
-x_U10_s27           ng26_0    q27     VBB     VDD     VPP     VSS     s27     XNR2SAMZD1BM200H6P51CNODELVT
+x_U10_s27           g26_0    q27     VBB     VDD     VPP     VSS     s27     XOR2SAMZD1BM200H6P51CNODELVT
 x_U10_s28           g27_0    nq28    VBB     VDD     VPP     VSS     s28     XNR2SAMZD1BM200H6P51CNODELVT
-x_U10_s29           ng28_0    q29     VBB     VDD     VPP     VSS     s29     XNR2SAMZD1BM200H6P51CNODELVT
+x_U10_s29           g28_0    q29     VBB     VDD     VPP     VSS     s29     XOR2SAMZD1BM200H6P51CNODELVT
 x_U10_s30           g29_0    nq30    VBB     VDD     VPP     VSS     s30     XNR2SAMZD1BM200H6P51CNODELVT
 .ENDS

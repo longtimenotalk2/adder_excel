@@ -1,6 +1,49 @@
 use crate::{cell_parse::ProcessAndProject, hspice::{line_inc, line_measure_delay, line_measure_delay_with_td, line_source_dc, line_source_period}, std::adder::Adder};
 
 impl Adder {
+    pub fn create_sp_of_adder_timing_single(
+        &self,
+        process : ProcessAndProject,
+        adder_name : &str,
+        adder_cdl_path : &str,
+        index : usize,
+    ) -> String {
+        let mut txt = String::new();
+        let bits = self.bits;
+        txt += &line_inc(adder_cdl_path);
+        txt += "\n";
+
+        // source
+        for i in 0..bits {
+            if i == index {
+                txt += &line_source_period(&format!("A{i:02}"), "0", "avdd", 0., 1., None)
+            } else {
+                txt += &line_source_dc(&format!("A{i:02}"), "0")
+            }
+        }
+        for i in 0..bits {
+            txt += &line_source_dc(&format!("B{i:02}"), "avdd")
+        }
+        txt += "\n";
+
+        // adder
+        txt += &self.adder_call(process, adder_name);
+        txt += "\n";
+
+
+        // pg
+        txt += &line_source_dc("VBB", "0");
+        txt += &line_source_dc("VDD", "avdd");
+        txt += &line_source_dc("VPP", "avdd");
+        txt += &line_source_dc("VSS", "0");
+        txt += "\n";
+
+
+        txt
+    }
+
+
+
     pub fn create_sp_of_adder_timing_base_0(
         &self,
         process : ProcessAndProject,
