@@ -17,6 +17,7 @@ pub enum CellSourceType {
 pub enum ProcessAndProject {
     N3E1374,
     N4C1340,
+    N4C1342H200,
 }
 
 #[derive(Debug, Clone, Copy)]
@@ -44,6 +45,9 @@ impl RealCell {
             }
             ProcessAndProject::N4C1340 => {
                 Self::parse_n4c(abstract_cell)
+            }
+            ProcessAndProject::N4C1342H200 => {
+                Self::parse_n4c_1342_h200(abstract_cell)
             }
         }
     }

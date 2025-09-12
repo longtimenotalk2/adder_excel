@@ -8,6 +8,8 @@ impl Adder {
         input_is_neg : bool,
         output_is_neg : bool,
         hints : Vec<CellHinter>, // layer
+        end_xnr_not_new_q : Vec<usize>, // 指定index的q不找最新的
+        end_xnr_not_new_g : Vec<usize>, // 指定index的g不找最新的
     ) -> Self {
         let mut cells = vec![];
         let mut history_wires = vec![];
@@ -87,19 +89,42 @@ impl Adder {
             if !has_s.contains(&index) {
                 // 寻找最新的q或者nq
                 let mut wire_q = None;
+                let mut count = 0;
                 for wire in history_wires.iter().rev() {
                     if wire.flag == Flag::Q && wire.index == index && wire.len == 1 {
-                        wire_q = Some(wire.clone());
-                        break;
+                        if end_xnr_not_new_q.contains(&index) {
+                            if count == 0 {
+                                count += 1;
+                            } else {
+                                wire_q = Some(wire.clone());
+                                break;
+                            }
+
+                        } else {
+                            wire_q = Some(wire.clone());
+                            break;
+                        }
+                        
                     }
                 }
                 let wire_q = wire_q.expect(&format!("can not find q for index {} in adder", index));
                 // 寻找最新的g
                 let mut wire_g = None;
+                let mut count = 0;
                 for wire in history_wires.iter().rev() {
                     if wire.flag == Flag::G && wire.index == index - 1 && wire.len == index {
-                        wire_g = Some(wire.clone());
-                        break;
+                        if end_xnr_not_new_g.contains(&index) {
+                            if count == 0 {
+                                count += 1;
+                            } else {
+                                wire_g = Some(wire.clone());
+                                break;
+                            }
+                        } else {
+                            wire_g = Some(wire.clone());
+                            break;
+                        }
+                        
                     }
                 }
                 let wire_g = wire_g.expect(&format!("can not find g{}_0 for in adder", index -1));

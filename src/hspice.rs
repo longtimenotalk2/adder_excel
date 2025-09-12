@@ -67,16 +67,16 @@ pub fn line_source_period(wire_name : &str, v1 : &str, v2 : &str, start_pos : f6
     )
 }
 
-pub fn line_source_dc(pin_name : &str, source_name : &str) -> String {
+pub fn line_source_dc(Pinname : &str, source_name : &str) -> String {
     let mut s = String::new();
     s += &format!("{:<16}{SPACE}{:<4}{SPACE}0   DC={source_name}\n",
-        format!("V{pin_name}"),
-        pin_name,
+        format!("V{Pinname}"),
+        Pinname,
     );
     s
 }
 
-pub fn line_source_random(pin_name : &str, seed : u64, source_0 : &str, source_1 : &str) -> String {
+pub fn line_source_random(Pinname : &str, seed : u64, source_0 : &str, source_1 : &str) -> String {
     let backs = [32, 22, 2, 1, 0];
     let mut my_rng = ChaCha20Rng::seed_from_u64(seed);
     let my_seed : u32 = my_rng.random(); 
@@ -86,7 +86,7 @@ pub fn line_source_random(pin_name : &str, seed : u64, source_0 : &str, source_1
     }
     s_last = s_last[..s_last.len()-1].to_string();
 
-    format!("V{pin_name} {pin_name} 0 LFSR ({source_0} {source_1} 'td-clkper'  tr tr (1/clkper) {} [{s_last}])\n", my_seed)
+    format!("V{Pinname} {Pinname} 0 LFSR ({source_0} {source_1} 'td-clkper'  tr tr (1/clkper) {} [{s_last}])\n", my_seed)
 }
 
 pub fn line_end_subckt() -> String {
@@ -127,9 +127,9 @@ pub fn line_measure_delay_with_td(
     )
 }
 
-pub fn line_measure_power(pin_name : &str) -> String {
+pub fn line_measure_power(Pinname : &str) -> String {
     let mut s = String::new();
-    s += &format!(".measure Tran power_{pin_name}    avg i(V{pin_name})   from='td' to='time_all'\n");
+    s += &format!(".measure Tran power_{Pinname}    avg i(V{Pinname})   from='td' to='time_all'\n");
     s
 }
 
@@ -146,6 +146,9 @@ impl RealCell {
                     CellSourceType::Lhw => format!("{path_base}/users/haiwei.li/V0/work/spf/out/{}/{}{end}", self.name, self.name),
                 }
             },
+            ProcessAndProject::N4C1342H200 => {
+                todo!()
+            }
         };
         line_inc(&path)
     }

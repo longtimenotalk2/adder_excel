@@ -1,5 +1,5 @@
 LY	LT	type	30	29	28	27	26	25	24	23	22	21	20	19	18	17	16	15	14	13	12	11	10	9	8	7	6	5	4	3	2	1	0
-1	cri	wire							q~	nq~	nq~	np2	nh2	np	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	
+1	cri	wire							q	nq~	nq~	np2	nh2	np	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	
 1	cri	code							A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	
 1	cri	cap																2	4	4	6	2	4	4	4	2	4	2	2	4	4	6	
 1	cri	wire										nq~			nq~																		
@@ -24,6 +24,6 @@ LY	LT	type	30	29	28	27	26	25	24	23	22	21	20	19	18	17	16	15	14	13	12	11	10	9	8	7	
 5	uncri	wire		ng5	<nq5				ng25			g22			ng19			ng16		ng14	g13	g12		g10	g9			ng6					
 5	uncri	code		L{abqg}					DL{gph}			L{gp~h}			L{gph}			L{~ph}		NL{phph}	L{gph}	L{ph}		L{phpg}				N					
 6	uncri	wire		g30		g28		g26	g25	ng24	ng23		g21	g20		g18	g17		g15				g11				g7						
-6	uncri	code							I				L{phqg}	L{gqg}		L{phqg}	L{gqg}						L{gp~g}										
+6	uncri	code							I				L{phqg}	L{gqg}		L{phpg}	L{gqg}						L{gq~g}										
 7	uncri	wire			ng29		ng27																										
 7	uncri	code																															

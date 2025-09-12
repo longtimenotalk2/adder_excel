@@ -34,8 +34,8 @@ impl CellHinter {
                         match wire.flag {
                             Flag::G => {
                                 vec![
-                                    vec![Flag::G, Flag::P, Flag::G],
                                     vec![Flag::G, Flag::Q, Flag::G],
+                                    vec![Flag::G, Flag::P, Flag::G],
                                 ].into_iter().map(|flags| {
                                     LogiBlockHint::Normal {
                                         flags,

@@ -4,8 +4,8 @@ use crate::{cell_parse::{ProcessAndProject, RealCell}, std::{adder::{Adder, Cell
 
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct ConnectRelation {
-    inputs : BTreeSet<String>,
-    outputs : BTreeSet<String>,
+    inputs : Vec<String>,
+    outputs : Vec<String>,
     inst_name : String,
     cell_name : String,
 }
@@ -21,8 +21,8 @@ impl ConnectRelation {
         let mut iter = txt.split(';');
         let inst_name = iter.next().unwrap().to_string();
         let cell_name = iter.next().unwrap().to_string();
-        let inputs = iter.next().unwrap().split(',').map(|x| x.to_string()).collect::<BTreeSet<_>>();
-        let outputs = iter.next().unwrap().split(',').map(|x| x.to_string()).collect::<BTreeSet<_>>();
+        let inputs = iter.next().unwrap().split(',').map(|x| x.to_string()).collect::<Vec<_>>();
+        let outputs = iter.next().unwrap().split(',').map(|x| x.to_string()).collect::<Vec<_>>();
         Self {
             inputs,
             outputs,
@@ -38,14 +38,22 @@ impl ConnectRelation {
         let real_cell = RealCell::parse(process, abstract_cell);
         let cell_name = real_cell.name;
 
-        let mut inputs = BTreeSet::new();
+        let mut inputs = Vec::new();
         for (_port, wire) in &map.inputs {
-            inputs.insert(wire.to_string());
+            inputs.push(wire.to_string());
         }
 
-        let mut outputs = BTreeSet::new();
-        for (_port, wire) in &map.outputs {
-            outputs.insert(wire.to_string());
+        let mut outputs = Vec::new();
+        let mut o1_wire = None;
+        for (port, wire) in &map.outputs {
+            if port.0.as_str() != "O1" {
+                outputs.push(wire.to_string());
+            } else {
+                o1_wire = Some(wire);
+            }
+        }
+        if let Some(o1_wire) = o1_wire {
+            outputs.push(o1_wire.to_string());
         }
 
         Self {

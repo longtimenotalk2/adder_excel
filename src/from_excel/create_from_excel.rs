@@ -12,7 +12,12 @@ impl ExcelData {
     
     pub fn create(&self, bits : usize, input_is_neg : bool, output_is_neg : bool) -> Adder {
         let mut hints = self.to_cell_hinter_list();
-        Adder::create_by_cell_hint(bits, input_is_neg, output_is_neg, hints)
+        Adder::create_by_cell_hint(bits, input_is_neg, output_is_neg, hints, vec![], vec![])
+    }
+
+    pub fn create_with_end_xnr_not_new(&self, bits : usize, input_is_neg : bool, output_is_neg : bool, end_xnr_not_new_q : Vec<usize>, end_xnr_not_new_g : Vec<usize>) -> Adder {
+        let mut hints = self.to_cell_hinter_list();
+        Adder::create_by_cell_hint(bits, input_is_neg, output_is_neg, hints, end_xnr_not_new_q, end_xnr_not_new_g)
     }
 }
 

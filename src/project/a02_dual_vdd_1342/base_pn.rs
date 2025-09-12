@@ -55,8 +55,8 @@ fn test_cdl() {
 #[test]
 fn test_save_connect_relation() {
     let excel_data = ExcelData::load(PATH);
-    let adder = excel_data.create(31, false, true);
-    adder.save_connect_relation(ProcessAndProject::N4C1340);
+    let adder = excel_data.create_with_end_xnr_not_new(31, false, true, vec![22], vec![25]);
+    adder.save_connect_relation(ProcessAndProject::N4C1342H200);
 }
 
 
