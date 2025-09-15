@@ -53,7 +53,7 @@ impl Wire {
 
     pub fn to_string(&self) -> String {
         let mut ret = String::new();
-        if self.is_neg {
+        if self.is_neg && self.flag != Flag::S {
             ret.push('n');
         }
         ret.push_str(self.flag.to_str());

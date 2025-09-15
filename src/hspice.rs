@@ -134,27 +134,41 @@ pub fn line_measure_power(Pinname : &str) -> String {
 }
 
 impl RealCell {
-    fn line_inc(&self) -> String {
+    pub fn inc_path(&self) -> String {
         let path = match self.process {
             ProcessAndProject::N3E1374 => todo!(),
             ProcessAndProject::N4C1340 => {
                 let path_base = "/ic/projects/BM1340";
                 let end = ".Cbest60.spf";
-                match self.source_type {
+                match &self.source_type {
                     CellSourceType::Std => format!("{path_base}/public/5_custom/spf/stdcell/Cbest/{}{end}", self.name),
                     CellSourceType::Custom => format!("{path_base}/public/5_custom/spf/custom/Cbest/{}{end}", self.name),
                     CellSourceType::Lhw => format!("{path_base}/users/haiwei.li/V0/work/spf/out/{}/{}{end}", self.name, self.name),
+                    CellSourceType::LocalHack => format!("cell/hack_{}{end}", self.name),
                 }
             },
             ProcessAndProject::N4C1342H200 => {
                 todo!()
             }
         };
-        line_inc(&path)
+        path
+    }
+
+    fn line_inc(&self) -> String {
+        
+        line_inc(&self.inc_path())
     }
 
     fn line_cell(&self, inst_name : &str, map : &LogicBlockMappingTable) -> String {
         let mut pg_port = vec!["VBB", "VDD", "VPP", "VSS"];
+        if self.vdd_replaced.len() > 0 {
+            pg_port = vec!["VBB"];
+            for port in &self.vdd_replaced {
+                pg_port.push(port.0.as_str());
+            }
+            pg_port.push("VPP");
+            pg_port.push("VSS");
+        }
         for port in &self.addition_pg_port {
             pg_port.push(port.0.as_str());
         }

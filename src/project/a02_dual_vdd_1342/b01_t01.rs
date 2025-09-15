@@ -1,6 +1,6 @@
 use crate::{cell_parse::ProcessAndProject, from_excel::ExcelData};
 
-const PATH : &'static str = "src/project/a02_dual_vdd_1342/excel_data/base_pn.txt";
+const PATH : &'static str = "src/project/a02_dual_vdd_1342/excel_data/b01_t01.txt";
 
 #[test]
 fn test_load_excel() {
@@ -27,7 +27,28 @@ fn test_function() {
     let excel_data = ExcelData::load(PATH);
     let adder = excel_data.create(31, false, true);
     // dbg!(adder);
-    adder.function_check_random(100, 0);
+    adder.function_check_random(1000, 0);
+}
+
+#[test]
+fn test_check_high_match() {
+    let excel_data = ExcelData::load(PATH);
+    let adder = excel_data.create(31, false, true);
+    adder.high_match_check();
+    
+}
+
+#[test]
+fn test_show_custom() {
+    let excel_data = ExcelData::load(PATH);
+    let adder = excel_data.create(31, false, true);
+    // dbg!(adder.l2h_abstract_cells());
+    dbg!(adder.l2h_original_realcell_spf_paths(ProcessAndProject::N4C1342H200));
+    
+    dbg!(adder.count_l2h());
+    dbg!(adder.count_h2h());
+
+    dbg!(adder.list_l2h_inst());
 }
 
 #[test]
@@ -41,7 +62,7 @@ fn test_property() {
 fn test_cdl() {
     let excel_data = ExcelData::load(PATH);
     let adder = excel_data.create(31, false, true);
-    let content = adder.to_cdl_std(ProcessAndProject::N4C1342H200, "UFADDER_PN_1342_H200");
+    let content = adder.to_cdl_dual_vdd(ProcessAndProject::N4C1342H200, "UFADDER_PN_1342_H200_B01_T01");
     // let content = adder.to_cdl_all_vdd_split(ProcessAndProject::N4C1340, "UFADDER_PP_31");
 
     use std::fs::File;

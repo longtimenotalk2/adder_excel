@@ -158,7 +158,42 @@ impl Adder {
         txt += "\n";
 
         // subckt
-        let ports = self.adder_pins(process);
+        let mut ports = self.adder_pins(process);
+        txt += &line_subckt(name, &ports);
+        
+        // cells
+        for cell_info in self.cells.iter() {
+            let inst_name = cell_info.inst_name();
+            let map = &cell_info.logic_block_map;
+            let abstract_cell = &cell_info.to_abstract_cell();
+            let real_cell = RealCell::parse(process, abstract_cell);
+            txt += &real_cell.line_cell(&inst_name, map);
+        }
+
+        // end
+        txt += &line_end_subckt();
+
+        txt
+    }
+
+    pub fn to_cdl_dual_vdd(&self, process : ProcessAndProject, name : &str) -> String {
+        let mut txt = String::new();
+
+        // inc cells
+        let mut line_incs = BTreeSet::new();
+        for abstract_cells in &self.all_abstract_cells() {
+            line_incs.insert(RealCell::parse(process, abstract_cells).line_inc());
+        }
+        for line_inc in line_incs {
+            txt += &line_inc;
+        }
+
+        txt += "\n";
+
+        // subckt
+        let mut ports = self.adder_pins(process);
+        let index = ports.iter().position(|s| s == "VDD").unwrap();
+        ports.insert(index+1, "VDDH".to_string());
         txt += &line_subckt(name, &ports);
         
         // cells

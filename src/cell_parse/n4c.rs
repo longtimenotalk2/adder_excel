@@ -49,6 +49,7 @@ impl RealCell {
                 source_type,
                 process : ProcessAndProject::N4C1340,
                 addition_pg_port : BTreeSet::new(),
+                vdd_replaced : vec![],
             }
         } else {
             Self::parse_n4c_custom(logic_block, drive, custom_demand)
@@ -78,7 +79,7 @@ impl RealCell {
                     LogicBlock::AOI21 => ("AOI21SAMZD1BM200H6P51CNODELVT", CellSourceType::Custom),
                     LogicBlock::OAI21 => ("OAI21SAMZD1BM200H6P51CNODELVT", CellSourceType::Custom),
                     LogicBlock::AO21 => ("AO21SAMZD1BM200H6P51CNODELVT", CellSourceType::Custom),
-                    LogicBlock::OA21 => ("OA21MZD1BWP200H6P51CNODELVT", CellSourceType::Custom),
+                    LogicBlock::OA21 => ("OA21MZD1BWP200H6P51CNODELVT", CellSourceType::Std),
                     LogicBlock::IAOI21 => ("IAOI21SAMZD1BM200H6P51CNODELVT", CellSourceType::Custom),
                     LogicBlock::IOAI21 => ("IOAI21SAMZD1BM200H6P51CNODELVT", CellSourceType::Custom),
                     LogicBlock::AOI22 => ("AOI22NOMSDMZD1BWP200H6P51CNODELVT", CellSourceType::Custom),
@@ -101,6 +102,7 @@ impl RealCell {
                 source_type,
                 process : ProcessAndProject::N4C1340,
                 addition_pg_port : BTreeSet::new(),
+                vdd_replaced : vec![],
             }
         } else {
             Self::parse_n4c_custom(logic_block, drive, custom_demand)

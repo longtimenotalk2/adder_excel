@@ -97,7 +97,7 @@ impl Adder {
                         true, 
                         None,
                         1, 
-                        false, 
+                        self.input_is_neg ^ self.output_is_neg, 
                         Some(format!("'td+clkper*{}'", 2*i)),
                         1
                     );
@@ -110,7 +110,7 @@ impl Adder {
                         false, 
                         None,
                         1, 
-                        true, 
+                        !self.input_is_neg ^ self.output_is_neg, 
                         Some(format!("'td+clkper*{}'", 2*i+1)),
                         1
                     );
@@ -130,6 +130,21 @@ impl Adder {
 
 
         txt
+    }
+
+    pub fn create_sp_of_adder_timing_base_1(
+        &self,
+        process : ProcessAndProject,
+        adder_name : &str,
+        adder_cdl_path : &str,
+    ) -> String {
+        self.create_sp_of_adder_timing_base_1_sp(
+            process,
+            adder_name,
+            adder_cdl_path,
+            true,
+            true
+        )
     }
 
     pub fn create_sp_of_adder_timing_base_1_sp(
@@ -171,7 +186,7 @@ impl Adder {
                         true, 
                         None,
                         1, 
-                        false, 
+                        self.input_is_neg ^ self.output_is_neg, 
                         Some(format!("'td+clkper*{}'", 2*i+1)),
                         1
                     );
@@ -184,7 +199,7 @@ impl Adder {
                         false, 
                         None,
                         1, 
-                        true, 
+                        !self.input_is_neg ^ self.output_is_neg, 
                         Some(format!("'td+clkper*{}'", 2*i)),
                         1
                     );

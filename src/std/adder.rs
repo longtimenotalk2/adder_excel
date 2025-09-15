@@ -3,7 +3,7 @@ pub mod create;
 pub mod function_check;
 pub mod property;
 
-use crate::{custom::domino::DominoDemand, std::{logic_block::LogicBlock, node_create::{LogiBlockHint, LogicBlockMappingTable}, wire::Wire}};
+use crate::{custom::{domino::DominoDemand, dual_vdd::DualVddDemand}, std::{logic_block::LogicBlock, node_create::{LogiBlockHint, LogicBlockMappingTable}, wire::Wire}};
 
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum Drive {
@@ -30,6 +30,7 @@ pub struct AbstractCell {
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum CustomDemand {
     Domino(DominoDemand),
+    DualVdd(DualVddDemand),
     Gdi,
 }
 

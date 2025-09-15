@@ -1,6 +1,6 @@
 use std::collections::BTreeSet;
 
-use crate::{cell_parse::{CellSourceType, ProcessAndProject, RealCell}, custom::{custom_logic_block::CustomLogicBlock, domino::{self, DominoDemand, DominoPolar}}, std::{adder::{CustomDemand, Drive}, logic_block::{LogicBlock, Port}}};
+use crate::{cell_parse::{CellSourceType, ProcessAndProject, RealCell}, custom::{custom_logic_block::CustomLogicBlock, domino::{self, DominoDemand, DominoPolar}}, std::{adder::{AbstractCell, CustomDemand, Drive}, logic_block::{LogicBlock, Port}}};
 
 impl RealCell {
     pub fn parse_n4c_custom(
@@ -22,16 +22,26 @@ impl RealCell {
                     (&LogicBlock::Custom(CustomLogicBlock::NR4), &Drive::D1, &DominoPolar::N, true) => "NR4D1_DOMV08_N_STARTD2",
                     (&LogicBlock::Custom(CustomLogicBlock::NR6), &Drive::D1, &DominoPolar::N, true) => "NR6D1_DOMV08_N_STARTD2",
                     _ => panic!("{:?},{:?},{:?},is_start = {} is not implemented", domino.logic_block, drive, domino.polar, domino.is_start)
-                }
+                }.to_string()
             },
             CustomDemand::Gdi => {
                 match logic_block {
                     &LogicBlock::XOR2  => "XOR2D1_GDI",
                     &LogicBlock::XNR2  => "XNR2D1_GDI",
                     _ => panic!("{:?} for gdi is not implemented", logic_block)
-                }
+                }.to_string()
             },
-            // _ => unimplemented!()
+            CustomDemand::DualVdd(dual_vdd) => {
+                let mut name = Self::parse_n4c(&AbstractCell {
+                    logic_block : logic_block.clone(),
+                    drive : drive.clone(),
+                    custom_demand : vec![],
+                }).name;
+                if dual_vdd.is_l2h() {
+                    name = format!("{name}_PULVTLL")
+                }
+                name
+            }
         };
         match &custom_demand[0] {
             CustomDemand::Domino(domino) => {
@@ -43,7 +53,8 @@ impl RealCell {
                     name: name.to_string(),
                     source_type : CellSourceType::Lhw,
                     process : ProcessAndProject::N4C1340,
-                    addition_pg_port : BTreeSet::from([Port::new(addition_pg_port)])
+                    addition_pg_port : BTreeSet::from([Port::new(addition_pg_port)]),
+                    vdd_replaced    : vec![],
                 }
             },
             CustomDemand::Gdi => {
@@ -51,7 +62,31 @@ impl RealCell {
                     name: name.to_string(),
                     source_type : CellSourceType::Lhw,
                     process : ProcessAndProject::N4C1340,
-                    addition_pg_port : BTreeSet::new()
+                    addition_pg_port : BTreeSet::new(),
+                    vdd_replaced    : vec![],
+                }
+            }
+            CustomDemand::DualVdd(dual_vdd) => {
+                let vdd_replaced = if dual_vdd.out_is_high() {
+                    vec![Port("VDDH".to_string())]
+                } else {
+                    vec![]
+                };
+                let source_type = if dual_vdd.is_l2h() {
+                    CellSourceType::LocalHack
+                } else {
+                    Self::parse_n4c(&AbstractCell {
+                        logic_block : logic_block.clone(),
+                        drive : drive.clone(),
+                        custom_demand : vec![],
+                    }).source_type.clone()
+                };
+                Self {
+                    name: name.to_string(),
+                    source_type,
+                    process : ProcessAndProject::N4C1340,
+                    addition_pg_port : BTreeSet::new(),
+                    vdd_replaced,
                 }
             }
         }

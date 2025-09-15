@@ -1,6 +1,6 @@
 use std::collections::{BTreeMap, BTreeSet};
 
-use crate::{custom::domino::DominoDemand, std::{adder::{CellHinter, CustomDemand, Drive}, node_create::LogiBlockHint, wire::{Flag, Wire}}};
+use crate::{custom::{domino::DominoDemand, dual_vdd::DualVddDemand}, std::{adder::{CellHinter, CustomDemand, Drive}, node_create::LogiBlockHint, wire::{Flag, Wire}}};
 
 
 impl CellHinter {
@@ -102,6 +102,9 @@ impl CellHinter {
             let demand = match custom_txts[0].as_str() {
                 "DOM" => {
                     CustomDemand::Domino(DominoDemand::from_strings(&custom_txts))
+                },
+                "H" => {
+                    CustomDemand::DualVdd(DualVddDemand::from_excel_string(custom_txts[1].as_str()) )
                 },
                 _ => panic!("can not parse custom {:?}", custom_txts),
             };

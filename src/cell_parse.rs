@@ -6,14 +6,15 @@ use crate::std::{adder::{AbstractCell, CustomDemand, Drive}, logic_block::{Logic
 pub mod n4c;
 pub mod n4c_custom;
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub enum CellSourceType {
     Std,
     Custom,
     Lhw,
+    LocalHack,
 }
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
 pub enum ProcessAndProject {
     N3E1374,
     N4C1340,
@@ -26,12 +27,13 @@ pub enum PortType {
     PG,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct RealCell {
     pub name : String,
     pub source_type : CellSourceType,
     pub process : ProcessAndProject,
     pub addition_pg_port : BTreeSet<Port>,
+    pub vdd_replaced : Vec<Port>,
 }
 
 impl RealCell {

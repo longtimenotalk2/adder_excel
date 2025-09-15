@@ -1,0 +1,29 @@
+LY	LT	type	30	29	28	27	26	25	24	23	22	21	20	19	18	17	16	15	14	13	12	11	10	9	8	7	6	5	4	3	2	1	0
+1	cri	wire			q~	np2	nh2	np	np2	nh2	np	np2	nh2	np	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	
+1	cri	code			A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	
+1	cri	cap																2	4	4	6	2	4	4	4	2	4	2	2	4	4	6	
+1	cri	wire				nq~			nq~			nq~			nq~																		
+1	cri	code																															
+2	cri	wire				g3	<p3		g3	<p3		g3	<p3		g3	<p4		h4	p4			h4	p4			h4	p4			h4			
+2	cri	code				L{gph}			L{gph}			L{gph}			L{gph}															D			
+2	cri	cap																2	2			4	4			4	4			6			
+3	cri	wire			ng4	<np4			ng3	<np3		ng6	<np7					nh8	np8							nh8							
+3	cri	code			L{abqg}				I	I																D							
+3	cri	cap																4	4							8							
+4	cri	wire							g9	<p10		g6	<p7					h16															
+4	cri	code										I	I					D															
+4	cri	cap																10															
+1	uncri	wire	nq	nq~			q~	nq~		q~	nq~		q~	nq~		q~	nq~	q~	nq~	q~	nq~	q~	nq~	q~	nq~	q~	nq~	q~	nq~	q~	nq~	q~	nq~
+1	uncri	code	A	A			A	A		A	A		A	A		A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	EA
+2	uncri	wire																p	g3											nh4		ng2	
+2	uncri	code																I	L{gph}											I		NL{ph}	
+3	uncri	wire																										ng6		ng4	g3		
+3	uncri	code																										NL{phph}		NL{ph}			
+4	uncri	wire		g5	<p5																	nh12		ng10		ng8	g7		g5				
+4	uncri	code																				L{hp~h}		NL{phph}		NL{ph}							
+5	uncri	wire							ng25			ng22			ng19			ng16	ng15	ng14	g13	g12	g11		g9								
+5	uncri	code							DL{gph}			L{gph}			L{gph}			L{ph}	L{gp~h}	NL{phph}	L{gph}	L{ph}											
+6	uncri	wire			g29		g27	g26	g25	g24	g23		g21	g20		g18	g17																
+6	uncri	code					L{phqg}		I	L{phqg}	L{gqg}		L{phqg}	L{gqg}		L{phpg}	L{gqg}																
+7	uncri	wire		ng30		ng28																											
+7	uncri	code																															
