@@ -6,3 +6,5 @@ pub(crate) mod base_s3;
 pub mod base_04;
 pub mod base_05;
 pub mod base_06;
+pub mod base_07;
+pub mod base_08;
