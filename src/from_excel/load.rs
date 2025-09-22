@@ -1,3 +1,5 @@
+use std::collections::BTreeMap;
+
 use crate::from_excel::{ExcelData, LayerType, Node};
 
 impl ExcelData {
@@ -12,11 +14,13 @@ impl ExcelData {
         let bits = items[3].parse::<usize>().unwrap() + 1;
 
         let mut wire_layer_to_be_match: Option<String> = None;
+        let mut wire_layer_pre: Option<String> = None;
 
         let mut excel_layout_row_now = 0;
         let mut excel_layout_positions = vec![];
         let mut excel_row_layer = vec![];
         let mut excel_row_layer_type = vec![];
+        let mut excel_cap_data = BTreeMap::new();
 
 
         for line in &lines[1..] {
@@ -24,6 +28,7 @@ impl ExcelData {
             if items[2].trim() == "wire" {
                 assert!(wire_layer_to_be_match.is_none());
                 wire_layer_to_be_match = Some(line.to_string());
+                wire_layer_pre = Some(line.to_string());
             } else if items[2].trim() == "code" {
                 let layer = items[0].parse().unwrap();
                 let layer_type = match items[1].trim(){
@@ -55,6 +60,15 @@ impl ExcelData {
                 wire_layer_to_be_match = None;
                 excel_row_layer.push(layer);
                 excel_row_layer_type.push(layer_type);
+            } else if items[2].trim() == "cap" {
+                let row = excel_row_layer.len() - 1;
+                for index in 0..bits {
+                    let cap_string = items[3 + bits - index - 1].trim();
+                    if cap_string.len() > 0 {
+                        let cap_items = cap_string.split(",").map(|s| s.parse::<i32>().unwrap()).collect::<Vec<_>>();
+                        excel_cap_data.insert((row, index), cap_items);
+                    }
+                }
             }
         }
 
@@ -64,6 +78,7 @@ impl ExcelData {
             excel_layout_positions,
             excel_row_layer,
             excel_row_layer_type,
+            excel_cap_data,
         }
     }
 }

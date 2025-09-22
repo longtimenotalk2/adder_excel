@@ -3,6 +3,37 @@ use std::collections::BTreeMap;
 use crate::{from_excel::{ExcelData, LayerType}, std::logic_block::Port};
 
 impl ExcelData {
+    pub fn cap_check(&self, caps : &Vec<BTreeMap<Port, i32>>) {
+        for (i, cap_dict) in caps.iter().enumerate() {
+            
+            if i < self.excel_layout_positions.len() {
+                let mut cap_vec = vec![];
+                if cap_dict.len() == 1 {
+                    cap_vec.push(cap_dict.values().next().unwrap().clone());
+                } else if cap_dict.len() == 2 {
+                    // O1 放在前面
+                    cap_vec.push(cap_dict.get(&Port("O1".to_string())).unwrap().clone());
+                    let keys = cap_dict.keys();
+                    for key in keys {
+                        if key != &Port("O1".to_string()) {
+                            cap_vec.push(cap_dict.get(key).unwrap().clone());
+                        }
+                    }
+                }
+                let pos = self.excel_layout_positions[i];
+                let cap_excel = self.excel_cap_data.get(&pos);
+                if let Some(cap_excel) = cap_excel {
+                    if cap_vec != *cap_excel {
+                        println!("error : CAP mismatch at excel {pos:?} : calc is {cap_vec:?}, excel is {cap_excel:?}");
+                    }
+                } else {
+                    println!("warning : NO VALUE at excel {pos:?}");
+                }
+            }
+            
+        }
+        println!("cap ckeck end!!")
+    }
     pub fn cap_print(&self, caps : &Vec<BTreeMap<Port, i32>>) {
         let mut cap_layout: BTreeMap<(usize, usize), Vec<i32>> = BTreeMap::new();
         for (i, pos) in self.excel_layout_positions.iter().enumerate() {

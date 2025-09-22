@@ -20,14 +20,14 @@ fn test_to_cell_hinter() {
 #[test]
 fn test_adder() {
     let excel_data = ExcelData::load(PATH);
-    let adder = excel_data.create(31, INPUT_IS_NEG, OUTPUT_IS_NEG);
+    let adder = excel_data.create_with_end_xnr_not_new(31, INPUT_IS_NEG, OUTPUT_IS_NEG, vec![22], vec![25]);
     dbg!(adder);
 }
 
 #[test]
 fn test_function() {
     let excel_data = ExcelData::load(PATH);
-    let adder = excel_data.create(31, INPUT_IS_NEG, OUTPUT_IS_NEG);
+    let adder = excel_data.create_with_end_xnr_not_new(31, INPUT_IS_NEG, OUTPUT_IS_NEG, vec![22], vec![25]);
     // dbg!(adder);
     adder.function_check_random(100, 0);
 }
@@ -35,16 +35,17 @@ fn test_function() {
 #[test]
 fn test_cap() {
     let excel_data = ExcelData::load(PATH);
-    let adder = excel_data.create(31, INPUT_IS_NEG, OUTPUT_IS_NEG);
+    let adder = excel_data.create_with_end_xnr_not_new(31, INPUT_IS_NEG, OUTPUT_IS_NEG, vec![22], vec![25]);
     let caps = adder.capi_calc();
     // dbg!(caps.len());
+    excel_data.cap_check(&caps);
     excel_data.cap_print(&caps);
 }
 
 #[test]
 fn test_property() {
     let excel_data = ExcelData::load(PATH);
-    let adder = excel_data.create(31, INPUT_IS_NEG, OUTPUT_IS_NEG);
+    let adder = excel_data.create_with_end_xnr_not_new(31, INPUT_IS_NEG, OUTPUT_IS_NEG, vec![22], vec![25]);
     dbg!(adder.cells.len());
 }
 
@@ -67,7 +68,7 @@ fn test_cdl() {
 #[test]
 fn test_sp() {
     let excel_data = ExcelData::load(PATH);
-    let adder = excel_data.create(31, INPUT_IS_NEG, OUTPUT_IS_NEG);
+    let adder = excel_data.create_with_end_xnr_not_new(31, INPUT_IS_NEG, OUTPUT_IS_NEG, vec![22], vec![25]);
     let adder_name = "UFADDER_PP_31_BASE_04";
     // let adder_cdl_path = "cdl/UFADDER_PP_31.cdl";
     let adder_cdl_path = "cdl/UFADDER_PP_31_BASE_04.cdl";
