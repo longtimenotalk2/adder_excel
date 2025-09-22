@@ -2,6 +2,7 @@
 pub mod create;
 pub mod function_check;
 pub mod property;
+pub mod capi_calc;
 
 use crate::{custom::{domino::DominoDemand, dual_vdd::DualVddDemand}, std::{logic_block::LogicBlock, node_create::{LogiBlockHint, LogicBlockMappingTable}, wire::Wire}};
 
@@ -9,6 +10,15 @@ use crate::{custom::{domino::DominoDemand, dual_vdd::DualVddDemand}, std::{logic
 pub enum Drive {
     D1,
     D2,
+}
+
+impl Drive {
+    pub fn drive_num(&self) -> i32 {
+        match self {
+            Drive::D1 => 1,
+            Drive::D2 => 2,
+        }
+    }
 }
 
 #[derive(Debug, Clone)]

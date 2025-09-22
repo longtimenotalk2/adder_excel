@@ -13,12 +13,24 @@ impl ExcelData {
 
         let mut wire_layer_to_be_match: Option<String> = None;
 
+        let mut excel_layout_row_now = 0;
+        let mut excel_layout_positions = vec![];
+        let mut excel_row_layer = vec![];
+        let mut excel_row_layer_type = vec![];
+
+
         for line in &lines[1..] {
             let items : Vec<_> = line.split("\t").collect();
             if items[2].trim() == "wire" {
                 assert!(wire_layer_to_be_match.is_none());
                 wire_layer_to_be_match = Some(line.to_string());
             } else if items[2].trim() == "code" {
+                let layer = items[0].parse().unwrap();
+                let layer_type = match items[1].trim(){
+                    "cri" => LayerType::Cri,
+                    "uncri" => LayerType::Uncri,
+                    _ => unimplemented!()
+                };
                 let items_pre : Vec<_> = wire_layer_to_be_match.as_ref().unwrap().split("\t").collect();
                 assert!(items_pre[0] == items[0]);
                 assert!(items_pre[1] == items[1]);
@@ -33,22 +45,25 @@ impl ExcelData {
                             index,
                             wire_txt: wire.to_string(),
                             code_txt: code.to_string(),
-                            layer : items[0].parse().unwrap(),
-                            layer_type : match items[1].trim(){
-                                "cri" => LayerType::Cri,
-                                "uncri" => LayerType::Uncri,
-                                _ => unimplemented!()
-                            }
+                            layer,
+                            
                         });
+                        excel_layout_positions.push((excel_layout_row_now, index));
                     }
                 }
+                excel_layout_row_now += 1;
                 wire_layer_to_be_match = None;
+                excel_row_layer.push(layer);
+                excel_row_layer_type.push(layer_type);
             }
         }
 
         Self {
             bits,
             nodes,
+            excel_layout_positions,
+            excel_row_layer,
+            excel_row_layer_type,
         }
     }
 }

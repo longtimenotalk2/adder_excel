@@ -1,6 +1,6 @@
-use std::collections::BTreeSet;
+use std::collections::{BTreeMap, BTreeSet};
 
-use crate::std::adder::{AbstractCell, Adder, CellFullInfoInAdder};
+use crate::std::{adder::{AbstractCell, Adder, CellFullInfoInAdder}, logic_block::Port};
 
 impl CellFullInfoInAdder {
     pub fn to_abstract_cell(&self) -> AbstractCell {
@@ -17,6 +17,21 @@ impl CellFullInfoInAdder {
             wire_name.push_str(&wire.to_string());
         }
         format!("U{}_{}", self.layer, wire_name)
+    }
+
+    pub fn capi_input(&self) -> BTreeMap<Port, i32> {
+        let mut ret = BTreeMap::new();
+
+        for (port, cap) in &self.logic_block_map.logic_block.capi_input() {
+            let cap = cap * self.drive.drive_num();
+            ret.insert(port.clone(), cap);
+        }
+
+        ret
+    }
+
+    pub fn capi_output(&self) -> BTreeMap<Port, i32> {
+        self.logic_block_map.logic_block.capi_output()
     }
 }
 

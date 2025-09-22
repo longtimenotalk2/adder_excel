@@ -5,6 +5,7 @@ use crate::custom::custom_logic_block::CustomLogicBlock;
 pub mod port;
 pub mod basic;
 pub mod function;
+pub mod capi;
 
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum LogicBlock {
