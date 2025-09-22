@@ -528,109 +528,155 @@ impl LogicBlockMappingTable {
                     },
                     Flag::H => {
                         // 合成G的方式：
-                        // 3输入，第一个默认找最长的，第二个数和第一个等长，第三个数计算具体长度
-                        assert_eq!(flags.len(), 3);
-                        if flags[0] == Flag::H {
-                            // 默认打头的是H
-                            let logic_block = LogicBlock::AOI21.if_rev(!target_wire.is_neg ^ is_out_inv);
-                            let source_first_h_is_neg = !target_wire.is_neg ^ is_out_inv ^ custom_input_invs.contains(&0);
-                            let source_first_h = manager.find(&AmbiguousWire::MayLenNotGivenOrSearchMax { 
-                                flag: Flag::H, 
-                                is_neg: source_first_h_is_neg, 
-                                index: target_wire.index, 
-                                may_len: custom_input_lens.get(&0).copied(), 
-                            })?;
-                            let source_first_h_len = source_first_h.len;
+                        
+                        if flags.len() == 3 {
+                            // 3输入，第一个默认找最长的，第二个数和第一个等长，第三个数计算具体长度
+                            if flags[0] == Flag::H {
+                                // 默认打头的是H
+                                let logic_block = LogicBlock::AOI21.if_rev(!target_wire.is_neg ^ is_out_inv);
+                                let source_first_h_is_neg = !target_wire.is_neg ^ is_out_inv ^ custom_input_invs.contains(&0);
+                                let source_first_h = manager.find(&AmbiguousWire::MayLenNotGivenOrSearchMax { 
+                                    flag: Flag::H, 
+                                    is_neg: source_first_h_is_neg, 
+                                    index: target_wire.index, 
+                                    may_len: custom_input_lens.get(&0).copied(), 
+                                })?;
+                                let source_first_h_len = source_first_h.len;
 
-                            match (&flags[1], &flags[2]) {
-                                (Flag::P, Flag::G) | (Flag::Q, Flag::G) | (Flag::P, Flag::H) => {
-                                    let source_pq_is_neg = !target_wire.is_neg ^ is_out_inv ^ custom_input_invs.contains(&1);
-                                    let source_pq_index = target_wire.index - 1;
-                                    let source_pg_len_shoice = if &flags[2] == &Flag::G && &flags[1] == &Flag::P {
-                                        vec![source_first_h_len - 1, source_first_h_len]
-                                    } else if &flags[2] == &Flag::H {
-                                        vec![source_first_h_len]
-                                    } else {
-                                        vec![source_first_h_len-1]
-                                    };
-                                    let source_pq = manager.find(&AmbiguousWire::LenGivenByOrder  {
-                                            flag: flags[1],
-                                            index: source_pq_index,
-                                            len_choice: source_pg_len_shoice,
-                                            is_neg: source_pq_is_neg,
-                                        
-                                    })?;
-                                    let source_end_g_is_neg = !target_wire.is_neg ^ is_out_inv ^ custom_input_invs.contains(&2);
-                                    let source_end_g_index = target_wire.index - source_first_h_len;
-                                    let source_end_g_len = target_wire.len - source_first_h_len;
-                                    let source_end_g = manager.find(&AmbiguousWire::Precise (
-                                        Wire {
-                                            flag: flags[2],
-                                            index: source_end_g_index,
-                                            len: source_end_g_len,
-                                            is_neg: source_end_g_is_neg,
-                                        }
-                                    ))?;
-                                    Ok(Self::new_aoi21_like(logic_block, target_wire.clone(), 
-                                        source_pq, source_end_g, source_first_h, 
-                                        custom_input_invs.contains(&1), custom_input_invs.contains(&2), custom_input_invs.contains(&0), 
-                                        *is_out_inv
-                                    ))
-                                },
-                                _ => panic!("3 input gen G, index 1 and 2 flag can't be {:?}, {:?}", &flags[1],&flags[2])
-                            }
-                        } else if flags[0] == Flag::G {
-                            // 新方法，从g合h
-                            let logic_block = LogicBlock::AOI21.if_rev(!target_wire.is_neg ^ is_out_inv);
-                            let source_first_g_is_neg = !target_wire.is_neg ^ is_out_inv ^ custom_input_invs.contains(&0);
-                            let source_first_g = manager.find(&AmbiguousWire::MayLenNotGivenOrSearchMax { 
-                                flag: Flag::G, 
-                                is_neg: source_first_g_is_neg, 
-                                index: target_wire.index, 
-                                may_len: custom_input_lens.get(&0).copied(), 
-                            })?;
-                            let source_first_g_len = source_first_g.len;
+                                match (&flags[1], &flags[2]) {
+                                    (Flag::P, Flag::G) | (Flag::Q, Flag::G) | (Flag::P, Flag::H) => {
+                                        let source_pq_is_neg = !target_wire.is_neg ^ is_out_inv ^ custom_input_invs.contains(&1);
+                                        let source_pq_index = target_wire.index - 1;
+                                        let source_pg_len_shoice = if &flags[2] == &Flag::G && &flags[1] == &Flag::P {
+                                            vec![source_first_h_len - 1, source_first_h_len]
+                                        } else if &flags[2] == &Flag::H {
+                                            vec![source_first_h_len]
+                                        } else {
+                                            vec![source_first_h_len-1]
+                                        };
+                                        let source_pq = manager.find(&AmbiguousWire::LenGivenByOrder  {
+                                                flag: flags[1],
+                                                index: source_pq_index,
+                                                len_choice: source_pg_len_shoice,
+                                                is_neg: source_pq_is_neg,
+                                            
+                                        })?;
+                                        let source_end_g_is_neg = !target_wire.is_neg ^ is_out_inv ^ custom_input_invs.contains(&2);
+                                        let source_end_g_index = target_wire.index - source_first_h_len;
+                                        let source_end_g_len = target_wire.len - source_first_h_len;
+                                        let source_end_g = manager.find(&AmbiguousWire::Precise (
+                                            Wire {
+                                                flag: flags[2],
+                                                index: source_end_g_index,
+                                                len: source_end_g_len,
+                                                is_neg: source_end_g_is_neg,
+                                            }
+                                        ))?;
+                                        Ok(Self::new_aoi21_like(logic_block, target_wire.clone(), 
+                                            source_pq, source_end_g, source_first_h, 
+                                            custom_input_invs.contains(&1), custom_input_invs.contains(&2), custom_input_invs.contains(&0), 
+                                            *is_out_inv
+                                        ))
+                                    },
+                                    _ => panic!("3 input gen G, index 1 and 2 flag can't be {:?}, {:?}", &flags[1],&flags[2])
+                                }
+                            } else if flags[0] == Flag::G {
+                                // 新方法，从g合h
+                                let logic_block = LogicBlock::AOI21.if_rev(!target_wire.is_neg ^ is_out_inv);
+                                let source_first_g_is_neg = !target_wire.is_neg ^ is_out_inv ^ custom_input_invs.contains(&0);
+                                let source_first_g = manager.find(&AmbiguousWire::MayLenNotGivenOrSearchMax { 
+                                    flag: Flag::G, 
+                                    is_neg: source_first_g_is_neg, 
+                                    index: target_wire.index, 
+                                    may_len: custom_input_lens.get(&0).copied(), 
+                                })?;
+                                let source_first_g_len = source_first_g.len;
 
-                            match (&flags[1], &flags[2]) {
-                                (Flag::P, Flag::G) | (Flag::Q, Flag::G) | (Flag::P, Flag::H) => {
-                                    let source_pq_is_neg = !target_wire.is_neg ^ is_out_inv ^ custom_input_invs.contains(&1);
-                                    let source_pq_index = target_wire.index - 1;
-                                    let source_pg_len_shoice = if &flags[2] == &Flag::G && &flags[1] == &Flag::P {
-                                        vec![source_first_g_len - 1, source_first_g_len]
-                                    } else if &flags[2] == &Flag::H {
-                                        vec![source_first_g_len]
-                                    } else {
-                                        vec![source_first_g_len-1]
-                                    };
-                                    let source_pq = manager.find(&AmbiguousWire::LenGivenByOrder  {
-                                            flag: flags[1],
-                                            index: source_pq_index,
-                                            len_choice: source_pg_len_shoice,
-                                            is_neg: source_pq_is_neg,
-                                        
-                                    })?;
-                                    let source_end_g_is_neg = !target_wire.is_neg ^ is_out_inv ^ custom_input_invs.contains(&2);
-                                    let source_end_g_index = target_wire.index - source_first_g_len;
-                                    let source_end_g_len = target_wire.len - source_first_g_len;
-                                    let source_end_g = manager.find(&AmbiguousWire::Precise (
-                                        Wire {
-                                            flag: flags[2],
-                                            index: source_end_g_index,
-                                            len: source_end_g_len,
-                                            is_neg: source_end_g_is_neg,
-                                        }
-                                    ))?;
-                                    Ok(Self::new_aoi21_like(logic_block, target_wire.clone(), 
-                                        source_pq, source_end_g, source_first_g, 
-                                        custom_input_invs.contains(&1), custom_input_invs.contains(&2), custom_input_invs.contains(&0), 
-                                        *is_out_inv
-                                    ))
-                                },
-                                _ => panic!("3 input gen G, index 1 and 2 flag can't be {:?}, {:?}", &flags[1],&flags[2])
+                                match (&flags[1], &flags[2]) {
+                                    (Flag::P, Flag::G) | (Flag::Q, Flag::G) | (Flag::P, Flag::H) => {
+                                        let source_pq_is_neg = !target_wire.is_neg ^ is_out_inv ^ custom_input_invs.contains(&1);
+                                        let source_pq_index = target_wire.index - 1;
+                                        let source_pg_len_shoice = if &flags[2] == &Flag::G && &flags[1] == &Flag::P {
+                                            vec![source_first_g_len - 1, source_first_g_len]
+                                        } else if &flags[2] == &Flag::H {
+                                            vec![source_first_g_len]
+                                        } else {
+                                            vec![source_first_g_len-1]
+                                        };
+                                        let source_pq = manager.find(&AmbiguousWire::LenGivenByOrder  {
+                                                flag: flags[1],
+                                                index: source_pq_index,
+                                                len_choice: source_pg_len_shoice,
+                                                is_neg: source_pq_is_neg,
+                                            
+                                        })?;
+                                        let source_end_g_is_neg = !target_wire.is_neg ^ is_out_inv ^ custom_input_invs.contains(&2);
+                                        let source_end_g_index = target_wire.index - source_first_g_len;
+                                        let source_end_g_len = target_wire.len - source_first_g_len;
+                                        let source_end_g = manager.find(&AmbiguousWire::Precise (
+                                            Wire {
+                                                flag: flags[2],
+                                                index: source_end_g_index,
+                                                len: source_end_g_len,
+                                                is_neg: source_end_g_is_neg,
+                                            }
+                                        ))?;
+                                        Ok(Self::new_aoi21_like(logic_block, target_wire.clone(), 
+                                            source_pq, source_end_g, source_first_g, 
+                                            custom_input_invs.contains(&1), custom_input_invs.contains(&2), custom_input_invs.contains(&0), 
+                                            *is_out_inv
+                                        ))
+                                    },
+                                    _ => panic!("3 input gen G, index 1 and 2 flag can't be {:?}, {:?}", &flags[1],&flags[2])
+                                }
+                            } else {
+                                unimplemented!()
                             }
+                        } else if flags.len() == 4 {
+                            // 从AB直接出
+                            assert_eq!(&flags[0], &Flag::A);
+                            assert_eq!(&flags[1], &Flag::B);
+                            assert_eq!(&flags[2], &Flag::P);
+                            assert_eq!(&flags[3], &Flag::H);
+                            let source_pq_index = target_wire.index;
+                            let source_pq_len_shoice = vec![1];
+                            // let source_pq_len_shoice = if &flags[3] == &Flag::G && &flags[2] == &Flag::P {
+                            //     vec![0, 1]
+                            // } else if &flags[3] == &Flag::H {
+                            //     vec![1]
+                            // } else {
+                            //     vec![0]
+                            // };
+                            let source_pq = manager.find(&AmbiguousWire::LenGivenByOrder  {
+                                flag: flags[2],
+                                index: source_pq_index - 1,
+                                len_choice: source_pq_len_shoice,
+                                is_neg: false,
+                            })?;
+                            let source_end_g_index = target_wire.index - 1;
+                            let source_end_g_len = target_wire.len - 1;
+                            let source_end_g = manager.find(&AmbiguousWire::Precise (
+                                Wire {
+                                    flag: flags[3],
+                                    index: source_end_g_index,
+                                    len: source_end_g_len,
+                                    is_neg: false,
+                                }
+                            ))?;
+                            Ok(Self::new_from_vec(
+                                LogicBlock::AOI22, 
+                                vec![
+                                    Wire::from_str(&format!("a{}",target_wire.index)), 
+                                    Wire::from_str(&format!("b{}",target_wire.index)), 
+                                    source_pq,
+                                    source_end_g,
+                                ], 
+                                vec![target_wire.clone()], 
+                            ))
                         } else {
                             unimplemented!()
                         }
+                        
                         
                     }
                     Flag::P | Flag::Q => {

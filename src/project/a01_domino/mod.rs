@@ -9,3 +9,5 @@ pub mod base_06;
 pub mod base_07;
 pub mod base_08;
 pub mod base_09;
+pub mod base_10;
+pub mod base_11;
