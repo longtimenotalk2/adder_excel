@@ -27,7 +27,7 @@ impl ExcelData {
                         println!("error : CAP mismatch at excel {pos:?} : calc is {cap_vec:?}, excel is {cap_excel:?}");
                     }
                 } else {
-                    println!("warning : NO VALUE at excel {pos:?}");
+                    println!("warning : NO VALUE at excel {pos:?} : calc is {cap_vec:?}" );
                 }
             }
             

@@ -1,5 +1,6 @@
 pub mod mb_function;
 pub mod delay_model;
+pub mod random;
 
 use crate::hspice::line_cell;
 

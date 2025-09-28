@@ -86,7 +86,7 @@ pub fn line_source_random(Pinname : &str, seed : u64, source_0 : &str, source_1 
     }
     s_last = s_last[..s_last.len()-1].to_string();
 
-    format!("V{Pinname} {Pinname} 0 LFSR ({source_0} {source_1} 'td-clkper'  tr tr (1/clkper) {} [{s_last}])\n", my_seed)
+    format!("V{Pinname} {Pinname} 0 LFSR ({source_0} {source_1} 'td-clkper+tr'  tr tr (1/clkper) {} [{s_last}])\n", my_seed)
 }
 
 pub fn line_end_subckt() -> String {
