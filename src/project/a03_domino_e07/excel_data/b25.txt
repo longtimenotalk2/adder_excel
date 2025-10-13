@@ -1,0 +1,34 @@
+LY	LT	type	30	29	28	27	26	25	24	23	22	21	20	19	18	17	16	15	14	13	12	11	10	9	8	7	6	5	4	3	2	1	0
+1	cri	wire				nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2		np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	
+1	cri	code				A	A	A	A	A	A	A	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A	A	A	A	A	
+1	cri	cap				2	6	6	6	2	6	6	6	2	6	6	2		6	6	6	2	6	6	4	2	4	4	2	4	4	6	
+1	cri	wire		nq~	q~	q~													ng														
+1	cri	code																	A														
+1	cri	cap		4,6	6,4	4,4													2														
+2	cri	wire		np2		h4	<p	<p4		h4	p4			h4	p4				g3	<p4		h4	p4			h4	p4			h4			
+2	cri	code		N			I												L{gph}											D			
+2	cri	cap		4		4	6	4		2	6			4	6				2	6		4	6			4	4			6			
+3	cri	wire			nh5	np5				nh8	np8								ng7	<np8						nh8							
+3	cri	code			L{abph}														L{gph}							D							
+3	cri	cap			4	6				2	2								4	4						8							
+4	cri	wire		ng6	<np7					h8	p8								g15														
+4	cri	code		NL{gph}	N					I	I								DL{gph}														
+4	cri	cap		2	2					4	4								8														
+1	uncri	wire	nq				nq~	q~	nq~	q~	nq~	q~	nq~	q~	nq~	q~	nq~	q~	nq~	q~	nq~	q~	nq~	q~	nq~	q~	nq~	q~	nq~	q~	nq~	q~	nq~
+1	uncri	code	A													A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A
+1	uncri	cap	4				4,4	4,4	4,4	4,4	4,4	4,4	4,4	4,4	4,4	4,4	4,8	4,4	4,4	4,4	4,4	4,4	4,4	4,4	4,6	4,4	4,6	4,4	4,8	4,4	4,6	4,4	6,2
+2	uncri	wire					ng3				ng3				ng3								g3									ng2	
+2	uncri	code					NL{gph}				NL{gph}				NL{gph}								L{gph}									NL{ph}	
+2	uncri	cap					2				2				2								2									6	
+3	uncri	wire				ng4	np4				np4				np4															ng4	g3		
+3	uncri	code				L{ph}	I				I				I															L{~ph}			
+3	uncri	cap				2	2				2				2															8	4		
+4	uncri	wire																				nh12				ng8		ng6	g5				
+4	uncri	code																				L{hp~h}				NL{ph}		NL{phqg}					
+4	uncri	cap																				8				10		6	4				
+5	uncri	wire								nh24				nh20				ng16	ng15	g14	g13	g12	ng11	g10	g9		g7						
+5	uncri	code								DL{hpg}				L{hpg}				L{abqg}	I	L{phph}	L{gph}	L{ph}	L{gp~g}	L{phpg}									
+5	uncri	cap								14				8				8		4	4	4	4	4	4		4						
+6	uncri	wire		g30	g29	g28	g27	g26	g25	g24	g23	g22	g21	g20	g19	g18	g17	g16															
+6	uncri	code		L{gph}	L{phph}	L{gph}	L{gph}	L{phph}	L{gph}	L{ph}	L{gph}	L{phph}	L{gph}	L{ph}	L{gpg}	L{phqg}	L{gqg}	I															
+6	uncri	cap		4	4	4	4	4	4	4	4	4	4	4	4	4	4	4															

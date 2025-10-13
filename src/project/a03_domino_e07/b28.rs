@@ -1,6 +1,6 @@
 use crate::{cell_parse::ProcessAndProject, from_excel::ExcelData, std::adder::Adder};
 
-const PATH : &'static str = "src/project/a03_domino_e07/excel_data/b24.txt";
+const PATH : &'static str = "src/project/a03_domino_e07/excel_data/b28.txt";
 // 修前序
 const INPUT_IS_NEG : bool = false;
 const OUTPUT_IS_NEG : bool = false;
@@ -54,7 +54,7 @@ fn test_property() {
 #[test]
 fn test_cdl() {
     let adder = adder_create();
-    let content = adder.to_cdl_std(ProcessAndProject::N4C1340, "UFADDER_PP_31_B24");
+    let content = adder.to_cdl_std(ProcessAndProject::N4C1340, "UFADDER_PP_31_B27");
 
     use std::fs::File;
     use std::io::prelude::*;
