@@ -5,6 +5,7 @@ use crate::std::{adder::{AbstractCell, CustomDemand, Drive}, logic_block::{Logic
 
 pub mod n4c;
 pub mod n4c_custom;
+pub mod n3e;
 
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub enum CellSourceType {
