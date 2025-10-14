@@ -1,6 +1,6 @@
 use crate::{cell_parse::ProcessAndProject, from_excel::ExcelData, std::adder::Adder};
 
-const PATH : &'static str = "src/project/a03_domino_e07/excel_data/b28.txt";
+const PATH : &'static str = "src/project/a03_domino_e07/excel_data/b30.txt";
 // 修前序
 const INPUT_IS_NEG : bool = false;
 const OUTPUT_IS_NEG : bool = false;
