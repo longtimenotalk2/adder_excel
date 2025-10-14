@@ -44,7 +44,7 @@ impl RealCell {
     ) -> Self {
         match process {
             ProcessAndProject::N3E1374 => {
-                todo!()
+                Self::parse_n3e(abstract_cell)
             }
             ProcessAndProject::N4C1340 => {
                 Self::parse_n4c(abstract_cell)
