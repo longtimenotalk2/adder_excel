@@ -5,7 +5,7 @@ impl LogicBlock {
         match self {
             LogicBlock::INV => LogicBlock::INV,
             LogicBlock::ND2 => LogicBlock::NR2,
-            LogicBlock::NR2 => LogicBlock::NR2,
+            LogicBlock::NR2 => LogicBlock::ND2,
             LogicBlock::AN2 => LogicBlock::OR2,
             LogicBlock::OR2 => LogicBlock::AN2,
             LogicBlock::IND2 => LogicBlock::INR2,

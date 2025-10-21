@@ -14,7 +14,7 @@ impl LogicBlockMappingTable {
             if signals.contains_key(wire) {
                 panic!("wire {:?} already exists", wire);
             }
-            signals.insert(wire.clone(), *output_signals.get(port).expect(&format!("port {:?} not found", port)));
+            signals.insert(wire.clone(), *output_signals.get(port).expect(&format!("for {self:?}, port {:?} not found", port)));
         }
     }
 }

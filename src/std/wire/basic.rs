@@ -29,11 +29,11 @@ impl Flag {
     }
 }
 
-impl Debug for Wire {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}", self.to_string())
-    }
-}
+// impl Debug for Wire {
+//     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+//         write!(f, "{}", self.to_string())
+//     }
+// }
 
 impl Wire {
     pub fn new(flag: Flag, is_neg: bool, index: usize, len: usize) -> Self {
@@ -53,7 +53,7 @@ impl Wire {
 
     pub fn to_string(&self) -> String {
         let mut ret = String::new();
-        if self.is_neg && self.flag != Flag::S {
+        if self.is_neg {
             ret.push('n');
         }
         ret.push_str(self.flag.to_str());
@@ -153,4 +153,15 @@ impl Wire {
             self
         }
     }
+}
+
+
+#[test]
+fn test() {
+    let wire = Wire {
+        flag: Flag::S,
+        is_neg: true,
+        index: 0,
+        len: 1,
+    };
 }

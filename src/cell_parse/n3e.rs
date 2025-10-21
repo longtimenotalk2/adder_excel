@@ -44,7 +44,9 @@ impl RealCell {
                     LogicBlock::ND2 => ("ND2D2BM156H3P48CPDELVT_1", CellSourceType::Std),
                     LogicBlock::NR2 => ("NR2D2BM156H3P48CPDELVT_1", CellSourceType::Std),
                     LogicBlock::IND2 => ("IND2D2BM156H3P48CPDELVT_1", CellSourceType::Std),
+                    LogicBlock::INR2 => ("INR2D2BM156H3P48CPDELVT_1", CellSourceType::Std),
                     LogicBlock::AOI22 => ("AOI22D2BM156H3P48CPDELVT_1", CellSourceType::Std),
+                    LogicBlock::OAI22 => ("OAI22D2BM156H3P48CPDELVT_1", CellSourceType::Std),
                     _ => panic!("{logic_block:?} dont impl D2")
                 }}
             };

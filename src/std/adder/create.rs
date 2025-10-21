@@ -62,13 +62,16 @@ impl Adder {
             history_wires.append(&mut actual_wires);
         }
 
-        assert_eq!(input_is_neg, false);
+        // assert_eq!(input_is_neg, false);
+
+        // 先假设输入是p，然后给出对应的输出极性
+        let output_is_neg_old = output_is_neg;
+        let output_is_neg = if input_is_neg { !output_is_neg } else { output_is_neg };
 
         // 检查当前的S是否都是符合输出的
         let mut has_s = vec![];
         for wire in &history_wires {
             if wire.flag == Flag::S {
-                assert_eq!(wire.is_neg, output_is_neg);
                 has_s.push(wire.index);
             }
         }
@@ -77,7 +80,7 @@ impl Adder {
                 logic_block_map : LogicBlockMappingTable::new_from_vec(
                     LogicBlock::INV, 
                     vec![Wire {flag : Flag::Q, index : 0, len : 1, is_neg : !output_is_neg}], 
-                    vec![Wire {flag : Flag::S, index : 0, len : 1, is_neg : output_is_neg}],
+                    vec![Wire {flag : Flag::S, index : 0, len : 1, is_neg : false}],
                 ),
                 drive : Drive::D1,
                 custom_demand : vec![],
@@ -139,7 +142,7 @@ impl Adder {
                     flag : Flag::S,
                     index,
                     len   : 1,
-                    is_neg: output_is_neg,
+                    is_neg: false,
                 };
                 cells.push(CellFullInfoInAdder {
                     logic_block_map : LogicBlockMappingTable::new_from_vec(
@@ -157,12 +160,36 @@ impl Adder {
         }
 
         
-        Self {
+        let mut adder = Self {
             bits,
             input_is_neg,
-            output_is_neg,
+            output_is_neg : output_is_neg_old,
             cells,
             // wires : history_wires,
+        };
+
+        if input_is_neg {
+            adder = adder.all_cell_rev();
         }
+
+        adder
+    }
+
+    pub fn all_cell_rev(mut self) -> Self {
+        // 将所有cell使用其对偶cell
+
+        for cell in &mut self.cells {
+            *cell = cell.clone().rev();
+        }
+
+        self
+    }
+}
+
+impl CellFullInfoInAdder {
+    pub fn rev(mut self) -> Self {
+        self.logic_block_map =  self.logic_block_map.rev();
+
+        self
     }
 }

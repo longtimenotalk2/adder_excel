@@ -10,6 +10,7 @@ pub mod timing;
 pub mod function;
 pub mod power;
 mod other;
+pub mod test_out;
 
 const SPACE : &str = "    ";
 

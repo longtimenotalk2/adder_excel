@@ -279,7 +279,7 @@ impl LogicBlockMappingTable {
                 Ok(Self::new_from_vec(
                     LogicBlock::XNR2DOUT, 
                     vec![Wire::from_str(&format!("a{index}")), Wire::from_str(&format!("b{index}"))],
-                    vec![Wire::from_str(&format!("ng{index}")), if *is_out_s {Wire::from_str(&format!("ns{index}"))} else {Wire::from_str(&format!("nq{index}"))}]
+                    vec![Wire::from_str(&format!("ng{index}")), if *is_out_s {Wire::from_str(&format!("s{index}"))} else {Wire::from_str(&format!("nq{index}"))}]
                 ))
             }
             LogiBlockHint::XORDOUT(is_out_s) => {

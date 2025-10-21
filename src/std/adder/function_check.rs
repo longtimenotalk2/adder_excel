@@ -102,8 +102,9 @@ impl Adder {
 
         let mut s = vec![];
         for i in 0..self.bits {
-            let wire = if self.output_is_neg {Wire::from_str(&format!("ns{}", i))} else {Wire::from_str(&format!("s{}", i))};
-            s.push(*signals.get(&wire).expect(&format!("can not found {wire:?}")));
+            // let wire = if self.output_is_neg {Wire::from_str(&format!("ns{}", i))} else {Wire::from_str(&format!("s{}", i))};
+            let wire = Wire::from_str(&format!("s{}", i));
+            s.push(*signals.get(&wire).expect(&format!("can not found {wire:?}, wire list : {:?}", signals)));
         }
 
         (s, signals)
