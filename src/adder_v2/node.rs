@@ -16,7 +16,7 @@ pub struct Node {
 }
 
 #[derive(Debug, Clone)]
-pub struct FlagExtendChain(Vec<FlagExtend>);
+pub struct FlagExtendChain(pub Vec<FlagExtend>);
 
 
 #[derive(Debug, Clone)]
