@@ -119,6 +119,15 @@ impl Wire {
         }
     }
 
+    pub fn from_logic_extend(logic_extend : FlagExtend, index : usize, len : usize) -> Self {
+        Wire {
+            flag: logic_extend.flag,
+            is_neg: logic_extend.is_neg,
+            index,
+            len,
+        }
+    }
+
     pub fn is_logic_equil(&self, other: &Wire) -> bool {
         fn equil_map(input: &Wire) -> Wire {
             input.clone()
@@ -127,12 +136,12 @@ impl Wire {
         equil_map(self) == equil_map(other)
     }
 
-    pub fn from_logic_extend(logic_extend : FlagExtend, index : usize, len : usize) -> Self {
+    pub fn to_rev(&self) -> Wire {
         Wire {
-            flag: logic_extend.flag,
-            is_neg: logic_extend.is_neg,
-            index,
-            len,
+            flag: self.flag.clone(),
+            is_neg: !self.is_neg,
+            index: self.index,
+            len: self.len,
         }
     }
 }

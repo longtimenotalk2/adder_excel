@@ -1,17 +1,21 @@
-use crate::adder_v2::{wire::Wire, Id};
+use crate::adder_v2::{node::node_create::NodeCreateError, wire::Wire, Id};
 
 pub struct WireList(Vec<(Id, Wire)>);
 
 impl WireList {
-    pub fn find(&self, wire: &Wire) -> Option<(Id, Wire)> {
+    pub fn len(&self) -> usize {
+        self.0.len()
+    }
+    
+    pub fn find(&self, wire: &Wire) -> Result<(Id, Wire), NodeCreateError> {
         let iter = self.0.iter();
 
         for (id, w) in iter {
             if wire.is_logic_equil(w) {
-                return Some((*id, w.clone()));
+                return Ok((*id, w.clone()));
             }
         }
 
-        None
+        Err(NodeCreateError::CanNotFindGivenWire(wire.clone()))
     }
 }

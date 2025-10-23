@@ -1,6 +1,6 @@
 use std::collections::BTreeMap;
 
-use crate::adder_v2::{wire::Wire, Port};
+use crate::adder_v2::{wire::Wire, Id, Port};
 
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum Logic {
@@ -67,8 +67,8 @@ impl Logic {
 }
 
 
-impl IO<Wire> {
-    pub fn new(input : BTreeMap<Port, Wire>, output_z : Wire, output_o1 : Option<Wire>) -> Self {
+impl<T> IO<T> {
+    pub fn new(input : BTreeMap<Port, T>, output_z : T, output_o1 : Option<T>) -> Self {
         IO {
             input,
             output_z,

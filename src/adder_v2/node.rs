@@ -1,6 +1,6 @@
 pub mod node_create;
 
-use crate::adder_v2::{logic::{Logic, IO}, wire::{Flag, FlagExtend, Wire}};
+use crate::adder_v2::{logic::{Logic, IO}, wire::{Flag, FlagExtend, Wire}, Id};
 
 #[derive(Debug, Clone)]
 pub enum Drive {
@@ -11,7 +11,7 @@ pub enum Drive {
 #[derive(Debug, Clone)]
 pub struct Node {
     logic : Logic,
-    io : IO<Wire>,
+    io : IO<(Id, Wire)>,
     drive : Drive,
 }
 
@@ -34,7 +34,7 @@ pub struct NodeHint {
 
 
 impl Node {
-    pub fn new(logic : Logic, io : IO<Wire>, drive : Drive) -> Self {
+    pub fn new(logic : Logic, io : IO<(Id, Wire)>, drive : Drive) -> Self {
         Self {
             logic,
             io,
