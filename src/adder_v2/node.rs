@@ -1,0 +1,44 @@
+pub mod node_create;
+
+use crate::adder_v2::{logic::{Logic, IO}, wire::{Flag, FlagExtend, Wire}};
+
+#[derive(Debug, Clone)]
+pub enum Drive {
+    D1,
+    D2,
+}
+
+#[derive(Debug, Clone)]
+pub struct Node {
+    logic : Logic,
+    io : IO<Wire>,
+    drive : Drive,
+}
+
+
+
+#[derive(Debug, Clone)]
+pub struct NodeHint {
+    is_simple_inv : bool,
+    is_start : bool,
+    is_start_xnr_dout : bool,
+    is_start_xor_dout : bool,
+    is_start_xnr : bool,
+    is_start_xor : bool,
+    drive : Drive,
+    given_out_flag_extend : Option<FlagExtend>,
+    given_out_index : usize,
+    given_out_len : usize,
+    given_input_chain : Option<Vec<FlagExtend>>, 
+}
+
+
+impl Node {
+    pub fn new(logic : Logic, io : IO<Wire>, drive : Drive) -> Self {
+        Self {
+            logic,
+            io,
+            drive,
+        }
+    }
+}
