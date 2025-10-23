@@ -137,7 +137,16 @@ pub fn line_measure_power(Pinname : &str) -> String {
 impl RealCell {
     pub fn inc_path(&self) -> String {
         let path = match self.process {
-            ProcessAndProject::N3E1374 => todo!(),
+            ProcessAndProject::N3E1374 => {
+                let path_base = "/ic/projects/BM1374";
+                let end = ".Cbest45.spf";
+                match &self.source_type {
+                    CellSourceType::Std => format!("{path_base}/public/5_custom/release/stdcell/stdcell_BM/elvt/spf/Cbest45/{}{end}", self.name),
+                    CellSourceType::Custom => format!("{path_base}/public/5_custom/release/custom/elvt/spf/Cbest45/{}{end}", self.name),
+                    CellSourceType::Lhw => format!("{path_base}/users/haiwei.li/V0/work/spf/out/{}/{}{end}", self.name, self.name),
+                    CellSourceType::LocalHack => format!("cell/hack_{}{end}", self.name),
+                }
+            },
             ProcessAndProject::N4C1340 => {
                 let path_base = "/ic/projects/BM1340";
                 let end = ".Cbest60.spf";

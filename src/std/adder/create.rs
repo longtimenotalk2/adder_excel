@@ -52,7 +52,7 @@ impl Adder {
                 });
             } else {
                 dbg!(&history_wires);
-                panic!("\n\nwhen create wire {} at layer {layer} :\n\n {}", format!("{wire:?}").color(Color::Yellow), error_infos);
+                panic!("\n\nwhen create wire {} at layer {layer} :\n\n {}", format!("{}", wire.to_string()).color(Color::Yellow), error_infos);
             }
             let mut actual_wires = vec![];
             for a in result.unwrap().outputs.values() {

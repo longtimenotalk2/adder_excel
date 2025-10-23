@@ -1,10 +1,10 @@
 use crate::{cell_parse::ProcessAndProject, from_excel::ExcelData, std::adder::Adder};
 
-const PATH : &'static str = "src/project/a04_dual_vdd_225/excel_data/base_np_00.txt";
+const PATH : &'static str = "src/project/a04_dual_vdd_225/excel_data/b01.txt";
 
 pub fn adder() -> Adder{
     let excel_data = ExcelData::load(PATH);
-    let adder = excel_data.create_with_end_xnr_not_new(31, true, false, vec![22], vec![25]);
+    let adder = excel_data.create_with_end_xnr_not_new(31, false, true, vec![22], vec![25]);
     adder
 }
 
@@ -43,7 +43,7 @@ fn test_property() {
 #[test]
 fn test_cdl() {
     let adder = adder();
-    let content = adder.to_cdl_std(ProcessAndProject::N3E1374, "UFADDER_NP_1342_H200");
+    let content = adder.to_cdl_std(ProcessAndProject::N3E1374, "UFADDER_PN_B01");
     // let content = adder.to_cdl_all_vdd_split(ProcessAndProject::N4C1340, "UFADDER_PP_31");
 
     use std::fs::File;

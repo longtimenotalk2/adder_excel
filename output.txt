@@ -1,172 +1,731 @@
-.inc '/ic/projects/BM1340/public/5_custom/spf/stdcell/Cbest/INVD1BM156H3P48CPDELVT_1.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/stdcell/Cbest/INVD2BM156H3P48CPDELVT_1.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/stdcell/Cbest/NR2D1BM156H3P48CPDELVT_1.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/stdcell/Cbest/NR2D2BM156H3P48CPDELVT_1.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/stdcell/Cbest/AN2D1BM156H3P48CPDELVT_1.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/INR2D1BM156H3P48CPDELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/stdcell/Cbest/INR2D2BM156H3P48CPDELVT_1.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/XOR2D1BM156H3P48CPDELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/XNR2D1BM156H3P48CPDELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/XOR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/XNR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/AOI21D1BM156H3P48CPDELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/AOI21D2BM156H3P48CPDELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/OAI21D1BM156H3P48CPDELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/OAI21D2BM156H3P48CPDELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/AO21D1BM156H3P48CPDELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/IAOI21D1BM156H3P48CPDELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/IOAI21D1BM156H3P48CPDELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/AOI22D1BM156H3P48CPDELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/OAI22D1BM156H3P48CPDELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/stdcell/Cbest/OAI22D2BM156H3P48CPDELVT_1.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/AOAI211D1BM156H3P48CPDELVT.Cbest60.spf'
-.inc '/ic/projects/BM1340/public/5_custom/spf/custom/Cbest/AOA211D1BM156H3P48CPDELVT.Cbest60.spf'
+module adder_ultrafast_31_l7_pn_SPCO_8 (
+	a, 
+	b, 
+	s);
+   input [30:0] a;
+   input [30:0] b;
+   output [30:0] s;
 
-.SUBCKT UFADDER_NP_1342_H200 A0 A1 A2 A3 A4 A5 A6 A7 A8 A9 A10 A11 A12 A13 A14 A15 A16 A17 A18 A19 A20 A21 A22 A23 A24 A25 A26 A27 A28 A29 A30 B0 B1 B2 B3 B4 B5 B6 B7 B8 B9 B10 B11 B12 B13 B14 B15 B16 B17 B18 B19 B20 B21 B22 B23 B24 B25 B26 B27 B28 B29 B30 S0 S1 S2 S3 S4 S5 S6 S7 S8 S9 S10 S11 S12 S13 S14 S15 S16 S17 S18 S19 S20 S21 S22 S23 S24 S25 S26 S27 S28 S29 S30 VBB VDD VPP VSS 
-x_U1_nh1_0          a1      b1      a0      b0      VBB     VDD     VPP     VSS     nh1_0    OAI22D2BM156H3P48CPDELVT_1
-x_U1_np2_1          a2      b2      a1      b1      VBB     VDD     VPP     VSS     np2_1    AOI22D1BM156H3P48CPDELVT
-x_U1_nh3_2          a3      b3      a2      b2      VBB     VDD     VPP     VSS     nh3_2    OAI22D1BM156H3P48CPDELVT
-x_U1_np4_3          a4      b4      a3      b3      VBB     VDD     VPP     VSS     np4_3    AOI22D1BM156H3P48CPDELVT
-x_U1_nh5_4          a5      b5      a4      b4      VBB     VDD     VPP     VSS     nh5_4    OAI22D1BM156H3P48CPDELVT
-x_U1_np6_5          a6      b6      a5      b5      VBB     VDD     VPP     VSS     np6_5    AOI22D1BM156H3P48CPDELVT
-x_U1_nh7_6          a7      b7      a6      b6      VBB     VDD     VPP     VSS     nh7_6    OAI22D1BM156H3P48CPDELVT
-x_U1_np8_7          a8      b8      a7      b7      VBB     VDD     VPP     VSS     np8_7    AOI22D1BM156H3P48CPDELVT
-x_U1_nh9_8          a9      b9      a8      b8      VBB     VDD     VPP     VSS     nh9_8    OAI22D1BM156H3P48CPDELVT
-x_U1_np10_9         a10     b10     a9      b9      VBB     VDD     VPP     VSS     np10_9    AOI22D1BM156H3P48CPDELVT
-x_U1_nh11_10        a11     b11     a10     b10     VBB     VDD     VPP     VSS     nh11_10    OAI22D1BM156H3P48CPDELVT
-x_U1_np12_11        a12     b12     a11     b11     VBB     VDD     VPP     VSS     np12_11    AOI22D1BM156H3P48CPDELVT
-x_U1_nh13_12        a13     b13     a12     b12     VBB     VDD     VPP     VSS     nh13_12    OAI22D1BM156H3P48CPDELVT
-x_U1_np14_13        a14     b14     a13     b13     VBB     VDD     VPP     VSS     np14_13    AOI22D1BM156H3P48CPDELVT
-x_U1_nh15_14        a15     b15     a14     b14     VBB     VDD     VPP     VSS     nh15_14    OAI22D1BM156H3P48CPDELVT
-x_U1_np16_15        a16     b16     a15     b15     VBB     VDD     VPP     VSS     np16_15    AOI22D1BM156H3P48CPDELVT
-x_U1_nh17_16        a17     b17     a16     b16     VBB     VDD     VPP     VSS     nh17_16    OAI22D1BM156H3P48CPDELVT
-x_U1_np18_17        a18     b18     a17     b17     VBB     VDD     VPP     VSS     np18_17    AOI22D1BM156H3P48CPDELVT
-x_U1_np19           a19     b19     VBB     VDD     VPP     VSS     np19    NR2D1BM156H3P48CPDELVT_1
-x_U1_nh20_19        a20     b20     a19     b19     VBB     VDD     VPP     VSS     nh20_19    OAI22D1BM156H3P48CPDELVT
-x_U1_np21_20        a21     b21     a20     b20     VBB     VDD     VPP     VSS     np21_20    AOI22D1BM156H3P48CPDELVT
-x_U1_ng22nq22       a22     b22     ng22    VBB     VDD     VPP     VSS     nq22    XOR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1
-x_U1_ng23nq23       a23     b23     ng23    VBB     VDD     VPP     VSS     nq23    XOR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1
-x_U1_q24            a24     b24     VBB     VDD     VPP     VSS     q24     XNR2D1BM156H3P48CPDELVT
-x_U1_ng18nq18       a18     b18     ng18    VBB     VDD     VPP     VSS     nq18    XOR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1
-x_U1_ng21nq21       a21     b21     ng21    VBB     VDD     VPP     VSS     nq21    XOR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1
-x_U2_h3_0           np2_1    nh1_0    nh3_2    VBB     VDD     VPP     VSS     h3_0    AOI21D2BM156H3P48CPDELVT
-x_U2_p6_3           np6_5    np4_3    VBB     VDD     VPP     VSS     p6_3    NR2D1BM156H3P48CPDELVT_1
-x_U2_h7_4           np6_5    nh5_4    nh7_6    VBB     VDD     VPP     VSS     h7_4    AOI21D1BM156H3P48CPDELVT
-x_U2_p10_7          np10_9    np8_7    VBB     VDD     VPP     VSS     p10_7    NR2D1BM156H3P48CPDELVT_1
-x_U2_h11_8          np10_9    nh9_8    nh11_10    VBB     VDD     VPP     VSS     h11_8    AOI21D2BM156H3P48CPDELVT
-x_U2_p14_11         np14_13    np12_11    VBB     VDD     VPP     VSS     p14_11    NR2D2BM156H3P48CPDELVT_1
-x_U2_h15_12         np14_13    nh13_12    nh15_14    VBB     VDD     VPP     VSS     h15_12    AOI21D1BM156H3P48CPDELVT
-x_U2_p18_15         np18_17    np16_15    VBB     VDD     VPP     VSS     p18_15    NR2D1BM156H3P48CPDELVT_1
-x_U2_g18_16         np18_17    nh17_16    ng18    VBB     VDD     VPP     VSS     g18_16    AOI21D1BM156H3P48CPDELVT
-x_U2_p21_19         np21_20    np19    VBB     VDD     VPP     VSS     p21_19    NR2D1BM156H3P48CPDELVT_1
-x_U2_g21_19         np21_20    nh20_19    ng21    VBB     VDD     VPP     VSS     g21_19    AOI21D1BM156H3P48CPDELVT
-x_U2_q23_22         nq23    nq22    VBB     VDD     VPP     VSS     q23_22    NR2D2BM156H3P48CPDELVT_1
-x_U2_g23_22         nq23    ng22    ng23    VBB     VDD     VPP     VSS     g23_22    AOI21D1BM156H3P48CPDELVT
-x_U3_nh7_0          p6_3    h3_0    h7_4    VBB     VDD     VPP     VSS     nh7_0    OAI21D2BM156H3P48CPDELVT
-x_U3_np14_7         p14_11    p10_7    VBB     VDD     VPP     VSS     np14_7    NR2D1BM156H3P48CPDELVT_1
-x_U3_nh15_8         p14_11    h11_8    h15_12    VBB     VDD     VPP     VSS     nh15_8    OAI21D1BM156H3P48CPDELVT
-x_U3_np21_15        p21_19    p18_15    VBB     VDD     VPP     VSS     np21_15    NR2D1BM156H3P48CPDELVT_1
-x_U3_ng21_16        p21_19    g18_16    g21_19    VBB     VDD     VPP     VSS     ng21_16    OAI21D1BM156H3P48CPDELVT
-x_U3_nq24_22        q24     q23_22    VBB     VDD     VPP     VSS     nq24_22    NR2D2BM156H3P48CPDELVT_1
-x_U3_ng24_22        a24     b24     q24     g23_22    VBB     VDD     VPP     VSS     ng24_22    OAI22D1BM156H3P48CPDELVT
-x_U4_h15_0          np14_7    nh7_0    nh15_8    VBB     VDD     VPP     VSS     h15_0    AOI21D2BM156H3P48CPDELVT
-x_U4_p24_15         nq24_22    np21_15    VBB     VDD     VPP     VSS     p24_15    NR2D1BM156H3P48CPDELVT_1
-x_U4_g24_16         nq24_22    ng21_16    ng24_22    VBB     VDD     VPP     VSS     g24_16    AOI21D1BM156H3P48CPDELVT
-x_U1_ng0s0          a0      b0      ng0     VBB     VDD     VPP     VSS     s0      XOR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1
-x_U1_np1q1          a1      b1      np1     VBB     VDD     VPP     VSS     q1      XNR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1
-x_U1_ng2nq2         a2      b2      ng2     VBB     VDD     VPP     VSS     nq2     XOR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1
-x_U1_np3q3          a3      b3      np3     VBB     VDD     VPP     VSS     q3      XNR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1
-x_U1_ng4nq4         a4      b4      ng4     VBB     VDD     VPP     VSS     nq4     XOR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1
-x_U1_ng5nq5         a5      b5      ng5     VBB     VDD     VPP     VSS     nq5     XOR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1
-x_U1_ng6nq6         a6      b6      ng6     VBB     VDD     VPP     VSS     nq6     XOR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1
-x_U1_np7q7          a7      b7      np7     VBB     VDD     VPP     VSS     q7      XNR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1
-x_U1_ng8nq8         a8      b8      ng8     VBB     VDD     VPP     VSS     nq8     XOR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1
-x_U1_np9q9          a9      b9      np9     VBB     VDD     VPP     VSS     q9      XNR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1
-x_U1_ng10nq10       a10     b10     ng10    VBB     VDD     VPP     VSS     nq10    XOR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1
-x_U1_np11q11        a11     b11     np11    VBB     VDD     VPP     VSS     q11     XNR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1
-x_U1_ng12nq12       a12     b12     ng12    VBB     VDD     VPP     VSS     nq12    XOR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1
-x_U1_np13q13        a13     b13     np13    VBB     VDD     VPP     VSS     q13     XNR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1
-x_U1_ng14nq14       a14     b14     ng14    VBB     VDD     VPP     VSS     nq14    XOR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1
-x_U1_np15q15        a15     b15     np15    VBB     VDD     VPP     VSS     q15     XNR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1
-x_U1_ng16nq16       a16     b16     ng16    VBB     VDD     VPP     VSS     nq16    XOR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1
-x_U1_np17q17        a17     b17     np17    VBB     VDD     VPP     VSS     q17     XNR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1
-x_U1_ng19nq19       a19     b19     ng19    VBB     VDD     VPP     VSS     nq19    XOR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1
-x_U1_np20q20        a20     b20     np20    VBB     VDD     VPP     VSS     q20     XNR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1
-x_U1_ng25nq25       a25     b25     ng25    VBB     VDD     VPP     VSS     nq25    XOR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1
-x_U1_ng26nq26       a26     b26     ng26    VBB     VDD     VPP     VSS     nq26    XOR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1
-x_U1_q27            a27     b27     VBB     VDD     VPP     VSS     q27     XNR2D1BM156H3P48CPDELVT
-x_U1_ng28nq28       a28     b28     ng28    VBB     VDD     VPP     VSS     nq28    XOR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1
-x_U1_q29            a29     b29     VBB     VDD     VPP     VSS     q29     XNR2D1BM156H3P48CPDELVT
-x_U1_nq30           a30     b30     VBB     VDD     VPP     VSS     nq30    XOR2D1BM156H3P48CPDELVT
-x_U2_ng1_0          np1     nh1_0    VBB     VDD     VPP     VSS     ng1_0    AN2D1BM156H3P48CPDELVT_1
-x_U2_q22            nq22    VBB     VDD     VPP     VSS     q22     INVD1BM156H3P48CPDELVT_1
-x_U2_g22            ng22    VBB     VDD     VPP     VSS     g22     INVD1BM156H3P48CPDELVT_1
-x_U2_q26_25         nq26    nq25    VBB     VDD     VPP     VSS     q26_25    NR2D1BM156H3P48CPDELVT_1
-x_U2_g26_25         nq26    ng25    ng26    VBB     VDD     VPP     VSS     g26_25    AOI21D1BM156H3P48CPDELVT
-x_U3_g2_0           nq2     ng1_0    ng2     VBB     VDD     VPP     VSS     g2_0    AOI21D1BM156H3P48CPDELVT
-x_U3_ng3_0          np3     h3_0    VBB     VDD     VPP     VSS     ng3_0    INR2D1BM156H3P48CPDELVT
-x_U3_nq27_25        q27     q26_25    VBB     VDD     VPP     VSS     nq27_25    NR2D1BM156H3P48CPDELVT_1
-x_U3_ng27_25        a27     b27     q27     g26_25    VBB     VDD     VPP     VSS     ng27_25    OAI22D1BM156H3P48CPDELVT
-x_U4_ng4_0          nq4     ng3_0    ng4     VBB     VDD     VPP     VSS     ng4_0    AO21D1BM156H3P48CPDELVT
-x_U4_ng7_0          np7     nh7_0    VBB     VDD     VPP     VSS     ng7_0    AN2D1BM156H3P48CPDELVT_1
-x_U4_nh11_0         p10_7    nh7_0    h11_8    VBB     VDD     VPP     VSS     nh11_0    IOAI21D1BM156H3P48CPDELVT
-x_U4_q28_25         nq28    nq27_25    VBB     VDD     VPP     VSS     q28_25    NR2D1BM156H3P48CPDELVT_1
-x_U4_g28_25         nq28    ng27_25    ng28    VBB     VDD     VPP     VSS     g28_25    AOI21D1BM156H3P48CPDELVT
-x_U5_ng5_0          nq5     ng4_0    ng5     VBB     VDD     VPP     VSS     ng5_0    AO21D1BM156H3P48CPDELVT
-x_U5_g8_0           nq8     ng7_0    ng8     VBB     VDD     VPP     VSS     g8_0    AOI21D1BM156H3P48CPDELVT
-x_U5_g9_0           ng7_0    np8_7    nh9_8    np9     VBB     VDD     VPP     VSS     g9_0    AOAI211D1BM156H3P48CPDELVT
-x_U5_g11_0          np11    nh11_0    VBB     VDD     VPP     VSS     g11_0    NR2D1BM156H3P48CPDELVT_1
-x_U5_g12_0          np12_11    nh11_0    ng12    VBB     VDD     VPP     VSS     g12_0    AOI21D1BM156H3P48CPDELVT
-x_U5_ng13_0         nh11_0    np12_11    nh13_12    np13    VBB     VDD     VPP     VSS     ng13_0    AOA211D1BM156H3P48CPDELVT
-x_U5_ng15_0         np15    h15_0    VBB     VDD     VPP     VSS     ng15_0    INR2D2BM156H3P48CPDELVT_1
-x_U5_ng18_0         p18_15    h15_0    g18_16    VBB     VDD     VPP     VSS     ng18_0    OAI21D1BM156H3P48CPDELVT
-x_U5_g21_0          np21_15    h15_0    ng21_16    VBB     VDD     VPP     VSS     g21_0    IAOI21D1BM156H3P48CPDELVT
-x_U5_ng24_0         p24_15    h15_0    g24_16    VBB     VDD     VPP     VSS     ng24_0    OAI21D2BM156H3P48CPDELVT
-x_U5_nq29_25        q29     q28_25    VBB     VDD     VPP     VSS     nq29_25    NR2D1BM156H3P48CPDELVT_1
-x_U5_ng29_25        a29     b29     q29     g28_25    VBB     VDD     VPP     VSS     ng29_25    OAI22D1BM156H3P48CPDELVT
-x_U6_g6_0           nq6     ng5_0    ng6     VBB     VDD     VPP     VSS     g6_0    AOI21D1BM156H3P48CPDELVT
-x_U6_g10_0          nq10    g9_0    ng10    VBB     VDD     VPP     VSS     g10_0    IAOI21D1BM156H3P48CPDELVT
-x_U6_g14_0          nq14    ng13_0    ng14    VBB     VDD     VPP     VSS     g14_0    AOI21D1BM156H3P48CPDELVT
-x_U6_g16_0          nq16    ng15_0    ng16    VBB     VDD     VPP     VSS     g16_0    AOI21D1BM156H3P48CPDELVT
-x_U6_g17_0          ng15_0    np16_15    nh17_16    np17    VBB     VDD     VPP     VSS     g17_0    AOAI211D1BM156H3P48CPDELVT
-x_U6_g19_0          nq19    ng18_0    ng19    VBB     VDD     VPP     VSS     g19_0    AOI21D1BM156H3P48CPDELVT
-x_U6_g20_0          ng18_0    nq19    nh20_19    np20    VBB     VDD     VPP     VSS     g20_0    AOAI211D1BM156H3P48CPDELVT
-x_U6_ng22_0         q22     g21_0    g22     VBB     VDD     VPP     VSS     ng22_0    OAI21D1BM156H3P48CPDELVT
-x_U6_ng23_0         q23_22    g21_0    g23_22    VBB     VDD     VPP     VSS     ng23_0    OAI21D1BM156H3P48CPDELVT
-x_U6_g24_0          ng24_0    VBB     VDD     VPP     VSS     g24_0    INVD2BM156H3P48CPDELVT_1
-x_U6_g25_0          nq25    ng24_0    ng25    VBB     VDD     VPP     VSS     g25_0    AOI21D1BM156H3P48CPDELVT
-x_U6_g27_0          nq27_25    ng24_0    ng27_25    VBB     VDD     VPP     VSS     g27_0    AOI21D1BM156H3P48CPDELVT
-x_U6_g29_0          nq29_25    ng24_0    ng29_25    VBB     VDD     VPP     VSS     g29_0    AOI21D1BM156H3P48CPDELVT
-x_U7_ng26_0         q26_25    g24_0    g26_25    VBB     VDD     VPP     VSS     ng26_0    OAI21D1BM156H3P48CPDELVT
-x_U7_ng28_0         q28_25    g24_0    g28_25    VBB     VDD     VPP     VSS     ng28_0    OAI21D1BM156H3P48CPDELVT
-x_U10_s1            ng0     q1      VBB     VDD     VPP     VSS     s1      XNR2D1BM156H3P48CPDELVT
-x_U10_s2            ng1_0    nq2     VBB     VDD     VPP     VSS     s2      XOR2D1BM156H3P48CPDELVT
-x_U10_s3            g2_0    q3      VBB     VDD     VPP     VSS     s3      XOR2D1BM156H3P48CPDELVT
-x_U10_s4            ng3_0    nq4     VBB     VDD     VPP     VSS     s4      XOR2D1BM156H3P48CPDELVT
-x_U10_s5            ng4_0    nq5     VBB     VDD     VPP     VSS     s5      XOR2D1BM156H3P48CPDELVT
-x_U10_s6            ng5_0    nq6     VBB     VDD     VPP     VSS     s6      XOR2D1BM156H3P48CPDELVT
-x_U10_s7            g6_0    q7      VBB     VDD     VPP     VSS     s7      XOR2D1BM156H3P48CPDELVT
-x_U10_s8            ng7_0    nq8     VBB     VDD     VPP     VSS     s8      XOR2D1BM156H3P48CPDELVT
-x_U10_s9            g8_0    q9      VBB     VDD     VPP     VSS     s9      XOR2D1BM156H3P48CPDELVT
-x_U10_s10           g9_0    nq10    VBB     VDD     VPP     VSS     s10     XNR2D1BM156H3P48CPDELVT
-x_U10_s11           g10_0    q11     VBB     VDD     VPP     VSS     s11     XOR2D1BM156H3P48CPDELVT
-x_U10_s12           g11_0    nq12    VBB     VDD     VPP     VSS     s12     XNR2D1BM156H3P48CPDELVT
-x_U10_s13           g12_0    q13     VBB     VDD     VPP     VSS     s13     XOR2D1BM156H3P48CPDELVT
-x_U10_s14           ng13_0    nq14    VBB     VDD     VPP     VSS     s14     XOR2D1BM156H3P48CPDELVT
-x_U10_s15           g14_0    q15     VBB     VDD     VPP     VSS     s15     XOR2D1BM156H3P48CPDELVT
-x_U10_s16           ng15_0    nq16    VBB     VDD     VPP     VSS     s16     XOR2D1BM156H3P48CPDELVT
-x_U10_s17           g16_0    q17     VBB     VDD     VPP     VSS     s17     XOR2D1BM156H3P48CPDELVT
-x_U10_s18           g17_0    nq18    VBB     VDD     VPP     VSS     s18     XNR2D1BM156H3P48CPDELVT
-x_U10_s19           ng18_0    nq19    VBB     VDD     VPP     VSS     s19     XOR2D1BM156H3P48CPDELVT
-x_U10_s20           g19_0    q20     VBB     VDD     VPP     VSS     s20     XOR2D1BM156H3P48CPDELVT
-x_U10_s21           g20_0    nq21    VBB     VDD     VPP     VSS     s21     XNR2D1BM156H3P48CPDELVT
-x_U10_s22           g21_0    nq22    VBB     VDD     VPP     VSS     s22     XNR2D1BM156H3P48CPDELVT
-x_U10_s23           ng22_0    nq23    VBB     VDD     VPP     VSS     s23     XOR2D1BM156H3P48CPDELVT
-x_U10_s24           ng23_0    q24     VBB     VDD     VPP     VSS     s24     XNR2D1BM156H3P48CPDELVT
-x_U10_s25           ng24_0    nq25    VBB     VDD     VPP     VSS     s25     XOR2D1BM156H3P48CPDELVT
-x_U10_s26           g25_0    nq26    VBB     VDD     VPP     VSS     s26     XNR2D1BM156H3P48CPDELVT
-x_U10_s27           ng26_0    q27     VBB     VDD     VPP     VSS     s27     XNR2D1BM156H3P48CPDELVT
-x_U10_s28           g27_0    nq28    VBB     VDD     VPP     VSS     s28     XNR2D1BM156H3P48CPDELVT
-x_U10_s29           ng28_0    q29     VBB     VDD     VPP     VSS     s29     XNR2D1BM156H3P48CPDELVT
-x_U10_s30           g29_0    nq30    VBB     VDD     VPP     VSS     s30     XNR2D1BM156H3P48CPDELVT
-.ENDS
+   // Internal wires
+   wire g2_0;
+   wire g4_0;
+   wire g6_0;
+   wire g8_0;
+   wire g10_0;
+   wire g11_0;
+   wire g12_0;
+   wire g13_0;
+   wire g14_12;
+   wire g16_0;
+   wire g17_0;
+   wire g18_16;
+   wire g19_0;
+   wire g20_0;
+   wire g21_19;
+   wire g21_16;
+   wire g22_0;
+   wire g23_0;
+   wire g24_22;
+   wire g24_16;
+   wire g24_0;
+   wire g25_0;
+   wire g26_25;
+   wire g27_0;
+   wire g28_25;
+   wire g29_0;
+   wire ng0;
+   wire ng1_0;
+   wire ng2;
+   wire ng3_0;
+   wire ng4;
+   wire ng5_0;
+   wire ng6;
+   wire ng7_0;
+   wire ng8;
+   wire ng9_0;
+   wire ng10;
+   wire ng12;
+   wire ng14;
+   wire ng14_0;
+   wire ng15_0;
+   wire ng16;
+   wire ng18;
+   wire ng18_0;
+   wire ng19;
+   wire ng21;
+   wire ng21_16;
+   wire ng21_0;
+   wire ng22;
+   wire ng24;
+   wire ng24_22;
+   wire ng24_0;
+   wire ng25;
+   wire ng26;
+   wire ng26_0;
+   wire ng27_25;
+   wire ng28;
+   wire ng28_0;
+   wire ng29_25;
+   wire p6_3;
+   wire p10_7;
+   wire p14_11;
+   wire p15;
+   wire p18_15;
+   wire p21_19;
+   wire p21_15;
+   wire p24_22;
+   wire p24_15;
+   wire np1;
+   wire np2_1;
+   wire np3;
+   wire np4_3;
+   wire np5;
+   wire np6_5;
+   wire np7;
+   wire np8_7;
+   wire np9;
+   wire np10_9;
+   wire np11;
+   wire np12_11;
+   wire np13;
+   wire np14_13;
+   wire np14_7;
+   wire np15;
+   wire np16_15;
+   wire np17;
+   wire np18_17;
+   wire np19;
+   wire np20;
+   wire np21_20;
+   wire np21_15;
+   wire np22;
+   wire np23;
+   wire np24_23;
+   wire np24_22;
+   wire q1;
+   wire q3;
+   wire q5;
+   wire q7;
+   wire q9;
+   wire q11;
+   wire q13;
+   wire q15;
+   wire q17;
+   wire q20;
+   wire q23;
+   wire q26_25;
+   wire q27;
+   wire q28_25;
+   wire q29;
+   wire nq2;
+   wire nq4;
+   wire nq6;
+   wire nq8;
+   wire nq10;
+   wire nq12;
+   wire nq14;
+   wire nq16;
+   wire nq18;
+   wire nq19;
+   wire nq21;
+   wire nq22;
+   wire nq24;
+   wire nq25;
+   wire nq26;
+   wire nq27_25;
+   wire nq28;
+   wire nq29_25;
+   wire nq30;
+   wire h3_0;
+   wire h7_4;
+   wire h11_8;
+   wire h15_12;
+   wire h15_0;
+   wire nh1_0;
+   wire nh3_2;
+   wire nh3_0;
+   wire nh5_4;
+   wire nh7_6;
+   wire nh7_0;
+   wire nh9_8;
+   wire nh11_10;
+   wire nh11_0;
+   wire nh13_12;
+   wire nh15_14;
+   wire nh15_8;
+   wire nh17_16;
+   wire nh20_19;
+   wire nh23_22;
+
+   AOI22D2BM156H3P48CPDELVT_1 U1_nh1_0(.ZN(nh1_0),
+	.B2(b[0]),
+	.B1(a[0]),
+	.A2(b[1]),
+	.A1(a[1]));
+   OAI22D1BM156H3P48CPDELVT U1_np2_1(.ZN(np2_1),
+	.B2(b[1]),
+	.B1(a[1]),
+	.A2(b[2]),
+	.A1(a[2]));
+   AOI22D1BM156H3P48CPDELVT U1_nh3_2(.ZN(nh3_2),
+	.B2(b[2]),
+	.B1(a[2]),
+	.A2(b[3]),
+	.A1(a[3]));
+   OAI22D1BM156H3P48CPDELVT U1_np4_3(.ZN(np4_3),
+	.B2(b[3]),
+	.B1(a[3]),
+	.A2(b[4]),
+	.A1(a[4]));
+   AOI22D1BM156H3P48CPDELVT U1_nh5_4(.ZN(nh5_4),
+	.B2(b[4]),
+	.B1(a[4]),
+	.A2(b[5]),
+	.A1(a[5]));
+   OAI22D1BM156H3P48CPDELVT U1_np6_5(.ZN(np6_5),
+	.B2(b[5]),
+	.B1(a[5]),
+	.A2(b[6]),
+	.A1(a[6]));
+   AOI22D1BM156H3P48CPDELVT U1_nh7_6(.ZN(nh7_6),
+	.B2(b[6]),
+	.B1(a[6]),
+	.A2(b[7]),
+	.A1(a[7]));
+   OAI22D1BM156H3P48CPDELVT U1_np8_7(.ZN(np8_7),
+	.B2(b[7]),
+	.B1(a[7]),
+	.A2(b[8]),
+	.A1(a[8]));
+   AOI22D1BM156H3P48CPDELVT U1_nh9_8(.ZN(nh9_8),
+	.B2(b[8]),
+	.B1(a[8]),
+	.A2(b[9]),
+	.A1(a[9]));
+   OAI22D1BM156H3P48CPDELVT U1_np10_9(.ZN(np10_9),
+	.B2(b[9]),
+	.B1(a[9]),
+	.A2(b[10]),
+	.A1(a[10]));
+   AOI22D1BM156H3P48CPDELVT U1_nh11_10(.ZN(nh11_10),
+	.B2(b[10]),
+	.B1(a[10]),
+	.A2(b[11]),
+	.A1(a[11]));
+   OAI22D1BM156H3P48CPDELVT U1_np12_11(.ZN(np12_11),
+	.B2(b[11]),
+	.B1(a[11]),
+	.A2(b[12]),
+	.A1(a[12]));
+   AOI22D1BM156H3P48CPDELVT U1_nh13_12(.ZN(nh13_12),
+	.B2(b[12]),
+	.B1(a[12]),
+	.A2(b[13]),
+	.A1(a[13]));
+   OAI22D1BM156H3P48CPDELVT U1_np14_13(.ZN(np14_13),
+	.B2(b[13]),
+	.B1(a[13]),
+	.A2(b[14]),
+	.A1(a[14]));
+   AOI22D1BM156H3P48CPDELVT U1_nh15_14(.ZN(nh15_14),
+	.B2(b[14]),
+	.B1(a[14]),
+	.A2(b[15]),
+	.A1(a[15]));
+   OAI22D1BM156H3P48CPDELVT U1_np16_15(.ZN(np16_15),
+	.B2(b[15]),
+	.B1(a[15]),
+	.A2(b[16]),
+	.A1(a[16]));
+   AOI22D1BM156H3P48CPDELVT U1_nh17_16(.ZN(nh17_16),
+	.B2(b[16]),
+	.B1(a[16]),
+	.A2(b[17]),
+	.A1(a[17]));
+   OAI22D1BM156H3P48CPDELVT U1_np18_17(.ZN(np18_17),
+	.B2(b[17]),
+	.B1(a[17]),
+	.A2(b[18]),
+	.A1(a[18]));
+   NR2D1BM156H3P48CPDELVT_1 U1_np19(.ZN(np19),
+	.A2(b[19]),
+	.A1(a[19]));
+   AOI22D1BM156H3P48CPDELVT U1_nh20_19(.ZN(nh20_19),
+	.B2(b[19]),
+	.B1(a[19]),
+	.A2(b[20]),
+	.A1(a[20]));
+   OAI22D1BM156H3P48CPDELVT U1_np21_20(.ZN(np21_20),
+	.B2(b[20]),
+	.B1(a[20]),
+	.A2(b[21]),
+	.A1(a[21]));
+   NR2D1BM156H3P48CPDELVT_1 U1_np22(.ZN(np22),
+	.A2(b[22]),
+	.A1(a[22]));
+   AOI22D1BM156H3P48CPDELVT U1_nh23_22(.ZN(nh23_22),
+	.B2(b[22]),
+	.B1(a[22]),
+	.A2(b[23]),
+	.A1(a[23]));
+   OAI22D1BM156H3P48CPDELVT U1_np24_23(.ZN(np24_23),
+	.B2(b[23]),
+	.B1(a[23]),
+	.A2(b[24]),
+	.A1(a[24]));
+   XNR2D1_DUAL_OUT_BM156H3P48CPDELVT U1_ng18nq18(.ZN(nq18),
+	.O1(ng18),
+	.A2(b[18]),
+	.A1(a[18]));
+   XNR2D1_DUAL_OUT_BM156H3P48CPDELVT U1_ng21nq21(.ZN(nq21),
+	.O1(ng21),
+	.A2(b[21]),
+	.A1(a[21]));
+   XNR2D1_DUAL_OUT_BM156H3P48CPDELVT U1_ng24nq24(.ZN(nq24),
+	.O1(ng24),
+	.A2(b[24]),
+	.A1(a[24]));
+   OAI21D2BM156H3P48CPDELVT_P_ULVT_L2H_V02 U2_h3_0(.ZN(h3_0),
+	.B(nh3_2),
+	.A2(nh1_0),
+	.A1(np2_1));
+   NR2D1BM156H3P48CPDELVT_1_P_ULVT_L2H_V02 U2_p6_3(.ZN(p6_3),
+	.A2(np4_3),
+	.A1(np6_5));
+   OAI21D1BM156H3P48CPDELVT_P_ULVT_L2H_V02 U2_h7_4(.ZN(h7_4),
+	.B(nh7_6),
+	.A2(nh5_4),
+	.A1(np6_5));
+   NR2D1BM156H3P48CPDELVT_1_P_ULVT_L2H_V02 U2_p10_7(.ZN(p10_7),
+	.A2(np8_7),
+	.A1(np10_9));
+   OAI21D1BM156H3P48CPDELVT_P_ULVT_L2H_V02 U2_h11_8(.ZN(h11_8),
+	.B(nh11_10),
+	.A2(nh9_8),
+	.A1(np10_9));
+   NR2D1BM156H3P48CPDELVT_1_P_ULVT_L2H_V02 U2_p14_11(.ZN(p14_11),
+	.A2(np12_11),
+	.A1(np14_13));
+   OAI21D1BM156H3P48CPDELVT_P_ULVT_L2H_V02 U2_h15_12(.ZN(h15_12),
+	.B(nh15_14),
+	.A2(nh13_12),
+	.A1(np14_13));
+   NR2D1BM156H3P48CPDELVT_1_P_ULVT_L2H_V02 U2_p18_15(.ZN(p18_15),
+	.A2(np16_15),
+	.A1(np18_17));
+   OAI21D1BM156H3P48CPDELVT_P_ULVT_L2H_V02 U2_g18_16(.ZN(g18_16),
+	.B(ng18),
+	.A2(nh17_16),
+	.A1(np18_17));
+   NR2D1BM156H3P48CPDELVT_1_P_ULVT_L2H_V02 U2_p21_19(.ZN(p21_19),
+	.A2(np19),
+	.A1(np21_20));
+   OAI21D1BM156H3P48CPDELVT_P_ULVT_L2H_V02 U2_g21_19(.ZN(g21_19),
+	.B(ng21),
+	.A2(nh20_19),
+	.A1(np21_20));
+   NR2D1BM156H3P48CPDELVT_1 U2_p24_22(.ZN(p24_22),
+	.A2(np22),
+	.A1(np24_23));
+   OAI21D1BM156H3P48CPDELVT U2_g24_22(.ZN(g24_22),
+	.B(ng24),
+	.A2(nh23_22),
+	.A1(np24_23));
+   AOI21D2BM156H3P48CPDELVT_H2H_V03 U3_nh7_0(.ZN(nh7_0),
+	.B(h7_4),
+	.A2(h3_0),
+	.A1(p6_3));
+   ND2D1BM156H3P48CPDELVT_1_H2H_V03 U3_np14_7(.ZN(np14_7),
+	.A2(p10_7),
+	.A1(p14_11));
+   AOI21D1BM156H3P48CPDELVT_H2H_V03 U3_nh15_8(.ZN(nh15_8),
+	.B(h15_12),
+	.A2(h11_8),
+	.A1(p14_11));
+   ND2D1BM156H3P48CPDELVT_1_H2H_V03 U3_np21_15(.ZN(np21_15),
+	.A2(p18_15),
+	.A1(p21_19));
+   AOI21D1BM156H3P48CPDELVT_H2H_V03 U3_ng21_16(.ZN(ng21_16),
+	.B(g21_19),
+	.A2(g18_16),
+	.A1(p21_19));
+   INVD1BM156H3P48CPDELVT_1_P_ULVT_L2H_V03 U3_np24_22(.ZN(np24_22),
+	.I(p24_22));
+   INVD1BM156H3P48CPDELVT_1_P_ULVT_L2H_V03 U3_ng24_22(.ZN(ng24_22),
+	.I(g24_22));
+   OAI21D2BM156H3P48CPDELVT_H2H_V02 U4_h15_0(.ZN(h15_0),
+	.B(nh15_8),
+	.A2(nh7_0),
+	.A1(np14_7));
+   INVD1BM156H3P48CPDELVT_1_H2H_V03 U4_p21_15(.ZN(p21_15),
+	.I(np21_15));
+   INVD1BM156H3P48CPDELVT_1_H2H_V03 U4_g21_16(.ZN(g21_16),
+	.I(ng21_16));
+   NR2D1BM156H3P48CPDELVT_1_H2H_V02 U4_p24_15(.ZN(p24_15),
+	.A2(np21_15),
+	.A1(np24_22));
+   OAI21D1BM156H3P48CPDELVT_H2H_V02 U4_g24_16(.ZN(g24_16),
+	.B(ng24_22),
+	.A2(ng21_16),
+	.A1(np24_22));
+   XNR2D1_DUAL_OUT_BM156H3P48CPDELVT U1_ng0s0(.ZN(s[0]),
+	.O1(ng0),
+	.A2(b[0]),
+	.A1(a[0]));
+   XOR2D1_DUAL_OUT_BM156H3P48CPDELVT U1_np1q1(.Z(q1),
+	.O1(np1),
+	.A2(b[1]),
+	.A1(a[1]));
+   XNR2D1_DUAL_OUT_BM156H3P48CPDELVT U1_ng2nq2(.ZN(nq2),
+	.O1(ng2),
+	.A2(b[2]),
+	.A1(a[2]));
+   XOR2D1_DUAL_OUT_BM156H3P48CPDELVT U1_np3q3(.Z(q3),
+	.O1(np3),
+	.A2(b[3]),
+	.A1(a[3]));
+   XNR2D1_DUAL_OUT_BM156H3P48CPDELVT U1_ng4nq4(.ZN(nq4),
+	.O1(ng4),
+	.A2(b[4]),
+	.A1(a[4]));
+   XOR2D1_DUAL_OUT_BM156H3P48CPDELVT U1_np5q5(.Z(q5),
+	.O1(np5),
+	.A2(b[5]),
+	.A1(a[5]));
+   XNR2D1_DUAL_OUT_BM156H3P48CPDELVT U1_ng6nq6(.ZN(nq6),
+	.O1(ng6),
+	.A2(b[6]),
+	.A1(a[6]));
+   XOR2D1_DUAL_OUT_BM156H3P48CPDELVT U1_np7q7(.Z(q7),
+	.O1(np7),
+	.A2(b[7]),
+	.A1(a[7]));
+   XNR2D1_DUAL_OUT_BM156H3P48CPDELVT U1_ng8nq8(.ZN(nq8),
+	.O1(ng8),
+	.A2(b[8]),
+	.A1(a[8]));
+   XOR2D1_DUAL_OUT_BM156H3P48CPDELVT U1_np9q9(.Z(q9),
+	.O1(np9),
+	.A2(b[9]),
+	.A1(a[9]));
+   XNR2D1_DUAL_OUT_BM156H3P48CPDELVT U1_ng10nq10(.ZN(nq10),
+	.O1(ng10),
+	.A2(b[10]),
+	.A1(a[10]));
+   XOR2D1_DUAL_OUT_BM156H3P48CPDELVT U1_np11q11(.Z(q11),
+	.O1(np11),
+	.A2(b[11]),
+	.A1(a[11]));
+   XNR2D1_DUAL_OUT_BM156H3P48CPDELVT U1_ng12nq12(.ZN(nq12),
+	.O1(ng12),
+	.A2(b[12]),
+	.A1(a[12]));
+   XOR2D1_DUAL_OUT_BM156H3P48CPDELVT U1_np13q13(.Z(q13),
+	.O1(np13),
+	.A2(b[13]),
+	.A1(a[13]));
+   XNR2D1_DUAL_OUT_BM156H3P48CPDELVT U1_ng14nq14(.ZN(nq14),
+	.O1(ng14),
+	.A2(b[14]),
+	.A1(a[14]));
+   XOR2D1_DUAL_OUT_BM156H3P48CPDELVT U1_np15q15(.Z(q15),
+	.O1(np15),
+	.A2(b[15]),
+	.A1(a[15]));
+   XNR2D1_DUAL_OUT_BM156H3P48CPDELVT U1_ng16nq16(.ZN(nq16),
+	.O1(ng16),
+	.A2(b[16]),
+	.A1(a[16]));
+   XOR2D1_DUAL_OUT_BM156H3P48CPDELVT U1_np17q17(.Z(q17),
+	.O1(np17),
+	.A2(b[17]),
+	.A1(a[17]));
+   XNR2D1_DUAL_OUT_BM156H3P48CPDELVT U1_ng19nq19(.ZN(nq19),
+	.O1(ng19),
+	.A2(b[19]),
+	.A1(a[19]));
+   XOR2D1_DUAL_OUT_BM156H3P48CPDELVT U1_np20q20(.Z(q20),
+	.O1(np20),
+	.A2(b[20]),
+	.A1(a[20]));
+   XNR2D1_DUAL_OUT_BM156H3P48CPDELVT U1_ng22nq22(.ZN(nq22),
+	.O1(ng22),
+	.A2(b[22]),
+	.A1(a[22]));
+   XOR2D1_DUAL_OUT_BM156H3P48CPDELVT U1_np23q23(.Z(q23),
+	.O1(np23),
+	.A2(b[23]),
+	.A1(a[23]));
+   XNR2D1_DUAL_OUT_BM156H3P48CPDELVT U1_ng25nq25(.ZN(nq25),
+	.O1(ng25),
+	.A2(b[25]),
+	.A1(a[25]));
+   XNR2D1_DUAL_OUT_BM156H3P48CPDELVT U1_ng26nq26(.ZN(nq26),
+	.O1(ng26),
+	.A2(b[26]),
+	.A1(a[26]));
+   XOR2D1BM156H3P48CPDELVT U1_q27(.Z(q27),
+	.A2(b[27]),
+	.A1(a[27]));
+   XNR2D1_DUAL_OUT_BM156H3P48CPDELVT U1_ng28nq28(.ZN(nq28),
+	.O1(ng28),
+	.A2(b[28]),
+	.A1(a[28]));
+   XOR2D1BM156H3P48CPDELVT U1_q29(.Z(q29),
+	.A2(b[29]),
+	.A1(a[29]));
+   XNR2D1BM156H3P48CPDELVT U1_nq30(.ZN(nq30),
+	.A2(b[30]),
+	.A1(a[30]));
+   OR2D1BM156H3P48CPDELVT_1 U2_ng1_0(.Z(ng1_0),
+	.A2(nh1_0),
+	.A1(np1));
+   INVD1BM156H3P48CPDELVT_1 U2_nh3_0(.ZN(nh3_0),
+	.I(h3_0));
+   OAI21D1BM156H3P48CPDELVT U2_g14_12(.ZN(g14_12),
+	.B(ng14),
+	.A2(nh13_12),
+	.A1(np14_13));
+   INVD1BM156H3P48CPDELVT_1_P_ULVT_L2H_V03 U2_p15(.ZN(p15),
+	.I(np15));
+   NR2D1BM156H3P48CPDELVT_1 U2_q26_25(.ZN(q26_25),
+	.A2(nq25),
+	.A1(nq26));
+   OAI21D1BM156H3P48CPDELVT U2_g26_25(.ZN(g26_25),
+	.B(ng26),
+	.A2(ng25),
+	.A1(nq26));
+   OAI21D1BM156H3P48CPDELVT U3_g2_0(.ZN(g2_0),
+	.B(ng2),
+	.A2(ng1_0),
+	.A1(nq2));
+   OR2D1BM156H3P48CPDELVT_1 U3_ng3_0(.Z(ng3_0),
+	.A2(nh3_0),
+	.A1(np3));
+   OAO211D1BM156H3P48CPDELVT U3_ng5_0(.Z(ng5_0),
+	.C(np5),
+	.B(nh5_4),
+	.A2(np4_3),
+	.A1(nh3_0));
+   ND2D1BM156H3P48CPDELVT_1 U3_nq27_25(.ZN(nq27_25),
+	.A2(q26_25),
+	.A1(q27));
+   AOI22D1BM156H3P48CPDELVT U3_ng27_25(.ZN(ng27_25),
+	.B2(g26_25),
+	.B1(q27),
+	.A2(b[27]),
+	.A1(a[27]));
+   OAI21D1BM156H3P48CPDELVT U4_g4_0(.ZN(g4_0),
+	.B(ng4),
+	.A2(ng3_0),
+	.A1(nq4));
+   OAI21D1BM156H3P48CPDELVT U4_g6_0(.ZN(g6_0),
+	.B(ng6),
+	.A2(ng5_0),
+	.A1(nq6));
+   OR2D1BM156H3P48CPDELVT_1 U4_ng7_0(.Z(ng7_0),
+	.A2(nh7_0),
+	.A1(np7));
+   OAO211D1BM156H3P48CPDELVT U4_ng9_0(.Z(ng9_0),
+	.C(np9),
+	.B(nh9_8),
+	.A2(np8_7),
+	.A1(nh7_0));
+   IAOI21D1BM156H3P48CPDELVT_H2H_V03 U4_nh11_0(.ZN(nh11_0),
+	.B(h11_8),
+	.A2(nh7_0),
+	.A1(p10_7));
+   NR2D1BM156H3P48CPDELVT_1 U4_q28_25(.ZN(q28_25),
+	.A2(nq27_25),
+	.A1(nq28));
+   OAI21D1BM156H3P48CPDELVT U4_g28_25(.ZN(g28_25),
+	.B(ng28),
+	.A2(ng27_25),
+	.A1(nq28));
+   OAI21D1BM156H3P48CPDELVT U5_g8_0(.ZN(g8_0),
+	.B(ng8),
+	.A2(ng7_0),
+	.A1(nq8));
+   OAI21D1BM156H3P48CPDELVT U5_g10_0(.ZN(g10_0),
+	.B(ng10),
+	.A2(ng9_0),
+	.A1(nq10));
+   NR2D1BM156H3P48CPDELVT_1 U5_g11_0(.ZN(g11_0),
+	.A2(nh11_0),
+	.A1(np11));
+   OAI21D1BM156H3P48CPDELVT U5_g12_0(.ZN(g12_0),
+	.B(ng12),
+	.A2(nh11_0),
+	.A1(np12_11));
+   OAOI211D1BM156H3P48CPDELVT U5_g13_0(.ZN(g13_0),
+	.C(np13),
+	.B(nh13_12),
+	.A2(np12_11),
+	.A1(nh11_0));
+   IAOI21D1BM156H3P48CPDELVT U5_ng14_0(.ZN(ng14_0),
+	.B(g14_12),
+	.A2(nh11_0),
+	.A1(p14_11));
+   ND2D1BM156H3P48CPDELVT_1_H2H_V03 U5_ng15_0(.ZN(ng15_0),
+	.A2(h15_0),
+	.A1(p15));
+   AOI21D1BM156H3P48CPDELVT_H2H_V03 U5_ng18_0(.ZN(ng18_0),
+	.B(g18_16),
+	.A2(h15_0),
+	.A1(p18_15));
+   AOI21D1BM156H3P48CPDELVT_H2H_V03 U5_ng21_0(.ZN(ng21_0),
+	.B(g21_16),
+	.A2(h15_0),
+	.A1(p21_15));
+   AOI21D2BM156H3P48CPDELVT_H2H_V03 U5_ng24_0(.ZN(ng24_0),
+	.B(g24_16),
+	.A2(h15_0),
+	.A1(p24_15));
+   ND2D1BM156H3P48CPDELVT_1 U5_nq29_25(.ZN(nq29_25),
+	.A2(q28_25),
+	.A1(q29));
+   AOI22D1BM156H3P48CPDELVT U5_ng29_25(.ZN(ng29_25),
+	.B2(g28_25),
+	.B1(q29),
+	.A2(b[29]),
+	.A1(a[29]));
+   OAI21D1BM156H3P48CPDELVT U6_g16_0(.ZN(g16_0),
+	.B(ng16),
+	.A2(ng15_0),
+	.A1(nq16));
+   OAOI211D1BM156H3P48CPDELVT U6_g17_0(.ZN(g17_0),
+	.C(np17),
+	.B(nh17_16),
+	.A2(np16_15),
+	.A1(ng15_0));
+   OAI21D1BM156H3P48CPDELVT U6_g19_0(.ZN(g19_0),
+	.B(ng19),
+	.A2(ng18_0),
+	.A1(nq19));
+   OAOI211D1BM156H3P48CPDELVT U6_g20_0(.ZN(g20_0),
+	.C(np20),
+	.B(nh20_19),
+	.A2(nq19),
+	.A1(ng18_0));
+   OAI21D1BM156H3P48CPDELVT U6_g22_0(.ZN(g22_0),
+	.B(ng22),
+	.A2(ng21_0),
+	.A1(nq22));
+   OAOI211D1BM156H3P48CPDELVT U6_g23_0(.ZN(g23_0),
+	.C(np23),
+	.B(nh23_22),
+	.A2(nq22),
+	.A1(ng21_0));
+   INVD2BM156H3P48CPDELVT_1 U6_g24_0(.ZN(g24_0),
+	.I(ng24_0));
+   OAI21D1BM156H3P48CPDELVT U6_g25_0(.ZN(g25_0),
+	.B(ng25),
+	.A2(ng24_0),
+	.A1(nq25));
+   OAI21D1BM156H3P48CPDELVT U6_g27_0(.ZN(g27_0),
+	.B(ng27_25),
+	.A2(ng24_0),
+	.A1(nq27_25));
+   OAI21D1BM156H3P48CPDELVT U6_g29_0(.ZN(g29_0),
+	.B(ng29_25),
+	.A2(ng24_0),
+	.A1(nq29_25));
+   AOI21D1BM156H3P48CPDELVT U7_ng26_0(.ZN(ng26_0),
+	.B(g26_25),
+	.A2(g24_0),
+	.A1(q26_25));
+   AOI21D1BM156H3P48CPDELVT U7_ng28_0(.ZN(ng28_0),
+	.B(g28_25),
+	.A2(g24_0),
+	.A1(q28_25));
+   XOR2D1BM156H3P48CPDELVT U10_s1(.Z(s[1]),
+	.A2(q1),
+	.A1(ng0));
+   XNR2D1BM156H3P48CPDELVT U10_s2(.ZN(s[2]),
+	.A2(nq2),
+	.A1(ng1_0));
+   XNR2D1BM156H3P48CPDELVT U10_s3(.ZN(s[3]),
+	.A2(q3),
+	.A1(g2_0));
+   XNR2D1BM156H3P48CPDELVT U10_s4(.ZN(s[4]),
+	.A2(nq4),
+	.A1(ng3_0));
+   XNR2D1BM156H3P48CPDELVT U10_s5(.ZN(s[5]),
+	.A2(q5),
+	.A1(g4_0));
+   XNR2D1BM156H3P48CPDELVT U10_s6(.ZN(s[6]),
+	.A2(nq6),
+	.A1(ng5_0));
+   XNR2D1BM156H3P48CPDELVT U10_s7(.ZN(s[7]),
+	.A2(q7),
+	.A1(g6_0));
+   XNR2D1BM156H3P48CPDELVT U10_s8(.ZN(s[8]),
+	.A2(nq8),
+	.A1(ng7_0));
+   XNR2D1BM156H3P48CPDELVT U10_s9(.ZN(s[9]),
+	.A2(q9),
+	.A1(g8_0));
+   XNR2D1BM156H3P48CPDELVT U10_s10(.ZN(s[10]),
+	.A2(nq10),
+	.A1(ng9_0));
+   XNR2D1BM156H3P48CPDELVT U10_s11(.ZN(s[11]),
+	.A2(q11),
+	.A1(g10_0));
+   XOR2D1BM156H3P48CPDELVT U10_s12(.Z(s[12]),
+	.A2(nq12),
+	.A1(g11_0));
+   XNR2D1BM156H3P48CPDELVT U10_s13(.ZN(s[13]),
+	.A2(q13),
+	.A1(g12_0));
+   XOR2D1BM156H3P48CPDELVT U10_s14(.Z(s[14]),
+	.A2(nq14),
+	.A1(g13_0));
+   XOR2D1BM156H3P48CPDELVT U10_s15(.Z(s[15]),
+	.A2(q15),
+	.A1(ng14_0));
+   XNR2D1BM156H3P48CPDELVT U10_s16(.ZN(s[16]),
+	.A2(nq16),
+	.A1(ng15_0));
+   XNR2D1BM156H3P48CPDELVT U10_s17(.ZN(s[17]),
+	.A2(q17),
+	.A1(g16_0));
+   XOR2D1BM156H3P48CPDELVT U10_s18(.Z(s[18]),
+	.A2(nq18),
+	.A1(g17_0));
+   XNR2D1BM156H3P48CPDELVT U10_s19(.ZN(s[19]),
+	.A2(nq19),
+	.A1(ng18_0));
+   XNR2D1BM156H3P48CPDELVT U10_s20(.ZN(s[20]),
+	.A2(q20),
+	.A1(g19_0));
+   XOR2D1BM156H3P48CPDELVT U10_s21(.Z(s[21]),
+	.A2(nq21),
+	.A1(g20_0));
+   XNR2D1BM156H3P48CPDELVT U10_s22(.ZN(s[22]),
+	.A2(nq22),
+	.A1(ng21_0));
+   XNR2D1BM156H3P48CPDELVT U10_s23(.ZN(s[23]),
+	.A2(q23),
+	.A1(g22_0));
+   XOR2D1BM156H3P48CPDELVT U10_s24(.Z(s[24]),
+	.A2(nq24),
+	.A1(g23_0));
+   XNR2D1BM156H3P48CPDELVT U10_s25(.ZN(s[25]),
+	.A2(nq25),
+	.A1(ng24_0));
+   XOR2D1BM156H3P48CPDELVT U10_s26(.Z(s[26]),
+	.A2(nq26),
+	.A1(g25_0));
+   XOR2D1BM156H3P48CPDELVT U10_s27(.Z(s[27]),
+	.A2(q27),
+	.A1(ng26_0));
+   XOR2D1BM156H3P48CPDELVT U10_s28(.Z(s[28]),
+	.A2(nq28),
+	.A1(g27_0));
+   XOR2D1BM156H3P48CPDELVT U10_s29(.Z(s[29]),
+	.A2(q29),
+	.A1(ng28_0));
+   XOR2D1BM156H3P48CPDELVT U10_s30(.Z(s[30]),
+	.A2(nq30),
+	.A1(g29_0));
+endmodule

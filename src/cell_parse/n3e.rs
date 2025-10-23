@@ -18,11 +18,11 @@ impl RealCell {
                     LogicBlock::AN2 => ("AN2D1BM156H3P48CPDELVT_1", CellSourceType::Std),
                     LogicBlock::OR2 => ("OR2D1BM156H3P48CPDELVT_1", CellSourceType::Std),
                     LogicBlock::IND2 => ("IND2D1BM156H3P48CPDELVT_1", CellSourceType::Std),
-                    LogicBlock::INR2 => ("INR2D1BM156H3P48CPDELVT", CellSourceType::Custom),
+                    LogicBlock::INR2 => ("INR2D1BM156H3P48CPDELVT_1", CellSourceType::Std),
                     LogicBlock::XOR2 => ("XOR2D1BM156H3P48CPDELVT", CellSourceType::Custom),
                     LogicBlock::XNR2 => ("XNR2D1BM156H3P48CPDELVT", CellSourceType::Custom),
-                    LogicBlock::XOR2DOUT => ("XOR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1", CellSourceType::Custom),
-                    LogicBlock::XNR2DOUT => ("XNR2D1_DUAL_OUT_BM156H3P48CPDELVT_ELVT_V1", CellSourceType::Custom),
+                    LogicBlock::XOR2DOUT => ("XOR2D1_DUAL_OUT_BM156H3P48CPDELVT", CellSourceType::Custom),
+                    LogicBlock::XNR2DOUT => ("XNR2D1_DUAL_OUT_BM156H3P48CPDELVT", CellSourceType::Custom),
                     LogicBlock::AOI21 => ("AOI21D1BM156H3P48CPDELVT", CellSourceType::Custom),
                     LogicBlock::OAI21 => ("OAI21D1BM156H3P48CPDELVT", CellSourceType::Custom),
                     LogicBlock::AO21 => ("AO21D1BM156H3P48CPDELVT", CellSourceType::Custom),
@@ -53,12 +53,12 @@ impl RealCell {
             Self {
                 name : name.to_string(),
                 source_type,
-                process : ProcessAndProject::N4C1340,
+                process : ProcessAndProject::N3E1374,
                 addition_pg_port : BTreeSet::new(),
                 vdd_replaced : vec![],
             }
         } else {
-            Self::parse_n4c_custom(logic_block, drive, custom_demand)
+            Self::parse_n3e_custom(logic_block, drive, custom_demand)
         }
     }
 
