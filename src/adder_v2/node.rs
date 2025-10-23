@@ -15,6 +15,8 @@ pub struct Node {
     drive : Drive,
 }
 
+#[derive(Debug, Clone)]
+pub struct FlagExtendChain(Vec<FlagExtend>);
 
 
 #[derive(Debug, Clone)]
@@ -29,7 +31,8 @@ pub struct NodeHint {
     given_out_flag_extend : Option<FlagExtend>,
     given_out_index : usize,
     given_out_len : usize,
-    given_input_chain : Option<Vec<FlagExtend>>, 
+    given_flag_extend_chain : Option<FlagExtendChain>, 
+    is_out_addition_inv : bool,
 }
 
 

@@ -45,6 +45,38 @@ pub struct FlagExtend {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
+pub struct WireFloat {
+    pub flag: Flag,
+    pub is_neg: bool,
+    pub len: usize,
+}
+
+impl WireFloat {
+    pub fn from_str(s : &str) -> Self {
+        let (is_neg, mut remained) = if s.starts_with("n") {
+            (true, s[1..].to_string())
+        } else {
+            (false, s.to_string())
+        };
+        
+        let flag = Flag::from_str(&remained[0..1]);
+        remained = remained[1..].to_string();
+
+        let len = if remained.len() == 0 {
+            1
+        } else {
+            remained.parse::<usize>().unwrap()
+        };
+
+        Self {
+            flag,
+            is_neg,
+            len,
+        }
+    }
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Wire {
     pub flag: Flag,
     pub is_neg: bool,
@@ -67,6 +99,10 @@ impl Wire {
 
     fn is_not_input_or_output(&self) -> bool {
         !self.is_input_or_output()
+    }
+
+    pub fn index_end(&self) -> usize {
+        self.index + 1 - self.len
     }
 
     pub fn to_string(&self) -> String {
@@ -141,6 +177,21 @@ impl Wire {
             flag: self.flag.clone(),
             is_neg: !self.is_neg,
             index: self.index,
+            len: self.len,
+        }
+    }
+
+    pub fn to_flag_extend(&self) -> FlagExtend {
+        FlagExtend {
+            flag: self.flag.clone(),
+            is_neg: self.is_neg,
+        }
+    }
+
+    pub fn to_wire_float(&self) -> WireFloat {
+        WireFloat {
+            flag: self.flag.clone(),
+            is_neg: self.is_neg,
             len: self.len,
         }
     }
