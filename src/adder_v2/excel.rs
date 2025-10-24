@@ -36,7 +36,7 @@ impl ExcelFrame {
         let mut bits = None;
 
         for line in lines {
-            let items = line.split("\t").collect::<Vec<&str>>();
+            let items = line.split("\t").map(|s| s.trim()).collect::<Vec<&str>>();
             if line.starts_with("LY") {
                 bits = Some(items[3].parse::<usize>().unwrap() + 1);
             } else {

@@ -16,6 +16,12 @@ pub struct Node {
 #[derive(Debug, Clone)]
 pub struct FlagPChain(pub Vec<FlagP>);
 
+impl FlagPChain {
+    pub fn to_string(&self) -> String {
+        self.0.iter().map(|f| f.to_string()).collect::<Vec<_>>().join(",")
+    }
+}
+
 
 #[derive(Debug, Clone, Default)]
 pub struct NodeHint {

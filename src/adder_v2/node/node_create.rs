@@ -7,7 +7,7 @@ use crate::adder_v2::{logic::{Logic, IO}, node::{pure_logic_layer::{FailParse, F
 
 pub enum NodeCreateError {
     CanNotFindGivenWire(Wire),
-    FailParse(Vec<(FlagPChain, Vec<FailParse>)>),
+    FailParse(Wire, Vec<(FlagPChain, Vec<FailParse>)>),
     NoChain(Wire),
     CanNotDirect(Wire),
 }
@@ -18,10 +18,11 @@ impl NodeCreateError {
             NodeCreateError::CanNotFindGivenWire(w) => format!("Can not find given wire {}", w.to_string().color(Color::Red)),
             NodeCreateError::NoChain(w) => format!("syn wire {} need given chain", w.to_string().color(Color::Red)),
             NodeCreateError::CanNotDirect(w) => format!("syn wire {} can not direct from input", w.to_string().color(Color::Red)),
-            NodeCreateError::FailParse(fail_parse) => {
+            NodeCreateError::FailParse(w, fail_parse) => {
                 let mut s = String::new();
                 for (chain, fail) in fail_parse {
-                    s.push_str(&format!("chain {:?} fail parse: ", chain));
+                    s.push_str(&format!("syn wire {}: \n", w.to_string().color(Color::Yellow)));
+                    s.push_str(&format!("chain {} fail parse: \n", chain.to_string()));
                     for f in fail {
                         s.push_str(&f.to_string());
                         s += "\n";
@@ -184,7 +185,7 @@ impl Node {
             }
         }
 
-        Err(NodeCreateError::FailParse(fail_parse_conditions))
+        Err(NodeCreateError::FailParse(target_wire, fail_parse_conditions))
 
     }
 }

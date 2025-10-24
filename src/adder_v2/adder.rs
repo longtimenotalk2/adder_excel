@@ -19,6 +19,7 @@ pub struct CellInfo {
     pub drive : Drive
 }
 
+#[derive(Debug, Clone)]
 pub struct Cell {
     pub node: Node,
     pub info: CellInfo,
@@ -33,6 +34,7 @@ impl Cell {
     }
 }
 
+#[derive(Debug, Clone)]
 pub struct Adder {
     wires : Vec<(Id, Wire)>,
     cells : Vec<(Id, Cell)>,

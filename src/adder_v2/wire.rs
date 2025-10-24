@@ -52,6 +52,15 @@ impl FlagP {
             is_neg,
         }
     }
+
+    pub fn to_string(&self) -> String {
+        let mut ret = String::new();
+        if self.is_neg {
+            ret.push('n');
+        }
+        ret.push_str(self.flag.to_str());
+        ret
+    }
     
     pub fn to_rev(&self) -> Self {
         Self {

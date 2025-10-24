@@ -85,69 +85,74 @@ impl ExcelDataList<(NodeHint, CellInfo, Option<Vec<i32>>)> {
             let  multi_line_id = key.id;
             for index_excel in 0..frame.bits {
                 let mut wire_string = data.wire_line[index_excel].clone();
-                let mut index = index_excel;
-                while wire_string.starts_with("<") {
-                    wire_string = wire_string[1..].to_string();
-                    index += 1;
-                }
-                let code = ExcelCode::from_str(data.code_line.get(index_excel).unwrap_or(&"".to_string()));
-                let caps = if let Some(caps_string) = data.code_line.get(index_excel) {
-                    if caps_string.len() > 0 {
-                        Some(caps_string.split(",").into_iter().map(|a| a.parse::<i32>().unwrap()).collect::<Vec<_>>())
+                if wire_string.len() > 0 {
+                    let mut index = index_excel;
+                    while wire_string.starts_with("<") {
+                        wire_string = wire_string[1..].to_string();
+                        index += 1;
+                    }
+                    let code = ExcelCode::from_str(data.code_line.get(index_excel).unwrap_or(&"".to_string()));
+                    let caps = if let Some(caps_string) = data.cap_line.get(index_excel) {
+                        if caps_string.len() > 0 {
+                            Some(caps_string.split(",").into_iter().map(|a| a.parse::<i32>().expect(
+                                &format!("can not parse caps {caps_string}"))
+                            ).collect::<Vec<_>>())
+                        } else {
+                            None
+                        }
                     } else {
                         None
-                    }
-                } else {
-                    None
-                };
-                let mut node_hint = NodeHint::default();
-                node_hint.given_out_index = index;
-                node_hint.given_out_len = 1;
-                let mut cell_info = CellInfo::default();
-                match wire_string.as_str() {
-                    "nq~" => node_hint.is_start_xnr_dout = true,
-                    "nq"  => node_hint.is_start_xnr = true,
-                    "q~"  => node_hint.is_start_xor_dout = true,
-                    "q"   => node_hint.is_start_xor = true,
-                    _ => {
-                        let wire_float = WireFloat::from_str(&wire_string);
-                        let wire = Wire::from_wire_float(wire_float, index);
-                        node_hint.given_out_flag_p = Some(wire.to_flag_p());
-                        if code.single_chars.contains(&'I') {
-                            node_hint.is_simple_inv = true;
-                        }
-                        if code.single_chars.contains(&'A') {
-                            node_hint.is_start = true;
-                        }
-                        if code.single_chars.contains(&'N') {
-                            node_hint.is_out_addition_inv = true;
-                        }
-                        if let Some(chain_str) = code.flower_braket.get(&'L') {
-                            let mut is_neg_now = false;
-                            let mut flagplist = Vec::new();
-                            for char in chain_str.chars() {
-                                if char == '~' {
-                                    is_neg_now = true;
-                                } else {
-                                    let flag = Flag::from_str(&char.to_string());
-                                    let flagp = FlagP::new(flag, is_neg_now);
-                                    flagplist.push(flagp);
-                                    is_neg_now = false;
-                                }
+                    };
+                    let mut node_hint = NodeHint::default();
+                    node_hint.given_out_index = index;
+                    node_hint.given_out_len = 1;
+                    let mut cell_info = CellInfo::default();
+                    match wire_string.as_str() {
+                        "nq~" => node_hint.is_start_xnr_dout = true,
+                        "nq"  => node_hint.is_start_xnr = true,
+                        "q~"  => node_hint.is_start_xor_dout = true,
+                        "q"   => node_hint.is_start_xor = true,
+                        _ => {
+                            let wire_float = WireFloat::from_str(&wire_string);
+                            let wire = Wire::from_wire_float(wire_float, index);
+                            node_hint.given_out_flag_p = Some(wire.to_flag_p());
+                            if code.single_chars.contains(&'I') {
+                                node_hint.is_simple_inv = true;
                             }
-                            node_hint.given_flag_p_chain = Some(FlagPChain(flagplist));
-                        }
+                            if code.single_chars.contains(&'A') {
+                                node_hint.is_start = true;
+                            }
+                            if code.single_chars.contains(&'N') {
+                                node_hint.is_out_addition_inv = true;
+                            }
+                            if let Some(chain_str) = code.flower_braket.get(&'L') {
+                                let mut is_neg_now = false;
+                                let mut flagplist = Vec::new();
+                                for char in chain_str.chars() {
+                                    if char == '~' {
+                                        is_neg_now = true;
+                                    } else {
+                                        let flag = Flag::from_str(&char.to_string());
+                                        let flagp = FlagP::new(flag, is_neg_now);
+                                        flagplist.push(flagp);
+                                        is_neg_now = false;
+                                    }
+                                }
+                                node_hint.given_flag_p_chain = Some(FlagPChain(flagplist));
+                            }
 
-                        if code.single_chars.contains(&'D') {
-                            cell_info.drive = Drive::D2;
+                            if code.single_chars.contains(&'D') {
+                                cell_info.drive = Drive::D2;
+                            }
                         }
                     }
+                    let excel_data_list_key = ExcelDataListKey {
+                        multi_line_id,
+                        index : index_excel,
+                    };
+                    dataset.insert(excel_data_list_key, (node_hint, cell_info, caps));
                 }
-                let excel_data_list_key = ExcelDataListKey {
-                    multi_line_id,
-                    index : index_excel,
-                };
-                dataset.insert(excel_data_list_key, (node_hint, cell_info, caps));
+                
             }
         }
         Self {

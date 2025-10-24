@@ -17,12 +17,11 @@ impl Adder {
         for i in 0..bits {
             wires.push((wire_id, Wire::from_str(&format!("a{i}"))));
             wire_id += 1;
-            wires.push((wire_id, Wire::from_str(&format!("a{i}"))));
+            wires.push((wire_id, Wire::from_str(&format!("b{i}"))));
             wire_id += 1;
         }
 
         let mut wire_list = WireList(wires);
-
 
         for (cell_id, (excel_key, (hint, cell_info, _))) in excel_data_list.data.iter().enumerate() {
             let cell_id = cell_id as Id;
@@ -33,14 +32,26 @@ impl Adder {
                     }
                     let cell = Cell::new(node, cell_info.clone());
                     cells.push((cell_id, cell));
+                    excel_cell_map.data.insert(excel_key.clone(), cell_id);
                 }
                 Err(e) => {
+                    println!("wire list : ");
+                    for wire in &wire_list.0 {
+                        println!("> {:02} : {}", wire.0, wire.1.to_string());
+                    }
                     println!("{}", e.to_string());
                     panic!();
                 }
             }
         }
 
-        todo!()
+        (
+            Adder {
+                bits,
+                wires : wire_list.0,
+                cells,
+            },
+            excel_cell_map,
+        )
     }
 }
