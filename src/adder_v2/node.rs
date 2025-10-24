@@ -1,7 +1,9 @@
 pub mod node_create;
-pub mod node_create_branch;
+pub mod pure_logic_layer;
 
-use crate::adder_v2::{logic::{Logic, IO}, wire::{Flag, FlagP, Wire}, Id};
+use std::collections::BTreeMap;
+
+use crate::adder_v2::{logic::{Logic, IO}, wire::{Flag, FlagP, Wire}, Id, Port};
 
 #[derive(Debug, Clone)]
 pub enum Drive {
@@ -13,7 +15,6 @@ pub enum Drive {
 pub struct Node {
     logic : Logic,
     io : IO<(Id, Wire)>,
-    drive : Drive,
 }
 
 #[derive(Debug, Clone)]
@@ -38,11 +39,49 @@ pub struct NodeHint {
 
 
 impl Node {
-    pub fn new(logic : Logic, io : IO<(Id, Wire)>, drive : Drive) -> Self {
+    pub fn new(logic : Logic, io : IO<(Id, Wire)>) -> Self {
         Self {
             logic,
             io,
-            drive,
         }
     }
+
+    pub fn create_by_ordered_wires(logic : Logic, wires : Vec<(Id, Wire)>) -> Self {
+        // AOA按照从外（C）到里（A1、A2）的顺序
+        // 输出O1在Z前面
+        let mut inputs: BTreeMap<Port, (u32, Wire)> = BTreeMap::new();
+
+        let input_len = logic.input_port_ordered().len();
+
+        for (i, port) in logic.input_port_ordered().iter().enumerate() {
+            inputs.insert(port.clone(), wires[i].clone());
+        }
+
+        let io = match logic {
+            Logic::XNR2DOUT | Logic::XOR2DOUT => {
+                IO::new(inputs, wires[3].clone(), Some(wires[2].clone()))
+            }
+            _ => {
+                IO::new(inputs, wires[input_len].clone(), None)
+            }
+        };
+        Self::new(logic, io)
+    }
+
+    pub fn wire_swap(&mut self, port1 : usize, pos2 : usize) {
+        
+    }
+
+    // pub fn impl_input_inv(&mut self, pos : usize) {
+    //     match logic {
+    //         Logic::ND2 | Logic::NR2 {
+    //             let new_logic = match logic {
+    //                 Logic::ND2 => Logic::IND2,
+    //                 Logic::NR2 => Logic::INR2,
+    //             };
+
+    //         },
+    //         _  => panic!("{logic:?} can not impl input inv")
+    //     }
+    // }
 }

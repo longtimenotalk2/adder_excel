@@ -2,7 +2,7 @@
 
 use std::ops::Range;
 
-use crate::adder_v2::{node::{node_create::NodeCreateError, node_create_branch::WireRange}, wire::{FlagP, Wire}, Id};
+use crate::adder_v2::{node::{node_create::NodeCreateError, pure_logic_layer::WireRange}, wire::{FlagP, Wire}, Id};
 
 pub struct WireList(Vec<(Id, Wire)>);
 

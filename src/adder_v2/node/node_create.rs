@@ -1,17 +1,11 @@
 use core::panic;
 use std::collections::BTreeMap;
 
-use crate::adder_v2::{logic::{Logic, IO}, node::{Drive, FlagPChain, Node, NodeHint}, wire::{wire_list::WireList, Flag, FlagP, Wire, WireFloat, }, Id, Port};
-
-pub struct FailParse {
-    flag_p_chain : FlagPChain,
-    found_wire : Vec<(Id, Wire)>,
-    not_found_wire : Wire,
-}
+use crate::adder_v2::{logic::{Logic, IO}, node::{pure_logic_layer::{FailParse, FlagIndexLen}, Drive, FlagPChain, Node, NodeHint}, wire::{wire_list::{self, WireList}, Flag, FlagP, Wire, WireFloat, }, Id, Port};
 
 pub enum NodeCreateError {
     CanNotFindGivenWire(Wire),
-    FailParse(Vec<FailParse>),
+    FailParse(Vec<(FlagPChain, Vec<FailParse>)>),
     NoChain(Wire),
     CanNotDirect(Wire),
 }
@@ -52,26 +46,23 @@ impl Node {
         let len = hint.given_out_len;
 
         if hint.is_start_xnr_dout | hint.is_start_xor_dout | hint.is_start_xnr | hint.is_start_xor{
-            let mut input = BTreeMap::new();
-            input.insert(Port::new("A1"), history_wires.find(&Wire::from_str(&format!("a{index}")))?);
-            input.insert(Port::new("A2"), history_wires.find(&Wire::from_str(&format!("b{index}")))?);
+            let a1 = history_wires.find(&Wire::from_str(&format!("a{index}")))?;
+            let a2 = history_wires.find(&Wire::from_str(&format!("b{index}")))?;
 
             if hint.is_start_xnr_dout | hint.is_start_xor_dout {
                 let logic = if hint.is_start_xnr_dout { Logic::XNR2DOUT } else { Logic::XOR2DOUT };
                 let z = (id_next, if hint.is_start_xnr_dout { Wire::from_str(&format!("nq{index}")) } else { Wire::from_str(&format!("q{index}")) });
                 let o1 = (id_next + 1, if hint.is_start_xnr_dout { Wire::from_str(&format!("ng{index}")) } else { Wire::from_str(&format!("np{index}")) });
-                return Ok(Node::new(
+                return Ok(Node::create_by_ordered_wires(
                     logic,
-                    IO::<(Id, Wire)>::new(input, z, Some(o1)),
-                    drive,
+                    vec![a1, a2, o1, z],
                 ))
             } else {
                 let logic = if hint.is_start_xnr { Logic::XNR2 } else { Logic::XOR2 };
                 let z = (id_next, if hint.is_start_xnr { Wire::from_str(&format!("nq{index}")) } else { Wire::from_str(&format!("q{index}")) });
-                return Ok(Node::new(
+                return Ok(Node::create_by_ordered_wires(
                     logic,
-                    IO::<(Id, Wire)>::new(input, z, None),
-                    drive,
+                    vec![a1, a2, z],
                 ))
             }
         } 
@@ -84,13 +75,10 @@ impl Node {
         
         if hint.is_simple_inv {
             let input_wire = target_wire.to_rev();
-            let found_wire = history_wires.find(&input_wire)?;
-            let mut input = BTreeMap::new();
-            input.insert(Port::new("I"), found_wire);
-            return Ok(Node::new(
+            let found_wire = history_wires.find(&input_wire)?;;
+            return Ok(Node::create_by_ordered_wires(
                 Logic::INV,
-                IO::<(Id, Wire)>::new(input, (id_next, target_wire), None),
-                drive,
+                vec![found_wire, (id_next, target_wire)],
             ))
         } 
 
@@ -106,7 +94,6 @@ impl Node {
                 return Ok(Node::new(
                     if wire_float == WireFloat::from_str("ng") {Logic::ND2} else {Logic::NR2},
                     IO::<(Id, Wire)>::new(input, (id_next, target_wire), None),
-                    drive,
                 ))
             }
 
@@ -119,83 +106,62 @@ impl Node {
                 return Ok(Node::new(
                     if wire_float == WireFloat::from_str("nh2") {Logic::AOI22} else {Logic::OAI22},
                     IO::<(Id, Wire)>::new(input, (id_next, target_wire), None),
-                    drive,
                 ))
             }
         }
 
         let is_out_addition_inv = hint.is_out_addition_inv;
 
-        let extend_flag_chains = if let Some(chain) = &hint.given_flag_p_chain {
+        let flagp_chains = if let Some(chain) = &hint.given_flag_p_chain {
             vec![chain.clone()]
         } else {
             FlagPChain::default_chains(&target_wire.flag)
         };
 
-        if extend_flag_chains.is_empty() {
+        if flagp_chains.is_empty() {
             return Err(NodeCreateError::NoChain(target_wire));
         }
 
         let mut fail_parses: Vec<FailParse> = vec![];
 
-        /*
-        1. 假设输入都是正的，输出都是负的，生成基本的ND、IND/INR，AOI，IAOI等
-        2. 考虑输入输出全取反，此时拿取镜像的logic
-        3. 考虑输出强插一个INV，拿取强插后的logic
-        */
-        for extend_flag_chain in extend_flag_chains {
-            let flag_chain = extend_flag_chain.0.iter().map(|ef| ef.clone().flag).collect::<Vec<_>>();
-            let flags = flag_chain.iter().map(|f| f.to_str()).collect::<String>();
-            match flags.as_str() {
-                "PP" | "PQ" | "QP" | "QQ" | "PH" => todo!(),
-                _ => panic!("can not parse flag chain {:?}", flag_chain),
+        // polar layer，搞清楚每个输入的极性
+        let mut input_is_neg = !target_wire.is_neg;  // 通常，输入与输出相反
+        input_is_neg = input_is_neg ^ is_out_addition_inv;  // 如果输出要加额外inv，那么反转结果
+
+        let mut fail_parse_conditions: Vec<(FlagPChain, Vec<FailParse>)> = vec![];
+
+        for flagp_chain in &flagp_chains {
+            // 输入的flagp_chain，默认输入都是正
+            // true_flagp_chain，要处理默认输入为反的情况
+            let true_flagp_chain = FlagPChain(flagp_chain.0.iter().map(|fp| if input_is_neg {fp.to_rev()} else {fp.clone()}).collect::<Vec<FlagP>>());
+            let solve_result = history_wires.solve_pure_logic_layer(&FlagIndexLen::from_wire(&target_wire), &true_flagp_chain);
+            match solve_result {
+                Ok(node) => {
+                    // polar layer，处理各种极性问题
+                    // 处理部分输入INV
+                    let mut input_inv_count = 0;
+                    let mut position = None;
+                    for (i, fp) in flagp_chain.0.iter().enumerate() {
+                        if fp.is_neg {
+                            input_inv_count += 1;
+                            position = Some(i);
+                        }
+                    }
+                    if input_inv_count > 1 {
+                        panic!("input_inv_count > 1, in {:?}", flagp_chain);
+                    } else if input_inv_count == 1 {
+                        let neg_position = position.unwrap();
+
+                    }
+                    
+                }
+                Err(err) => {
+                    fail_parse_conditions.push((flagp_chain.clone(), err));
+                }
             }
-            // let mut two_input_swap = false;
-            // let mut three_input_inv_index: Option<usize> = None;
-            // let logic = match extend_flag_chain.0.len() {
-            //     2 => {
-            //         let a1_is_neg = extend_flag_chain.0[0].is_neg;
-            //         let a2_is_neg = extend_flag_chain.0[1].is_neg;
-            //         if a1_is_neg == a2_is_neg {
-            //             Logic::ND2
-            //         } else {
-            //             let (logic, swap) = Logic::get_ind_inr_from_and(a1_is_neg, a2_is_neg, true);
-            //             two_input_swap = swap;
-            //             logic
-            //         }
-            //     },
-            //     3 => {
-            //         let b_is_neg = extend_flag_chain.0[0].is_neg;
-            //         let a1_is_neg = extend_flag_chain.0[1].is_neg;
-            //         let a2_is_neg = extend_flag_chain.0[2].is_neg;
-            //         // 这仨最多只有1个是true
-            //         let mut true_count = 0;
-            //         if b_is_neg {true_count += 1};
-            //         if a1_is_neg {true_count += 1};
-            //         if a2_is_neg {true_count += 1};
-            //         if true_count > 1 {
-            //             panic!("wire {} has invalid flag chain {:?}, neg number should <= 1", target_wire.to_string(), extend_flag_chain);
-            //         } else if true_count == 1 {
-            //             if b_is_neg {
-            //                 panic!("wire {} has invalid flag chain {:?}, b should not neg", target_wire.to_string(), extend_flag_chain)
-            //             } else if a1_is_neg {
-            //                 three_input_inv_index = Some(1);
-            //             } else if a2_is_neg {
-            //                 three_input_inv_index = Some(2);
-            //             }
-            //             Logic::IAOI21
-            //         } else {
-            //             Logic::AOI21
-            //         }
-            //     },
-            //     4 => todo!(),
-            //     _ => panic!("wire {} has invalid flag chain {:?}", target_wire.to_string(), extend_flag_chain),
-            // };
-
-
         }
 
-        Err(NodeCreateError::FailParse(fail_parses))
+        Err(NodeCreateError::FailParse(fail_parse_conditions))
 
     }
 }

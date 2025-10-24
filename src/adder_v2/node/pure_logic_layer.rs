@@ -131,6 +131,14 @@ impl FlagIndexLen {
     pub fn index_end(&self) -> usize {
         self.index + 1 - self.len
     }
+
+    pub fn from_wire(wire : &Wire) -> Self {
+        Self {
+            flag : wire.flag.clone(),
+            index : wire.index,
+            len : wire.len,
+        }
+    }
 }
 
 impl Ballen {
@@ -381,7 +389,7 @@ impl WireList {
         &self,
         fil : &FlagIndexLen,
         fp_chain : &FlagPChain,
-    ) -> Result<(Vec<(Id, Wire)>, Logic), Vec<FailParse>>{
+    ) -> Result<Node, Vec<FailParse>>{
         let mut ballen = Ballen::from_flag_index_len(fil);
         let mut fail_parse_list: Vec<FailParse> = vec![];
 
@@ -437,7 +445,7 @@ impl WireList {
         let result = solve_flags(&ballen, &fp_chain.0, self, &[], &[], &mut fail_parse_list, &mut 0);
         if let Ok((wires, aologics)) = result {
             let logic = Logic::parse_from_aologic(&aologics);
-            Ok((wires, logic))
+            Ok(Node::create_by_ordered_wires(logic, wires))
         } else {
            Err(fail_parse_list)
         }

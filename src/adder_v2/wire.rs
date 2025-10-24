@@ -45,6 +45,16 @@ pub struct FlagP {
     pub is_neg: bool,
 }
 
+impl FlagP {
+    
+    pub fn to_rev(&self) -> Self {
+        Self {
+            flag: self.flag.clone(),
+            is_neg: !self.is_neg,
+        }
+    }
+}
+
 /// Wire但是缺少index和len
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct WireFloat {
@@ -76,6 +86,7 @@ impl WireFloat {
             len,
         }
     }
+
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
