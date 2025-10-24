@@ -1,10 +1,10 @@
 use core::panic;
 use std::collections::BTreeMap;
 
-use crate::adder_v2::{logic::{Logic, IO}, node::{Drive, FlagExtendChain, Node, NodeHint}, wire::{wire_list::WireList, Flag, FlagExtend, Wire, WireFloat, }, Id, Port};
+use crate::adder_v2::{logic::{Logic, IO}, node::{Drive, FlagPChain, Node, NodeHint}, wire::{wire_list::WireList, Flag, FlagP, Wire, WireFloat, }, Id, Port};
 
 pub struct FailParse {
-    flag_extend_chain : FlagExtendChain,
+    flag_p_chain : FlagPChain,
     found_wire : Vec<(Id, Wire)>,
     not_found_wire : Wire,
 }
@@ -16,27 +16,27 @@ pub enum NodeCreateError {
     CanNotDirect(Wire),
 }
 
-impl FlagExtendChain {
+impl FlagPChain {
     pub fn default_chains(flag : &Flag) -> Vec<Self> {
-        let g = FlagExtend {flag: Flag::G, is_neg : false};
-        let p = FlagExtend {flag: Flag::P, is_neg : false};
-        let q = FlagExtend {flag: Flag::Q, is_neg : false};
-        let h = FlagExtend {flag: Flag::H, is_neg : false};
+        let g = FlagP {flag: Flag::G, is_neg : false};
+        let p = FlagP {flag: Flag::P, is_neg : false};
+        let q = FlagP {flag: Flag::Q, is_neg : false};
+        let h = FlagP {flag: Flag::H, is_neg : false};
         match flag {
             Flag::G => vec![
-                FlagExtendChain(vec![g.clone(), p.clone(), g.clone()]),
-                FlagExtendChain(vec![g.clone(), q.clone(), g.clone()]),
+                FlagPChain(vec![g.clone(), p.clone(), g.clone()]),
+                FlagPChain(vec![g.clone(), q.clone(), g.clone()]),
             ],
             Flag::P => vec![
-                FlagExtendChain(vec![p.clone(), p.clone()]),
-                FlagExtendChain(vec![q.clone(), p.clone()]),
+                FlagPChain(vec![p.clone(), p.clone()]),
+                FlagPChain(vec![q.clone(), p.clone()]),
             ],
             Flag::Q => vec![
-                FlagExtendChain(vec![q.clone(), q.clone()]),
-                FlagExtendChain(vec![p.clone(), q.clone()]),
+                FlagPChain(vec![q.clone(), q.clone()]),
+                FlagPChain(vec![p.clone(), q.clone()]),
             ],
             Flag::H => vec![
-                FlagExtendChain(vec![h.clone(), p.clone(), h.clone()]),
+                FlagPChain(vec![h.clone(), p.clone(), h.clone()]),
             ],
             _ => vec![]
         }
@@ -77,7 +77,7 @@ impl Node {
         } 
 
         let target_wire = Wire::from_logic_extend(
-            hint.given_out_flag_extend.clone().expect(&format!("hint {hint:?} must have flag extend")),
+            hint.given_out_flag_p.clone().expect(&format!("hint {hint:?} must have flag extend")),
             hint.given_out_index,
             hint.given_out_len,
         );
@@ -126,10 +126,10 @@ impl Node {
 
         let is_out_addition_inv = hint.is_out_addition_inv;
 
-        let extend_flag_chains = if let Some(chain) = &hint.given_flag_extend_chain {
+        let extend_flag_chains = if let Some(chain) = &hint.given_flag_p_chain {
             vec![chain.clone()]
         } else {
-            FlagExtendChain::default_chains(&target_wire.flag)
+            FlagPChain::default_chains(&target_wire.flag)
         };
 
         if extend_flag_chains.is_empty() {

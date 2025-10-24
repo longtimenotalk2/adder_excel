@@ -38,12 +38,14 @@ impl Flag {
     }
 }
 
+// Wire但是缺少index和len
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct FlagExtend {
+pub struct FlagP {
     pub flag: Flag,
     pub is_neg: bool,
 }
 
+/// Wire但是缺少index和len
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct WireFloat {
     pub flag: Flag,
@@ -155,7 +157,7 @@ impl Wire {
         }
     }
 
-    pub fn from_logic_extend(logic_extend : FlagExtend, index : usize, len : usize) -> Self {
+    pub fn from_logic_extend(logic_extend : FlagP, index : usize, len : usize) -> Self {
         Wire {
             flag: logic_extend.flag,
             is_neg: logic_extend.is_neg,
@@ -181,8 +183,8 @@ impl Wire {
         }
     }
 
-    pub fn to_flag_extend(&self) -> FlagExtend {
-        FlagExtend {
+    pub fn to_flag_p(&self) -> FlagP {
+        FlagP {
             flag: self.flag.clone(),
             is_neg: self.is_neg,
         }

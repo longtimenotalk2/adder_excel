@@ -2,7 +2,7 @@
 
 use std::ops::Range;
 
-use crate::adder_v2::{node::{node_create::NodeCreateError, node_create_branch::WireRange}, wire::{FlagExtend, Wire}, Id};
+use crate::adder_v2::{node::{node_create::NodeCreateError, node_create_branch::WireRange}, wire::{FlagP, Wire}, Id};
 
 pub struct WireList(Vec<(Id, Wire)>);
 
@@ -30,7 +30,7 @@ impl WireList {
         let mut ret = vec![];
 
         for (id, w) in iter {
-            if w.to_flag_extend() == wire_range.to_flag_extend() && wire_range.index_range.contains(&w.index) && wire_range.end_index_range.contains(&w.index_end()) {
+            if w.to_flag_p() == wire_range.to_flag_p() && wire_range.index_range.contains(&w.index) && wire_range.end_index_range.contains(&w.index_end()) {
                 ret.push((*id, w.clone()));
             }
         }

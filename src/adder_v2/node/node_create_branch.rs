@@ -1,15 +1,20 @@
-use std::{collections::BTreeMap, ops::{ RangeInclusive}};
+use std::{collections::BTreeMap, ops::RangeInclusive};
 
-use crate::adder_v2::{node::{FlagExtendChain, Node}, wire::{wire_list::WireList, Flag, FlagExtend, Wire}};
+use crate::adder_v2::{node::{FlagPChain, Node}, wire::{wire_list::WireList, Flag, FlagP, Wire}};
 
 /*
+f : flag
+p : polar
+m : mirror
+i : index
+l : len
 问题分解
 纯逻辑层：不考虑极性和Mirror，只考虑GHPQ
 镜像层：考虑Mirror
 极性层：考虑极性
 
 匹配规则：
-每个FlagExtend是确定的
+每个FlagP是确定的
 
 范围分大尺度和小尺度（小尺度浮动1，由Flag决定）
 
@@ -30,7 +35,7 @@ P和Q的len推index2
 能不能通过球的逻辑直接强解？
 
 本文件只返回：默认输入都是正，输出都是反的逻辑块。当然寻找wire时是看input的
-输入：各个FlagExtend（里面包含is_neg）
+输入：各个FlagP（里面包含is_neg）
 输出：使用的基本逻辑以及每个位置装什么，或者无法匹配信息
 */
 
@@ -43,13 +48,13 @@ pub struct WireRange {
 }
 
 impl WireRange {
-    pub fn to_flag_extend(&self) -> FlagExtend {
-        FlagExtend {
+    pub fn to_flag_p(&self) -> FlagP {
+        FlagP {
             flag : self.flag.clone(),
             is_neg : self.is_neg,
         }
     }
-    pub fn from_flag_extand(flag_extand : &FlagExtend, index_range : RangeInclusive<usize>, end_index_range : RangeInclusive<usize>) -> Self {
+    pub fn from_flag_extand(flag_extand : &FlagP, index_range : RangeInclusive<usize>, end_index_range : RangeInclusive<usize>) -> Self {
         Self {
             flag : flag_extand.flag.clone(),
             is_neg : flag_extand.is_neg,
@@ -205,7 +210,7 @@ impl Ballen {
         }
     }
 
-    fn give_next_range(&self, flag_now : &Flag, flag_next : Option<&Flag>) -> (RangeInclusive<usize>, RangeInclusive<usize>) {
+    fn give_next_range(&self, flag_now : &Flag, flag_next : Option<&Flag>) -> (RangeInclusive<usize>, RangeInclusive<usize>, Option<AOLogic>) {
         if !self.check_if_valid_now(flag_now) {
             panic!("for bollen now {self:?}, can not parse flag {flag_now:?}")
         }
@@ -214,7 +219,7 @@ impl Ballen {
                 Flag::G => {
                     match flag_next {
                         Flag::P | Flag::Q => {
-                            (self.index()..=self.index(), (self.index_end()+1)..=(self.index_end()+1))
+                            (self.index()..=self.index(), (self.index_end()+1)..=(self.index_end()+1), Some(AOLogic::Or))
                         },
                         _ => unimplemented!()
                     }
@@ -222,7 +227,7 @@ impl Ballen {
                 Flag::H => {
                     match flag_next {
                         Flag::P | Flag::Q => {
-                            (self.index()..=self.index(), (self.index_end()+1)..=(self.index_end()+1))
+                            (self.index()..=self.index(), (self.index_end()+1)..=(self.index_end()+1), Some(AOLogic::Or))
                         },
                         _ => unimplemented!()
                     }
@@ -236,18 +241,21 @@ impl Ballen {
                                         (
                                             (self.index()+extend_grey)..=(self.index()+extend_grey), 
                                             (self.index())..=(self.index()+1),
+                                           Some( AOLogic::And), 
                                         )
                                     },
                                     (Flag::P, Flag::H) => {
                                         (
                                             (self.index()+extend_grey)..=(self.index()+extend_grey), 
                                             (self.index())..=(self.index()),
+                                            Some(AOLogic::And), 
                                         )
                                     },
                                     (Flag::Q, Flag::G) => {
                                         (
                                             (self.index()+extend_grey)..=(self.index()+extend_grey), 
                                             (self.index()+1)..=(self.index()+1),
+                                            Some(AOLogic::And), 
                                         )
                                     },
                                     _ => unimplemented!(),
@@ -259,7 +267,7 @@ impl Ballen {
                         Self::P(_) => {
                             match flag_next {
                                 Flag::P | Flag::Q => {
-                                    (self.index()..=self.index(), (self.index_end()+1)..=(self.index_end()+1))
+                                    (self.index()..=self.index(), (self.index_end()+1)..=(self.index_end()+1), Some(AOLogic::And))
                                 },
                                 _ => unimplemented!()
                             }
@@ -270,7 +278,7 @@ impl Ballen {
             }
         } else {
             // 没有下一个时，必须相等
-            (self.index()..=self.index(), self.index_end()..=self.index_end())
+            (self.index()..=self.index(), self.index_end()..=self.index_end(), None)
         }
     }
 
@@ -282,14 +290,76 @@ impl Ballen {
                         ExtendGrey::Extend(i) => {
                             assert!(*i == 0);
                             bollen_g.index -= len;
+                            bollen_g.extend_grey = ExtendGrey::Extend(len);
                         }
                         ExtendGrey::ShrinkOne => unimplemented!()
                     }
                 } else {unimplemented!()}
             }
+            Flag::H => {
+                if let Ballen::G(bollen_g) = self {
+                    match &bollen_g.extend_grey {
+                        ExtendGrey::Extend(_) => { unimplemented!() }
+                        ExtendGrey::ShrinkOne => {
+                            bollen_g.index -= len;
+                            bollen_g.extend_grey = ExtendGrey::Extend(len-1);
+                        }
+                    }
+                } else {unimplemented!()}
+            }
+            Flag::P => {
+                match self {
+                    Ballen::G(bollen_g) => {
+                        match &bollen_g.extend_grey {
+                            ExtendGrey::Extend(i) => { 
+                                if len == *i + 1 {
+                                    bollen_g.extend_grey = ExtendGrey::ShrinkOne;
+                                } else if len < *i + 1 {
+                                    bollen_g.index -= len;
+                                } else {
+                                    unimplemented!()
+                                }
+                            }
+                            ExtendGrey::ShrinkOne => {
+                                unimplemented!()
+                            }
+                        }
+                    },
+                    Ballen::P(bollen_p) => {
+                        bollen_p.index -= len;
+                    },
+                }
+            },
+            Flag::Q => {
+                match self {
+                    Ballen::G(bollen_g) => {
+                        match &bollen_g.extend_grey {
+                            ExtendGrey::Extend(i) => { 
+                                if len < *i + 1 {
+                                    bollen_g.index -= len;
+                                } else {
+                                    unimplemented!()
+                                }
+                            }
+                            ExtendGrey::ShrinkOne => {
+                                unimplemented!()
+                            }
+                        }
+                    },
+                    Ballen::P(bollen_p) => {
+                        bollen_p.index -= len;
+                    },
+                }
+            },
             _ => unimplemented!()
         }
     }
+}
+
+#[derive(Debug, Clone)]
+enum AOLogic {
+    And,
+    Or,
 }
 
 struct CalcGHPQ {
@@ -298,33 +368,10 @@ struct CalcGHPQ {
 
 impl CalcGHPQ {
     pub fn solve(
-        target_wire : &Wire,
-        flag_extend_chain : &FlagExtendChain,
+        fil : &FlagIndexLen,
+        fp_chain : &FlagPChain,
         history_wires: &WireList
     ) {
         
     }
 }
-
-// 输入flag的pattern已确认，流程固定
-// impl Node {
-//     /// 处理双输入的与逻辑
-//     pub fn create_branch_and(
-//         target_wire : &Wire,
-//         flag_extend_chain : &FlagExtendChain,
-//         input_default_is_neg : bool,
-//         history_wires: &WireList
-//     ) -> Result<Node, FailParseTree> {
-//         let mut fail_parse_tree = FailParseTree::new();
-
-//         let a = 1..=2;
-
-//         let a1_range = WireRange::from_flag_extand(
-//             &flag_extend_chain.0[0],
-//             target_wire.index..=target_wire.index,
-//             (target_wire.index_end()+1)..=target_wire.index,
-//         );
-
-//         Err(fail_parse_tree)
-//     }
-// }

@@ -1,7 +1,7 @@
 pub mod node_create;
 pub mod node_create_branch;
 
-use crate::adder_v2::{logic::{Logic, IO}, wire::{Flag, FlagExtend, Wire}, Id};
+use crate::adder_v2::{logic::{Logic, IO}, wire::{Flag, FlagP, Wire}, Id};
 
 #[derive(Debug, Clone)]
 pub enum Drive {
@@ -17,7 +17,7 @@ pub struct Node {
 }
 
 #[derive(Debug, Clone)]
-pub struct FlagExtendChain(pub Vec<FlagExtend>);
+pub struct FlagPChain(pub Vec<FlagP>);
 
 
 #[derive(Debug, Clone)]
@@ -29,10 +29,10 @@ pub struct NodeHint {
     is_start_xnr : bool,
     is_start_xor : bool,
     drive : Drive,
-    given_out_flag_extend : Option<FlagExtend>,
+    given_out_flag_p : Option<FlagP>,
     given_out_index : usize,
     given_out_len : usize,
-    given_flag_extend_chain : Option<FlagExtendChain>, 
+    given_flag_p_chain : Option<FlagPChain>, 
     is_out_addition_inv : bool,
 }
 
