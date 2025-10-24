@@ -1,6 +1,6 @@
 use std::{collections::BTreeMap, ops::RangeInclusive};
 
-use crate::adder_v2::{node::{FlagPChain, Node}, wire::{wire_list::WireList, Flag, FlagP, Wire}};
+use crate::adder_v2::{logic::Logic, node::{FlagPChain, Node}, wire::{wire_list::WireList, Flag, FlagP, Wire}, Id};
 
 /*
 f : flag
@@ -9,9 +9,9 @@ m : mirror
 i : index
 l : len
 问题分解
-纯逻辑层：不考虑极性和Mirror，只考虑GHPQ
-镜像层：考虑Mirror
-极性层：考虑极性
+纯逻辑层：不考虑极性和Mirror，只考虑GHPQ  pure_logic_layer
+镜像层：考虑Mirror  mirror_layer
+极性层：考虑极性  polar_layer
 
 匹配规则：
 每个FlagP是确定的
@@ -48,6 +48,14 @@ pub struct WireRange {
 }
 
 impl WireRange {
+    pub fn new(flag : &Flag, is_neg : bool, index_range : RangeInclusive<usize>, end_index_range : RangeInclusive<usize>) -> Self {
+        Self {
+            flag : flag.clone(),
+            is_neg,
+            index_range,
+            end_index_range,
+        }
+    }
     pub fn to_flag_p(&self) -> FlagP {
         FlagP {
             flag : self.flag.clone(),
@@ -362,16 +370,92 @@ enum AOLogic {
     Or,
 }
 
-struct CalcGHPQ {
-
+pub struct FailParse {
+    founded : Vec<(Id, Wire)>,
+    not_founded : WireRange,
 }
 
-impl CalcGHPQ {
-    pub fn solve(
+
+impl WireList {
+    pub fn solve_pure_logic_layer(
+        &self,
         fil : &FlagIndexLen,
         fp_chain : &FlagPChain,
-        history_wires: &WireList
-    ) {
-        
+    ) -> Result<(Vec<(Id, Wire)>, Logic), Vec<FailParse>>{
+        let mut ballen = Ballen::from_flag_index_len(fil);
+        let mut fail_parse_list: Vec<FailParse> = vec![];
+
+        // let logic_chain = vec![];
+        // let founded_wires = vec![];
+
+        fn solve_flags(
+            ballen : &Ballen,
+            fp_chain : &[FlagP],
+            wire_list : &WireList,
+            history_find_wire : &[(Id, Wire)],
+            history_aologic : &[AOLogic],
+            fail_parse_list : &mut Vec<FailParse>,
+            iter : &mut usize,
+        ) -> Result<(Vec<(Id, Wire)>, Vec<AOLogic>), ()> {
+            *iter += 1;
+            if *iter > 100 {
+                panic!("loop over 100 !")
+            }
+
+            let flag_now = &fp_chain[0].flag;
+            let is_neg = fp_chain[0].is_neg;
+            let flag_next = fp_chain.get(1).map(|fp| &fp.flag);
+
+            let (range_start, range_end, next_logic) = ballen.give_next_range(flag_now, flag_next);
+
+            let wire_range_to_find = WireRange::new(flag_now, is_neg, range_start, range_end);
+            let all_find = wire_list.find_wire_range(&wire_range_to_find);
+            if all_find.is_empty() {
+                fail_parse_list.push(FailParse { founded: history_find_wire.to_vec(), not_founded: wire_range_to_find });
+                return Err(());
+            } else {
+                for (id, new_wire) in &all_find {
+                    let mut history_find_wire = history_find_wire.clone().to_vec();
+                    history_find_wire.push((*id, new_wire.clone()));
+                    if flag_next.is_none() {
+                        return Ok((history_find_wire, history_aologic.to_vec()));
+                    } else {
+                        let mut history_aologic = history_aologic.to_vec();
+                        history_aologic.push(next_logic.clone().unwrap());
+                        let mut ballen = ballen.clone();
+                        ballen.consume(&new_wire.flag, new_wire.len);
+                        if let Ok(ret) = solve_flags(&ballen, &fp_chain[1..], wire_list, &history_find_wire, &history_aologic, fail_parse_list, iter) {
+                            return Ok(ret);
+                        }
+                    }
+                    
+                }
+                return Err(());
+            }
+        }
+
+        let result = solve_flags(&ballen, &fp_chain.0, self, &[], &[], &mut fail_parse_list, &mut 0);
+        if let Ok((wires, aologics)) = result {
+            let logic = Logic::parse_from_aologic(&aologics);
+            Ok((wires, logic))
+        } else {
+           Err(fail_parse_list)
+        }
+    }
+}
+
+impl Logic {
+    fn parse_from_aologic(aologic : &[AOLogic]) -> Self {
+        use AOLogic::And as A;
+        use AOLogic::Or as O;
+        match aologic {
+            &[A] => Logic::ND2,
+            &[O] => Logic::NR2,
+            &[A, O] => Logic::OAI21,
+            &[O, A] => Logic::AOI21,
+            &[A, O, A] => Logic::AOAI211,
+            &[O, A, O] => Logic::OAOI211,
+            _ => panic!("can not parse logic {aologic:?}")
+        }
     }
 }
