@@ -46,6 +46,10 @@ impl Node {
         }
     }
 
+    pub fn get_ordered_input_wires(&self) -> Vec<(Id, Wire)> {
+        self.logic.input_port_ordered().iter().map(|port| self.io.input.get(port).cloned().unwrap()).collect()
+    }
+
     pub fn create_by_ordered_wires(logic : Logic, wires : Vec<(Id, Wire)>) -> Self {
         // AOA按照从外（C）到里（A1、A2）的顺序
         // 输出O1在Z前面
@@ -68,20 +72,45 @@ impl Node {
         Self::new(logic, io)
     }
 
-    pub fn wire_swap(&mut self, port1 : usize, pos2 : usize) {
-        
+    pub fn impl_input_inv(&self, pos : usize) -> Self {
+        match self.logic {
+            Logic::ND2 | Logic::NR2 => {
+                let new_logic = match self.logic {
+                    Logic::ND2 => Logic::IND2,
+                    Logic::NR2 => Logic::INR2,
+                    _ => unimplemented!()
+                };
+                let wires: Vec<(u32, Wire)> = match pos {
+                    0 => self.get_ordered_input_wires(),
+                    1 => {
+                        self.get_ordered_input_wires().into_iter().rev().collect()
+                    }
+                    _ => unimplemented!()
+                };
+                Self::create_by_ordered_wires(new_logic, wires)
+            },
+            Logic::AOI21 | Logic::OAI21 => {
+                let new_logic = match self.logic {
+                    Logic::AOI21 => Logic::IAOI21,
+                    Logic::OAI21 => Logic::IOAI21,
+                    _ => unimplemented!()
+                };
+                let wires: Vec<(u32, Wire)> = match pos {
+                    0 => panic!("IAOI B can not add inv"),
+                    1 => {
+                        let wires = self.get_ordered_input_wires();
+                        let mut new_wires = vec![];
+                        new_wires.push(wires[0].clone());
+                        new_wires.push(wires[2].clone());
+                        new_wires.push(wires[1].clone());
+                        new_wires
+                    }
+                    2 => self.get_ordered_input_wires(),
+                    _ => unimplemented!()
+                };
+                Self::create_by_ordered_wires(new_logic, wires)
+            }
+            _  => panic!("{:?} can not impl input inv", self.logic)
+        }
     }
-
-    // pub fn impl_input_inv(&mut self, pos : usize) {
-    //     match logic {
-    //         Logic::ND2 | Logic::NR2 {
-    //             let new_logic = match logic {
-    //                 Logic::ND2 => Logic::IND2,
-    //                 Logic::NR2 => Logic::INR2,
-    //             };
-
-    //         },
-    //         _  => panic!("{logic:?} can not impl input inv")
-    //     }
-    // }
 }

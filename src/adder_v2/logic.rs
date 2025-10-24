@@ -29,12 +29,7 @@ pub enum Logic {
     OAO211,
 }
 
-#[derive(Debug, Clone)]
-pub struct IO<T> {
-    input : BTreeMap<Port, T>,
-    output_z : T,
-    output_o1 : Option<T>,
-}
+
 
 impl Logic {
     pub fn mirror(&self) -> Self {
@@ -82,20 +77,14 @@ impl Logic {
             Logic::AOI22 | Logic::OAI22 => vec![a1, a2, b1, b2],
         }
     }
-
-    // /// give logic and if input need swap
-    // pub fn get_ind_inr_from_and(a1_is_neg : bool, a2_is_neg : bool, out_is_neg : bool) -> (Self, bool) {
-    //     assert_ne!(a1_is_neg, a2_is_neg);
-    //     match (a1_is_neg, a2_is_neg, out_is_neg) {
-    //         (true, false, true) => (Logic::IND2, false),
-    //         (false, true, true) =>(Logic::IND2, true),
-    //         (true, false, false) => (Logic::INR2, true),
-    //         (false, true, false) => (Logic::INR2, false),
-    //         _ => unimplemented!()
-    //     }
-    // }
 }
 
+#[derive(Debug, Clone)]
+pub struct IO<T> {
+    pub input : BTreeMap<Port, T>,
+    pub output_z : T,
+    pub output_o1 : Option<T>,
+}
 
 impl<T> IO<T> {
     pub fn new(input : BTreeMap<Port, T>, output_z : T, output_o1 : Option<T>) -> Self {
