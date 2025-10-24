@@ -346,8 +346,8 @@ impl Ballen {
                             ExtendGrey::Extend(i) => { 
                                 if len == *i + 1 {
                                     bollen_g.extend_grey = ExtendGrey::ShrinkOne;
-                                } else if len < *i + 1 {
-                                    bollen_g.index -= len;
+                                } else if len == *i  {
+                                    bollen_g.extend_grey = ExtendGrey::Extend(0);
                                 } else {
                                     unimplemented!()
                                 }
@@ -367,8 +367,8 @@ impl Ballen {
                     Ballen::G(bollen_g) => {
                         match &bollen_g.extend_grey {
                             ExtendGrey::Extend(i) => { 
-                                if len < *i + 1 {
-                                    bollen_g.index -= len;
+                                if len == *i  {
+                                    bollen_g.extend_grey = ExtendGrey::Extend(0);
                                 } else {
                                     unimplemented!()
                                 }
@@ -415,10 +415,11 @@ impl FailParse {
 impl WireList {
     pub fn solve_pure_logic_layer(
         &self,
-        fil : &FlagIndexLen,
         fp_chain : &FlagPChain,
+        target_wire : &Wire,
     ) -> Result<Node, Vec<FailParse>>{
-        let mut ballen = Ballen::from_flag_index_len(fil);
+        let fil = &FlagIndexLen::from_wire(target_wire);
+        let ballen = Ballen::from_flag_index_len(fil);
         let mut fail_parse_list: Vec<FailParse> = vec![];
 
         // let logic_chain = vec![];
@@ -459,6 +460,7 @@ impl WireList {
                         let mut history_aologic = history_aologic.to_vec();
                         history_aologic.push(next_logic.clone().unwrap());
                         let mut ballen = ballen.clone();
+                        // dbg!(&history_find_wire);
                         ballen.consume(&new_wire.flag, new_wire.len);
                         if let Ok(ret) = solve_flags(&ballen, &fp_chain[1..], wire_list, &history_find_wire, &history_aologic, fail_parse_list, iter) {
                             return Ok(ret);
@@ -471,8 +473,9 @@ impl WireList {
         }
 
         let result = solve_flags(&ballen, &fp_chain.0, self, &[], &[], &mut fail_parse_list, &mut 0);
-        if let Ok((wires, aologics)) = result {
+        if let Ok((mut wires, aologics)) = result {
             let logic = Logic::parse_from_aologic(&aologics);
+            wires.push((self.0.len() as Id, target_wire.clone()));
             Ok(Node::create_by_ordered_wires(logic, wires))
         } else {
            Err(fail_parse_list)

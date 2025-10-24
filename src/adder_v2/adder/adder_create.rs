@@ -39,6 +39,10 @@ impl Adder {
                     for wire in &wire_list.0 {
                         println!("> {:02} : {}", wire.0, wire.1.to_string());
                     }
+                    println!("node list : ");
+                    for (id, cell) in cells.iter() {
+                        println!("> {id:02} : {}", cell.node.to_string());
+                    }
                     println!("{}", e.to_string());
                     panic!();
                 }

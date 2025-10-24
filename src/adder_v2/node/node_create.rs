@@ -94,6 +94,8 @@ impl Node {
             hint.given_out_index,
             hint.given_out_len,
         );
+
+        dbg!(&target_wire);
         
         if hint.is_simple_inv {
             let input_wire = target_wire.to_rev();
@@ -154,7 +156,7 @@ impl Node {
             // 输入的flagp_chain，默认输入都是正
             // true_flagp_chain，要处理默认输入为反的情况
             let true_flagp_chain = FlagPChain(flagp_chain.0.iter().map(|fp| if input_is_neg {fp.to_rev()} else {fp.clone()}).collect::<Vec<FlagP>>());
-            let solve_result = history_wires.solve_pure_logic_layer(&FlagIndexLen::from_wire(&target_wire), &true_flagp_chain);
+            let solve_result = history_wires.solve_pure_logic_layer(&true_flagp_chain, &target_wire);
             match solve_result {
                 Ok(mut node) => {
                     // polar layer，处理各种极性问题

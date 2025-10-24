@@ -13,6 +13,14 @@ pub struct Node {
     io : IO<(Id, Wire)>,
 }
 
+impl Node {
+    pub fn to_string(&self) -> String {
+        let inputs = self.get_ordered_input_wires().iter().map(|(_, w)| w.to_string()).collect::<Vec<_>>().join(", ");
+        let outputs = self.get_ordered_output_wires().iter().map(|(_, w)| w.to_string()).collect::<Vec<_>>().join(", ");
+        format!("{}({inputs}) -> {outputs}", self.logic.to_string())
+    }
+}
+
 #[derive(Debug, Clone)]
 pub struct FlagPChain(pub Vec<FlagP>);
 
@@ -76,7 +84,7 @@ impl Node {
                 IO::new(inputs, wires[3].clone(), Some(wires[2].clone()))
             }
             _ => {
-                IO::new(inputs, wires[input_len-1].clone(), None)
+                IO::new(inputs, wires[input_len].clone(), None)
             }
         };
         Self::new(logic, io)

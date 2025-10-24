@@ -32,6 +32,36 @@ pub enum Logic {
 
 
 impl Logic {
+    pub fn to_string(&self) -> &'static str {
+        match self {
+            Logic::INV => "INV",
+            Logic::ND2 => "ND2",
+            Logic::NR2 => "NR2",
+            Logic::AN2 => "AN2",
+            Logic::OR2 => "OR2",
+            Logic::IND2 => "IND2",
+            Logic::INR2 => "INR2",
+
+            Logic::XOR2 => "XOR2",
+            Logic::XNR2 => "XNR2",
+            Logic::XOR2DOUT => "XOR2DOUT",
+            Logic::XNR2DOUT => "XNR2DOUT",
+            Logic::AOI21 => "AOI21",
+            Logic::OAI21 => "OAI21",
+
+            Logic::AO21 => "AO21",
+            Logic::OA21 => "OA21",
+            Logic::IAOI21 => "IAOI21",
+            Logic::IOAI21 => "IOAI21",
+            Logic::AOI22 => "AOI22",
+            Logic::OAI22 => "OAI22",
+            Logic::AOAI211 => "AOAI211",
+            Logic::OAOI211 => "OAOI211",
+            Logic::AOA211 => "AOA211",
+            Logic::OAO211 => "OAO211",
+        }
+    }
+
     pub fn mirror(&self) -> Self {
         match self {
             Logic::INV => Logic::INV,
