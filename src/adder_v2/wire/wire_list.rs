@@ -4,7 +4,7 @@ use std::ops::Range;
 
 use crate::adder_v2::{node::{node_create::NodeCreateError, pure_logic_layer::WireRange}, wire::{FlagP, Wire}, Id};
 
-pub struct WireList(Vec<(Id, Wire)>);
+pub struct WireList(pub Vec<(Id, Wire)>);
 
 impl WireList {
     pub fn len(&self) -> usize {

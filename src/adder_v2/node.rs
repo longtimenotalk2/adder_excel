@@ -5,11 +5,7 @@ use std::collections::BTreeMap;
 
 use crate::adder_v2::{logic::{Logic, IO}, wire::{Flag, FlagP, Wire}, Id, Port};
 
-#[derive(Debug, Clone)]
-pub enum Drive {
-    D1,
-    D2,
-}
+
 
 #[derive(Debug, Clone)]
 pub struct Node {
@@ -21,20 +17,19 @@ pub struct Node {
 pub struct FlagPChain(pub Vec<FlagP>);
 
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Default)]
 pub struct NodeHint {
-    is_simple_inv : bool,
-    is_start : bool,
-    is_start_xnr_dout : bool,
-    is_start_xor_dout : bool,
-    is_start_xnr : bool,
-    is_start_xor : bool,
-    drive : Drive,
-    given_out_flag_p : Option<FlagP>,
-    given_out_index : usize,
-    given_out_len : usize,
-    given_flag_p_chain : Option<FlagPChain>, 
-    is_out_addition_inv : bool,
+    pub is_simple_inv : bool,
+    pub is_start : bool,
+    pub is_start_xnr_dout : bool,
+    pub is_start_xor_dout : bool,
+    pub is_start_xnr : bool,
+    pub is_start_xor : bool,
+    pub given_out_flag_p : Option<FlagP>,
+    pub given_out_index : usize,
+    pub given_out_len : usize,
+    pub given_flag_p_chain : Option<FlagPChain>, 
+    pub is_out_addition_inv : bool,
 }
 
 
@@ -48,6 +43,15 @@ impl Node {
 
     pub fn get_ordered_input_wires(&self) -> Vec<(Id, Wire)> {
         self.logic.input_port_ordered().iter().map(|port| self.io.input.get(port).cloned().unwrap()).collect()
+    }
+
+    pub fn get_ordered_output_wires(&self) -> Vec<(Id, Wire)> {
+        let mut ret = vec![];
+        if let Some(o1) = self.io.output_o1.clone() {
+            ret.push(o1);
+        }
+        ret.push(self.io.output_z.clone());
+        ret
     }
 
     pub fn create_by_ordered_wires(logic : Logic, wires : Vec<(Id, Wire)>) -> Self {

@@ -1,5 +1,7 @@
 use std::{collections::BTreeMap, ops::RangeInclusive};
 
+use colorful::{Color, Colorful};
+
 use crate::adder_v2::{logic::Logic, node::{FlagPChain, Node}, wire::{wire_list::WireList, Flag, FlagP, Wire}, Id};
 
 /*
@@ -56,6 +58,20 @@ impl WireRange {
             end_index_range,
         }
     }
+
+    pub fn to_string(&self) -> String {
+        let mut ret = String::new();
+        if self.is_neg {
+            ret.push('n');
+        }
+        ret.push_str(self.flag.to_str());
+        ret.push_str(&format!("({:?})", self.index_range));
+        ret.push_str("_");
+        ret.push_str(&format!("({:?})", self.end_index_range));
+
+        ret
+    }
+
     pub fn to_flag_p(&self) -> FlagP {
         FlagP {
             flag : self.flag.clone(),
@@ -381,6 +397,18 @@ enum AOLogic {
 pub struct FailParse {
     founded : Vec<(Id, Wire)>,
     not_founded : WireRange,
+}
+
+impl FailParse {
+    pub fn to_string(&self) -> String {
+        let mut s = String::new();
+        s += "  found : ";
+        for found in &self.founded {
+            s += &format!("{}, ", found.1.to_string().color(Color::Green));
+        }
+        s += &format!("; but not found : {}", self.not_founded.to_string().color(Color::Red));
+        s
+    }
 }
 
 

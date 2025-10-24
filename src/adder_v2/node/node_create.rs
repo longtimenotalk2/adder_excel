@@ -1,13 +1,36 @@
 use core::panic;
 use std::collections::BTreeMap;
 
-use crate::adder_v2::{logic::{Logic, IO}, node::{pure_logic_layer::{FailParse, FlagIndexLen}, Drive, FlagPChain, Node, NodeHint}, wire::{wire_list::{self, WireList}, Flag, FlagP, Wire, WireFloat, }, Id, Port};
+use colorful::{Color, Colorful};
+
+use crate::adder_v2::{logic::{Logic, IO}, node::{pure_logic_layer::{FailParse, FlagIndexLen}, FlagPChain, Node, NodeHint}, wire::{wire_list::{self, WireList}, Flag, FlagP, Wire, WireFloat, }, Id, Port};
 
 pub enum NodeCreateError {
     CanNotFindGivenWire(Wire),
     FailParse(Vec<(FlagPChain, Vec<FailParse>)>),
     NoChain(Wire),
     CanNotDirect(Wire),
+}
+
+impl NodeCreateError {
+    pub fn to_string(&self) -> String {
+        match self {
+            NodeCreateError::CanNotFindGivenWire(w) => format!("Can not find given wire {}", w.to_string().color(Color::Red)),
+            NodeCreateError::NoChain(w) => format!("syn wire {} need given chain", w.to_string().color(Color::Red)),
+            NodeCreateError::CanNotDirect(w) => format!("syn wire {} can not direct from input", w.to_string().color(Color::Red)),
+            NodeCreateError::FailParse(fail_parse) => {
+                let mut s = String::new();
+                for (chain, fail) in fail_parse {
+                    s.push_str(&format!("chain {:?} fail parse: ", chain));
+                    for f in fail {
+                        s.push_str(&f.to_string());
+                        s += "\n";
+                    }
+                }
+                s
+            }
+        }
+    }
 }
 
 impl FlagPChain {
@@ -40,10 +63,8 @@ impl FlagPChain {
 impl Node {
     pub fn create_from_hint(hint: &NodeHint, history_wires: &WireList) -> Result<Node, NodeCreateError> {
 
-        let drive = hint.drive.clone();
         let id_next = history_wires.len() as Id;
         let index = hint.given_out_index;
-        let len = hint.given_out_len;
 
         if hint.is_start_xnr_dout | hint.is_start_xor_dout | hint.is_start_xnr | hint.is_start_xor{
             let a1 = history_wires.find(&Wire::from_str(&format!("a{index}")))?;
@@ -122,8 +143,6 @@ impl Node {
             return Err(NodeCreateError::NoChain(target_wire));
         }
 
-        let mut fail_parses: Vec<FailParse> = vec![];
-
         // polar layer，搞清楚每个输入的极性
         let mut input_is_neg = !target_wire.is_neg;  // 通常，输入与输出相反
         input_is_neg = input_is_neg ^ is_out_addition_inv;  // 如果输出要加额外inv，那么反转结果
@@ -157,6 +176,7 @@ impl Node {
                     if is_out_addition_inv {
                         node = node.impl_output_inv();
                     }
+                    return Ok(node)
                 }
                 Err(err) => {
                     fail_parse_conditions.push((flagp_chain.clone(), err));

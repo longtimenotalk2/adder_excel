@@ -1,6 +1,9 @@
 pub mod wire;
 pub mod logic;
 pub mod node;
+pub mod adder;
+pub mod excel;
+pub mod project;
 
 type Id = u32;
 

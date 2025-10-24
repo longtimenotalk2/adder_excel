@@ -46,6 +46,12 @@ pub struct FlagP {
 }
 
 impl FlagP {
+    pub fn new(flag: Flag, is_neg: bool) -> Self {
+        Self {
+            flag,
+            is_neg,
+        }
+    }
     
     pub fn to_rev(&self) -> Self {
         Self {
@@ -165,6 +171,15 @@ impl Wire {
             is_neg,
             index,
             len,
+        }
+    }
+
+    pub fn from_wire_float(wire_float : WireFloat, index : usize) -> Self {
+        Wire {
+            flag: wire_float.flag,
+            is_neg: wire_float.is_neg,
+            index,
+            len: wire_float.len,
         }
     }
 
