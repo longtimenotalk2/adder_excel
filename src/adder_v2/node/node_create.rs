@@ -1,7 +1,7 @@
 use core::panic;
 use std::collections::BTreeMap;
 
-use crate::adder_v2::{logic::{Logic, IO}, node::{Drive, FlagExtendChain, Node, NodeHint}, wire::{wire_list::WireList, Flag, FlagExtend, Wire, WireFloat}, Id, Port};
+use crate::adder_v2::{logic::{Logic, IO}, node::{Drive, FlagExtendChain, Node, NodeHint}, wire::{wire_list::WireList, Flag, FlagExtend, Wire, WireFloat, }, Id, Port};
 
 pub struct FailParse {
     flag_extend_chain : FlagExtendChain,
@@ -144,47 +144,53 @@ impl Node {
         3. 考虑输出强插一个INV，拿取强插后的logic
         */
         for extend_flag_chain in extend_flag_chains {
-            let mut two_input_swap = false;
-            let mut three_input_inv_index: Option<usize> = None;
-            let logic = match extend_flag_chain.0.len() {
-                2 => {
-                    let a1_is_neg = extend_flag_chain.0[0].is_neg;
-                    let a2_is_neg = extend_flag_chain.0[1].is_neg;
-                    if a1_is_neg == a2_is_neg {
-                        Logic::ND2
-                    } else {
-                        let (logic, swap) = Logic::get_ind_inr_from_and(a1_is_neg, a2_is_neg, true);
-                        two_input_swap = swap;
-                        logic
-                    }
-                },
-                3 => {
-                    let b_is_neg = extend_flag_chain.0[0].is_neg;
-                    let a1_is_neg = extend_flag_chain.0[1].is_neg;
-                    let a2_is_neg = extend_flag_chain.0[2].is_neg;
-                    // 这仨最多只有1个是true
-                    let mut true_count = 0;
-                    if b_is_neg {true_count += 1};
-                    if a1_is_neg {true_count += 1};
-                    if a2_is_neg {true_count += 1};
-                    if true_count > 1 {
-                        panic!("wire {} has invalid flag chain {:?}, neg number should <= 1", target_wire.to_string(), extend_flag_chain);
-                    } else if true_count == 1 {
-                        if b_is_neg {
-                            panic!("wire {} has invalid flag chain {:?}, b should not neg", target_wire.to_string(), extend_flag_chain)
-                        } else if a1_is_neg {
-                            three_input_inv_index = Some(1);
-                        } else if a2_is_neg {
-                            three_input_inv_index = Some(2);
-                        }
-                        Logic::IAOI21
-                    } else {
-                        Logic::AOI21
-                    }
-                },
-                4 => todo!(),
-                _ => panic!("wire {} has invalid flag chain {:?}", target_wire.to_string(), extend_flag_chain),
-            };
+            let flag_chain = extend_flag_chain.0.iter().map(|ef| ef.clone().flag).collect::<Vec<_>>();
+            let flags = flag_chain.iter().map(|f| f.to_str()).collect::<String>();
+            match flags.as_str() {
+                "PP" | "PQ" | "QP" | "QQ" | "PH" => todo!(),
+                _ => panic!("can not parse flag chain {:?}", flag_chain),
+            }
+            // let mut two_input_swap = false;
+            // let mut three_input_inv_index: Option<usize> = None;
+            // let logic = match extend_flag_chain.0.len() {
+            //     2 => {
+            //         let a1_is_neg = extend_flag_chain.0[0].is_neg;
+            //         let a2_is_neg = extend_flag_chain.0[1].is_neg;
+            //         if a1_is_neg == a2_is_neg {
+            //             Logic::ND2
+            //         } else {
+            //             let (logic, swap) = Logic::get_ind_inr_from_and(a1_is_neg, a2_is_neg, true);
+            //             two_input_swap = swap;
+            //             logic
+            //         }
+            //     },
+            //     3 => {
+            //         let b_is_neg = extend_flag_chain.0[0].is_neg;
+            //         let a1_is_neg = extend_flag_chain.0[1].is_neg;
+            //         let a2_is_neg = extend_flag_chain.0[2].is_neg;
+            //         // 这仨最多只有1个是true
+            //         let mut true_count = 0;
+            //         if b_is_neg {true_count += 1};
+            //         if a1_is_neg {true_count += 1};
+            //         if a2_is_neg {true_count += 1};
+            //         if true_count > 1 {
+            //             panic!("wire {} has invalid flag chain {:?}, neg number should <= 1", target_wire.to_string(), extend_flag_chain);
+            //         } else if true_count == 1 {
+            //             if b_is_neg {
+            //                 panic!("wire {} has invalid flag chain {:?}, b should not neg", target_wire.to_string(), extend_flag_chain)
+            //             } else if a1_is_neg {
+            //                 three_input_inv_index = Some(1);
+            //             } else if a2_is_neg {
+            //                 three_input_inv_index = Some(2);
+            //             }
+            //             Logic::IAOI21
+            //         } else {
+            //             Logic::AOI21
+            //         }
+            //     },
+            //     4 => todo!(),
+            //     _ => panic!("wire {} has invalid flag chain {:?}", target_wire.to_string(), extend_flag_chain),
+            // };
 
 
         }

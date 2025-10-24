@@ -2,7 +2,7 @@
 
 use std::ops::Range;
 
-use crate::adder_v2::{node::node_create::NodeCreateError, wire::{FlagExtend, Wire}, Id};
+use crate::adder_v2::{node::{node_create::NodeCreateError, node_create_branch::WireRange}, wire::{FlagExtend, Wire}, Id};
 
 pub struct WireList(Vec<(Id, Wire)>);
 
@@ -24,13 +24,13 @@ impl WireList {
     }
 
     /// 寻找index的start和end可以浮动的flag extend
-    pub fn find_ranged_start_and_end(&self, flag_extend : &FlagExtend, start_range : Range<usize>, end_range : Range<usize>) -> Vec<(Id, Wire)> {
+    pub fn find_wire_range(&self, wire_range : &WireRange) -> Vec<(Id, Wire)> {
         let iter = self.0.iter();
 
         let mut ret = vec![];
 
         for (id, w) in iter {
-            if w.to_flag_extend() == *flag_extend && start_range.contains(&w.index) && end_range.contains(&w.index_end()) {
+            if w.to_flag_extend() == wire_range.to_flag_extend() && wire_range.index_range.contains(&w.index) && wire_range.end_index_range.contains(&w.index_end()) {
                 ret.push((*id, w.clone()));
             }
         }
