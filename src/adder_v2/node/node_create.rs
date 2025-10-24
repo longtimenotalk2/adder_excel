@@ -15,7 +15,7 @@ pub enum NodeCreateError {
 impl NodeCreateError {
     pub fn to_string(&self) -> String {
         match self {
-            NodeCreateError::CanNotFindGivenWire(w) => format!("Can not find given wire {}", w.to_string().color(Color::Red)),
+            NodeCreateError::CanNotFindGivenWire(w) => format!("can not find given wire {}", w.to_string().color(Color::Red)),
             NodeCreateError::NoChain(w) => format!("syn wire {} need given chain", w.to_string().color(Color::Red)),
             NodeCreateError::CanNotDirect(w) => format!("syn wire {} can not direct from input", w.to_string().color(Color::Red)),
             NodeCreateError::FailParse(w, fail_parse) => {
@@ -42,12 +42,12 @@ impl FlagPChain {
         let h = FlagP {flag: Flag::H, is_neg : false};
         match flag {
             Flag::G => vec![
-                FlagPChain(vec![g.clone(), p.clone(), g.clone()]),
                 FlagPChain(vec![g.clone(), q.clone(), g.clone()]),
+                FlagPChain(vec![g.clone(), p.clone(), g.clone()]),
             ],
             Flag::P => vec![
-                FlagPChain(vec![p.clone(), p.clone()]),
                 FlagPChain(vec![q.clone(), p.clone()]),
+                FlagPChain(vec![p.clone(), p.clone()]),
             ],
             Flag::Q => vec![
                 FlagPChain(vec![q.clone(), q.clone()]),
@@ -156,6 +156,24 @@ impl Node {
             // 输入的flagp_chain，默认输入都是正
             // true_flagp_chain，要处理默认输入为反的情况
             let true_flagp_chain = FlagPChain(flagp_chain.0.iter().map(|fp| if input_is_neg {fp.to_rev()} else {fp.clone()}).collect::<Vec<FlagP>>());
+            // 特殊配置特殊处理
+            if true_flagp_chain == FlagPChain(vec![
+                FlagP::new(Flag::A, false), 
+                FlagP::new(Flag::B, false),
+                FlagP::new(Flag::Q, false),
+                FlagP::new(Flag::G, false),
+            ]) {
+                let a1 = history_wires.find(&Wire::from_str(&format!("a{index}")))?;
+                let a2 = history_wires.find(&Wire::from_str(&format!("b{index}")))?;
+                let b1 = history_wires.find(&Wire::from_str(&format!("q{index}")))?;
+                let b2 = history_wires.find(&Wire::new(Flag::G, false, index-1, hint.given_out_len-1))?;
+                return Ok(Node::create_by_ordered_wires(
+                    Logic::AOI22,
+                    vec![a1, a2, b1, b2, (id_next, target_wire)],
+                ))
+            }
+
+            // 其余一般情况
             let solve_result = history_wires.solve_pure_logic_layer(&true_flagp_chain, &target_wire);
             match solve_result {
                 Ok(mut node) => {

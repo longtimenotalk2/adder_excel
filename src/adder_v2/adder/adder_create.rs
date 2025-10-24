@@ -25,6 +25,7 @@ impl Adder {
 
         for (cell_id, (excel_key, (hint, cell_info, _))) in excel_data_list.data.iter().enumerate() {
             let cell_id = cell_id as Id;
+            dbg!(cell_id);
             match Node::create_from_hint(hint, &mut wire_list)  {
                 Ok(node) => {
                     for output_wire in node.get_ordered_output_wires() {

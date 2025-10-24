@@ -9,6 +9,13 @@ fn test_load_excel() {
 }
 
 #[test]
+fn test_excel_data_list() {
+    let excel_frame = ExcelFrame::load(PATH);
+    let excel_data_list = ExcelDataList::from_excel_frame(&excel_frame);
+    dbg!(excel_data_list);
+}
+
+#[test]
 fn test_adder() {
     let excel_frame = ExcelFrame::load(PATH);
     let excel_data_list = ExcelDataList::from_excel_frame(&excel_frame);

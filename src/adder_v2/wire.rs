@@ -113,6 +113,14 @@ pub struct Wire {
 }
 
 impl Wire {
+    pub fn new(flag: Flag, is_neg: bool, index: usize, len: usize) -> Self {
+        Self {
+            flag,
+            is_neg,
+            index,
+            len,
+        }
+    }
     fn is_input(&self) -> bool {
         self.flag == Flag::A || self.flag == Flag::B
     }
