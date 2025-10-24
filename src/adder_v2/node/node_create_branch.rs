@@ -273,6 +273,23 @@ impl Ballen {
             (self.index()..=self.index(), self.index_end()..=self.index_end())
         }
     }
+
+    fn consume(&mut self, flag : &Flag, len : usize) {
+        match flag {
+            Flag::G => {
+                if let Ballen::G(bollen_g) = self {
+                    match &bollen_g.extend_grey {
+                        ExtendGrey::Extend(i) => {
+                            assert!(*i == 0);
+                            bollen_g.index -= len;
+                        }
+                        ExtendGrey::ShrinkOne => unimplemented!()
+                    }
+                } else {unimplemented!()}
+            }
+            _ => unimplemented!()
+        }
+    }
 }
 
 struct CalcGHPQ {
