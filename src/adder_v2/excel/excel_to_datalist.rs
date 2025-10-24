@@ -114,6 +114,7 @@ impl ExcelDataList<(NodeHint, CellInfo, Option<Vec<i32>>)> {
                         "q"   => node_hint.is_start_xor = true,
                         _ => {
                             let wire_float = WireFloat::from_str(&wire_string);
+                            node_hint.given_out_len = wire_float.len;
                             let wire = Wire::from_wire_float(wire_float, index);
                             node_hint.given_out_flag_p = Some(wire.to_flag_p());
                             if code.single_chars.contains(&'I') {

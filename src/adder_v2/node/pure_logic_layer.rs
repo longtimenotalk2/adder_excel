@@ -251,7 +251,7 @@ impl Ballen {
                 Flag::G => {
                     match flag_next {
                         Flag::P | Flag::Q => {
-                            (self.index()..=self.index(), (self.index_end()+1)..=(self.index_end()+1), Some(AOLogic::Or))
+                            (self.index()..=self.index(), (self.index_end()+1)..=(self.index()), Some(AOLogic::Or))
                         },
                         _ => unimplemented!()
                     }
@@ -259,7 +259,7 @@ impl Ballen {
                 Flag::H => {
                     match flag_next {
                         Flag::P | Flag::Q => {
-                            (self.index()..=self.index(), (self.index_end()+1)..=(self.index_end()+1), Some(AOLogic::Or))
+                            (self.index()..=self.index(), (self.index_end()+1)..=(self.index()), Some(AOLogic::Or))
                         },
                         _ => unimplemented!()
                     }
@@ -299,7 +299,7 @@ impl Ballen {
                         Self::P(_) => {
                             match flag_next {
                                 Flag::P | Flag::Q => {
-                                    (self.index()..=self.index(), (self.index_end()+1)..=(self.index_end()+1), Some(AOLogic::And))
+                                    (self.index()..=self.index(), (self.index_end()+1)..=(self.index()), Some(AOLogic::And))
                                 },
                                 _ => unimplemented!()
                             }

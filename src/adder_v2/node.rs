@@ -76,7 +76,7 @@ impl Node {
                 IO::new(inputs, wires[3].clone(), Some(wires[2].clone()))
             }
             _ => {
-                IO::new(inputs, wires[input_len].clone(), None)
+                IO::new(inputs, wires[input_len-1].clone(), None)
             }
         };
         Self::new(logic, io)
