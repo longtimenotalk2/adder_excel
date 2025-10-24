@@ -136,7 +136,7 @@ impl Node {
             let true_flagp_chain = FlagPChain(flagp_chain.0.iter().map(|fp| if input_is_neg {fp.to_rev()} else {fp.clone()}).collect::<Vec<FlagP>>());
             let solve_result = history_wires.solve_pure_logic_layer(&FlagIndexLen::from_wire(&target_wire), &true_flagp_chain);
             match solve_result {
-                Ok(node) => {
+                Ok(mut node) => {
                     // polar layer，处理各种极性问题
                     // 处理部分输入INV
                     let mut input_inv_count = 0;
@@ -151,9 +151,12 @@ impl Node {
                         panic!("input_inv_count > 1, in {:?}", flagp_chain);
                     } else if input_inv_count == 1 {
                         let neg_position = position.unwrap();
-
+                        node = node.impl_input_inv(neg_position)
                     }
-                    
+                    // 处理输出部分INV
+                    if is_out_addition_inv {
+                        node = node.impl_output_inv();
+                    }
                 }
                 Err(err) => {
                     fail_parse_conditions.push((flagp_chain.clone(), err));

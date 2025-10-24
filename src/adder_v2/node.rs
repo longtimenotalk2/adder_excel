@@ -113,4 +113,33 @@ impl Node {
             _  => panic!("{:?} can not impl input inv", self.logic)
         }
     }
+
+    pub fn impl_output_inv(&self) -> Self {
+        match self.logic {
+            Logic::ND2 | Logic::NR2 | Logic::AOI21 | Logic::OAI21 | Logic::AOI22 | Logic::OAI22 | Logic::AOAI211 | Logic::OAOI211  => {
+                let new_logic = match self.logic {
+                    Logic::ND2 => Logic::AN2,
+                    Logic::NR2 => Logic::OR2,
+                    Logic::AOI21 => Logic::OA21,
+                    Logic::OAI21 => Logic::OA21,
+                    Logic::AOAI211 => Logic::AOA211,
+                    Logic::OAOI211 => Logic::OAO211,
+                    _ => unimplemented!()
+                };
+                let wires: Vec<(u32, Wire)> = self.get_ordered_input_wires();
+                Self::create_by_ordered_wires(new_logic, wires)
+            },
+            Logic::IND2 | Logic::INR2 => {
+                // cell互换+输入互换
+                let wires = self.get_ordered_input_wires().into_iter().rev().collect::<Vec<_>>();
+                let new_logic = match self.logic {
+                    Logic::IND2 => Logic::INR2,
+                    Logic::INR2 => Logic::IND2,
+                    _ => unimplemented!()
+                };
+                Self::create_by_ordered_wires(new_logic, wires)
+            },
+            _ => panic!("{:?} can not impl output inv", self.logic)
+        }
+    }
 }
