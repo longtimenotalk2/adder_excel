@@ -1,6 +1,6 @@
 use std::collections::{BTreeMap, BTreeSet};
 
-use crate::adder_v2::{adder::{CellInfo, Drive}, excel::ExcelFrame, node::{FlagPChain, NodeHint}, wire::{Flag, FlagP, Wire, WireFloat}, Id};
+use crate::adder_v2::{cell_info::{CellInfo, Drive}, excel::ExcelFrame, node::{FlagPChain, NodeHint}, wire::{Flag, FlagP, Wire, WireFloat}, Id};
 
 // 每个multi line的每个index只有对多一个cell。保证顺序是从上行到下行，每一行从index小到index大
 #[derive(Debug, Clone, PartialEq, PartialOrd, Hash, Eq, Ord)]
