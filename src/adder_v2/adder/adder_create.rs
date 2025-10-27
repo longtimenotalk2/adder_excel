@@ -1,4 +1,4 @@
-use crate::adder_v2::{adder::{Adder, Cell, CellInfo}, excel::excel_to_datalist::ExcelDataList, logic::Logic, node::{Node, NodeHint}, wire::{wire_list::WireList, Flag, Wire}, Id, Port};
+use crate::adder_v2::{adder::Adder, cell::{cell_info::CellInfo, Cell}, excel::excel_to_datalist::ExcelDataList, logic::Logic, node::{Node, NodeHint}, wire::{wire_list::WireList, Flag, Wire}, Id, Port};
 
 impl Adder {
     pub fn create_from_excel_data_list(

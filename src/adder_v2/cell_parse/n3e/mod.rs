@@ -1,4 +1,4 @@
-use crate::adder_v2::{adder::{Cell, CellBody}, cell_info::Drive, cell_parse::{ReadCellName, ReadCellType}, logic::Logic};
+use crate::adder_v2::{cell::{cell_info::Drive, CellBody}, cell_parse::{ReadCellName, ReadCellType}, logic::Logic};
 
 impl CellBody {
     pub fn parse_n3e(&self) -> (ReadCellName, ReadCellType) {

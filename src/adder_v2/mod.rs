@@ -4,9 +4,9 @@ pub mod node;
 pub mod adder;
 pub mod excel;
 pub mod project;
-pub mod cell_info;
 pub mod cell_parse;
 pub mod cdl;
+pub mod cell;
 
 type Id = u32;
 
