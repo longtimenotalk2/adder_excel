@@ -11,7 +11,7 @@ impl Adder {
         }
         txt += "cell list :\n";
         for (id, cell) in self.cells.iter() {
-            txt += &format!("> {id:03} : {} {}\n", cell.node.to_string(), if cell.info.to_string().len() > 0 { format!("[{}]", cell.info.to_string().color(Color::Yellow)) } else { "".to_string() });
+            txt += &format!("> {id:03} : {}\n", cell.to_string());
         }
         txt
     }

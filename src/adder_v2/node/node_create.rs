@@ -74,8 +74,8 @@ impl Node {
 
             if hint.is_start_xnr_dout | hint.is_start_xor_dout {
                 let logic = if hint.is_start_xnr_dout { Logic::XNR2DOUT } else { Logic::XOR2DOUT };
-                let z = (id_next, if hint.is_start_xnr_dout { Wire::from_str(&format!("nq{index}")) } else { Wire::from_str(&format!("q{index}")) });
-                let o1 = (id_next + 1, if hint.is_start_xnr_dout { Wire::from_str(&format!("ng{index}")) } else { Wire::from_str(&format!("np{index}")) });
+                let z = (id_next + 1, if hint.is_start_xnr_dout { Wire::from_str(&format!("nq{index}")) } else { Wire::from_str(&format!("q{index}")) });
+                let o1 = (id_next, if hint.is_start_xnr_dout { Wire::from_str(&format!("ng{index}")) } else { Wire::from_str(&format!("np{index}")) });
                 return Ok(Node::create_by_ordered_wires(
                     logic,
                     vec![a1, a2, o1, z],

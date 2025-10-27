@@ -2,6 +2,8 @@ mod adder_create;
 mod adder_show;
 pub mod adder_check;
 
+use colorful::{Color, Colorful};
+
 use crate::adder_v2::{node::Node, wire::{Wire}, Id};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -49,6 +51,10 @@ impl Cell {
             node,
             info
         }
+    }
+
+    pub fn to_string(&self) -> String {
+        format!("{} {}", self.node.to_string(), if self.info.to_string().len() > 0 { format!("[{}]", self.info.to_string().color(Color::Yellow)) } else { "".to_string() })
     }
 }
 

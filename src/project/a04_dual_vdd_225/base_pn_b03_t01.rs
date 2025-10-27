@@ -2,7 +2,7 @@ use std::collections::{BTreeMap, BTreeSet};
 
 use crate::{cell_parse::{ProcessAndProject, RealCell}, from_excel::ExcelData, std::adder::{Adder, CustomDemand}};
 
-const PATH : &'static str = "src/project/a04_dual_vdd_225/excel_data/b02_t01.txt";
+const PATH : &'static str = "src/project/a04_dual_vdd_225/excel_data/b03_t01.txt";
 
 pub fn adder() -> Adder{
     let excel_data = ExcelData::load(PATH);
@@ -177,7 +177,6 @@ fn test_cell_list_for_3_type() {
         "NR2D1BM156H3P48CPDELVT_1_H2H_V02".to_string(),
         "OAI21D1BM156H3P48CPDELVT_H2H_V02".to_string(),
         "OAI21D2BM156H3P48CPDELVT_H2H_V02".to_string(),
-        "IAOI21D1BM156H3P48CPDELVT_H2L_A1_A2".to_string(),
         "INVD1BM156H3P48CPDELVT_1_H2L_I".to_string(),
         "INVD2BM156H3P48CPDELVT_1_H2L_I".to_string(),
         "NR2D1BM156H3P48CPDELVT_1_H2L_A2".to_string(),
