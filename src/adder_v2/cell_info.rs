@@ -36,4 +36,8 @@ impl CellInfo {
         }
         txt
     }
+
+    pub fn is_default(&self) -> bool {
+        self.special_infos.is_empty()
+    }
 }

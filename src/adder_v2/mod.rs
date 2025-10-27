@@ -5,6 +5,7 @@ pub mod adder;
 pub mod excel;
 pub mod project;
 pub mod cell_info;
+pub mod cell_parse;
 
 type Id = u32;
 
