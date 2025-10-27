@@ -25,7 +25,7 @@ impl CellBody {
         }
     }
 
-    pub fn cap_cmos_o1_inner(&self, _port : &Port) -> i32 {
+    pub fn cap_cmos_o1_inner(&self) -> i32 {
         let n = match self.logic {
             Logic::XNR2 | Logic::XOR2 | Logic::XNR2DOUT | Logic::XOR2DOUT => 2,
             _ => unimplemented!(),

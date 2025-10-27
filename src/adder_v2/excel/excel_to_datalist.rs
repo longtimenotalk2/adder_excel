@@ -5,8 +5,8 @@ use crate::adder_v2::{cell::cell_info::{CellInfo, Drive, SpecialInfo}, excel::Ex
 // 每个multi line的每个index只有对多一个cell。保证顺序是从上行到下行，每一行从index小到index大
 #[derive(Debug, Clone, PartialEq, PartialOrd, Hash, Eq, Ord)]
 pub struct ExcelDataListKey {
-    multi_line_id : Id,
-    index : usize,
+    pub multi_line_id : Id,
+    pub index : usize,
 }
 
 #[derive(Debug, Clone)]
@@ -95,7 +95,7 @@ impl ExcelDataList<(NodeHint, CellInfo, Option<Vec<i32>>)> {
     pub fn from_excel_frame(frame : &ExcelFrame) -> Self {
         let mut dataset = BTreeMap::new();
         for (key, data) in frame.multi_lines.iter() {
-            let  multi_line_id = key.id;
+            let  multi_line_id = key.multi_line_id;
             for index_excel in 0..frame.bits {
                 let mut wire_string = data.wire_line[index_excel].clone();
                 if wire_string.len() > 0 {

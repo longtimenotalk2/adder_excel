@@ -3,6 +3,7 @@ mod adder_show;
 pub mod adder_check_id;
 pub mod adder_function;
 pub mod adder_property;
+pub mod adder_cap;
 
 use colorful::{Color, Colorful};
 
@@ -11,11 +12,11 @@ use crate::adder_v2::{cell::Cell, logic::Logic, node::Node, wire::Wire, Id};
 
 #[derive(Debug, Clone)]
 pub struct Adder {
-    wires : Vec<(Id, Wire)>,
-    cells : Vec<(Id, Cell)>,
-    bits : usize,
-    input_is_neg : bool,
-    output_is_neg : bool,
+    pub wires : Vec<(Id, Wire)>,
+    pub cells : Vec<(Id, Cell)>,
+    pub bits : usize,
+    pub input_is_neg : bool,
+    pub output_is_neg : bool,
 }
 
 impl Adder {

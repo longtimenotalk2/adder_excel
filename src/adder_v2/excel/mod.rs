@@ -6,14 +6,14 @@ use crate::adder_v2::Id;
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Hash, Eq, Ord)]
 pub struct ExcelKey {
-    pub id : Id,
-    pub layer : i32,
-    pub name : String,
+    pub multi_line_id : Id,
 }
 
 #[derive(Debug, Clone, Default)]
 pub struct ExcelMultiLineData {
     pub wire_line : Vec<String>,
+    pub layer : i32,
+    pub name : String,
     pub code_line : Vec<String>,
     pub cap_line : Vec<String>,
 }
@@ -21,8 +21,8 @@ pub struct ExcelMultiLineData {
 
 #[derive(Debug, Clone)]
 pub struct ExcelFrame {
-    multi_lines : BTreeMap<ExcelKey, ExcelMultiLineData>,
-    bits : usize,
+    pub multi_lines : BTreeMap<ExcelKey, ExcelMultiLineData>,
+    pub bits : usize,
 }
 
 impl ExcelFrame {
@@ -53,11 +53,13 @@ impl ExcelFrame {
                     "wire" => {
                         id += 1;
                         let mut dataset = ExcelMultiLineData::default();
+                        dataset.layer = layer;
+                        dataset.name = name;
                         dataset.wire_line = data_line;
-                        multi_lines.insert(ExcelKey { id, layer, name }, dataset);
+                        multi_lines.insert(ExcelKey { multi_line_id : id }, dataset);
                     }
                     _ => {
-                        let dataset = multi_lines.get_mut(&ExcelKey { id, layer, name }).unwrap();
+                        let dataset = multi_lines.get_mut(&ExcelKey { multi_line_id : id }).unwrap();
                         match items[2] {
                             "code" => dataset.code_line = data_line,
                             "cap" => dataset.cap_line = data_line,
