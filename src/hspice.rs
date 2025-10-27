@@ -14,11 +14,11 @@ pub mod test_out;
 
 const SPACE : &str = "    ";
 
-fn line_inc(path : &str) -> String {
+pub fn line_inc(path : &str) -> String {
     format!(".inc '{path}'\n")
 }
 
-fn line_subckt(inst_logo : &str, pins : &[impl ToString], ) -> String {
+pub fn line_subckt(inst_logo : &str, pins : &[impl ToString], ) -> String {
     let mut s = String::new();
     s += ".SUBCKT ";
     s += inst_logo;
