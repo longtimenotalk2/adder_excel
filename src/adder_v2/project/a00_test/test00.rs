@@ -5,7 +5,7 @@ const PATH : &'static str = "src/adder_v2/project/a00_test/excel/test00.txt";
 fn adder()  -> Adder {
     let excel_frame = ExcelFrame::load(PATH);
     let excel_data_list = ExcelDataList::from_excel_frame(&excel_frame);
-    let (adder, _) = Adder::create_from_excel_data_list(excel_data_list, false, true);
+    let (adder, _) = Adder::create_from_excel_data_list(excel_data_list, true, false);
     adder.check_id_all_match();
     adder
 }

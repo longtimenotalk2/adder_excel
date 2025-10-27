@@ -140,7 +140,14 @@ impl Adder {
             ]), CellInfo::default())));
         }
 
+        // -----处理输入就是反的情况------
 
+        // mirror所有cell
+        if input_is_neg {
+            for (_, cell) in cells.iter_mut() {
+                cell.node.logic = cell.node.logic.mirror();
+            }
+        }
 
         (
             Adder {
