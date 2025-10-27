@@ -1,7 +1,7 @@
 use crate::adder_v2::{adder::Cell, cell_info::Drive, cell_parse::{ReadCellName, ReadCellType}, logic::Logic};
 
 impl Cell {
-    pub fn parse_n3e_with_cell_type(&self) -> (ReadCellName, ReadCellType) {
+    pub fn parse_n3e(&self) -> (ReadCellName, ReadCellType) {
         let (name, cell_type) = if self.info.is_default() {
             match self.info.drive {
                 Drive::D1 => { match self.node.logic {
@@ -47,5 +47,18 @@ impl Cell {
         };
 
         (ReadCellName(name.to_string()), cell_type)
+    }
+
+    pub fn spf_path_n3e(&self) -> String {
+        let (name, real_cell_type) = self.parse_n3e();
+        let name = name.0;
+        let path_base = "/ic/projects/BM1374";
+        let end = ".Cbest45.spf";
+        match real_cell_type {
+            ReadCellType::Std => format!("{path_base}/public/5_custom/release/stdcell/stdcell_BM/elvt/spf/Cbest45/{}{end}", name),
+            ReadCellType::Custom => format!("{path_base}/public/5_custom/release/custom/elvt/spf/Cbest45/{}{end}", name),
+            ReadCellType::Lhw => format!("{path_base}/users/haiwei.li/V0/work/spf/out/{}/{}{end}", name, name),
+            ReadCellType::LocalHack => format!("cell/hack_{}{end}", name),
+        }
     }
 }
