@@ -1,4 +1,4 @@
-use crate::adder_v2::{adder, cell::CellBody};
+use crate::adder_v2::{adder, cell::cell_body::CellBody};
 
 pub mod n3e;
 
