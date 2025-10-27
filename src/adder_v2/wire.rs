@@ -241,3 +241,16 @@ impl Wire {
         }
     }
 }
+
+
+#[cfg(test)]
+mod test_wire {
+    use crate::adder_v2::wire::Wire;
+
+    #[test]
+    fn test_wire_s() {
+        let wire = Wire::from_str("s0");
+        dbg!(&wire);
+        println!("{}", wire.to_string());
+    }
+}

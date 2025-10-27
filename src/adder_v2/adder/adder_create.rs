@@ -147,6 +147,8 @@ impl Adder {
                 bits,
                 wires : wire_list.0,
                 cells,
+                input_is_neg,
+                output_is_neg,
             },
             excel_cell_map,
         )

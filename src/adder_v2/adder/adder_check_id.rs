@@ -40,6 +40,7 @@ impl Adder {
                         panic!("cell {} wire {} id {wire_id} not match", cell.to_string(), wire.to_string());
                     }
                 } else {
+                    println!("{}", "error !".to_string().color(Color::Red));
                     panic!("cell {} wire {} id {wire_id} not in wire list", cell.to_string(), wire.to_string());
                 }
             }

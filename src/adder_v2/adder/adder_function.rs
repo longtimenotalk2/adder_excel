@@ -1,63 +1,130 @@
 use std::collections::BTreeMap;
 
 use colorful::{Color, Colorful};
+use rand::{Rng, SeedableRng};
+use rand_chacha::ChaCha12Rng;
 
-use crate::adder_v2::{adder::Adder, wire::Wire};
+use crate::adder_v2::{adder::Adder, wire::Wire, Id};
 
 impl Adder {
-    // pub fn execute(&self, a : Vec<bool>, b : Vec<bool>) -> (Vec<bool>, BTreeMap<Wire, bool>) {
-    //     assert_eq!(self.bits, a.len());
-    //     assert_eq!(self.bits, b.len());
+    pub fn execute(&self, a : Vec<bool>, b : Vec<bool>) -> (Vec<bool>, BTreeMap<(Id, Wire), bool>) {
+        assert_eq!(self.bits, a.len());
+        assert_eq!(self.bits, b.len());
 
-    //     let mut values : BTreeMap<Id, bool> = BTreeMap::new();
-    //     for i in 0..self.bits {
-    //         signals.insert(Wire::from_str(&format!("a{}", i)), a[i]);
-    //         signals.insert(Wire::from_str(&format!("b{}", i)), b[i]);
-    //     }
+        let mut wire_id : Id = 0;
 
-    //     for cell in self.cells.iter() {
-    //         cell.execute_with_signals(&mut signals)
-    //     }
+        let mut value_tabel : BTreeMap<(Id, Wire), bool> = BTreeMap::new();
 
-    //     let mut s = vec![];
-    //     for i in 0..self.bits {
-    //         // let wire = if self.output_is_neg {Wire::from_str(&format!("ns{}", i))} else {Wire::from_str(&format!("s{}", i))};
-    //         let wire = Wire::from_str(&format!("s{}", i));
-    //         s.push(*signals.get(&wire).expect(&format!("can not found {wire:?}, wire list : {:?}", signals)));
-    //     }
+        for i in 0..self.bits {
+            value_tabel.insert((wire_id, Wire::from_str(&format!("a{i}"))), a[i]);
+            wire_id += 1;
+            value_tabel.insert((wire_id, Wire::from_str(&format!("b{i}"))), b[i]);
+            wire_id += 1;
+        }
 
-    //     (s, signals)
-    // }
+        for (_, cell) in self.cells.iter() {
+            cell.node.calc_with_list(&mut value_tabel);
+        }
+
+
+        let mut s = vec![];
+        for i in 0..self.bits {
+            let mut is_found = false;
+            for ((_, wire), value) in value_tabel.iter().rev() {
+                if wire.to_string() == format!("s{i}") {
+                    s.push(*value);
+                    is_found = true;
+                    break;
+                }
+            }
+            if !is_found {
+                let mut txt = String::new();
+                for ((id, wire), value) in value_tabel.iter() {
+                    txt += &format!("> {:03} : {} = {}\n", id,wire.to_string(), if *value {"1"} else {"0"});
+                }
+                println!("{}", txt);
+                panic!("can not found s{i}");
+            }
+        }
+
+        (s, value_tabel)
+    }
+
+    pub fn check_function_given(&self, circuit_a : Vec<bool>, circuit_b : Vec<bool>) -> Result<(), FunctionError> {
+        let math_a = if self.input_is_neg {bool_list_inv(&circuit_a)} else {circuit_a.clone()};
+        let math_b = if self.input_is_neg {bool_list_inv(&circuit_b)} else {circuit_b.clone()};
+        let math_s = bool_list_add(&math_a, &math_b);
+
+        let (circuit_s, value_table) = self.execute(circuit_a.clone(), circuit_b.clone());
+
+        let circuit_s_golden = if self.output_is_neg {bool_list_inv(&circuit_s)} else {circuit_s.clone()};
+
+        if circuit_s == circuit_s_golden {
+            Ok(())
+        } else {
+            Err(FunctionError {
+                math_a,
+                math_b,
+                math_s,
+                circuit_a,
+                circuit_b,
+                circuit_s,
+                circuit_s_golden,
+                value_table,
+            })
+        }
+    }
+
+    pub fn check_function_random(&self, n : usize) {
+        print!(">>> start check adder_{} function with {n} random nunbers ...  ", self.polar_name_lowercase());
+        let mut rng = ChaCha12Rng::seed_from_u64(0);
+        for i in 0..n {
+            let mut circuit_a = vec![];
+            let mut circuit_b = vec![];
+            for _ in 0..self.bits {
+                circuit_a.push(rng.random());
+                circuit_b.push(rng.random());
+            }
+            if let Err(err) = self.check_function_given(circuit_a.clone(), circuit_b.clone()) {
+                println!("{}", "error !".to_string().color(Color::Red));
+                println!("{}", err.to_string());
+                println!("Error at test {i}/{n} : ");
+                panic!();
+            }
+        }
+        println!("{}", "pass !".to_string().color(Color::Green));
+    }
 }
 
 pub struct FunctionError {
-    a : Vec<bool>,
-    b : Vec<bool>,
-    s_out : Vec<bool>,
-    actual_a : Vec<bool>,
-    actual_b : Vec<bool>,
-    actual_s : Vec<bool>,
-    actual_s_out : Vec<bool>,
-    signals : BTreeMap<Wire, bool>,
+    math_a : Vec<bool>,
+    math_b : Vec<bool>,
+    math_s : Vec<bool>,
+    circuit_a : Vec<bool>,
+    circuit_b : Vec<bool>,
+    circuit_s : Vec<bool>,
+    circuit_s_golden : Vec<bool>,
+    value_table : BTreeMap<(Id, Wire), bool>,
 }
 
 impl FunctionError {
     pub fn to_string(&self) -> String {
         let mut txt = String::new();
-        for (wire, value) in self.signals.iter() {
-            txt += &format!("{:>8?} : {}\n", wire, if *value {"1"} else {"0"});
+        txt += "values ======================================================\n";
+        for ((id, wire), value) in self.value_table.iter() {
+            txt += &format!("> {:03} : {} = {}\n", id,wire.to_string(), if *value {"1"} else {"0"});
         }
-        txt += &format!("{:>16} : {}\n", "a", bool_list_show(&self.a));
-        txt += &format!("{:>16} : {}\n", "b", bool_list_show(&self.b));
-        txt += &format!("{:>16} : {}\n", "s_out", bool_list_match_with_color(&self.s_out, &if self.a[0] == self.actual_a[0] {
-            self.actual_s.to_vec()
-        } else {
-            bool_list_inv(&self.actual_s)
-        }));
-        txt += &format!("{:>16} : {}\n", "actual_a", bool_list_show(&self.actual_a));
-        txt += &format!("{:>16} : {}\n", "actual_b", bool_list_show(&self.actual_b));
-        txt += &format!("{:>16} : {}\n", "actual_s", bool_list_show(&self.actual_s));
-        txt += &format!("{:>16} : {}\n", "actual_s_out", bool_list_match_with_color(&self.actual_s_out, &self.actual_s));
+
+        txt += "math ========================================================\n";
+        txt += &format!("{:>16} : {}\n", "math_a", bool_list_show(&self.math_a));
+        txt += &format!("{:>16} : {}\n", "math_b", bool_list_show(&self.math_b));
+        txt += &format!("{:>16} : {}\n", "math_s", bool_list_show(&self.math_s));
+
+        txt += "circuit =====================================================\n";
+        txt += &format!("{:>16} : {}\n", "circuit_a", bool_list_show(&self.circuit_a));
+        txt += &format!("{:>16} : {}\n", "circuit_b", bool_list_show(&self.circuit_b));
+        txt += &format!("{:>16} : {}\n", "circuit_s_golden", bool_list_show(&self.circuit_s_golden));
+        txt += &format!("{:>16} : {}\n", "circuit_s_actual", bool_list_match_with_color(&self.circuit_s, &self.circuit_s_golden));
         txt
     }
 }
