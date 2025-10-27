@@ -48,7 +48,6 @@ impl ExcelCode {
                 now_in_square = false;
                 square_braket.insert(in_square);
                 in_square = String::new();
-                char_now = None;
             } else {
                 if now_in_flower {
                     in_flower.push(char);
@@ -77,7 +76,7 @@ impl ExcelCode {
 
 #[test]
 fn test_excel_code() {
-    let code = "DL{hph}N";
+    let code = "D[H2H]";
     let excel_code = ExcelCode::from_str(code);
     println!("{:?}", excel_code);
 }
@@ -148,9 +147,6 @@ impl ExcelDataList<(NodeHint, CellInfo, Option<Vec<i32>>)> {
                             if code.single_chars.contains(&'N') {
                                 node_hint.is_out_addition_inv = true;
                             }
-                            for square in &code.square_braket {
-                                cell_info.special_infos.insert(SpecialInfo(square.clone()));
-                            }
                             if let Some(chain_str) = code.flower_braket.get(&'L') {
                                 let mut is_neg_now = false;
                                 let mut flagplist = Vec::new();
@@ -169,6 +165,9 @@ impl ExcelDataList<(NodeHint, CellInfo, Option<Vec<i32>>)> {
 
                             if code.single_chars.contains(&'D') {
                                 cell_info.drive = Drive::D2;
+                            }
+                            for square in &code.square_braket {
+                                cell_info.special_infos.insert(SpecialInfo(square.clone()));
                             }
                         }
                     }

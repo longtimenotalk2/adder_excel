@@ -1,3 +1,5 @@
+use crate::adder_v2::adder::Adder;
+
 impl Adder {
     pub fn to_cdl(&self, name : &str) -> String {
         let mut txt = String::new();

@@ -3,7 +3,7 @@ use std::collections::BTreeSet;
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct SpecialInfo(pub String);
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum Drive {
     D1,
     D2,
@@ -15,7 +15,7 @@ impl Default for Drive {
     }
 }
 
-#[derive(Debug, Clone, Default)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 pub struct CellInfo {
     pub drive : Drive,
     pub special_infos: BTreeSet<SpecialInfo>,
@@ -30,14 +30,27 @@ impl CellInfo {
     }
 
     pub fn to_string(&self) -> String {
-        let mut txt = String::new();
+        let mut tokens = vec![];
         if self.drive == Drive::D2 {
-            txt.push_str("D2");
+            tokens.push("D2".to_string());
         }
-        txt
+        for special in &self.special_infos {
+            tokens.push(special.0.clone());
+        }
+        tokens.join(", ")
     }
 
     pub fn is_default(&self) -> bool {
         self.special_infos.is_empty()
     }
+}
+
+#[test]
+fn test_cell_info() {
+    let mut info = CellInfo {
+        drive : Drive::D2,
+        special_infos: BTreeSet::new(),
+    };
+    info.special_infos.insert(SpecialInfo("L2H".to_string()));
+    dbg!(info.to_string());
 }

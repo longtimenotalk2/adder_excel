@@ -1,10 +1,10 @@
-use crate::adder_v2::{adder::Cell, cell_info::Drive, cell_parse::{ReadCellName, ReadCellType}, logic::Logic};
+use crate::adder_v2::{adder::{Cell, CellBody}, cell_info::Drive, cell_parse::{ReadCellName, ReadCellType}, logic::Logic};
 
-impl Cell {
+impl CellBody {
     pub fn parse_n3e(&self) -> (ReadCellName, ReadCellType) {
         let (name, cell_type) = if self.info.is_default() {
             match self.info.drive {
-                Drive::D1 => { match self.node.logic {
+                Drive::D1 => { match self.logic {
                     Logic::INV => ("INVD1BM156H3P48CPDELVT_1", ReadCellType::Std),
                     Logic::ND2 => ("ND2D1BM156H3P48CPDELVT_1", ReadCellType::Std),
                     Logic::NR2 => ("NR2D1BM156H3P48CPDELVT_1", ReadCellType::Std),
@@ -29,7 +29,7 @@ impl Cell {
                     Logic::AOA211 => ("AOA211D1BM156H3P48CPDELVT", ReadCellType::Custom),
                     Logic::OAO211 => ("OAO211D1BM156H3P48CPDELVT", ReadCellType::Custom),
                 }}
-                Drive::D2 => { match self.node.logic {
+                Drive::D2 => { match self.logic {
                     Logic::INV => ("INVD2BM156H3P48CPDELVT_1", ReadCellType::Std),
                     Logic::AOI21 => ("AOI21D2BM156H3P48CPDELVT", ReadCellType::Custom),
                     Logic::OAI21 => ("OAI21D2BM156H3P48CPDELVT", ReadCellType::Custom),
@@ -39,7 +39,7 @@ impl Cell {
                     Logic::INR2 => ("INR2D2BM156H3P48CPDELVT_1", ReadCellType::Std),
                     Logic::AOI22 => ("AOI22D2BM156H3P48CPDELVT_1", ReadCellType::Std),
                     Logic::OAI22 => ("OAI22D2BM156H3P48CPDELVT_1", ReadCellType::Std),
-                    _ => panic!("Default {:?} dont impl D2", self.node.logic)
+                    _ => panic!("Default {:?} dont impl D2", self.logic)
                 }}
             }
         } else {

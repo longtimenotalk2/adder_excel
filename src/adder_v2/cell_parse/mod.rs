@@ -1,4 +1,4 @@
-use crate::adder_v2::adder::Cell;
+use crate::adder_v2::adder::{Cell, CellBody};
 
 pub mod n3e;
 
@@ -17,7 +17,7 @@ pub enum Process {
     N3E,
 }
 
-impl Cell {
+impl CellBody {
     pub fn parse(&self, process : Process) -> (ReadCellName, ReadCellType) {
         match process {
             Process::N3E => self.parse_n3e(),

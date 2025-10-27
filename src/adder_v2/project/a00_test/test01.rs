@@ -13,6 +13,7 @@ fn adder()  -> Adder {
 #[test]
 fn test_excel_code() {
     let excel_frame = ExcelFrame::load(PATH);
+    // dbg!(excel_frame);
     let excel_data_list = ExcelDataList::from_excel_frame(&excel_frame);
     dbg!(excel_data_list);
 }
@@ -27,4 +28,13 @@ fn test_show_adder() {
 fn test_adder_function() {
     let adder = adder();
     adder.check_function_random(100);
+}
+
+#[test]
+fn test_adder_property() {
+    let adder = adder();
+    let set = adder.cell_body_set();
+    for cell in set {
+        println!("{}", cell.to_string())
+    }
 }

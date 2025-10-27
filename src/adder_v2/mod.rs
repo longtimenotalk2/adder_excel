@@ -6,6 +6,7 @@ pub mod excel;
 pub mod project;
 pub mod cell_info;
 pub mod cell_parse;
+pub mod cdl;
 
 type Id = u32;
 
