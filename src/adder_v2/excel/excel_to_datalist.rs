@@ -1,6 +1,6 @@
 use std::collections::{BTreeMap, BTreeSet};
 
-use crate::adder_v2::{cell_info::{CellInfo, Drive}, excel::ExcelFrame, node::{FlagPChain, NodeHint}, wire::{Flag, FlagP, Wire, WireFloat}, Id};
+use crate::adder_v2::{cell_info::{CellInfo, Drive, SpecialInfo}, excel::ExcelFrame, node::{FlagPChain, NodeHint}, wire::{Flag, FlagP, Wire, WireFloat}, Id};
 
 // 每个multi line的每个index只有对多一个cell。保证顺序是从上行到下行，每一行从index小到index大
 #[derive(Debug, Clone, PartialEq, PartialOrd, Hash, Eq, Ord)]
@@ -19,17 +19,21 @@ pub struct ExcelDataList<T> {
 struct ExcelCode {
     single_chars : BTreeSet<char>,
     flower_braket : BTreeMap<char, String>,
+    square_braket : BTreeSet<String>,
 }
 
 impl ExcelCode {
     fn from_str(s : &str) -> Self {
-        let mut single_chars = BTreeSet::new();
-        let mut flower_braket = BTreeMap::new();
+        let mut single_chars: BTreeSet<char> = BTreeSet::new();
+        let mut square_braket: BTreeSet<String> = BTreeSet::new();
+        let mut flower_braket: BTreeMap<char, String> = BTreeMap::new();
 
         let chars = s.chars().collect::<Vec<_>>();
         let mut char_now: Option<char> = None;
         let mut in_flower = String::new();
+        let mut in_square = String::new();
         let mut now_in_flower = false;
+        let mut now_in_square = false;
         for char in chars {
             if char == '{' {
                 now_in_flower = true;
@@ -38,9 +42,18 @@ impl ExcelCode {
                 flower_braket.insert(char_now.unwrap(), in_flower);
                 in_flower = String::new();
                 char_now = None;
+            } else if char == '[' {
+                now_in_square = true;
+            } else if char == ']' {
+                now_in_square = false;
+                square_braket.insert(in_square);
+                in_square = String::new();
+                char_now = None;
             } else {
                 if now_in_flower {
                     in_flower.push(char);
+                } else if now_in_square {
+                    in_square.push(char);
                 } else {
                     if let Some(c) = char_now {
                         single_chars.insert(c);
@@ -57,6 +70,7 @@ impl ExcelCode {
         Self {
             single_chars,
             flower_braket,
+            square_braket,
         }
     }
 }
@@ -133,6 +147,9 @@ impl ExcelDataList<(NodeHint, CellInfo, Option<Vec<i32>>)> {
                             }
                             if code.single_chars.contains(&'N') {
                                 node_hint.is_out_addition_inv = true;
+                            }
+                            for square in &code.square_braket {
+                                cell_info.special_infos.insert(SpecialInfo(square.clone()));
                             }
                             if let Some(chain_str) = code.flower_braket.get(&'L') {
                                 let mut is_neg_now = false;

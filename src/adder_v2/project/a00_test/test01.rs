@@ -1,6 +1,6 @@
 use crate::adder_v2::{adder::Adder, excel::{excel_to_datalist::ExcelDataList, ExcelFrame}};
 
-const PATH : &'static str = "src/adder_v2/project/a00_test/excel/test00.txt";
+const PATH : &'static str = "src/adder_v2/project/a00_test/excel/test01.txt";
 
 fn adder()  -> Adder {
     let excel_frame = ExcelFrame::load(PATH);
@@ -11,9 +11,10 @@ fn adder()  -> Adder {
 }
 
 #[test]
-fn test_excel_frame() {
+fn test_excel_code() {
     let excel_frame = ExcelFrame::load(PATH);
-    dbg!(excel_frame);
+    let excel_data_list = ExcelDataList::from_excel_frame(&excel_frame);
+    dbg!(excel_data_list);
 }
 
 #[test]
