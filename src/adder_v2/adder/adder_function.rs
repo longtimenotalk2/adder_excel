@@ -131,16 +131,7 @@ impl FunctionError {
             txt += &format!("> {:03} : {} = {}\n", id,wire.to_string(), if *value {"1"} else {"0"});
         }
 
-        txt += "math ========================================================\n";
-        txt += &format!("{:>16} : {}\n", "math_a", bool_list_show(&self.math_a));
-        txt += &format!("{:>16} : {}\n", "math_b", bool_list_show(&self.math_b));
-        txt += &format!("{:>16} : {}\n", "math_s", bool_list_show(&self.math_s));
-
-        txt += "circuit =====================================================\n";
-        txt += &format!("{:>16} : {}\n", "circuit_a", bool_list_show(&self.circuit_a));
-        txt += &format!("{:>16} : {}\n", "circuit_b", bool_list_show(&self.circuit_b));
-        txt += &format!("{:>16} : {}\n", "circuit_s_golden", bool_list_show(&self.circuit_s_golden));
-        txt += &format!("{:>16} : {}\n", "circuit_s_actual", bool_list_match_with_color(&self.circuit_s, &self.circuit_s_golden));
+        txt += &self.to_string_wo_values();
         txt
     }
 
@@ -153,9 +144,9 @@ impl FunctionError {
         txt += &format!("{:>16} : {}\n", "math_s", bool_list_show(&self.math_s));
 
         txt += "circuit =====================================================\n";
-        txt += &format!("{:>16} : {}\n", "circuit_a", bool_list_show(&self.circuit_a));
-        txt += &format!("{:>16} : {}\n", "circuit_b", bool_list_show(&self.circuit_b));
-        txt += &format!("{:>16} : {}\n", "circuit_s_golden", bool_list_show(&self.circuit_s_golden));
+        txt += &format!("{:>16} : {}{}\n", "circuit_a", bool_list_show(&self.circuit_a), if self.circuit_a != self.math_a {" r".to_string().color(Color::Red).to_string()} else {"".to_string()});
+        txt += &format!("{:>16} : {}{}\n", "circuit_b", bool_list_show(&self.circuit_b), if self.circuit_b != self.math_b {" r".to_string().color(Color::Red).to_string()} else {"".to_string()});
+        txt += &format!("{:>16} : {}{}\n", "circuit_s_golden", bool_list_show(&self.circuit_s_golden), if self.circuit_s_golden != self.math_s {" r".to_string().color(Color::Red).to_string()} else {"".to_string()});
         txt += &format!("{:>16} : {}\n", "circuit_s_actual", bool_list_match_with_color(&self.circuit_s, &self.circuit_s_golden));
         txt
     }
