@@ -15,4 +15,13 @@ impl Adder {
         }
         txt
     }
+
+    pub fn cells_to_string(&self) -> String {
+        let mut txt = "".to_string();
+        txt += "cell list :\n";
+        for (id, cell) in self.cells.iter() {
+            txt += &format!("> {id:03} : {}\n", cell.to_string());
+        }
+        txt
+    }
 }

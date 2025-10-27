@@ -179,6 +179,10 @@ impl Node {
             match solve_result {
                 Ok(mut node) => {
                     // polar layer，处理各种极性问题
+                    // 处理初始极性颠倒
+                    if input_is_neg {
+                        node.logic = node.logic.mirror();
+                    }
                     // 处理部分输入INV
                     let mut input_inv_count = 0;
                     let mut position = None;

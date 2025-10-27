@@ -129,9 +129,9 @@ impl Adder {
             q_list.sort_by(|a, b| a.0.cmp(&b.0));
             let q = q_list[0].clone();
             let logic = if g.1.is_neg ^ q.1.is_neg ^ is_if_in_posi_than_end_is_neg {
-                Logic::XOR2
-            } else {
                 Logic::XNR2
+            } else {
+                Logic::XOR2
             };
             cells.push((new_cell_id, Cell::new(Node::create_by_ordered_wires(logic, vec![
                 g,

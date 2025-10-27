@@ -99,6 +99,7 @@ impl Adder {
             }
             if let Err(err) = self.check_function_given(circuit_a.clone(), circuit_b.clone()) {
                 println!("{}", "error !".to_string().color(Color::Red));
+                println!("{}", self.cells_to_string());
                 println!("{}", err.to_string());
                 println!("Error at test {i}/{n} : ");
                 panic!();
