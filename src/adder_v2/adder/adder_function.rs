@@ -57,7 +57,7 @@ impl Adder {
 
         let (circuit_s, value_table) = self.execute(circuit_a.clone(), circuit_b.clone());
 
-        let circuit_s_golden = if self.output_is_neg {bool_list_inv(&circuit_s)} else {circuit_s.clone()};
+        let circuit_s_golden = if self.output_is_neg {bool_list_inv(&math_s)} else {math_s.clone()};
 
         if circuit_s == circuit_s_golden {
             Ok(FunctionError {
