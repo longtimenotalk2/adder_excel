@@ -93,6 +93,7 @@ impl WireRange {
 enum ExtendGrey {
     Extend(usize),
     ShrinkOne,
+    MayShrinkOne,
 }
 
 /*
@@ -208,6 +209,7 @@ impl Ballen {
                     Self::G(bollen_g) => match bollen_g.extend_grey {
                         ExtendGrey::Extend(i) => i == 0,
                         ExtendGrey::ShrinkOne => false,
+                        ExtendGrey::MayShrinkOne => true, 
                     },
                     Self::P(_) => false,
                 }
@@ -216,7 +218,7 @@ impl Ballen {
                 match self {
                     Self::G(bollen_g) => match bollen_g.extend_grey {
                         ExtendGrey::Extend(_) => false,
-                        ExtendGrey::ShrinkOne => true,
+                        ExtendGrey::ShrinkOne | ExtendGrey::MayShrinkOne => true,
                     },
                     Self::P(_) => false,
                 }
@@ -225,7 +227,7 @@ impl Ballen {
                 match self {
                     Self::G(bollen_g) => match bollen_g.extend_grey {
                         ExtendGrey::Extend(_) => true,
-                        ExtendGrey::ShrinkOne => false,
+                        ExtendGrey::ShrinkOne | ExtendGrey::MayShrinkOne => false,
                     },
                     Self::P(_) => true,
                 }
@@ -234,7 +236,7 @@ impl Ballen {
                 match self {
                     Self::G(bollen_g) => match bollen_g.extend_grey {
                         ExtendGrey::Extend(i) => i > 0,
-                        ExtendGrey::ShrinkOne => false,
+                        ExtendGrey::ShrinkOne | ExtendGrey::MayShrinkOne => false,
                     },
                     Self::P(_) => true,
                 }
@@ -273,7 +275,7 @@ impl Ballen {
                                     (Flag::P, Flag::G) => {
                                         (
                                             (self.index()+extend_grey)..=(self.index()+extend_grey), 
-                                            (self.index()+1)..=(self.index()+1),
+                                            (self.index())..=(self.index()+1),
                                            Some( AOLogic::And), 
                                         )
                                     },
@@ -325,6 +327,10 @@ impl Ballen {
                             bollen_g.index -= len;
                             bollen_g.extend_grey = ExtendGrey::Extend(len);
                         }
+                        ExtendGrey::MayShrinkOne => {
+                            bollen_g.index -= len;
+                            bollen_g.extend_grey = ExtendGrey::Extend(len);
+                        }
                         ExtendGrey::ShrinkOne => unimplemented!()
                     }
                 } else {unimplemented!()}
@@ -333,7 +339,7 @@ impl Ballen {
                 if let Ballen::G(bollen_g) = self {
                     match &bollen_g.extend_grey {
                         ExtendGrey::Extend(_) => { unimplemented!() }
-                        ExtendGrey::ShrinkOne => {
+                        ExtendGrey::ShrinkOne | ExtendGrey::MayShrinkOne => {
                             bollen_g.index -= len;
                             bollen_g.extend_grey = ExtendGrey::Extend(len-1);
                         }
@@ -346,14 +352,14 @@ impl Ballen {
                         match &bollen_g.extend_grey {
                             ExtendGrey::Extend(i) => { 
                                 if len == *i + 1 {
-                                    bollen_g.extend_grey = ExtendGrey::ShrinkOne;
+                                    bollen_g.extend_grey = ExtendGrey::MayShrinkOne;
                                 } else if len == *i  {
                                     bollen_g.extend_grey = ExtendGrey::Extend(0);
                                 } else {
                                     unimplemented!()
                                 }
                             }
-                            ExtendGrey::ShrinkOne => {
+                            ExtendGrey::ShrinkOne | ExtendGrey::MayShrinkOne => {
                                 unimplemented!()
                             }
                         }
@@ -374,7 +380,7 @@ impl Ballen {
                                     unimplemented!()
                                 }
                             }
-                            ExtendGrey::ShrinkOne => {
+                            ExtendGrey::ShrinkOne | ExtendGrey::MayShrinkOne=> {
                                 unimplemented!()
                             }
                         }

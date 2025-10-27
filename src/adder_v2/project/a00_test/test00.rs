@@ -21,7 +21,7 @@ fn test_excel_frame() {
 }
 
 #[test]
-fn test_show_adder() {
+fn test_adder() {
     let adder = adder();
     println!("{}", adder.to_string());
 }
