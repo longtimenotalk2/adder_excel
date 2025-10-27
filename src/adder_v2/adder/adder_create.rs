@@ -1,4 +1,4 @@
-use crate::adder_v2::{adder::{Adder, Cell, CellInfo}, excel::excel_to_datalist::ExcelDataList, node::{Node, NodeHint}, wire::{wire_list::WireList, Wire}, Id};
+use crate::adder_v2::{adder::{Adder, Cell, CellInfo}, excel::excel_to_datalist::ExcelDataList, logic::Logic, node::{Node, NodeHint}, wire::{wire_list::WireList, Flag, Wire}, Id, Port};
 
 impl Adder {
     pub fn create_from_excel_data_list(
@@ -25,7 +25,7 @@ impl Adder {
 
         for (cell_id, (excel_key, (hint, cell_info, _))) in excel_data_list.data.iter().enumerate() {
             let cell_id = cell_id as Id;
-            dbg!(cell_id);
+            // dbg!(cell_id);
             match Node::create_from_hint(hint, &mut wire_list)  {
                 Ok(node) => {
                     for output_wire in node.get_ordered_output_wires() {
@@ -49,6 +49,98 @@ impl Adder {
                 }
             }
         }
+
+        // -----增添尾部异或------
+
+        let is_if_in_posi_than_end_is_neg = output_is_neg ^ input_is_neg;
+
+        // 首比特处理
+        let first_s_wire_should = Wire {
+            flag : Flag::Q,
+            is_neg : is_if_in_posi_than_end_is_neg,
+            index : 0,
+            len : 1,
+        };
+        let first_s_wire = Wire {
+            flag : Flag::S,
+            is_neg : is_if_in_posi_than_end_is_neg,
+            index : 0,
+            len : 1,
+        };
+
+        if wire_list.find(&first_s_wire_should).is_ok() {
+            // 将该Wire替换为S
+            
+            wire_list.find_and_replace(&first_s_wire_should, first_s_wire.clone());
+            for (_, cell) in cells.iter_mut() {
+                let (_, z_out_wire) = &mut cell.node.io.output_z;
+                if *z_out_wire == first_s_wire_should {
+                    *z_out_wire = first_s_wire;
+                    break;
+                }
+            }
+        } else {
+            // 找到与其相反的q并加一个INV
+            let first_s_wire_should = Wire {
+                flag : Flag::Q,
+                is_neg : !is_if_in_posi_than_end_is_neg,
+                index : 0,
+                len : 1,
+            };
+            let found_wire = wire_list.find(&first_s_wire_should).unwrap();
+            let new_wire_id = wire_list.0.len() as Id;
+            wire_list.0.push((new_wire_id, first_s_wire.clone()));
+
+            let inv_cell_id = cells.len() as Id;
+            let inv_cell = Cell::new(
+                Node::create_by_ordered_wires(Logic::INV, vec![found_wire, (new_wire_id, first_s_wire)]),
+                CellInfo::default(),
+            );
+            cells.push((inv_cell_id, inv_cell));
+        }
+
+        // 后续比特处理，默认抓取ID较小者
+        for index in 1..bits {
+            let s_wire = Wire {
+                flag : Flag::S,
+                is_neg : is_if_in_posi_than_end_is_neg,
+                index,
+                len : 1,
+            };
+            let new_wire_id = wire_list.0.len() as Id;
+            wire_list.0.push((new_wire_id, s_wire.clone()));
+            let new_cell_id = cells.len() as Id;
+            // find g index-1 to 0
+            let mut g_list : Vec<(Id, Wire)> = vec![];
+            for is_neg in [true, false] {
+                if let Ok(ret) = wire_list.find(&Wire::new(Flag::G, is_neg, index-1, index)) {
+                    g_list.push(ret);
+                }
+            }
+            g_list.sort_by(|a, b| a.0.cmp(&b.0));
+            let g = g_list[0].clone();
+            // find q index 
+            let mut q_list : Vec<(Id, Wire)> = vec![];
+            for is_neg in [true, false] {
+                if let Ok(ret) = wire_list.find(&Wire::new(Flag::Q, is_neg, index, 1)) {
+                    q_list.push(ret);
+                }
+            }
+            q_list.sort_by(|a, b| a.0.cmp(&b.0));
+            let q = q_list[0].clone();
+            let logic = if g.1.is_neg ^ q.1.is_neg ^ is_if_in_posi_than_end_is_neg {
+                Logic::XOR2
+            } else {
+                Logic::XNR2
+            };
+            cells.push((new_cell_id, Cell::new(Node::create_by_ordered_wires(logic, vec![
+                g,
+                q,
+                (new_wire_id, s_wire.clone()),
+            ]), CellInfo::default())));
+        }
+
+
 
         (
             Adder {

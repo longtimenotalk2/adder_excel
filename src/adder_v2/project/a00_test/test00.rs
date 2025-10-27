@@ -20,5 +20,5 @@ fn test_adder() {
     let excel_frame = ExcelFrame::load(PATH);
     let excel_data_list = ExcelDataList::from_excel_frame(&excel_frame);
     let (adder, _) = Adder::create_from_excel_data_list(excel_data_list, false, false);
-    dbg!(adder);
+    println!("{}", adder.to_string());
 }

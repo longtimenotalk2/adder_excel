@@ -9,8 +9,8 @@ use crate::adder_v2::{logic::{Logic, IO}, wire::{Flag, FlagP, Wire}, Id, Port};
 
 #[derive(Debug, Clone)]
 pub struct Node {
-    logic : Logic,
-    io : IO<(Id, Wire)>,
+    pub logic : Logic,
+    pub io : IO<(Id, Wire)>,
 }
 
 impl Node {

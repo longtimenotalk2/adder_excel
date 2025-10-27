@@ -23,6 +23,16 @@ impl WireList {
         Err(NodeCreateError::CanNotFindGivenWire(wire.clone()))
     }
 
+    pub fn find_and_replace(&mut self, wire: &Wire, wire_replaced: Wire) {
+
+        for (_, w) in self.0.iter_mut() {
+            if wire.is_logic_equil(w) {
+                *w = wire_replaced;
+                return;
+            }
+        }
+    }
+
     /// 寻找index的start和end可以浮动的flag extend
     pub fn find_wire_range(&self, wire_range : &WireRange) -> Vec<(Id, Wire)> {
         let iter = self.0.iter();

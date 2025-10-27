@@ -1,8 +1,10 @@
 mod adder_create;
+mod adder_show;
+pub mod adder_check;
 
 use crate::adder_v2::{node::Node, wire::{Wire}, Id};
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum Drive {
     D1,
     D2,
@@ -17,6 +19,22 @@ impl Default for Drive {
 #[derive(Debug, Clone, Default)]
 pub struct CellInfo {
     pub drive : Drive
+}
+
+impl CellInfo {
+    pub fn default() -> Self {
+        Self {
+            drive : Drive::D1,
+        }
+    }
+
+    pub fn to_string(&self) -> String {
+        let mut txt = String::new();
+        if self.drive == Drive::D2 {
+            txt.push_str("D2");
+        }
+        txt
+    }
 }
 
 #[derive(Debug, Clone)]

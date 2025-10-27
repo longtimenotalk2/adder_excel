@@ -5,6 +5,7 @@ use colorful::{Color, Colorful};
 
 use crate::adder_v2::{logic::{Logic, IO}, node::{pure_logic_layer::{FailParse, FlagIndexLen}, FlagPChain, Node, NodeHint}, wire::{wire_list::{self, WireList}, Flag, FlagP, Wire, WireFloat, }, Id, Port};
 
+#[derive(Debug, Clone)]
 pub enum NodeCreateError {
     CanNotFindGivenWire(Wire),
     FailParse(Wire, Vec<(FlagPChain, Vec<FailParse>)>),
@@ -95,7 +96,7 @@ impl Node {
             hint.given_out_len,
         );
 
-        dbg!(&target_wire);
+        // dbg!(&target_wire);
         
         if hint.is_simple_inv {
             let input_wire = target_wire.to_rev();

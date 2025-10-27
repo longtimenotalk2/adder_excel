@@ -42,6 +42,7 @@ P和Q的len推index2
 */
 
 // Wire 但是起始和终点是一个范围
+#[derive(Debug, Clone)]
 pub struct WireRange {
     pub flag : Flag,
     pub is_neg : bool,
@@ -394,6 +395,8 @@ enum AOLogic {
     Or,
 }
 
+
+#[derive(Debug, Clone)]
 pub struct FailParse {
     founded : Vec<(Id, Wire)>,
     not_founded : WireRange,
