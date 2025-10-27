@@ -24,5 +24,5 @@ fn test_show_adder() {
 #[test]
 fn test_adder_function() {
     let adder = adder();
-    adder.check_function_random(10);
+    adder.check_function_random(100);
 }
