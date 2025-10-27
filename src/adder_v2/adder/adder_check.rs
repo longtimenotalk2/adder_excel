@@ -1,6 +1,8 @@
+use std::collections::BTreeMap;
+
 use colorful::{Color, Colorful};
 
-use crate::adder_v2::{adder::Adder, wire, Id};
+use crate::adder_v2::{adder::Adder, wire::{self, wire_list::WireList}, Id};
 
 impl Adder {
     pub fn check_id_all_match(&self) {

@@ -1,6 +1,6 @@
 pub mod wire_list;
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub enum Flag {
     A,
     B,
@@ -104,7 +104,7 @@ impl WireFloat {
 
 }
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub struct Wire {
     pub flag: Flag,
     pub is_neg: bool,

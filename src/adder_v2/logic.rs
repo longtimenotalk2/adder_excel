@@ -110,7 +110,6 @@ impl Logic {
 
     // return z* and o1?
     pub fn calc(&self, inputs : &BTreeMap<Port, bool>) -> (bool, Option<bool>) {
-
         match self {
             Logic::XOR2DOUT => {
                 let a1 = *inputs.get(&Port::new("A1")).unwrap();

@@ -1,6 +1,7 @@
 mod adder_create;
 mod adder_show;
 pub mod adder_check;
+pub mod adder_function;
 
 use colorful::{Color, Colorful};
 

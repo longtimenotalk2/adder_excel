@@ -3,7 +3,7 @@ pub mod pure_logic_layer;
 
 use std::collections::BTreeMap;
 
-use crate::adder_v2::{logic::{Logic, IO}, wire::{Flag, FlagP, Wire}, Id, Port};
+use crate::adder_v2::{logic::{Logic, IO}, wire::{wire_list::WireList, Flag, FlagP, Wire}, Id, Port};
 
 
 
@@ -168,6 +168,15 @@ impl Node {
                 Self::create_by_ordered_wires(new_logic, wires)
             },
             _ => panic!("{:?} can not impl output inv", self.logic)
+        }
+    }
+    
+    pub fn calc_with_list(&self, value_tabel : &mut BTreeMap<(Id, Wire), bool>) {
+        let mut values = self.io.input.iter().map(|(port, wire)| (port.clone(), *value_tabel.get(wire).unwrap())).collect::<BTreeMap<Port, bool>>();
+        let (z_value, o1_value) = self.logic.calc(&values);
+        value_tabel.insert(self.io.output_z.clone(), z_value);
+        if let Some(o1_value) = o1_value {
+            value_tabel.insert(self.io.output_o1.clone().unwrap(), o1_value);
         }
     }
 }
