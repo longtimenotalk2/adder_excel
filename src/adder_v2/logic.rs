@@ -1,4 +1,4 @@
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, BTreeSet};
 
 use crate::adder_v2::{wire::Wire, Id, Port};
 
@@ -105,6 +105,156 @@ impl Logic {
             Logic::AOAI211 | Logic::OAOI211 | Logic::AOA211 | Logic::OAO211 => vec![c, b, a1, a2],
             Logic::IND2 | Logic::INR2 => vec![a1, b1],
             Logic::AOI22 | Logic::OAI22 => vec![a1, a2, b1, b2],
+        }
+    }
+
+    // return z* and o1?
+    pub fn calc(&self, inputs : &BTreeMap<Port, bool>) -> (bool, Option<bool>) {
+
+        match self {
+            Logic::XOR2DOUT => {
+                let a1 = *inputs.get(&Port::new("A1")).unwrap();
+                let a2 = *inputs.get(&Port::new("A2")).unwrap();
+                let o1 = !(a1 || a2);
+                let z = a1 ^ a2;
+                (z, Some(o1))
+            }
+            Logic::XNR2DOUT => {
+                let a1 = *inputs.get(&Port::new("A1")).unwrap();
+                let a2 = *inputs.get(&Port::new("A2")).unwrap();
+                let o1 = !(a1 && a2);
+                let zn = !a1 ^ a2;
+                (zn, Some(o1))
+            }
+            _ => {
+                let out = match self {
+                    Logic::INV => {
+                        let i = *inputs.get(&Port::new("I")).unwrap();
+                        !i
+                    },
+                    Logic::ND2 => {
+                        let a1 = *inputs.get(&Port::new("A1")).unwrap();
+                        let a2 = *inputs.get(&Port::new("A2")).unwrap();
+                        !(a1 && a2)
+                    },
+                    Logic::NR2 => {
+                        let a1 = *inputs.get(&Port::new("A1")).unwrap();
+                        let a2 = *inputs.get(&Port::new("A2")).unwrap();
+                        !(a1 || a2)
+                    },
+                    Logic::AN2 => {
+                        let a1 = *inputs.get(&Port::new("A1")).unwrap();
+                        let a2 = *inputs.get(&Port::new("A2")).unwrap();
+                        a1 && a2
+                    },
+                    Logic::OR2 => {
+                        let a1 = *inputs.get(&Port::new("A1")).unwrap();
+                        let a2 = *inputs.get(&Port::new("A2")).unwrap();
+                        a1 || a2
+                    },
+                    Logic::IND2 => {
+                        let a1 = *inputs.get(&Port::new("A1")).unwrap();
+                        let b1 = *inputs.get(&Port::new("B1")).unwrap();
+                        !(!a1 && b1)
+                    },
+                    Logic::INR2 => {
+                        let a1 = *inputs.get(&Port::new("A1")).unwrap();
+                        let b1 = *inputs.get(&Port::new("B1")).unwrap();
+                        !(!a1 || b1)
+                    },
+                    Logic::XOR2 => {
+                        let a1 = *inputs.get(&Port::new("A1")).unwrap();
+                        let a2 = *inputs.get(&Port::new("A2")).unwrap();
+                        a1 ^ a2
+                    },
+                    Logic::XNR2 => {
+                        let a1 = *inputs.get(&Port::new("A1")).unwrap();
+                        let a2 = *inputs.get(&Port::new("A2")).unwrap();
+                        !a1 ^ a2
+                    },
+                    Logic::XOR2DOUT => unimplemented!(),
+                    Logic::XNR2DOUT => unimplemented!(),
+                    Logic::AOI21 => {
+                        let a1 = *inputs.get(&Port::new("A1")).unwrap();
+                        let a2 = *inputs.get(&Port::new("A2")).unwrap();
+                        let b = *inputs.get(&Port::new("B")).unwrap();
+                        !((a1 && a2) || b)
+                    },
+                    Logic::OAI21 => {
+                        let a1 = *inputs.get(&Port::new("A1")).unwrap();
+                        let a2 = *inputs.get(&Port::new("A2")).unwrap();
+                        let b = *inputs.get(&Port::new("B")).unwrap();
+                        !((a1 || a2) && b)
+                    },
+                    Logic::AO21 => {
+                        let a1 = *inputs.get(&Port::new("A1")).unwrap();
+                        let a2 = *inputs.get(&Port::new("A2")).unwrap();
+                        let b = *inputs.get(&Port::new("B")).unwrap();
+                        (a1 && a2) || b
+                    },
+                    Logic::OA21 => {
+                        let a1 = *inputs.get(&Port::new("A1")).unwrap();
+                        let a2 = *inputs.get(&Port::new("A2")).unwrap();
+                        let b = *inputs.get(&Port::new("B")).unwrap();
+                        (a1 || a2) && b
+                    },
+                    Logic::IAOI21 => {
+                        let a1 = *inputs.get(&Port::new("A1")).unwrap();
+                        let a2 = *inputs.get(&Port::new("A2")).unwrap();
+                        let b = *inputs.get(&Port::new("B")).unwrap();
+                        !((a1 && !a2) || b)
+                    },
+                    Logic::IOAI21 => {
+                        let a1 = *inputs.get(&Port::new("A1")).unwrap();
+                        let a2 = *inputs.get(&Port::new("A2")).unwrap();
+                        let b = *inputs.get(&Port::new("B")).unwrap();
+                        !((a1 || !a2) && b)
+                    },
+                    Logic::AOI22 => {
+                        let a1 = *inputs.get(&Port::new("A1")).unwrap();
+                        let a2 = *inputs.get(&Port::new("A2")).unwrap();
+                        let b1 = *inputs.get(&Port::new("B1")).unwrap();
+                        let b2 = *inputs.get(&Port::new("B2")).unwrap();
+                        !((a1 && a2) || (b1 && b2))
+                    },
+                    Logic::OAI22 => {
+                        let a1 = *inputs.get(&Port::new("A1")).unwrap();
+                        let a2 = *inputs.get(&Port::new("A2")).unwrap();
+                        let b1 = *inputs.get(&Port::new("B1")).unwrap();
+                        let b2 = *inputs.get(&Port::new("B2")).unwrap();
+                        !((a1 || a2) && (b1 || b2))
+                    },
+                    Logic::AOAI211 => {
+                        let a1 = *inputs.get(&Port::new("A1")).unwrap();
+                        let a2 = *inputs.get(&Port::new("A2")).unwrap();
+                        let b = *inputs.get(&Port::new("B")).unwrap();
+                        let c = *inputs.get(&Port::new("C")).unwrap();
+                        !(((a1 && a2) || b) && c)
+                    },
+                    Logic::OAOI211 => {
+                        let a1 = *inputs.get(&Port::new("A1")).unwrap();
+                        let a2 = *inputs.get(&Port::new("A2")).unwrap();
+                        let b = *inputs.get(&Port::new("B")).unwrap();
+                        let c = *inputs.get(&Port::new("C")).unwrap();
+                        !(((a1 || a2) && b) || c)
+                    },
+                    Logic::AOA211 => {
+                        let a1 = *inputs.get(&Port::new("A1")).unwrap();
+                        let a2 = *inputs.get(&Port::new("A2")).unwrap();
+                        let b = *inputs.get(&Port::new("B")).unwrap();
+                        let c = *inputs.get(&Port::new("C")).unwrap();
+                        ((a1 && a2) || b) && c
+                    },
+                    Logic::OAO211 => {
+                        let a1 = *inputs.get(&Port::new("A1")).unwrap();
+                        let a2 = *inputs.get(&Port::new("A2")).unwrap();
+                        let b = *inputs.get(&Port::new("B")).unwrap();
+                        let c = *inputs.get(&Port::new("C")).unwrap();
+                        ((a1 || a2) && b) || c
+                    },
+                };
+                (out, None)
+            }
         }
     }
 }

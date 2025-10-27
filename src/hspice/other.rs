@@ -1,6 +1,7 @@
 pub mod mb_function;
 pub mod delay_model;
 pub mod random;
+pub(crate) mod multi_vdd_test;
 
 use crate::hspice::line_cell;
 

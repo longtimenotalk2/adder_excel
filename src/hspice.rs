@@ -68,16 +68,20 @@ pub fn line_source_period(wire_name : &str, v1 : &str, v2 : &str, start_pos : f6
     )
 }
 
-pub fn line_source_dc(Pinname : &str, source_name : &str) -> String {
+pub fn line_cap(pinname : &str, cap : &str) -> String {
+    format!("C{pinname} {pinname} 0 {cap}\n")
+}
+
+pub fn line_source_dc(pinname : &str, source_name : &str) -> String {
     let mut s = String::new();
     s += &format!("{:<16}{SPACE}{:<4}{SPACE}0   DC={source_name}\n",
-        format!("V{Pinname}"),
-        Pinname,
+        format!("V{pinname}"),
+        pinname,
     );
     s
 }
 
-pub fn line_source_random(Pinname : &str, seed : u64, source_0 : &str, source_1 : &str) -> String {
+pub fn line_source_random(pinname : &str, seed : u64, source_0 : &str, source_1 : &str) -> String {
     let backs = [32, 22, 2, 1, 0];
     let mut my_rng = ChaCha20Rng::seed_from_u64(seed);
     let my_seed : u32 = my_rng.random(); 
@@ -87,7 +91,7 @@ pub fn line_source_random(Pinname : &str, seed : u64, source_0 : &str, source_1 
     }
     s_last = s_last[..s_last.len()-1].to_string();
 
-    format!("V{Pinname} {Pinname} 0 LFSR ({source_0} {source_1} 'td-clkper+tr'  tr tr (1/clkper) {} [{s_last}])\n", my_seed)
+    format!("V{pinname} {pinname} 0 LFSR ({source_0} {source_1} 'td-clkper+tr'  tr tr (1/clkper) {} [{s_last}])\n", my_seed)
 }
 
 pub fn line_end_subckt() -> String {
@@ -104,6 +108,23 @@ pub fn line_measure_delay(
     target_nth : usize,
 ) -> String {
     format!(".measure tran delay_{name}    trig v({source_wire}) val='avdd/2'   {}={source_nth}      targ v({target_wire}) val='avdd/2'   {}={target_nth}\n",
+        if source_is_rise { "rise" } else { "fall" },
+        if target_is_rise { "rise" } else { "fall" }
+    )
+}
+
+pub fn line_measure_delay_with_given_pg(
+    name : &str,
+    target_wire : &str, 
+    source_wire : &str, 
+    source_is_rise : bool,
+    source_nth : usize,
+    source_pg : &str,
+    target_is_rise : bool,
+    target_nth : usize,
+    target_pg : &str,
+) -> String {
+    format!(".measure tran delay_{name}    trig v({source_wire}) val='{source_pg}'   {}={source_nth}      targ v({target_wire}) val='{target_pg}'   {}={target_nth}\n",
         if source_is_rise { "rise" } else { "fall" },
         if target_is_rise { "rise" } else { "fall" }
     )
@@ -128,9 +149,9 @@ pub fn line_measure_delay_with_td(
     )
 }
 
-pub fn line_measure_power(Pinname : &str) -> String {
+pub fn line_measure_power(pinname : &str) -> String {
     let mut s = String::new();
-    s += &format!(".measure Tran power_{Pinname}    avg i(V{Pinname})   from='td' to='time_all'\n");
+    s += &format!(".measure Tran power_{pinname}    avg i(V{pinname})   from='td' to='time_all'\n");
     s
 }
 
