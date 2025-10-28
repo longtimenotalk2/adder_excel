@@ -122,7 +122,8 @@ impl Adder {
             g_list.sort_by(|a, b| a.0.cmp(&b.0));
             if g_list.len() > 1 {
                 let mut txt = format!(">>> {} : for node s{index}, multi c can be select : ", "warning".color(Color::Orange1));
-                for g in &g_list {
+                txt += &format!("{} ", g_list[0].1.to_string().color(Color::Green));
+                for g in &g_list[1..] {
                     txt += &format!("{} ", g.1.to_string());
                 }
                 println!("{}", txt);
@@ -138,7 +139,8 @@ impl Adder {
             q_list.sort_by(|a, b| a.0.cmp(&b.0));
             if q_list.len() > 1 {
                 let mut txt = format!(">>> {} : for node s{index}, multi c can be select : ", "warning".color(Color::Orange1));
-                for q in &q_list {
+                txt += &format!("{} ", q_list[0].1.to_string().color(Color::Green));
+                for q in &q_list[1..] {
                     txt += &format!("{} ", q.1.to_string());
                 }
                 println!("{}", txt);
