@@ -19,6 +19,19 @@ impl Node {
         let outputs = self.get_ordered_output_wires().iter().map(|(_, w)| w.to_string()).collect::<Vec<_>>().join(", ");
         format!("{}({inputs}) -> {outputs}", self.logic.to_string())
     }
+
+    pub fn to_port_vs_wire_name(&self) -> BTreeMap<Port, String> {
+        let mut map = BTreeMap::new();
+        for (port, (_, wire)) in self.io.input.iter() {
+            map.insert(port.clone(), wire.to_string());
+        }
+        if let Some((_, o1_wire)) = self.io.output_o1.as_ref() {
+            map.insert(Port::new("O1"), o1_wire.to_string());
+        }
+        map.insert(self.logic.z_port(),  self.io.output_z.1.to_string());
+
+        map
+    }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

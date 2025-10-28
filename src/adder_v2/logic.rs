@@ -41,14 +41,12 @@ impl Logic {
             Logic::OR2 => "OR2",
             Logic::IND2 => "IND2",
             Logic::INR2 => "INR2",
-
             Logic::XOR2 => "XOR2",
             Logic::XNR2 => "XNR2",
             Logic::XOR2DOUT => "XOR2DOUT",
             Logic::XNR2DOUT => "XNR2DOUT",
             Logic::AOI21 => "AOI21",
             Logic::OAI21 => "OAI21",
-
             Logic::AO21 => "AO21",
             Logic::OA21 => "OA21",
             Logic::IAOI21 => "IAOI21",
@@ -59,6 +57,13 @@ impl Logic {
             Logic::OAOI211 => "OAOI211",
             Logic::AOA211 => "AOA211",
             Logic::OAO211 => "OAO211",
+        }
+    }
+
+    pub fn z_port(&self) -> Port {
+        match self {
+            Logic::AN2 | Logic::OR2 | Logic::XOR2 | Logic::XOR2DOUT | Logic::AO21 | Logic::OA21 | Logic::AOA211 | Logic::OAO211 => Port::new("Z"),
+            _ => Port::new("ZN"),
         }
     }
 
