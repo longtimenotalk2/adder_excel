@@ -43,6 +43,9 @@ impl CellBody {
                 }}
             }
         } else {
+            if self.info.is_power_vddh() {
+                return self.parse_n3e_vdh()
+            }
             todo!()
         };
 

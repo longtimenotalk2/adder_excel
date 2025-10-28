@@ -4,6 +4,12 @@ pub mod n3e;
 
 pub struct ReadCellName(pub String);
 
+impl ReadCellName {
+    pub fn new(name : &str) -> Self {
+        Self(name.to_string())
+    }
+}
+
 #[derive(Debug, Clone, Copy)]
 pub enum ReadCellType {
     Std,
