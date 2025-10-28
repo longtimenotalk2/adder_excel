@@ -7,6 +7,7 @@ pub mod project;
 pub mod cell_parse;
 pub mod cdl;
 pub mod cell;
+pub mod special;
 
 type Id = u32;
 
