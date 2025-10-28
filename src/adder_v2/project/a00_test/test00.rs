@@ -17,13 +17,15 @@ fn adder_and_excel()  -> (Adder, ExcelDataList<Id>) {
 #[test]
 fn test_excel_frame() {
     let excel_frame = ExcelFrame::load(PATH);
-    dbg!(excel_frame);
+    // dbg!(excel_frame);
+    let excel_data_list = ExcelDataList::from_excel_frame(&excel_frame);
+    dbg!(excel_data_list);
 }
 
 #[test]
 fn test_adder() {
     let adder = adder();
-    println!("{}", adder.to_string());
+    // println!("{}", adder.to_string());
 }
 
 #[test]

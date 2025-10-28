@@ -1,4 +1,7 @@
+use std::collections::BTreeMap;
+
 use colorful::{Color, Colorful};
+use rand::seq::index;
 
 use crate::adder_v2::{adder::Adder, cell::{cell_info::CellInfo, Cell}, excel::excel_to_datalist::ExcelDataList, logic::Logic, node::{Node, NodeHint}, wire::{wire_list::WireList, Flag, Wire}, Id, Port};
 
@@ -16,6 +19,10 @@ impl Adder {
         let mut cells: Vec<(Id, Cell)> = vec![];
         let mut excel_cell_map: ExcelDataList<Id> = ExcelDataList::new_with_bits(bits);
 
+        // 优先选择的C、Q
+        let mut give_final_c_map : BTreeMap<usize, Vec<(Id, Wire)>> = BTreeMap::new();
+        let mut give_final_q_map : BTreeMap<usize, Vec<(Id, Wire)>> = BTreeMap::new();
+
         for i in 0..bits {
             wires.push((wire_id, Wire::from_str(&format!("a{i}"))));
             wire_id += 1;
@@ -30,12 +37,30 @@ impl Adder {
             // dbg!(cell_id);
             match Node::create_from_hint(hint, &mut wire_list)  {
                 Ok(node) => {
+                    let mut given_c_consume = hint.give_final_c;
+                    let mut given_q_consume = hint.give_final_q;
                     for output_wire in node.get_ordered_output_wires() {
+                        // 存储优先选择的C、Q
+                        if output_wire.1.is_c() && given_c_consume {
+                            give_final_c_map.entry(output_wire.1.index).or_insert(vec![]).push(output_wire.clone());
+                            given_c_consume = false;
+                        }
+                        if output_wire.1.flag == Flag::Q && output_wire.1.len == 1 && given_q_consume {
+                            give_final_q_map.entry(output_wire.1.index).or_insert(vec![]).push(output_wire.clone());
+                            given_q_consume = false;
+                        }
                         wire_list.0.push(output_wire);
+                    }
+                    if given_c_consume {
+                        panic!("node {} have code O{{C}}, but not output C", node.to_string());
+                    }
+                    if given_q_consume {
+                        panic!("node {} have code O{{Q}}, but not output C", node.to_string());
                     }
                     let cell = Cell::new(node, cell_info.clone());
                     cells.push((cell_id, cell));
                     excel_cell_map.data.insert(excel_key.clone(), cell_id);
+                    
                 }
                 Err(e) => {
                     println!("wire list : ");
@@ -120,6 +145,14 @@ impl Adder {
                 }
             }
             g_list.sort_by(|a, b| a.0.cmp(&b.0));
+            let g_list = if let Some(g_list_given) = give_final_c_map.get(&(index-1)) {
+                match g_list_given.len() {
+                    1 => g_list_given.clone(),
+                    _ => panic!("at index {}, given g list len must = 1, but {:?} in it", index-1, g_list_given.iter().map(|g| g.1.to_string()).collect::<Vec<_>>().join(", ")),
+                }
+            } else {
+                g_list
+            };
             if g_list.len() > 1 {
                 let mut txt = format!(">>> {} : for node s{index}, multi c can be select : ", "warning".color(Color::Orange1));
                 txt += &format!("{} ", g_list[0].1.to_string().color(Color::Green));
@@ -137,6 +170,14 @@ impl Adder {
                 }
             }
             q_list.sort_by(|a, b| a.0.cmp(&b.0));
+            let q_list = if let Some(q_list_given) = give_final_q_map.get(&(index)) {
+                match q_list_given.len() {
+                    1 => q_list_given.clone(),
+                    _ => panic!("at index {}, given g list len must = 1, but {:?} in it", index-1, q_list_given.iter().map(|g| g.1.to_string()).collect::<Vec<_>>().join(", ")),
+                }
+            } else {
+                q_list
+            };
             if q_list.len() > 1 {
                 let mut txt = format!(">>> {} : for node s{index}, multi c can be select : ", "warning".color(Color::Orange1));
                 txt += &format!("{} ", q_list[0].1.to_string().color(Color::Green));

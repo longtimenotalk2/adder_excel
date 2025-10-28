@@ -76,7 +76,8 @@ impl ExcelCode {
 
 #[test]
 fn test_excel_code() {
-    let code = "D[H2H]";
+    let code = "IO{Q}";
+    let code = "IO{Q}";
     let excel_code = ExcelCode::from_str(code);
     println!("{:?}", excel_code);
 }
@@ -120,6 +121,15 @@ impl ExcelDataList<(NodeHint, CellInfo, Option<Vec<i32>>)> {
                     node_hint.given_out_index = index;
                     node_hint.given_out_len = 1;
                     let mut cell_info = CellInfo::default();
+                    if let Some(chain_str) = code.flower_braket.get(&'O') {
+                        for char in chain_str.chars() {
+                            match char {
+                                'C' => node_hint.give_final_c = true,
+                                'Q' => node_hint.give_final_q = true,
+                                _ => panic!("unknown char in O chain {char}"),
+                            }
+                        }
+                    }
                     match wire_string.as_str() {
                         "nq~" => node_hint.is_start_xnr_dout = true,
                         "nq"  => node_hint.is_start_xnr = true,
@@ -162,6 +172,7 @@ impl ExcelDataList<(NodeHint, CellInfo, Option<Vec<i32>>)> {
                                 }
                                 node_hint.given_flag_p_chain = Some(FlagPChain(flagplist));
                             }
+                            
 
                             if code.single_chars.contains(&'D') {
                                 cell_info.drive = Drive::D2;

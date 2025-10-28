@@ -129,6 +129,10 @@ impl Wire {
         self.flag == Flag::S
     }
 
+    pub fn is_c(&self) -> bool {
+        self.flag == Flag::G || self.index +1 == self.len
+    }
+
     fn is_input_or_output(&self) -> bool {
         self.is_input() || self.is_output()
     }
