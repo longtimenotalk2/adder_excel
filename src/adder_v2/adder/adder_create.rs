@@ -1,3 +1,5 @@
+use colorful::{Color, Colorful};
+
 use crate::adder_v2::{adder::Adder, cell::{cell_info::CellInfo, Cell}, excel::excel_to_datalist::ExcelDataList, logic::Logic, node::{Node, NodeHint}, wire::{wire_list::WireList, Flag, Wire}, Id, Port};
 
 impl Adder {
@@ -118,6 +120,13 @@ impl Adder {
                 }
             }
             g_list.sort_by(|a, b| a.0.cmp(&b.0));
+            if g_list.len() > 1 {
+                let mut txt = format!(">>> {} : for node s{index}, multi c can be select : ", "warning".color(Color::Orange1));
+                for g in &g_list {
+                    txt += &format!("{} ", g.1.to_string());
+                }
+                println!("{}", txt);
+            }
             let g = g_list[0].clone();
             // find q index 
             let mut q_list : Vec<(Id, Wire)> = vec![];
@@ -127,6 +136,13 @@ impl Adder {
                 }
             }
             q_list.sort_by(|a, b| a.0.cmp(&b.0));
+            if q_list.len() > 1 {
+                let mut txt = format!(">>> {} : for node s{index}, multi c can be select : ", "warning".color(Color::Orange1));
+                for q in &q_list {
+                    txt += &format!("{} ", q.1.to_string());
+                }
+                println!("{}", txt);
+            }
             let q = q_list[0].clone();
             let logic = if g.1.is_neg ^ q.1.is_neg ^ is_if_in_posi_than_end_is_neg {
                 Logic::XNR2

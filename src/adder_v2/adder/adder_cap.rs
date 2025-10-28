@@ -26,7 +26,7 @@ impl Adder {
     }
 
     pub fn get_all_cap_by_excel(&self, excel_frame : &ExcelFrame, excel_map : &ExcelDataList<Id>) {
-        println!(">>> check cap with excel data ...  ");
+        
 
         let mut excel_frame_new = excel_frame.clone();
         let mut mismatch_count = 0;
@@ -67,7 +67,11 @@ impl Adder {
         }
 
         if mismatch_count == 0 {
+            print!(">>> check cap with excel data ...  ");
             println!("{}", "pass !".to_string().color(Color::Green));
+        } else {
+            print!(">>> check cap with excel data ...  ");
+            println!("{}", "fail !".to_string().color(Color::Red));
         }
 
         let mut real_cap_lines = String::new();
