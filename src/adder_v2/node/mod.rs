@@ -20,6 +20,17 @@ impl Node {
         format!("{}({inputs}) -> {outputs}", self.logic.to_string())
     }
 
+    pub fn to_inst_name_with_layer(&self, layer : i32) -> String {
+        let mut name = format!("U{}", layer);
+        if let Some((_, o1_wire)) = self.io.output_o1.as_ref() {
+            name.push_str("_");
+            name.push_str(&o1_wire.to_string());
+        }
+        name.push_str("_");
+        name.push_str(&(self.io.output_z.1.to_string()));
+        name
+    }
+
     pub fn to_port_vs_wire_name(&self) -> BTreeMap<Port, String> {
         let mut map = BTreeMap::new();
         for (port, (_, wire)) in self.io.input.iter() {

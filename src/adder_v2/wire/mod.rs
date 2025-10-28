@@ -121,7 +121,7 @@ impl Wire {
             len,
         }
     }
-    fn is_input(&self) -> bool {
+    pub fn is_input(&self) -> bool {
         self.flag == Flag::A || self.flag == Flag::B
     }
 

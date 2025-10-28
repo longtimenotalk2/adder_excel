@@ -4,6 +4,7 @@ pub mod adder_check_id;
 pub mod adder_function;
 pub mod adder_property;
 pub mod adder_cap;
+pub mod adder_layer;
 
 use colorful::{Color, Colorful};
 

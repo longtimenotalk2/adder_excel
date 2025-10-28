@@ -1,4 +1,4 @@
-use crate::adder_v2::{adder::Adder, excel::{excel_to_datalist::ExcelDataList, ExcelFrame}, wire::Wire, Id};
+use crate::adder_v2::{adder::Adder, cell_parse::Process, excel::{excel_to_datalist::ExcelDataList, ExcelFrame}, wire::Wire, Id};
 
 const PATH : &'static str = "src/adder_v2/project/a01_same_vt_vddh/excel/base00.txt";
 
@@ -9,7 +9,7 @@ fn adder()  -> Adder {
 fn adder_and_excel()  -> (Adder, ExcelDataList<Id>) {
     let excel_frame = ExcelFrame::load(PATH);
     let excel_data_list = ExcelDataList::from_excel_frame(&excel_frame);
-    let (adder, excel_map) = Adder::create_from_excel_data_list(excel_data_list, true, false);
+    let (adder, excel_map) = Adder::create_from_excel_data_list(excel_data_list, false, true);
     adder.check_id_all_match();
     (adder, excel_map)
 }
@@ -41,15 +41,6 @@ fn test_adder_cap() {
     adder.get_all_cap_by_excel(&excel_frame, &excel_map);
 }
 
-// #[test]
-// fn test_adder_cap_debug() {
-//     let adder = adder();
-//     let wire = &adder.cells.get(115).unwrap().1.node.io.output_z;
-//     dbg!(&wire);
-//     let cap = adder.get_cap_cmos_for_wire(&wire);
-//     dbg!(cap);
-// }
-
 #[test]
 fn test_adder_property() {
     let adder = adder();
@@ -57,4 +48,17 @@ fn test_adder_property() {
     for cell in set {
         println!("{}", cell.to_string())
     }
+}
+
+#[test]
+fn test_cdl() {
+    let adder = adder();
+    let txt = adder.to_cdl("UFADDER_PN_BASE00", Process::N3E);
+    use std::fs::File;
+    use std::io::prelude::*;
+    let content = "This is the content to write to the file.";
+    // 创建一个新文件，如果文件已存在，则覆盖
+    let mut file = File::create("output.txt").unwrap();
+    // 将字符串写入文件
+    let _ = file.write_all(txt.as_bytes());
 }
