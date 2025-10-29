@@ -35,10 +35,12 @@ impl Adder {
             let excel_index = excel_key.index;
             let excel_multi_line = &excel_frame.multi_lines.get(&ExcelKey {multi_line_id}).unwrap();
             let cap_in_excel = &excel_multi_line.cap_line[excel_index];
-            let excel_caps = cap_in_excel.split(",").map(|txt| txt.trim().parse::<i32>().expect(
-                &format!("cap {txt} can not parse i32, at layer {}, {}, index {excel_index}", 
-                        excel_multi_line.layer, excel_multi_line.name)
-            )).collect::<Vec<i32>>();
+            let excel_caps = if cap_in_excel.trim().len() > 0 {
+                cap_in_excel.split(",").map(|txt| txt.trim().parse::<i32>().expect(
+                    &format!("cap {txt} can not parse i32, at layer {}, {}, index {excel_index}", 
+                            excel_multi_line.layer, excel_multi_line.name)
+                )).collect::<Vec<i32>>()
+            } else {vec![0]};
             
             let wire_z = &self.cells.get(*cell_id as usize).unwrap().1.node.io.output_z;
             let real_cap_z = self.get_cap_cmos_for_wire(wire_z);
