@@ -22,6 +22,8 @@ impl CellBody {
         match self.info.drive {
             Drive::D1 => n,
             Drive::D2 => n * 2,
+            Drive::D3 => n * 3,
+            Drive::D4 => n * 4,
         }
     }
 

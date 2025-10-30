@@ -7,6 +7,8 @@ pub struct SpecialInfo(pub String);
 pub enum Drive {
     D1,
     D2,
+    D3,
+    D4,
 }
 
 impl Default for Drive {

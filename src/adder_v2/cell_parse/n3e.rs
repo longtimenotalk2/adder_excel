@@ -40,7 +40,9 @@ impl CellBody {
                     Logic::AOI22 => ("AOI22D2BM156H3P48CPDELVT_1", ReadCellType::Std),
                     Logic::OAI22 => ("OAI22D2BM156H3P48CPDELVT_1", ReadCellType::Std),
                     _ => panic!("Default {:?} dont impl D2", self.logic)
-                }}
+                }},
+                Drive::D3 => panic!("Default {:?} dont impl D3", self.logic),
+                Drive::D4 => panic!("Default {:?} dont impl D4", self.logic),
             }
         } else {
             if self.info.is_power_vddh() {

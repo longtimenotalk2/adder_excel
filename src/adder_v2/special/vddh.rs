@@ -28,6 +28,8 @@ impl CellBody {
                     _ => panic!("can not find {:?} D2 cell in N3E [VDH]", self.logic)
                 }
             }
+            Drive::D3 => panic!("[VDH] {:?} dont impl D3", self.logic),
+            Drive::D4 => panic!("[VDH] {:?} dont impl D4", self.logic),
         };
         (ReadCellName::new(name), ReadCellType::Lhw)
     }
