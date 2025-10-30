@@ -42,13 +42,17 @@ impl CellBody {
                     _ => panic!("Default {:?} dont impl D2", self.logic)
                 }},
                 Drive::D3 => panic!("Default {:?} dont impl D3", self.logic),
-                Drive::D4 => panic!("Default {:?} dont impl D4", self.logic),
+                Drive::D4 => { match self.logic {
+                    Logic::AOI21 => ("AOI21D4BM156H3P48CPDELVT", ReadCellType::LocalHack),
+                    Logic::OAI21 => ("OAI21D4BM156H3P48CPDELVT", ReadCellType::LocalHack),
+                    _ => panic!("Default {:?} dont impl D4", self.logic)
+                }},
             }
         } else {
             if self.info.is_power_vddh() {
                 return self.parse_n3e_vdh()
             }
-            todo!()
+            panic!("did not parse {:?}", self);
         };
 
         (ReadCellName(name.to_string()), cell_type)

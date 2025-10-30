@@ -188,6 +188,19 @@ impl Node {
                     vec![a1, a2, b1, b2, (id_next, target_wire)],
                 ))
             }
+            if true_flagp_chain == FlagPChain(vec![
+                FlagP::new(Flag::A, false), 
+                FlagP::new(Flag::B, false),
+                FlagP::new(Flag::G, false),
+            ]) {
+                let a1 = history_wires.find(&Wire::from_str(&format!("a{index}")))?;
+                let a2 = history_wires.find(&Wire::from_str(&format!("b{index}")))?;
+                let b  = history_wires.find(&Wire::new(Flag::G, false, index-1, hint.given_out_len-1))?;
+                return Ok(Node::create_by_ordered_wires(
+                    Logic::AOI21,
+                    vec![b, a1, a2, (id_next, target_wire)],
+                ))
+            }
 
             // 其余一般情况
             let solve_result = history_wires.solve_pure_logic_layer(&true_flagp_chain, &target_wire);

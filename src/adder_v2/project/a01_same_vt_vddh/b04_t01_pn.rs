@@ -1,6 +1,6 @@
 use crate::adder_v2::{adder::Adder, cell_parse::Process, excel::{excel_to_datalist::ExcelDataList, ExcelFrame}, wire::Wire, Id};
 
-const PATH : &'static str = "src/adder_v2/project/a01_same_vt_vddh/excel/b03_t01_pn.txt";
+const PATH : &'static str = "src/adder_v2/project/a01_same_vt_vddh/excel/b04_t01_pn.txt";
 
 fn adder()  -> Adder {
     adder_and_excel().0

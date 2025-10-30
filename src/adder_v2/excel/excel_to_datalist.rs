@@ -176,11 +176,13 @@ impl ExcelDataList<(NodeHint, CellInfo, Option<Vec<i32>>)> {
 
                             if code.single_chars.contains(&'D') {
                                 cell_info.drive = Drive::D2;
-                            } else if code.square_braket.contains("D4") {
-                                cell_info.drive = Drive::D4;
-                            }
+                            } 
                             for square in &code.square_braket {
-                                cell_info.special_infos.insert(SpecialInfo(square.clone()));
+                                if square == "D4" {
+                                    cell_info.drive = Drive::D4;
+                                } else {
+                                    cell_info.special_infos.insert(SpecialInfo(square.clone()));
+                                }
                             }
                         }
                     }

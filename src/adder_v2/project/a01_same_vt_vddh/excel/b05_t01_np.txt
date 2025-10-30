@@ -1,0 +1,34 @@
+LY	LT	type	30	29	28	27	26	25	24	23	22	21	20	19	18	17	16	15	14	13	12	11	10	9	8	7	6	5	4	3	2	1	0
+1	cri	wire				nh2	np2	nh2	nq~	nq~	nq~	nq~	nq~	nq~	nq~	nq~	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	
+1	cri	code				A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	AD	
+1	cri	cap				2	6	6	4,10	4,8	4,6	4,8	6,8	4,8	6,8	4,8	2	2	6	6	6	2	6	6	4	4	6	6	2	4	4	6	
+1	cri	wire		nq~	q~	q~					np						nq~																
+1	cri	code									A						A																
+1	cri	cap		4,6	6,4	4,6					2						6,6																
+2	cri	wire		np2		h4	<p	<q3		g2	<q2	g2	<q2	g2	<q2	g2	<p3	h4	p4			h4	p4			h4	p4			h4			
+2	cri	code		N			I																			D				D			
+2	cri	cap		4		4	4	4		2	4	6	4	2	4	4	4	2	6			4	6			4	4			6			
+3	cri	wire			nh5	nq4				ng4	<nq4			ng4	<np5			nh8	np8							nh8							
+3	cri	code			L{abph}					[VDH][VTPUL]	[VDH][VTPUL]			[VDH][VTPUL]	[VDH][VTPUL]			[VDH][VTPUL]	[VDH][VTPUL]							D[VDH][VTPUL]							
+3	cri	cap			4	6				2	4			4	4			4	4							8							
+4	cri	wire		ng6	<nq6					g8	<p9			g4	<p5			h16															
+4	cri	code		NL{gph}	N					[VDH]	[VDH]			I[VDH]	I[VDH]			D[VDH]															
+4	cri	cap		2	2					4	4			2	2			10															
+1	uncri	wire	nq				nq~	q~										q~	nq~	q~	nq~	q~	nq~	q~	nq~	q~	nq~	q~	nq~	q~	nq~	q~	nq~
+1	uncri	code	A															A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A
+1	uncri	cap	4				4,4	4,4										4,4	4,4	4,4	4,4	4,4	4,4	4,4	4,6	4,4	4,6	4,4	4,8	4,4	4,6	4,4	6,0
+2	uncri	wire					ng3												g3				g3									nc	
+2	uncri	code					NL{gph}												L{gph}				L{gph}									NL{ph}	
+2	uncri	cap					2												2				2									6	
+3	uncri	wire				ng4	nq3				nh3	ng2	<nq2																	nc	c		
+3	uncri	code				L{ph}	I				L{abg}	I	I																	L{~ph}			
+3	uncri	cap				2	2				2	2	4																	8	4		
+4	uncri	wire																				nh12				nc		nc	c				
+4	uncri	code																				L{hp~h}				NL{ph}		NL{phqg}					
+4	uncri	cap																				8				10		6	4				
+5	uncri	wire								ng24				ng20		ng18		ng16	ng15	c	c	c	nc	c	c		c						
+5	uncri	code								D[VDH]L{gph}				O{C}[VDH]L{gph}		L{gph}		L{~ph}	L{gp~h}	L{phph}	L{gph}	L{ph}	L{gp~g}	L{phpg}									
+5	uncri	cap								16				10		6		6	4	4	4	4	4	4	4		4						
+6	uncri	wire		c	c	c	c	c	c		c	c	c		c		c																
+6	uncri	code			L{phqg}			L{phqg}			L{phqg}	L{gqg}	L{gqg}				L{gqg}																
+6	uncri	cap		4	4	4	4	4	4		4	4	4		4		4																

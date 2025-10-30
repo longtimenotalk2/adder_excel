@@ -1,6 +1,6 @@
 use crate::adder_v2::{adder::Adder, cell_parse::Process, excel::{excel_to_datalist::ExcelDataList, ExcelFrame}, wire::Wire, Id};
 
-const PATH : &'static str = "src/adder_v2/project/a01_same_vt_vddh/excel/b03_t01_pn.txt";
+const PATH : &'static str = "src/adder_v2/project/a01_same_vt_vddh/excel/b05_t01_np.txt";
 
 fn adder()  -> Adder {
     adder_and_excel().0
@@ -9,7 +9,7 @@ fn adder()  -> Adder {
 fn adder_and_excel()  -> (Adder, ExcelDataList<Id>) {
     let excel_frame = ExcelFrame::load(PATH);
     let excel_data_list = ExcelDataList::from_excel_frame(&excel_frame);
-    let (adder, excel_map) = Adder::create_from_excel_data_list(excel_data_list, false, true);
+    let (adder, excel_map) = Adder::create_from_excel_data_list(excel_data_list, true, false);
     adder.check_id_all_match();
     (adder, excel_map)
 }
@@ -25,7 +25,7 @@ fn test_excel_frame() {
 #[test]
 fn test_adder() {
     let adder = adder();
-    // println!("{}", adder.to_string());
+    println!("{}", adder.to_string());
 }
 
 #[test]
@@ -53,7 +53,7 @@ fn test_adder_property() {
 #[test]
 fn test_cdl() {
     let adder = adder();
-    let txt = adder.to_cdl("VDH_UFADDER_PN_B03_T01", Process::N3E);
+    let txt = adder.to_cdl("VDH_UFADDER_NP_B03_T02", Process::N3E);
     use std::fs::File;
     use std::io::prelude::*;
     let content = "This is the content to write to the file.";
