@@ -147,7 +147,7 @@ impl ExcelDataList<(NodeHint, CellInfo, Option<Vec<i32>>)> {
                                 }
                             };
                             node_hint.given_out_len = wire.len;
-                            node_hint.given_out_flag_p = Some(wire.to_flag_p());
+                            node_hint.given_out_flag_pm = Some(wire.to_flag_pm());
                             if code.single_chars.contains(&'I') {
                                 node_hint.is_simple_inv = true;
                             }

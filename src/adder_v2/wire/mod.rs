@@ -70,6 +70,7 @@ impl FlagP {
     }
 }
 
+#[derive(Debug, Clone)]
 pub struct FlagPM {
     pub flag: Flag,
     pub is_neg: bool,
@@ -251,6 +252,16 @@ impl Wire {
         }
     }
 
+    pub fn from_flag_pm(logic_extend : FlagPM, index : usize, len : usize) -> Self {
+        Wire {
+            flag: logic_extend.flag,
+            is_neg: logic_extend.is_neg,
+            is_mirror: logic_extend.is_mirror,
+            index,
+            len,
+        }
+    }
+
     pub fn is_logic_equil(&self, other: &Wire) -> bool {
         fn equil_map(input: &Wire) -> Wire {
             // 镜像等价，还原到非镜像的情况
@@ -291,10 +302,26 @@ impl Wire {
         }
     }
 
+    pub fn to_mirror_if(&self, is : bool) -> Wire {
+        if is {
+            self.to_mirror()
+        } else {
+            self.clone()
+        }
+    }
+
     pub fn to_flag_p(&self) -> FlagP {
         FlagP {
             flag: self.flag.clone(),
             is_neg: self.is_neg,
+        }
+    }
+
+    pub fn to_flag_pm(&self) -> FlagPM {
+        FlagPM {
+            flag: self.flag.clone(),
+            is_neg: self.is_neg,
+            is_mirror: self.is_mirror,
         }
     }
 

@@ -3,7 +3,7 @@ pub mod pure_logic_layer;
 
 use std::collections::BTreeMap;
 
-use crate::adder_v2::{logic::{Logic, IO}, wire::{wire_list::WireList, Flag, FlagP, Wire}, Id, Port};
+use crate::adder_v2::{logic::{Logic, IO}, wire::{wire_list::WireList, Flag, FlagP, FlagPM, Wire}, Id, Port};
 
 
 
@@ -63,7 +63,7 @@ pub struct NodeHint {
     pub is_start_xor_dout : bool,
     pub is_start_xnr : bool,
     pub is_start_xor : bool,
-    pub given_out_flag_p : Option<FlagP>,
+    pub given_out_flag_pm : Option<FlagPM>,
     pub given_out_index : usize,
     pub given_out_len : usize,
     pub given_flag_p_chain : Option<FlagPChain>, 

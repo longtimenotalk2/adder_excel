@@ -510,7 +510,7 @@ impl WireList {
                 match target_wire.flag {
                     Flag::P | Flag::Q => {
                         if target_wire.is_mirror != use_mirror_cell {
-                            panic!("{} : for create P or Q, cell mirror must equal to out wire mirror", target_wire.to_string());
+                            panic!("{} : for create P or Q, cell mirror must equal to out wire mirror, cell = {}, wire = {}", target_wire.to_string(), use_mirror_cell, target_wire.is_mirror);
                         }
                         fpm_chain.push(FlagPM::from_flag_p(fp, use_mirror_cell));
                     }

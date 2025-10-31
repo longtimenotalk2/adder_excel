@@ -90,8 +90,8 @@ impl Node {
             }
         } 
 
-        let target_wire = Wire::from_flag_p(
-            hint.given_out_flag_p.clone().expect(&format!("hint {hint:?} must have flag extend")),
+        let target_wire = Wire::from_flag_pm(
+            hint.given_out_flag_pm.clone().expect(&format!("hint {hint:?} must have flag extend")),
             hint.given_out_index,
             hint.given_out_len,
         );
@@ -158,7 +158,7 @@ impl Node {
             // true_flagp_chain，要处理默认输入为反的情况
             let true_flagp_chain = FlagPChain(flagp_chain.0.iter().map(|fp| if input_is_neg {fp.to_rev()} else {fp.clone()}).collect::<Vec<FlagP>>());
             // 特殊配置特殊处理
-            if true_flagp_chain == FlagPChain(vec![
+            let will_ret = if true_flagp_chain == FlagPChain(vec![
                 FlagP::new(Flag::A, false), 
                 FlagP::new(Flag::B, false),
                 FlagP::new(Flag::Q, false),
@@ -166,14 +166,13 @@ impl Node {
             ]) {
                 let a1 = history_wires.find(&Wire::from_str(&format!("a{index}")))?;
                 let a2 = history_wires.find(&Wire::from_str(&format!("b{index}")))?;
-                let b1 = history_wires.find(&Wire::from_str(&format!("q{index}")))?;
-                let b2 = history_wires.find(&Wire::new(Flag::G, false, index-1, hint.given_out_len-1))?;
-                return Ok(Node::create_by_ordered_wires(
+                let b1 = history_wires.find(&Wire::from_str(&format!("q{index}")).to_mirror_if(hint.is_use_mirror))?;
+                let b2 = history_wires.find(&Wire::new(Flag::G, false, index-1, hint.given_out_len-1).to_mirror_if(target_wire.is_mirror))?;
+                Some(Node::create_by_ordered_wires(
                     Logic::AOI22,
-                    vec![a1, a2, b1, b2, (id_next, target_wire)],
+                    vec![a1, a2, b1, b2, (id_next, target_wire.clone())],
                 ))
-            }
-            if true_flagp_chain == FlagPChain(vec![
+            } else if true_flagp_chain == FlagPChain(vec![
                 FlagP::new(Flag::A, false), 
                 FlagP::new(Flag::B, false),
                 FlagP::new(Flag::P, false),
@@ -181,26 +180,36 @@ impl Node {
             ]) {
                 let a1 = history_wires.find(&Wire::from_str(&format!("a{index}")))?;
                 let a2 = history_wires.find(&Wire::from_str(&format!("b{index}")))?;
-                let b1 = history_wires.find(&Wire::from_str(&format!("p{}", index-1)))?;
-                let b2 = history_wires.find(&Wire::new(Flag::H, false, index-1, hint.given_out_len-1))?;
-                return Ok(Node::create_by_ordered_wires(
+                let b1 = history_wires.find(&Wire::from_str(&format!("p{}", index-1)).to_mirror_if(hint.is_use_mirror))?;
+                let b2 = history_wires.find(&Wire::new(Flag::H, false, index-1, hint.given_out_len-1).to_mirror_if(target_wire.is_mirror))?;
+                Some(Node::create_by_ordered_wires(
                     Logic::AOI22,
-                    vec![a1, a2, b1, b2, (id_next, target_wire)],
+                    vec![a1, a2, b1, b2, (id_next, target_wire.clone())],
                 ))
-            }
-            if true_flagp_chain == FlagPChain(vec![
+            } else if true_flagp_chain == FlagPChain(vec![
                 FlagP::new(Flag::A, false), 
                 FlagP::new(Flag::B, false),
                 FlagP::new(Flag::G, false),
             ]) {
                 let a1 = history_wires.find(&Wire::from_str(&format!("a{index}")))?;
                 let a2 = history_wires.find(&Wire::from_str(&format!("b{index}")))?;
-                let b  = history_wires.find(&Wire::new(Flag::G, false, index-1, hint.given_out_len-1))?;
-                return Ok(Node::create_by_ordered_wires(
+                let b  = history_wires.find(&Wire::new(Flag::G, false, index-1, hint.given_out_len-1).to_mirror_if(target_wire.is_mirror))?;
+                Some(Node::create_by_ordered_wires(
                     Logic::AOI21,
-                    vec![b, a1, a2, (id_next, target_wire)],
+                    vec![b, a1, a2, (id_next, target_wire.clone())],
                 ))
+            } else {
+                None
+            };
+
+            if let Some(mut node) = will_ret {
+                if hint.is_use_mirror {
+                    node.logic = node.logic.mirror();
+                }
+                return Ok(node);
             }
+
+            
 
             // 其余一般情况
             let solve_result = history_wires.solve_pure_logic_layer(
