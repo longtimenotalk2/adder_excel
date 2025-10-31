@@ -75,6 +75,7 @@ impl FlagP {
 pub struct WireFloat {
     pub flag: Flag,
     pub is_neg: bool,
+    pub is_mirror: bool,
     pub len: usize,
 }
 
@@ -84,6 +85,12 @@ impl WireFloat {
             (true, s[1..].to_string())
         } else {
             (false, s.to_string())
+        };
+
+        let (is_mirror, mut remained) = if remained.starts_with("m") {
+            (true, remained[1..].to_string())
+        } else {
+            (false, remained.to_string())
         };
         
         let flag = Flag::from_str(&remained[0..1]);
@@ -98,6 +105,7 @@ impl WireFloat {
         Self {
             flag,
             is_neg,
+            is_mirror,
             len,
         }
     }
@@ -108,6 +116,7 @@ impl WireFloat {
 pub struct Wire {
     pub flag: Flag,
     pub is_neg: bool,
+    pub is_mirror: bool,
     pub index: usize,
     pub len: usize,
 }
@@ -117,6 +126,7 @@ impl Wire {
         Self {
             flag,
             is_neg,
+            is_mirror: false,
             index,
             len,
         }
@@ -171,6 +181,12 @@ impl Wire {
         } else {
             (false, s.to_string())
         };
+
+        let (is_mirror, mut remained) = if remained.starts_with("m") {
+            (true, remained[1..].to_string())
+        } else {
+            (false, remained.to_string())
+        };
         
         let flag = Flag::from_str(&remained[0..1]);
         remained = remained[1..].to_string();
@@ -190,6 +206,7 @@ impl Wire {
         Wire {
             flag,
             is_neg,
+            is_mirror,
             index,
             len,
         }
@@ -199,15 +216,17 @@ impl Wire {
         Wire {
             flag: wire_float.flag,
             is_neg: wire_float.is_neg,
+            is_mirror: wire_float.is_mirror,
             index,
             len: wire_float.len,
         }
     }
 
-    pub fn from_logic_extend(logic_extend : FlagP, index : usize, len : usize) -> Self {
+    pub fn from_flag_p(logic_extend : FlagP, index : usize, len : usize) -> Self {
         Wire {
             flag: logic_extend.flag,
             is_neg: logic_extend.is_neg,
+            is_mirror: false,
             index,
             len,
         }
@@ -225,6 +244,17 @@ impl Wire {
         Wire {
             flag: self.flag.clone(),
             is_neg: !self.is_neg,
+            is_mirror: self.is_mirror,
+            index: self.index,
+            len: self.len,
+        }
+    }
+
+    pub fn to_mirror(&self) -> Wire {
+        Wire {
+            flag: self.flag.clone(),
+            is_neg: self.is_neg,
+            is_mirror: !self.is_mirror,
             index: self.index,
             len: self.len,
         }
@@ -241,6 +271,7 @@ impl Wire {
         WireFloat {
             flag: self.flag.clone(),
             is_neg: self.is_neg,
+            is_mirror: self.is_mirror,
             len: self.len,
         }
     }

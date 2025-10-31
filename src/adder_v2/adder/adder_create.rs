@@ -85,12 +85,14 @@ impl Adder {
         let first_s_wire_should = Wire {
             flag : Flag::Q,
             is_neg : is_if_in_posi_than_end_is_neg,
+            is_mirror : false,
             index : 0,
             len : 1,
         };
         let first_s_wire = Wire {
             flag : Flag::S,
             is_neg : is_if_in_posi_than_end_is_neg,
+            is_mirror : false,
             index : 0,
             len : 1,
         };
@@ -111,6 +113,7 @@ impl Adder {
             let first_s_wire_should = Wire {
                 flag : Flag::Q,
                 is_neg : !is_if_in_posi_than_end_is_neg,
+                is_mirror : false,
                 index : 0,
                 len : 1,
             };
@@ -131,6 +134,7 @@ impl Adder {
             let s_wire = Wire {
                 flag : Flag::S,
                 is_neg : is_if_in_posi_than_end_is_neg,
+                is_mirror : false,
                 index,
                 len : 1,
             };

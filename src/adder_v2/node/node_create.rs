@@ -90,7 +90,7 @@ impl Node {
             }
         } 
 
-        let target_wire = Wire::from_logic_extend(
+        let target_wire = Wire::from_flag_p(
             hint.given_out_flag_p.clone().expect(&format!("hint {hint:?} must have flag extend")),
             hint.given_out_index,
             hint.given_out_len,
