@@ -203,7 +203,11 @@ impl Node {
             }
 
             // 其余一般情况
-            let solve_result = history_wires.solve_pure_logic_layer(&true_flagp_chain, &target_wire);
+            let solve_result = history_wires.solve_pure_logic_layer(
+                &true_flagp_chain, 
+                &target_wire,
+                hint.is_use_mirror,
+            );
             match solve_result {
                 Ok(mut node) => {
                     // polar layer，处理各种极性问题

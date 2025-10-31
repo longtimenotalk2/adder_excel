@@ -2,7 +2,7 @@ use std::{collections::BTreeMap, ops::RangeInclusive};
 
 use colorful::{Color, Colorful};
 
-use crate::adder_v2::{logic::Logic, node::{FlagPChain, Node}, wire::{wire_list::WireList, Flag, FlagP, Wire}, Id};
+use crate::adder_v2::{logic::Logic, node::{FlagPChain, Node}, wire::{wire_list::WireList, Flag, FlagP, FlagPM, Wire}, Id};
 
 /*
 f : flag
@@ -46,15 +46,17 @@ P和Q的len推index2
 pub struct WireRange {
     pub flag : Flag,
     pub is_neg : bool,
+    pub is_mirror : bool,
     pub index_range : RangeInclusive<usize>,
     pub end_index_range : RangeInclusive<usize>,
 }
 
 impl WireRange {
-    pub fn new(flag : &Flag, is_neg : bool, index_range : RangeInclusive<usize>, end_index_range : RangeInclusive<usize>) -> Self {
+    pub fn new(flag : &Flag, is_neg : bool, is_mirror : bool, index_range : RangeInclusive<usize>, end_index_range : RangeInclusive<usize>) -> Self {
         Self {
             flag : flag.clone(),
             is_neg,
+            is_mirror,
             index_range,
             end_index_range,
         }
@@ -79,12 +81,29 @@ impl WireRange {
             is_neg : self.is_neg,
         }
     }
-    pub fn from_flag_extand(flag_extand : &FlagP, index_range : RangeInclusive<usize>, end_index_range : RangeInclusive<usize>) -> Self {
+    pub fn from_flag_pm(flag_extand : &FlagPM, index_range : RangeInclusive<usize>, end_index_range : RangeInclusive<usize>) -> Self {
         Self {
             flag : flag_extand.flag.clone(),
             is_neg : flag_extand.is_neg,
+            is_mirror : flag_extand.is_mirror,
             index_range,
             end_index_range,
+        }
+    }
+
+    // 在输出的index和len符合自身要求时返回
+    pub fn try_to_wire(&self, index : usize, len : usize) -> Option<Wire> {
+        let index_end = index + 1 - len;
+        if self.index_range.contains(&index) && self.end_index_range.contains(&index_end) {
+            Some(Wire {
+                flag : self.flag.clone(),
+                is_neg : self.is_neg,
+                is_mirror : self.is_mirror,
+                index,
+                len,
+            })
+        } else {
+            None
         }
     }
 }
@@ -426,6 +445,7 @@ impl WireList {
         &self,
         fp_chain : &FlagPChain,
         target_wire : &Wire,
+        use_mirror_cell : bool,
     ) -> Result<Node, Vec<FailParse>>{
         let fil = &FlagIndexLen::from_wire(target_wire);
         let ballen = Ballen::from_flag_index_len(fil);
@@ -436,7 +456,7 @@ impl WireList {
 
         fn solve_flags(
             ballen : &Ballen,
-            fp_chain : &[FlagP],
+            fpm_chain : &[FlagPM],
             wire_list : &WireList,
             history_find_wire : &[(Id, Wire)],
             history_aologic : &[AOLogic],
@@ -448,13 +468,14 @@ impl WireList {
                 panic!("loop over 100 !")
             }
 
-            let flag_now = &fp_chain[0].flag;
-            let is_neg = fp_chain[0].is_neg;
-            let flag_next = fp_chain.get(1).map(|fp| &fp.flag);
+            let flag_now = &fpm_chain[0].flag;
+            let is_neg = fpm_chain[0].is_neg;
+            let is_mirror = fpm_chain[0].is_mirror;
+            let flag_next = fpm_chain.get(1).map(|fp| &fp.flag);
 
             let (range_start, range_end, next_logic) = ballen.give_next_range(flag_now, flag_next);
 
-            let wire_range_to_find = WireRange::new(flag_now, is_neg, range_start, range_end);
+            let wire_range_to_find = WireRange::new(flag_now, is_neg, is_mirror, range_start, range_end);
             let all_find = wire_list.find_wire_range(&wire_range_to_find);
             if all_find.is_empty() {
                 fail_parse_list.push(FailParse { founded: history_find_wire.to_vec(), not_founded: wire_range_to_find });
@@ -470,8 +491,8 @@ impl WireList {
                         history_aologic.push(next_logic.clone().unwrap());
                         let mut ballen = ballen.clone();
                         // dbg!(&history_find_wire);
-                        ballen.consume(&new_wire.flag, new_wire.len);
-                        if let Ok(ret) = solve_flags(&ballen, &fp_chain[1..], wire_list, &history_find_wire, &history_aologic, fail_parse_list, iter) {
+                        ballen.consume(&flag_now, new_wire.len);
+                        if let Ok(ret) = solve_flags(&ballen, &fpm_chain[1..], wire_list, &history_find_wire, &history_aologic, fail_parse_list, iter) {
                             return Ok(ret);
                         }
                     }
@@ -481,9 +502,32 @@ impl WireList {
             }
         }
 
-        let result = solve_flags(&ballen, &fp_chain.0, self, &[], &[], &mut fail_parse_list, &mut 0);
+        let mut fpm_chain = vec![];
+        for (i, fp) in fp_chain.0.iter().enumerate() {
+            if i != fp_chain.0.len() - 1 {
+                fpm_chain.push(FlagPM::from_flag_p(fp, use_mirror_cell));
+            } else {
+                match target_wire.flag {
+                    Flag::P | Flag::Q => {
+                        if target_wire.is_mirror != use_mirror_cell {
+                            panic!("{} : for create P or Q, cell mirror must equal to out wire mirror", target_wire.to_string());
+                        }
+                        fpm_chain.push(FlagPM::from_flag_p(fp, use_mirror_cell));
+                    }
+                    Flag::G | Flag::H => {
+                        fpm_chain.push(FlagPM::from_flag_p(fp, target_wire.is_mirror));
+                    }
+                    _ => unimplemented!()
+                }
+            }
+        }
+
+        let result = solve_flags(&ballen, &fpm_chain, self, &[], &[], &mut fail_parse_list, &mut 0);
         if let Ok((mut wires, aologics)) = result {
-            let logic = Logic::parse_from_aologic(&aologics);
+            let mut logic = Logic::parse_from_aologic(&aologics);
+            if use_mirror_cell {
+                logic = logic.mirror();
+            }
             wires.push((self.0.len() as Id, target_wire.clone()));
             Ok(Node::create_by_ordered_wires(logic, wires))
         } else {

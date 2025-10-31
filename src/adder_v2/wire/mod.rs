@@ -70,6 +70,22 @@ impl FlagP {
     }
 }
 
+pub struct FlagPM {
+    pub flag: Flag,
+    pub is_neg: bool,
+    pub is_mirror: bool,
+}
+
+impl FlagPM {
+    pub fn from_flag_p(flag_p: &FlagP, is_mirror: bool) -> Self {
+        Self {
+            flag: flag_p.flag.clone(),
+            is_neg: flag_p.is_neg,
+            is_mirror,
+        }
+    }
+}
+
 /// Wire但是缺少index和len
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct WireFloat {
@@ -161,6 +177,9 @@ impl Wire {
             if self.is_neg {
                 ret.push('n');
             }
+            if self.is_mirror {
+                ret.push('m');
+            }
         }
         ret.push_str(self.flag.to_str());
         if self.len > 1 {
@@ -234,6 +253,18 @@ impl Wire {
 
     pub fn is_logic_equil(&self, other: &Wire) -> bool {
         fn equil_map(input: &Wire) -> Wire {
+            // 镜像等价，还原到非镜像的情况
+            if input.is_mirror {
+                let mut ret = input.to_mirror();
+                if input.flag == Flag::Q && input.len == 1 {
+                    return ret.to_rev();
+                }
+                if input.flag == Flag::G && input.len == 1 {
+                    ret.flag = Flag::P;
+                    return ret;
+                }
+            }
+
             input.clone()
         }
 

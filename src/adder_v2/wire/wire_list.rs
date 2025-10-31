@@ -40,8 +40,11 @@ impl WireList {
         let mut ret = vec![];
 
         for (id, w) in iter {
-            if w.to_flag_p() == wire_range.to_flag_p() && wire_range.index_range.contains(&w.index) && wire_range.end_index_range.contains(&w.index_end()) {
-                ret.push((*id, w.clone()));
+            let to_wire = wire_range.try_to_wire(w.index, w.len);
+            if let Some(wire) = to_wire {
+                if wire.is_logic_equil(w) {
+                    ret.push((*id, w.clone()));
+                }
             }
         }
 

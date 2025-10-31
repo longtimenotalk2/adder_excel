@@ -25,13 +25,13 @@ fn test_excel_frame() {
 #[test]
 fn test_adder() {
     let adder = adder();
-    // println!("{}", adder.to_string());
+    println!("{}", adder.to_string());
 }
 
 #[test]
 fn test_adder_function() {
     let adder = adder();
-    adder.check_function_random(100);
+    adder.check_function_random(1000);
 }
 
 #[test]
