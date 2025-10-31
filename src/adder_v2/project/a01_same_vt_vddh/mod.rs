@@ -6,3 +6,4 @@ pub mod b03_t01_pn;
 pub mod b03_t02_np;
 pub mod b04_t01_pn;
 pub mod b05_t01_np;
+pub mod b06_t01_pn;
