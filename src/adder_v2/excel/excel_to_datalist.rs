@@ -154,6 +154,9 @@ impl ExcelDataList<(NodeHint, CellInfo, Option<Vec<i32>>)> {
                             if code.single_chars.contains(&'A') {
                                 node_hint.is_start = true;
                             }
+                            if code.single_chars.contains(&'M') {
+                                node_hint.is_use_mirror = true;
+                            }
                             if code.single_chars.contains(&'N') {
                                 node_hint.is_out_addition_inv = true;
                             }

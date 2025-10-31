@@ -70,6 +70,7 @@ pub struct NodeHint {
     pub is_out_addition_inv : bool,
     pub give_final_c : bool, // 其输出的c会强制给到末尾异或
     pub give_final_q : bool, // 其输出的q会强制给到末尾异或
+    pub is_use_mirror : bool,
 }
 
 
