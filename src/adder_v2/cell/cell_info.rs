@@ -3,6 +3,12 @@ use std::collections::BTreeSet;
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct SpecialInfo(pub String);
 
+impl SpecialInfo {
+    pub fn new(s: &str) -> Self {
+        Self(s.to_string())
+    }
+}
+
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum Drive {
     D1,

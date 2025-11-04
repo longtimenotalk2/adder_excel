@@ -67,6 +67,9 @@ impl WireRange {
         if self.is_neg {
             ret.push('n');
         }
+        if self.is_mirror {
+            ret.push('m');
+        }
         ret.push_str(self.flag.to_str());
         ret.push_str(&format!("({:?})", self.index_range));
         ret.push_str("_");

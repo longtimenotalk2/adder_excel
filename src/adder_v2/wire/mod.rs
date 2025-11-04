@@ -274,6 +274,18 @@ impl Wire {
                     ret.flag = Flag::P;
                     return ret;
                 }
+                if input.flag == Flag::P && input.len == 1 {
+                    ret.flag = Flag::G;
+                    return ret;
+                }
+                if input.flag == Flag::P && input.len == 2 {
+                    ret.flag = Flag::H;
+                    return ret;
+                }
+                if input.flag == Flag::H && input.len == 2 {
+                    ret.flag = Flag::P;
+                    return ret;
+                }
             }
 
             input.clone()

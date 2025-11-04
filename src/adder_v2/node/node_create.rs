@@ -96,6 +96,8 @@ impl Node {
             hint.given_out_len,
         );
 
+        println!("... syn target_wire: {}", target_wire.to_string());
+
         // dbg!(&target_wire);
         
         if hint.is_simple_inv {

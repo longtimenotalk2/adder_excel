@@ -1,7 +1,7 @@
 LY	LT	type	30	29	28	27	26	25	24	23	22	21	20	19	18	17	16	15	14	13	12	11	10	9	8	7	6	5	4	3	2	1	0
 1	cri	wire	nq	nq~	nq~	nq~	nq~	nq~	nq~	nq~	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	np2	nh2	
 1	cri	code	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	AD	A	AD	
-1	cri	cap	4	4,8	6,10	6,10	4,8	6,8	4,8	6,10	4	4	6	2	6	6	6	2	6	6	6	2	6	6	4	2	4	4	2	4	4	6	
+1	cri	cap	4	4,8	4,8	6,10	4,8	6,8	4,8	6,10	4	4	6	2	6	6	6	2	6	6	6	2	6	6	4	2	4	4	2	4	4	6	
 1	cri	wire									nq~																						
 1	cri	code																															
 1	cri	cap									4,4																						
@@ -10,7 +10,7 @@ LY	LT	type	30	29	28	27	26	25	24	23	22	21	20	19	18	17	16	15	14	13	12	11	10	9	8	7	
 2	cri	cap			2	4	6	6	2	4	6	6		2	4			2	6			4	6			4	4			6			
 3	cri	wire			ng4	<nq4			ng5	<np6								nh8	np8							nh8							
 3	cri	code							[VDH][VTPUL]	[VDH][VTPUL]								[VDH]	[VDH]							D[VDH]							
-3	cri	cap			2	2			4	4								2	2							6							
+3	cri	cap			4	4			4	4								2	2							6							
 4	cri	wire		g5	<q5													h16															
 4	cri	code																[VDH]															
 4	cri	cap		2	2													4															
@@ -32,9 +32,12 @@ LY	LT	type	30	29	28	27	26	25	24	23	22	21	20	19	18	17	16	15	14	13	12	11	10	9	8	7	
 6	uncri	wire							g25					h20	c	c	c	c					nc	c	c								
 6	uncri	code							DO{C}L{gph}[VDH]					I[VDH]	L{gph}	L{phph}	L{gph}	L{ph}					L{gp~g}	L{phpg}									
 6	uncri	cap							12					10	4	4	4	4					4	4	4								
-7	uncri	wire		nc		nc	nc		ng25	nc	nc	nc	nc	nc																			
+7	uncri	wire		nc			nc		ng25	nc	nc	nc	nc	nc																			
 7	uncri	code							I[VDH]	L{gph}	L{gph}	L{gph}	L{gph}	L{~ph}																			
-7	uncri	cap		4		6	4		2	4	4	4	4	4																			
+7	uncri	cap		4			4		4	4	4	4	4	4																			
 8	uncri	wire			c			c																									
 8	uncri	code																															
 8	uncri	cap			4			4																									
+7	uncri	wire				nc																											
+7	uncri	code																															
+7	uncri	cap				4																											
