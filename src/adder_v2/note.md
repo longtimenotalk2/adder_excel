@@ -1,4 +1,5 @@
-
+# flag
+k : 原来的h将最头的a & b改为 ~a ^ b
 
 # 语法
 *~ : DualOut
