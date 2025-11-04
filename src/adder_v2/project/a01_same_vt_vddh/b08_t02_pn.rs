@@ -53,7 +53,7 @@ fn test_adder_property() {
 #[test]
 fn test_cdl() {
     let adder = adder();
-    let txt = adder.to_cdl("VDH_UFADDER_PN_B08_T01", Process::N3E);
+    let txt = adder.to_cdl("VDH_UFADDER_PN_B08_T02", Process::N3E);
     use std::fs::File;
     use std::io::prelude::*;
     let content = "This is the content to write to the file.";
