@@ -38,7 +38,17 @@ pub struct AdderFrame {
     pub bits : usize,
 }
 
+pub struct BigRuler {
+    full_height : f32,
+    full_width : f32,
+    data : BTreeMap<Pos, BTreeMap<CellPos, BTreeMap<WirePos, (f32, f32)>>>
+}
+
 impl AdderFrame {
+    pub fn get_big_ruler(&self, adder : &Adder) -> BigRuler {
+        
+    }
+
     pub fn from_adder(adder : &Adder) -> Self {
         // 先整理所有cell的pos+CellPos，以及所有wire的pos+CellPos+WirePos
         let cell_layers = adder.scan_layer_absolute();
