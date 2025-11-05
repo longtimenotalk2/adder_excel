@@ -8,6 +8,7 @@ pub mod cell_parse;
 pub mod cdl;
 pub mod cell;
 pub mod special;
+pub mod draw;
 
 type Id = u32;
 
