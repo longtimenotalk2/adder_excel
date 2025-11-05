@@ -35,6 +35,7 @@ pub struct CellFrame {
 #[derive(Debug, Clone)]
 pub struct AdderFrame {
     pub frame : BTreeMap<Pos, Vec<CellFrame>>,
+    pub bits : usize,
 }
 
 impl AdderFrame {
@@ -78,7 +79,8 @@ impl AdderFrame {
         }
 
         Self {
-            frame
+            frame,
+            bits : adder.bits,
         }
     }
 }
