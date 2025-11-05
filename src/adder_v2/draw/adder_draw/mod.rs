@@ -34,7 +34,38 @@ pub struct BigRuler {
 }
 
 impl AdderDraw {
-    pub fn get_big_ruler(&self, adder : &Adder) -> BigRuler {
+    pub fn get_big_ruler(&self, frame : &AdderFrame) -> BigRuler {
+        let bits = frame.bits;
+        
+        let mut max_cell_len_with_index = vec![1; frame.bits];
+        let mut layer_max = 0;
+        for (pos, cells) in frame.frame.iter() {
+            let index = pos.index;
+            max_cell_len_with_index[index] = cells.len().max(max_cell_len_with_index[index]);
+            layer_max = layer_max.max(pos.layer);
+        }
+
+        let mut full_width = (bits + 1) as f32 * self.cell_x_interval;
+        for cell_len in max_cell_len_with_index.iter() {
+            full_width += *cell_len as f32 * self.cell_width;
+        }
+
+        let full_height = (layer_max + 1) as f32 * self.cell_y_interval + layer_max as f32 * self.cell_height;
+
+        for (pos, cells) in frame.frame.iter() {
+            let index = pos.index;
+            let layer = pos.layer;
+            let y = (self.cell_y_interval + self.cell_height) * (layer + 1) as f32 -  self.cell_height / 2.0;
+            let mut x = full_width - ( 
+                max_cell_len_with_index[0..index].iter().sum::<usize>() as f32 * self.cell_width + (index + 1) as f32 * self.cell_x_interval + self.cell_width / 2.0
+            );
+            let mut pos_ruler : BTreeMap<CellPos, BTreeMap<WirePos, (f32, f32)>> = BTreeMap::new();
+            for cell in cells.iter() {
+                x += self.cell_width;
+
+            }
+        }
+
         todo!()
     }
 
