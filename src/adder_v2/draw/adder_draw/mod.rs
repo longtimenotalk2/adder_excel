@@ -19,22 +19,28 @@ pub struct AdderDraw {
     pub border_left : f32,
     pub border_right : f32,
     pub font_index : f32,
+    pub font_cell_name : f32,
+    pub font_wire_name : f32,
+    pub wire_line_width : f32,
 }
 
 impl AdderDraw {
     pub fn new() -> Self {
         Self {
-            cell_width: 50.,
+            cell_width: 60.,
             cell_height: 30.,
             cell_x_interval: 20.0,
             cell_y_interval: 60.0,
-            wire_x_interval: 20.0,
-            wire_height: 5.0,
+            wire_x_interval: 25.0,
+            wire_height: 20.0,
             border_up: 100.0,
             border_down: 100.0,
             border_left: 100.0,
             border_right: 100.0,
             font_index: 20.,
+            font_cell_name: 12.,
+            font_wire_name: 10.,
+            wire_line_width: 2.,
         }
     }
 }
@@ -99,6 +105,23 @@ impl AdderDraw {
 
         let mut cell_data : BTreeMap<Pos, BTreeMap<CellPos, (f32, f32)>> = BTreeMap::new();
         let mut wire_data : BTreeMap<Pos, BTreeMap<CellPos, BTreeMap<WirePos, (f32, f32)>>> = BTreeMap::new();
+
+        // 输入的wire data
+        let y = self.cell_height / 2.0 + self.border_up + self.cell_y_interval;
+        let y_wire = y + self.cell_height / 2.0 + self.wire_height / 2.0;
+        
+        for index in 0..frame.bits {
+            let x = full_width - ( 
+                max_cell_len_with_index[0..=index].iter().sum::<usize>() as f32 * self.cell_width + (index + 1) as f32 * self.cell_x_interval + self.cell_width / 2.0
+            ) + self.border_left;
+            let pos = Pos::new(index, 0);
+            let mut inner = BTreeMap::new();
+            inner.insert(WirePos::default(), (x - self.wire_x_interval / 2.0 , y_wire));
+            inner.insert(WirePos::new(1), (x + self.wire_x_interval / 2.0, y_wire));
+            wire_data.entry(pos.clone()).or_default().insert(CellPos::default(), inner);
+        }
+
+        // cell 的out wire data
 
         for (pos, cells) in frame.frame.iter() {
             let index = pos.index;

@@ -77,7 +77,7 @@ impl AdderFrame {
             let mut inputs = vec![];
             for (_port, wire) in cell.node.io.input.iter() {
                 let wire_pos_full = if wire.1.is_input() {
-                    (pos.clone(), CellPos::default(), if wire.1.flag == Flag::A {WirePos::default()} else {WirePos(1)})
+                    (Pos::new(index, 0), CellPos::default(), if wire.1.flag == Flag::A {WirePos::default()} else {WirePos(1)})
                 } else {
                     detected_wire.get(&wire).unwrap().clone()
                 };
