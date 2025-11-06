@@ -38,8 +38,8 @@ impl AdderDraw {
         );
 
         // layer标号
-        let mut y = self.border_up + self.cell_y_interval + self.cell_height / 2.;
-        for layer in 0..=frame.layer_max {
+        let mut y = self.border_up + self.cell_y_interval + self.cell_height +  self.cell_height / 2.;
+        for layer in 1..=frame.layer_max {
             document = document.add(
             Text::new(&format!("{layer}"))
                 .set("x", self.border_left / 2.0)
