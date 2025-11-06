@@ -1,7 +1,8 @@
 pub mod draw_logic;
+pub mod draw_cell;
 
 use std::collections::BTreeMap;
-use svg::{node::element::{Circle, Rectangle, Text}, Document};
+use svg::{node::element::{Circle, Rectangle, Text}, Document, Node};
 
 use crate::adder_v2::{adder::Adder, draw::adder_frame::{AdderFrame, CellPos, Pos, WirePos}, excel::{excel_to_datalist::ExcelDataList, ExcelFrame}, Id};
 
@@ -49,6 +50,25 @@ impl BigRuler {
 
     pub fn get_wire_xy(&self, pos : &Pos, cell_pos : &CellPos, wire_pos : &WirePos) -> (f32, f32) {
         self.wire_data.get(pos).unwrap().get(cell_pos).unwrap().get(wire_pos).unwrap().clone()
+    }
+}
+
+#[derive(Debug, Clone, Default)]
+pub struct ToBeDraw {
+    pub front : Vec<Box<dyn Node>>,
+    pub back : Vec<Box<dyn Node>>,
+}
+
+impl ToBeDraw {
+    pub fn new(front : Vec<Box<dyn Node>>, back : Vec<Box<dyn Node>>) -> Self {
+        Self {
+            front,
+            back,
+        }
+    }
+    pub fn update(&mut self, other : Self) {
+        self.front.extend(other.front);
+        self.back.extend(other.back);
     }
 }
 
@@ -146,36 +166,22 @@ impl AdderDraw {
             .set("stroke-width", 1)
         );
 
+        let mut to_be_draw = ToBeDraw::default();
 
-        // for i in 0..frame.bits {
-        //     let rec = Rectangle::new()
-        //         .set("x", get_x(i, 0, 0))
-        //         .set("y", 100)
-        //         .set("width", self.cell_width)
-        //         .set("height", self.cell_height)
-        //         .set("text-anchor", "middle") // 水平居中
-        //         .set("dominant-baseline", "middle")   // 垂直居中
-        //         .set("fill", "blue")
-        //         .set("stroke", "black")
-        //         .set("stroke-width", 2);
-        //     document = document.add(rec);
-        // }
-
-        let circle = Circle::new()
-            .set("cx", 0) // 圆心的x坐标
-            .set("cy", 0)  // 圆心的y坐标
-            .set("r", 2)   // 半径
-            .set("fill", "red"); // 填充颜色
-        document = document.add(circle);
-
-        let text = Text::new("AOAI211")
-            .set("x", 50)
-            .set("y", 50)
-            .set("text-anchor", "middle") // 水平居中
-            .set("dominant-baseline", "middle")   // 垂直居中
-            .set("font-family", "Arial")
-            .set("font-size", 10);
-        document = document.add(text);
+        for (pos, cells) in frame.frame.iter() {
+            for (cell_pos, cell) in cells.iter().enumerate() {
+                let cell_pos = CellPos::new(cell_pos);
+                to_be_draw.update(self.draw_cell(
+                    &cell.cell_body.logic, 
+                    &cell.cell_body.info, 
+                    pos, 
+                    &cell_pos,
+                    &cell.inputs,
+                    &cell.outputs,
+                    &ruler,
+                ));
+            }
+        }
 
         svg::save(save_path, &document).unwrap();
     }
