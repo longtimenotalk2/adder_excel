@@ -1,6 +1,6 @@
 use svg::{node::element::{Rectangle, Text}, Document};
 
-use crate::adder_v2::{adder::Adder, draw::{adder_draw::{AdderDraw, ToBeDraw}, adder_frame::{AdderFrame, CellPos, Pos}}, excel::{excel_to_datalist::ExcelDataList, ExcelFrame}, Id};
+use crate::adder_v2::{adder::Adder, draw::{adder_draw::{AdderDraw, ToBeDraw}, adder_frame::{AdderFrame, CellPos, Pos, WirePos}}, excel::{excel_to_datalist::ExcelDataList, ExcelFrame}, Id};
 
 impl AdderDraw {
     pub fn draw(&self, frame : &AdderFrame, save_path : &str) {
@@ -81,6 +81,31 @@ impl AdderDraw {
                 .set("dominant-baseline", "middle")   // 垂直居中
                 .set("font-family", "Arial")
                 .set("font-size", self.font_index)
+            );
+        }
+
+        // 输入的ab
+
+        for index in 0..frame.bits {
+            let (x, y) = ruler.get_wire_xy(&Pos::new(index, 0), &CellPos::default(), &WirePos::default());
+            document = document.add(
+            Text::new(&format!("a{index}"))
+                .set("x", x)
+                .set("y", y - self.wire_height / 2.)
+                .set("text-anchor", "middle") // 水平居中
+                .set("dominant-baseline", "middle")   // 垂直居中
+                .set("font-family", "Arial")
+                .set("font-size", self.font_wire_name)
+            );
+            let (x, y) = ruler.get_wire_xy(&Pos::new(index, 0), &CellPos::default(), &WirePos::new(1));
+            document = document.add(
+            Text::new(&format!("a{index}"))
+                .set("x", x)
+                .set("y", y - self.wire_height / 2.)
+                .set("text-anchor", "middle") // 水平居中
+                .set("dominant-baseline", "middle")   // 垂直居中
+                .set("font-family", "Arial")
+                .set("font-size", self.font_wire_name)
             );
         }
 

@@ -30,7 +30,7 @@ impl AdderDraw {
             cell_width: 60.,
             cell_height: 30.,
             cell_x_interval: 20.0,
-            cell_y_interval: 60.0,
+            cell_y_interval: 100.0,
             wire_x_interval: 25.0,
             wire_height: 20.0,
             border_up: 100.0,
@@ -40,7 +40,7 @@ impl AdderDraw {
             font_index: 20.,
             font_cell_name: 12.,
             font_wire_name: 10.,
-            wire_line_width: 2.,
+            wire_line_width: 1.,
         }
     }
 }
@@ -108,12 +108,12 @@ impl AdderDraw {
 
         // 输入的wire data
         let y = self.cell_height / 2.0 + self.border_up + self.cell_y_interval;
-        let y_wire = y + self.cell_height / 2.0 + self.wire_height / 2.0;
+        let y_wire = y + self.cell_height / 2.0 + self.wire_height;
         
         for index in 0..frame.bits {
             let x = full_width - ( 
                 max_cell_len_with_index[0..=index].iter().sum::<usize>() as f32 * self.cell_width + (index + 1) as f32 * self.cell_x_interval + self.cell_width / 2.0
-            ) + self.border_left;
+            ) + self.border_left + self.cell_width;
             let pos = Pos::new(index, 0);
             let mut inner = BTreeMap::new();
             inner.insert(WirePos::default(), (x - self.wire_x_interval / 2.0 , y_wire));
@@ -127,7 +127,7 @@ impl AdderDraw {
             let index = pos.index;
             let layer = pos.layer;
             let y = (self.cell_y_interval + self.cell_height) * layer as f32 + self.cell_height / 2.0 + self.border_up + self.cell_y_interval;
-            let y_wire = y + self.cell_height / 2.0 + self.wire_height / 2.0;
+            let y_wire = y + self.cell_height / 2.0 + self.wire_height;
             let mut x = full_width - ( 
                 max_cell_len_with_index[0..=index].iter().sum::<usize>() as f32 * self.cell_width + (index + 1) as f32 * self.cell_x_interval + self.cell_width / 2.0
             ) + self.border_left;

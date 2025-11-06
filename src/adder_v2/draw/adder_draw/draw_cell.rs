@@ -68,7 +68,7 @@ impl AdderDraw {
             let (x, y) = ruler.get_wire_xy(pos, cell_pos, wire_pos);
             front.push(Box::new(Text::new(&format!("{wire_name}"))
                 .set("x", x)
-                .set("y", y)
+                .set("y", y - self.wire_height / 2.)
                 .set("text-anchor", "middle") // 水平居中
                 .set("dominant-baseline", "middle")   // 垂直居中
                 .set("font-family", "Arial")
