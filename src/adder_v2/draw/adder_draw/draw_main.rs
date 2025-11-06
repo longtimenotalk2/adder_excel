@@ -49,6 +49,15 @@ impl AdderDraw {
                 .set("font-family", "Arial")
                 .set("font-size", self.font_index)
             );
+            document = document.add(
+            Text::new(&format!("{layer}"))
+                .set("x", self.border_left + ruler.full_width + self.border_right / 2.0)
+                .set("y", y)
+                .set("text-anchor", "middle") // 水平居中
+                .set("dominant-baseline", "middle")   // 垂直居中
+                .set("font-family", "Arial")
+                .set("font-size", self.font_index)
+            );
             y += self.cell_y_interval + self.cell_height;
         }
 
@@ -59,6 +68,15 @@ impl AdderDraw {
             Text::new(&format!("{index}"))
                 .set("x", x)
                 .set("y", self.border_up / 2.0)
+                .set("text-anchor", "middle") // 水平居中
+                .set("dominant-baseline", "middle")   // 垂直居中
+                .set("font-family", "Arial")
+                .set("font-size", self.font_index)
+            );
+            document = document.add(
+            Text::new(&format!("{index}"))
+                .set("x", x)
+                .set("y", self.border_up + ruler.full_height + self.border_down / 2.0)
                 .set("text-anchor", "middle") // 水平居中
                 .set("dominant-baseline", "middle")   // 垂直居中
                 .set("font-family", "Arial")
