@@ -2,12 +2,19 @@ use std::collections::BTreeMap;
 
 use crate::adder_v2::{adder::Adder, cell::cell_body::CellBody, excel::{excel_to_datalist::ExcelDataList, ExcelFrame}, logic::Logic, wire::{Flag, Wire}, Id};
 
+/*
+定位有三个层级
+首先是大坐标Pos，包含index和layer。index小的在右侧，layer大的在下方
+其次是CellPos，在一个大坐标下有多个Cell时按先后顺序标记，序号大的在右侧
+再其次是WirePos，在一个Cell有多个输出时（最多两个，一个是输入ab，另一个是DOUT cell），序号大的在右侧（O1序号小于Z*）
+*/
+
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct Pos {
     pub index : usize,
     pub layer : i32,
 }
-#[derive(Debug, Clone, Default)]
+#[derive(Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct CellPos(pub usize);
 
 impl CellPos {
@@ -16,7 +23,7 @@ impl CellPos {
     }
 }
 
-#[derive(Debug, Clone, Default)]
+#[derive(Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct WirePos(pub usize);
 
 impl WirePos {
