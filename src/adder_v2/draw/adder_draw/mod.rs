@@ -22,6 +22,7 @@ pub struct AdderDraw {
     pub font_cell_name : f32,
     pub font_wire_name : f32,
     pub wire_line_width : f32,
+    pub show_vddh : bool,
 }
 
 impl AdderDraw {
@@ -41,6 +42,7 @@ impl AdderDraw {
             font_cell_name: 12.,
             font_wire_name: 10.,
             wire_line_width: 1.,
+            show_vddh: true,
         }
     }
 }

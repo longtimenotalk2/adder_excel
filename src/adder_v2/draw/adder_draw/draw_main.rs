@@ -123,6 +123,7 @@ impl AdderDraw {
                     &cell.inputs,
                     &cell.outputs,
                     &ruler,
+                    &frame,
                 ));
             }
         }
