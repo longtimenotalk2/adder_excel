@@ -27,14 +27,14 @@ impl AdderDraw {
             cell_width: 50.,
             cell_height: 30.,
             cell_x_interval: 20.0,
-            cell_y_interval: 20.0,
+            cell_y_interval: 60.0,
             wire_x_interval: 20.0,
             wire_height: 5.0,
             border_up: 100.0,
             border_down: 100.0,
             border_left: 100.0,
             border_right: 100.0,
-            font_index: 5.,
+            font_index: 20.,
         }
     }
 }
@@ -80,19 +80,22 @@ impl AdderDraw {
         let bits = frame.bits;
         
         let mut max_cell_len_with_index = vec![1; frame.bits];
-        let mut layer_max = 0;
+
         for (pos, cells) in frame.frame.iter() {
             let index = pos.index;
             max_cell_len_with_index[index] = cells.len().max(max_cell_len_with_index[index]);
-            layer_max = layer_max.max(pos.layer);
         }
+
+
+        let layer_max = frame.layer_max;
+
 
         let mut full_width = (bits + 1) as f32 * self.cell_x_interval;
         for cell_len in max_cell_len_with_index.iter() {
             full_width += *cell_len as f32 * self.cell_width;
         }
 
-        let full_height = (layer_max + 1) as f32 * self.cell_y_interval + layer_max as f32 * self.cell_height;
+        let full_height = (layer_max + 2) as f32 * (self.cell_y_interval + self.cell_height);
 
         let mut cell_data : BTreeMap<Pos, BTreeMap<CellPos, (f32, f32)>> = BTreeMap::new();
         let mut wire_data : BTreeMap<Pos, BTreeMap<CellPos, BTreeMap<WirePos, (f32, f32)>>> = BTreeMap::new();
@@ -100,10 +103,10 @@ impl AdderDraw {
         for (pos, cells) in frame.frame.iter() {
             let index = pos.index;
             let layer = pos.layer;
-            let y = (self.cell_y_interval + self.cell_height) * (layer + 1) as f32 -  self.cell_height / 2.0 + self.border_up;
+            let y = (self.cell_y_interval + self.cell_height) * layer as f32 + self.cell_height / 2.0 + self.border_up + self.cell_y_interval;
             let y_wire = y + self.cell_height / 2.0 + self.wire_height / 2.0;
             let mut x = full_width - ( 
-                max_cell_len_with_index[0..index].iter().sum::<usize>() as f32 * self.cell_width + (index + 1) as f32 * self.cell_x_interval + self.cell_width / 2.0
+                max_cell_len_with_index[0..=index].iter().sum::<usize>() as f32 * self.cell_width + (index + 1) as f32 * self.cell_x_interval + self.cell_width / 2.0
             ) + self.border_left;
             for (cell_pos, cell) in cells.iter().enumerate() {
                 x += self.cell_width;
@@ -136,25 +139,4 @@ impl AdderDraw {
     }
 
     
-}
-
-#[test]
-fn test_frame() {
-    const PATH : &'static str = "src/adder_v2/project/a01_same_vt_vddh/excel/b08_t03_pn.txt";
-
-    fn adder()  -> Adder {
-        adder_and_excel().0
-    }
-
-    fn adder_and_excel()  -> (Adder, ExcelDataList<Id>) {
-        let excel_frame = ExcelFrame::load(PATH);
-        let excel_data_list = ExcelDataList::from_excel_frame(&excel_frame);
-        let (adder, excel_map) = Adder::create_from_excel_data_list(excel_data_list, false, true);
-        adder.check_id_all_match();
-        (adder, excel_map)
-    }
-    
-    let frame = AdderFrame::from_adder(&adder());
-    let draw = AdderDraw::new();
-    draw.draw(&frame, "adder.svg");
 }

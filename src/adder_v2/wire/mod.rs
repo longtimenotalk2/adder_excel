@@ -152,7 +152,7 @@ impl Wire {
         self.flag == Flag::A || self.flag == Flag::B
     }
 
-    fn is_output(&self) -> bool {
+    pub fn is_output(&self) -> bool {
         self.flag == Flag::S
     }
 

@@ -18,13 +18,11 @@ impl AdderDraw {
         let (cell_x, cell_y) = ruler.get_cell_xy(pos, cell_pos);
 
         front.push(Box::new(Rectangle::new()
-            .set("x", cell_x)
-            .set("y", cell_y)
+            .set("x", cell_x - self.cell_width / 2.)
+            .set("y", cell_y - self.cell_height / 2.)
             .set("width", self.cell_width)
             .set("height", self.cell_height)
             .set("fill", logic.color_hex_inner())
-            .set("text-anchor", "middle") // 水平居中
-            .set("dominant-baseline", "middle")   // 垂直居中
             .set("stroke", "black")
             .set("stroke-width", 2)
         ));

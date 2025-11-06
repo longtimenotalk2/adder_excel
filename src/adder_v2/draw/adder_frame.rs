@@ -16,6 +16,14 @@ pub struct Pos {
     pub index : usize,
     pub layer : i32,
 }
+
+impl Pos {
+    pub fn new(index : usize, layer : i32) -> Self {
+        Self { index, layer }
+    }
+}
+
+
 #[derive(Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct CellPos(pub usize);
 
@@ -45,21 +53,23 @@ pub struct CellFrame {
 pub struct AdderFrame {
     pub frame : BTreeMap<Pos, Vec<CellFrame>>,
     pub bits : usize,
+    pub layer_max : i32,
 }
-
-
 
 impl AdderFrame {
     pub fn from_adder(adder : &Adder) -> Self {
         // 先整理所有cell的pos+CellPos，以及所有wire的pos+CellPos+WirePos
-        let cell_layers = adder.scan_layer_absolute();
+        let cell_layers = adder.scan_layer_end_same();
         
         let mut frame: BTreeMap<Pos, Vec<CellFrame>> = BTreeMap::new();
 
         let mut detected_wire: BTreeMap<(Id, Wire), (Pos, CellPos, WirePos)> = BTreeMap::new();
 
+        let mut layer_max : i32 = 0;
+
         for (i, (_, cell)) in adder.cells.iter().enumerate() {
             let layer = cell_layers[i];
+            layer_max = layer_max.max(layer);
             let index = cell.node.io.output_z.1.index;
             let pos = Pos { index, layer };
             let cell_pos = CellPos::new(frame.get(&pos).map(|l| l.len()).unwrap_or_default());
@@ -92,6 +102,7 @@ impl AdderFrame {
         Self {
             frame,
             bits : adder.bits,
+            layer_max : layer_max,
         }
     }
 }

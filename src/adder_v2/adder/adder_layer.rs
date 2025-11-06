@@ -29,4 +29,16 @@ impl Adder {
 
         cell_layer
     }
+
+    pub fn scan_layer_end_same(&self) -> Vec<i32> {
+        let mut layer_abs = self.scan_layer_absolute();
+        let layer_max = *layer_abs.iter().max().unwrap();
+
+        for (i, (_, cell)) in self.cells.iter().enumerate() {
+            if cell.node.io.output_z.1.is_output() && cell.node.io.output_o1.is_none() {
+                layer_abs[i] = layer_max;
+            }
+        }
+        layer_abs
+    }
 }

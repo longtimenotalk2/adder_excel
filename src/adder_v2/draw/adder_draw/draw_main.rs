@@ -1,6 +1,6 @@
-use svg::{node::element::Rectangle, Document};
+use svg::{node::element::{Rectangle, Text}, Document};
 
-use crate::adder_v2::{adder::Adder, draw::{adder_draw::{AdderDraw, ToBeDraw}, adder_frame::{AdderFrame, CellPos}}, excel::{excel_to_datalist::ExcelDataList, ExcelFrame}, Id};
+use crate::adder_v2::{adder::Adder, draw::{adder_draw::{AdderDraw, ToBeDraw}, adder_frame::{AdderFrame, CellPos, Pos}}, excel::{excel_to_datalist::ExcelDataList, ExcelFrame}, Id};
 
 impl AdderDraw {
     pub fn draw(&self, frame : &AdderFrame, save_path : &str) {
@@ -36,6 +36,36 @@ impl AdderDraw {
             .set("stroke", "black")
             .set("stroke-width", 1)
         );
+
+        // layer标号
+        let mut y = self.border_up + self.cell_y_interval + self.cell_height / 2.;
+        for layer in 0..=frame.layer_max {
+            document = document.add(
+            Text::new(&format!("{layer}"))
+                .set("x", self.border_left / 2.0)
+                .set("y", y)
+                .set("text-anchor", "middle") // 水平居中
+                .set("dominant-baseline", "middle")   // 垂直居中
+                .set("font-family", "Arial")
+                .set("font-size", self.font_index)
+            );
+            y += self.cell_y_interval + self.cell_height;
+        }
+
+        // index 标号
+        for index in 0..frame.bits {
+            let (x, _) = ruler.get_cell_xy(&Pos::new(index, 1), &CellPos::default());
+            document = document.add(
+            Text::new(&format!("{index}"))
+                .set("x", x)
+                .set("y", self.border_up / 2.0)
+                .set("text-anchor", "middle") // 水平居中
+                .set("dominant-baseline", "middle")   // 垂直居中
+                .set("font-family", "Arial")
+                .set("font-size", self.font_index)
+            );
+        }
+
 
         let mut to_be_draw = ToBeDraw::default();
 
