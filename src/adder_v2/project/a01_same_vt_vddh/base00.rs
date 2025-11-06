@@ -1,4 +1,4 @@
-use crate::adder_v2::{adder::Adder, cell_parse::Process, excel::{excel_to_datalist::ExcelDataList, ExcelFrame}, wire::Wire, Id};
+use crate::adder_v2::{adder::Adder, cell_parse::Process, draw::{adder_draw::AdderDraw, adder_frame::AdderFrame}, excel::{excel_to_datalist::ExcelDataList, ExcelFrame}, wire::Wire, Id};
 
 const PATH : &'static str = "src/adder_v2/project/a01_same_vt_vddh/excel/base00.txt";
 
@@ -61,4 +61,11 @@ fn test_cdl() {
     let mut file = File::create("output.txt").unwrap();
     // 将字符串写入文件
     let _ = file.write_all(txt.as_bytes());
+}
+
+#[test]
+fn test_draw() {
+    let frame = AdderFrame::from_adder(&adder());
+    let draw = AdderDraw::new();
+    draw.draw(&frame, "adder.svg");
 }
