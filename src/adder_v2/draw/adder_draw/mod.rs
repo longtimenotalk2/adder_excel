@@ -183,6 +183,13 @@ impl AdderDraw {
             }
         }
 
+        for back in to_be_draw.back.iter() {
+            document = document.add(back.clone());
+        }
+        for front in to_be_draw.front.iter() {
+            document = document.add(front.clone());
+        }
+
         svg::save(save_path, &document).unwrap();
     }
 }

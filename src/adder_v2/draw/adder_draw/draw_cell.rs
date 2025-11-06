@@ -1,4 +1,4 @@
-use svg::Node;
+use svg::{node::element::Rectangle, Node};
 
 use crate::adder_v2::{cell::cell_info::CellInfo, draw::{adder_draw::{AdderDraw, BigRuler, ToBeDraw}, adder_frame::{CellPos, Pos, WirePos}}, logic::Logic, wire::Wire, Id};
 
@@ -15,7 +15,19 @@ impl AdderDraw {
         let mut front : Vec<Box<dyn Node>> = vec![];
         let mut back : Vec<Box<dyn Node>> = vec![];
 
+        let (cell_x, cell_y) = ruler.get_cell_xy(pos, cell_pos);
 
+        front.push(Box::new(Rectangle::new()
+            .set("x", cell_x)
+            .set("y", cell_y)
+            .set("width", self.cell_width)
+            .set("height", self.cell_height)
+            .set("fill", logic.color_hex_inner())
+            .set("text-anchor", "middle") // 水平居中
+            .set("dominant-baseline", "middle")   // 垂直居中
+            .set("stroke", "black")
+            .set("stroke-width", 2)
+        ));
 
         ToBeDraw::new(front, back)
     }
