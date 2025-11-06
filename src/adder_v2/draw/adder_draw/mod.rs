@@ -23,6 +23,7 @@ pub struct AdderDraw {
     pub font_wire_name : f32,
     pub wire_line_width : f32,
     pub show_vddh : bool,
+    pub show_incr_cell : bool,
 }
 
 impl AdderDraw {
@@ -43,6 +44,7 @@ impl AdderDraw {
             font_wire_name: 10.,
             wire_line_width: 1.,
             show_vddh: true,
+            show_incr_cell: true,
         }
     }
 }
@@ -141,7 +143,7 @@ impl AdderDraw {
                 match wire_len {
                     1 => {
                         let mut inner = BTreeMap::new();
-                        inner.insert(WirePos::default(), (x, y_wire));
+                        inner.insert(WirePos::default(), (x - self.wire_x_interval / 2.0, y_wire));
                         wire_data.entry(pos.clone()).or_default().insert(cell_pos.clone(), inner);
                     },
                     2 => {

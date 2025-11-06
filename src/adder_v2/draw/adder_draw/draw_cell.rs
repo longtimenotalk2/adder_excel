@@ -25,15 +25,24 @@ impl AdderDraw {
         } else {
             "black"
         };
-        front.push(Box::new(Rectangle::new()
-            .set("x", cell_x - self.cell_width / 2.)
-            .set("y", cell_y - self.cell_height / 2.)
-            .set("width", self.cell_width - 2.)
-            .set("height", self.cell_height)
-            .set("fill", logic.color_hex_inner())
-            .set("stroke", border_color)
-            .set("stroke-width", 2)
-            .set("opacity", 0.8)
+
+        let mark_incr_cell = self.show_incr_cell && info.is_incr_cell();
+        
+        front.push(Box::new({
+                let mut rect = Rectangle::new()
+                    .set("x", cell_x - self.cell_width / 2.)
+                    .set("y", cell_y - self.cell_height / 2.)
+                    .set("width", self.cell_width - 2.)
+                    .set("height", self.cell_height)
+                    .set("fill", logic.color_hex_inner())
+                    .set("stroke", border_color)
+                    .set("stroke-width", 2)
+                    .set("opacity", 0.8);
+                if mark_incr_cell {
+                    rect = rect.set("stroke-dasharray", "8, 4");
+                }
+                rect
+            }
         ));
 
         // cell name
@@ -99,20 +108,33 @@ impl AdderDraw {
             } else {
                 false
             };
+
+            let input_mark_incr_cell = if input_pos.layer > 0 {
+                let source_cell_info = &frame.frame.get(input_pos).unwrap()[input_cell_pos.0].cell_body.info;
+                self.show_incr_cell && source_cell_info.is_incr_cell()
+            } else {
+                false
+            };
+
             let input_border_color = if input_mark_vddh {
                 "red"
             } else {
                 "black"
             };
 
-            back.push(Box::new(Line::new()
-                .set("x1", start_point.0)
-                .set("y1", start_point.1)
-                .set("x2", end_point.0)
-                .set("y2", end_point.1)
-                .set("stroke", input_border_color)
-                .set("stroke-width", self.wire_line_width)
-            ));
+            back.push(Box::new({
+                let mut line = Line::new()
+                    .set("x1", start_point.0)
+                    .set("y1", start_point.1)
+                    .set("x2", end_point.0)
+                    .set("y2", end_point.1)
+                    .set("stroke", input_border_color)
+                    .set("stroke-width", self.wire_line_width);
+                if input_mark_incr_cell {
+                    line = line.set("stroke-dasharray", "8, 4");
+                }
+                line
+            }));
         }
 
         ToBeDraw::new(front, back)

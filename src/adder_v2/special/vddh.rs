@@ -4,6 +4,10 @@ impl CellInfo {
     pub fn is_power_vddh(&self) -> bool {
         self.special_infos.contains(&SpecialInfo("VDH".to_string()))
     }
+
+    pub fn is_incr_cell(&self) -> bool {
+        self.special_infos.contains(&SpecialInfo("VTPUL".to_string()))
+    }
 }
 
 impl CellBody {
