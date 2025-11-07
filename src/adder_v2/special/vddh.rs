@@ -1,4 +1,6 @@
-use crate::adder_v2::{cell::{cell_body::CellBody, cell_info::{CellInfo, Drive, SpecialInfo}}, cell_parse::{ReadCellName, ReadCellType}, logic::Logic};
+use std::collections::{BTreeMap, BTreeSet};
+
+use crate::adder_v2::{adder::Adder, cell::{cell_body::CellBody, cell_info::{CellInfo, Drive, SpecialInfo}}, cell_parse::{Process, ReadCellName, ReadCellType}, logic::Logic, wire::Wire, Id, Port};
 
 impl CellInfo {
     pub fn is_power_vddh(&self) -> bool {
@@ -62,5 +64,55 @@ impl CellBody {
             }
         };
         (ReadCellName::new(name), ReadCellType::Lhw)
+    }
+}
+
+impl Adder {
+    pub fn get_decr_info(&self) -> BTreeMap<Id, BTreeSet<Port>> {
+        let mut ret = BTreeMap::new();
+
+        let mut high_wires: Vec<(Id, Wire)> = vec![];
+
+        for (i, cell) in self.cells.iter() {
+            if cell.to_cell_body().info.is_power_vddh() {
+                high_wires.push(cell.node.io.output_z.clone());
+                if let Some(wire) = &cell.node.io.output_o1 {
+                    high_wires.push(wire.clone());
+                }
+                if !cell.to_cell_body().info.is_incr_cell() {
+                    for (port, input_wire) in &cell.node.io.input {
+                        if !high_wires.contains(input_wire) {
+                            println!(">>> warning !!! : for inst {} H2H cell, port {:?} with wire {} is not high!", cell.to_string(), port, input_wire.1.to_string());
+                        }
+                    }
+                }
+            } else {
+                let mut high_port = BTreeSet::new();
+                for (port, input_wire) in &cell.node.io.input {
+                    if high_wires.contains(input_wire) {
+                        high_port.insert(port.clone());
+                    }
+                }
+                if high_port.len() > 0 {
+                    ret.insert(i.clone(), high_port);
+                }
+            }
+        }
+        ret
+    }
+
+    pub fn get_decr_cell_new_name(&self, process : Process) -> BTreeMap<Id, String> {
+        let decr_info = self.get_decr_info();
+        let mut ret = BTreeMap::new();
+        for (id, cell) in self.cells.iter() {
+            if let Some(high_ports) = decr_info.get(id) {
+                let mut added_txt = "_H2L".to_string();
+                for port in high_ports {
+                    added_txt.push_str(&format!("_{}", port.0));
+                }
+                ret.insert(id.clone(), format!("{}{}", cell.to_cell_body().parse(process).0.0, added_txt));
+            }
+        }
+        ret
     }
 }

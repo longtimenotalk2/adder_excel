@@ -9,6 +9,7 @@ pub mod cdl;
 pub mod cell;
 pub mod special;
 pub mod draw;
+pub mod netlist;
 
 type Id = u32;
 

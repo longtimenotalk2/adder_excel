@@ -1,3 +1,5 @@
+use std::collections::BTreeMap;
+
 use crate::adder_v2::{adder::Adder, cell_parse::Process, draw::{adder_draw::AdderDraw, adder_frame::AdderFrame}, excel::{excel_to_datalist::ExcelDataList, ExcelFrame}, wire::Wire, Id};
 
 const PATH : &'static str = "src/adder_v2/project/a01_same_vt_vddh/excel/b09_t01_pn.txt";
@@ -54,6 +56,20 @@ fn test_adder_property() {
 fn test_cdl() {
     let adder = adder();
     let txt = adder.to_cdl("VDH_UFADDER_PN_B09_T01", Process::N3E);
+    use std::fs::File;
+    use std::io::prelude::*;
+    let content = "This is the content to write to the file.";
+    // 创建一个新文件，如果文件已存在，则覆盖
+    let mut file = File::create("output.txt").unwrap();
+    // 将字符串写入文件
+    let _ = file.write_all(txt.as_bytes());
+}
+
+#[test]
+fn test_netlist() {
+    let adder = adder();
+    let decr_info = adder.get_decr_cell_new_name(Process::N3E);
+    let txt = adder.to_netlist("VDH_UFADDER_PN_B09_T01", Process::N3E, decr_info);
     use std::fs::File;
     use std::io::prelude::*;
     let content = "This is the content to write to the file.";

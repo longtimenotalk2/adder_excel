@@ -31,6 +31,19 @@ impl Node {
         name
     }
 
+    pub fn to_port_vs_wire(&self) -> BTreeMap<Port, (Id, Wire)> {
+        let mut map = BTreeMap::new();
+        for (port, wire) in self.io.input.iter() {
+            map.insert(port.clone(), wire.clone());
+        }
+        if let Some(o1_wire) = self.io.output_o1.as_ref() {
+            map.insert(Port::new("O1"), o1_wire.clone());
+        }
+        map.insert(self.logic.z_port(),  self.io.output_z.clone());
+
+        map
+    }
+
     pub fn to_port_vs_wire_name(&self) -> BTreeMap<Port, String> {
         let mut map = BTreeMap::new();
         for (port, (_, wire)) in self.io.input.iter() {
