@@ -44,8 +44,15 @@ impl Adder {
             
             let wire_z = &self.cells.get(*cell_id as usize).unwrap().1.node.io.output_z;
             let real_cap_z = self.get_cap_cmos_for_wire(wire_z);
+            if real_cap_z == 0 && !wire_z.1.is_output() {
+                panic!("wire {} cap is 0", wire_z.1.to_string());
+            }
             let wire_o1 = &self.cells.get(*cell_id as usize).unwrap().1.node.io.output_o1;
             let real_cap_o1 : Option<i32> = wire_o1.as_ref().map(|w| self.get_cap_cmos_for_wire(&w));
+
+            if real_cap_o1 == Some(2) {
+                panic!("wire {} cap is 2", wire_o1.clone().unwrap().1.to_string());
+            }
 
 
             let real_caps = if let Some(wire_o1) = wire_o1 {

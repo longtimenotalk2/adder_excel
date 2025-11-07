@@ -22,14 +22,13 @@
 .inc '/ic/projects/BM1374/users/haiwei.li/V0/work/spf/out/OAI21D1BM156H3P48CPDELVT_P_ULVTLL_L2H_V03/OAI21D1BM156H3P48CPDELVT_P_ULVTLL_L2H_V03.Cbest45.spf'
 .inc '/ic/projects/BM1374/public/5_custom/release/custom/elvt/spf/Cbest45/OA21D1BM156H3P48CPDELVT.Cbest45.spf'
 .inc '/ic/projects/BM1374/public/5_custom/release/custom/elvt/spf/Cbest45/IAOI21D1BM156H3P48CPDELVT.Cbest45.spf'
-.inc '/ic/projects/BM1374/users/haiwei.li/V0/work/spf/out/IAOI21D1BM156H3P48CPDELVT_H2H_V03/IAOI21D1BM156H3P48CPDELVT_H2H_V03.Cbest45.spf'
 .inc '/ic/projects/BM1374/public/5_custom/release/custom/elvt/spf/Cbest45/IOAI21D1BM156H3P48CPDELVT.Cbest45.spf'
 .inc '/ic/projects/BM1374/public/5_custom/release/custom/elvt/spf/Cbest45/AOI22D1BM156H3P48CPDELVT.Cbest45.spf'
 .inc '/ic/projects/BM1374/public/5_custom/release/custom/elvt/spf/Cbest45/OAI22D1BM156H3P48CPDELVT.Cbest45.spf'
 .inc '/ic/projects/BM1374/public/5_custom/release/custom/elvt/spf/Cbest45/OAOI211D1BM156H3P48CPDELVT.Cbest45.spf'
 .inc '/ic/projects/BM1374/public/5_custom/release/custom/elvt/spf/Cbest45/OAO211D1BM156H3P48CPDELVT.Cbest45.spf'
 
-.SUBCKT VDH_UFADDER_PN_B08_T03 A0 A1 A2 A3 A4 A5 A6 A7 A8 A9 A10 A11 A12 A13 A14 A15 A16 A17 A18 A19 A20 A21 A22 A23 A24 A25 A26 A27 A28 A29 A30 B0 B1 B2 B3 B4 B5 B6 B7 B8 B9 B10 B11 B12 B13 B14 B15 B16 B17 B18 B19 B20 B21 B22 B23 B24 B25 B26 B27 B28 B29 B30 S0 S1 S2 S3 S4 S5 S6 S7 S8 S9 S10 S11 S12 S13 S14 S15 S16 S17 S18 S19 S20 S21 S22 S23 S24 S25 S26 S27 S28 S29 S30 VBB VDD VDDH VPP VSS 
+.SUBCKT VDH_UFADDER_PN_B09_T02 A0 A1 A2 A3 A4 A5 A6 A7 A8 A9 A10 A11 A12 A13 A14 A15 A16 A17 A18 A19 A20 A21 A22 A23 A24 A25 A26 A27 A28 A29 A30 B0 B1 B2 B3 B4 B5 B6 B7 B8 B9 B10 B11 B12 B13 B14 B15 B16 B17 B18 B19 B20 B21 B22 B23 B24 B25 B26 B27 B28 B29 B30 S0 S1 S2 S3 S4 S5 S6 S7 S8 S9 S10 S11 S12 S13 S14 S15 S16 S17 S18 S19 S20 S21 S22 S23 S24 S25 S26 S27 S28 S29 S30 VBB VDD VDDH VPP VSS 
 x_U1_nh1_0          a1      b1      a0      b0      VBB     VDD     VPP     VSS     nh1_0    AOI22D1BM156H3P48CPDELVT
 x_U1_np2_1          a2      b2      a1      b1      VBB     VDD     VPP     VSS     np2_1    OAI22D1BM156H3P48CPDELVT
 x_U1_nh3_2          a3      b3      a2      b2      VBB     VDD     VPP     VSS     nh3_2    AOI22D1BM156H3P48CPDELVT
@@ -115,7 +114,6 @@ x_U2_g2_0           np2_1    nh1_0    ng2     VBB     VDD     VPP     VSS     g2
 x_U2_g3             ng3     VBB     VDD     VPP     VSS     g3      INVD1BM156H3P48CPDELVT_1
 x_U2_mp5_3          nh5_4    ng3     VBB     VDD     VPP     VSS     mp5_3    ND2D1BM156H3P48CPDELVT_1
 x_U2_mg5_3          nh5_4    np4_3    np5     VBB     VDD     VPP     VSS     mg5_3    AOI21D1BM156H3P48CPDELVT
-x_U2_g10_8          np10_9    nh9_8    ng10    VBB     VDD     VPP     VSS     g10_8    OAI21D1BM156H3P48CPDELVT
 x_U2_g14_12         np14_13    nh13_12    ng14    VBB     VDD     VPP     VSS     g14_12    OAI21D1BM156H3P48CPDELVT
 x_U2_ng18_16        np18_17    nh17_16    ng18    VBB     VDD     VPP     VSS     ng18_16    OA21D1BM156H3P48CPDELVT
 x_U2_g20            ng20    VBB     VDD     VPP     VSS     g20     INVD1BM156H3P48CPDELVT_1
@@ -132,7 +130,7 @@ x_U4_g4_0           nq4     ng3_0    ng4     VBB     VDD     VPP     VSS     g4_
 x_U4_g6_0           nq6     ng5_0    ng6     VBB     VDD     VPP     VSS     g6_0    OAI21D1BM156H3P48CPDELVT
 x_U4_ng7_0          np7     nh7_0    VBB     VDD     VPP     VSS     ng7_0    OR2D1BM156H3P48CPDELVT_1
 x_U4_ng9_0          np8_7    nh7_0    nh9_8    np9     VBB     VDD     VPP     VSS     ng9_0    OAO211D1BM156H3P48CPDELVT
-x_U4_nh11_0         p10_7    nh7_0    h11_8    VBB     VDD     VDDH    VPP     VSS     nh11_0    IAOI21D1BM156H3P48CPDELVT_H2H_V03
+x_U4_nh11_0         p10_7    nh7_0    h11_8    VBB     VDD     VPP     VSS     nh11_0    IAOI21D1BM156H3P48CPDELVT
 x_U3_p23_19         p22_19    nq23    VBB     VDD     VPP     VSS     p23_19    INR2D1BM156H3P48CPDELVT_1
 x_U5_g8_0           nq8     ng7_0    ng8     VBB     VDD     VPP     VSS     g8_0    OAI21D1BM156H3P48CPDELVT
 x_U5_g10_0          nq10    ng9_0    ng10    VBB     VDD     VPP     VSS     g10_0    OAI21D1BM156H3P48CPDELVT
