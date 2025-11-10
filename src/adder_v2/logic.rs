@@ -31,6 +31,7 @@ pub enum Logic {
     NR3,
     AOAOI2111,
     OAOAI2111,
+    SUM,
 }
 
 
@@ -65,6 +66,7 @@ impl Logic {
             Logic::NR3 => "NR3",
             Logic::AOAOI2111 => "AOAOI2111",
             Logic::OAOAI2111 => "OAOAI2111",
+            Logic::SUM => "SUM",
         }
     }
 
@@ -104,11 +106,13 @@ impl Logic {
             Logic::NR3 => Logic::ND3,
             Logic::AOAOI2111 => Logic::OAOAI2111,
             Logic::OAOAI2111 => Logic::AOAOI2111,
+            Logic::SUM => Logic::SUM,
         }
     }
 
     pub fn input_port_ordered(&self) -> Vec<Port> {
         let i = Port::new("I");
+        let a = Port::new("A");
         let a1 = Port::new("A1");
         let a2 = Port::new("A2");
         let a3 = Port::new("A3");
@@ -117,6 +121,7 @@ impl Logic {
         let b2 = Port::new("B2");
         let c = Port::new("C");
         let d = Port::new("D");
+        let ci = Port::new("CI");
         match self {
             Logic::INV => vec![i],
             Logic::ND2 | Logic::NR2 | Logic::AN2 | Logic::OR2 | Logic::XNR2 | Logic::XNR2DOUT | Logic::XOR2 | Logic::XOR2DOUT => vec![a1, a2],
@@ -126,6 +131,7 @@ impl Logic {
             Logic::AOI22 | Logic::OAI22 => vec![a1, a2, b1, b2],
             Logic::ND3 | Logic::NR3 => vec![a1, a2, a3],
             Logic::AOAOI2111 | Logic::OAOAI2111 => vec![d, c, b, a1, a2],
+            Logic::SUM => vec![ci, b1, b2, a],
         }
     }
 
@@ -299,7 +305,14 @@ impl Logic {
                         let c = *inputs.get(&Port::new("C")).unwrap();
                         let d = *inputs.get(&Port::new("D")).unwrap();
                         !((((a1 && a2) || b ) && c) || d)
-                    }
+                    },
+                    Logic::SUM => {
+                        let a = *inputs.get(&Port::new("A")).unwrap();
+                        let b1 = *inputs.get(&Port::new("B1")).unwrap();
+                        let b2 = *inputs.get(&Port::new("B2")).unwrap();
+                        let ci = *inputs.get(&Port::new("CI")).unwrap();
+                        !(((a | b1) & ci) | (a & b2))
+                    },
                 };
                 (out, None)
             }

@@ -44,7 +44,7 @@ fn test_adder_cap() {
 #[test]
 fn test_adder_cap_debug() {
     let adder = adder();
-    let wire = &adder.cells.get(062).unwrap().1.node.io.output_z;
+    let wire = &adder.cells.get(000).unwrap().1.node.io.output_z;
     dbg!(&wire);
     let cap = adder.get_cap_cmos_for_wire(&wire);
     dbg!(cap);

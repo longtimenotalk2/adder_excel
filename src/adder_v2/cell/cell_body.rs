@@ -51,7 +51,7 @@ impl CellBody {
             Logic::ND2 | Logic::NR2 => 4,
             Logic::AOI21 | Logic::OAI21 | Logic::AN2 | Logic::OR2 | Logic::IND2 | Logic::INR2 | Logic::ND3 | Logic::NR3 => 6,
             Logic::AOI22 | Logic::OAI22 | Logic::IAOI21 | Logic::IOAI21 | Logic::AO21 | Logic::OA21 | Logic::AOAI211 | Logic::OAOI211 => 8,
-            Logic::XNR2 | Logic::XOR2 | Logic::XNR2DOUT | Logic::XOR2DOUT | Logic::AOA211 | Logic::OAO211 | Logic::AOAOI2111 | Logic::OAOAI2111=> 10,
+            Logic::XNR2 | Logic::XOR2 | Logic::XNR2DOUT | Logic::XOR2DOUT | Logic::AOA211 | Logic::OAO211 | Logic::AOAOI2111 | Logic::OAOAI2111 | Logic::SUM => 10,
         };
         if self.contains_special("SP-BD") {
             basic_num += 2;
