@@ -1,6 +1,6 @@
 use svg::{node::element::{Line, Rectangle, Text}, Node};
 
-use crate::adder_v2::{cell::cell_info::CellInfo, draw::{adder_draw::{AdderDraw, BigRuler, ToBeDraw}, adder_frame::{AdderFrame, CellPos, Pos, WirePos}}, logic::Logic, wire::Wire, Id};
+use crate::adder_v2::{cell::cell_info::{CellInfo, Drive}, draw::{adder_draw::{AdderDraw, BigRuler, ToBeDraw}, adder_frame::{AdderFrame, CellPos, Pos, WirePos}}, logic::Logic, wire::Wire, Id};
 
 impl AdderDraw {
     pub fn draw_cell(&self, 
@@ -27,6 +27,12 @@ impl AdderDraw {
         };
 
         let mark_incr_cell = self.show_incr_cell && info.is_incr_cell();
+
+        let stroke_width = if self.show_d2 && info.drive == Drive::D2 {
+            4
+        } else {
+            2
+        };
         
         front.push(Box::new({
                 let mut rect = Rectangle::new()
@@ -36,7 +42,7 @@ impl AdderDraw {
                     .set("height", self.cell_height)
                     .set("fill", logic.color_hex_inner())
                     .set("stroke", border_color)
-                    .set("stroke-width", 2)
+                    .set("stroke-width", stroke_width)
                     .set("opacity", 0.8);
                 if mark_incr_cell {
                     rect = rect.set("stroke-dasharray", "8, 4");

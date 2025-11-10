@@ -24,6 +24,7 @@ pub struct AdderDraw {
     pub wire_line_width : f32,
     pub show_vddh : bool,
     pub show_incr_cell : bool,
+    pub show_d2 : bool,
 }
 
 impl AdderDraw {
@@ -45,6 +46,7 @@ impl AdderDraw {
             wire_line_width: 1.,
             show_vddh: true,
             show_incr_cell: true,
+            show_d2: true,
         }
     }
 }

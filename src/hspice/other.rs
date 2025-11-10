@@ -2,6 +2,7 @@ pub mod mb_function;
 pub mod delay_model;
 pub mod random;
 pub(crate) mod multi_vdd_test;
+pub mod measure_adder;
 
 use crate::hspice::line_cell;
 

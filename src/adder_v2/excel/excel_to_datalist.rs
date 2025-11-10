@@ -132,9 +132,7 @@ impl ExcelDataList<(NodeHint, CellInfo, Option<Vec<i32>>)> {
                     }
                     match wire_string.as_str() {
                         "nq~" => node_hint.is_start_xnr_dout = true,
-                        "nq"  => node_hint.is_start_xnr = true,
                         "q~"  => node_hint.is_start_xor_dout = true,
-                        "q"   => node_hint.is_start_xor = true,
                         _ => {
                             
                             
@@ -153,6 +151,11 @@ impl ExcelDataList<(NodeHint, CellInfo, Option<Vec<i32>>)> {
                             }
                             if code.single_chars.contains(&'A') {
                                 node_hint.is_start = true;
+                                match wire_string.as_str() {
+                                    "nq"  => node_hint.is_start_xnr = true,
+                                    "q"   => node_hint.is_start_xor = true,
+                                    _ => (),
+                                }
                             }
                             if code.single_chars.contains(&'M') {
                                 node_hint.is_use_mirror = true;

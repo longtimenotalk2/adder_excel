@@ -550,6 +550,8 @@ impl Logic {
             &[O, A] => Logic::AOI21,
             &[A, O, A] => Logic::AOAI211,
             &[O, A, O] => Logic::OAOI211,
+            &[A, A] => Logic::ND3,
+            &[O, A, O, A] => Logic::AOAOI2111,
             _ => panic!("can not parse logic {aologic:?}")
         }
     }

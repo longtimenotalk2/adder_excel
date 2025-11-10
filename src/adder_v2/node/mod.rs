@@ -187,7 +187,7 @@ impl Node {
                 let new_logic = match self.logic {
                     Logic::ND2 => Logic::AN2,
                     Logic::NR2 => Logic::OR2,
-                    Logic::AOI21 => Logic::OA21,
+                    Logic::AOI21 => Logic::AO21,
                     Logic::OAI21 => Logic::OA21,
                     Logic::AOAI211 => Logic::AOA211,
                     Logic::OAOI211 => Logic::OAO211,

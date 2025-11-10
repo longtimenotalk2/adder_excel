@@ -28,8 +28,8 @@ impl CellBody {
                     Logic::OAOI211 => ("OAOI211D1BM156H3P48CPDELVT", ReadCellType::Custom),
                     Logic::AOA211 => ("AOA211D1BM156H3P48CPDELVT", ReadCellType::Custom),
                     Logic::OAO211 => ("OAO211D1BM156H3P48CPDELVT", ReadCellType::Custom),
-                    Logic::ND3 => ("ND3D1BM156H3P48CPDELVT_1", ReadCellType::Custom),
-                    Logic::NR3 => ("NR3D1BM156H3P48CPDELVT_1", ReadCellType::Custom),
+                    Logic::ND3 => ("ND3D1BM156H3P48CPDELVT_1", ReadCellType::Std),
+                    Logic::NR3 => ("NR3D1BM156H3P48CPDELVT_1", ReadCellType::Std),
                     Logic::OAOAI2111 => ("OAOAI2111D1BM156H3P48CPDELVT", ReadCellType::Custom),
                     Logic::AOAOI2111 => ("AOAOI2111D1BM156H3P48CPDELVT", ReadCellType::Custom),
                 }}

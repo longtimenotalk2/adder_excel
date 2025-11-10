@@ -13,7 +13,6 @@ impl Logic {
             Logic::AOAI211 | Logic::OAOI211 | Logic::AOA211 | Logic::OAO211 => "#00FFFF",
             Logic::ND3 | Logic::NR3 => "#F4B084",
             Logic::AOAOI2111 | Logic::OAOAI2111 => "#BFBFBF",
-            _ => todo!()
         }
     }
 
@@ -21,6 +20,8 @@ impl Logic {
         match self {
             Logic::XNR2DOUT => vec!["XNR2".to_string(), "DOUT".to_string()],
             Logic::XOR2DOUT => vec!["XOR2".to_string(), "DOUT".to_string()],
+            Logic::AOAOI2111 => vec!["AOAOI".to_string(), "2111".to_string()],
+            Logic::OAOAI2111 => vec!["OAOAI".to_string(), "2111".to_string()],
             _ => vec![format!("{:?}", self)]
         }
     }
