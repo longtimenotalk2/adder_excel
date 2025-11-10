@@ -1,6 +1,6 @@
 use std::collections::{BTreeMap, BTreeSet};
 
-use crate::adder_v2::{cell::cell_info::{CellInfo, Drive, SpecialInfo}, excel::ExcelFrame, node::{FlagPChain, NodeHint}, wire::{Flag, FlagP, Wire, WireFloat}, Id};
+use crate::adder_v2::{adder::adder_create::EndSpecial, cell::cell_info::{CellInfo, Drive, SpecialInfo}, excel::ExcelFrame, node::{FlagPChain, NodeHint}, wire::{Flag, FlagP, Wire, WireFloat}, Id};
 
 // 每个multi line的每个index只有对多一个cell。保证顺序是从上行到下行，每一行从index小到index大
 #[derive(Debug, Clone, PartialEq, PartialOrd, Hash, Eq, Ord)]
@@ -13,6 +13,7 @@ pub struct ExcelDataListKey {
 pub struct ExcelDataList<T> {
     pub data : BTreeMap<ExcelDataListKey, T>,
     pub bits : usize,
+    pub end_special : BTreeMap<usize, EndSpecial>,
 }
 
 #[derive(Debug, Clone)]
@@ -87,6 +88,7 @@ impl<T> ExcelDataList<T> {
         Self {
             data : BTreeMap::new(),
             bits,
+            end_special : BTreeMap::new(),
         }
     }
 }
@@ -204,6 +206,7 @@ impl ExcelDataList<(NodeHint, CellInfo, Option<Vec<i32>>)> {
         Self {
             data: dataset,
             bits : frame.bits,
+            end_special : frame.end_special.clone(),
         }
     }
 }

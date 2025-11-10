@@ -1,5 +1,5 @@
-mod adder_create;
-mod adder_show;
+pub mod adder_create;
+pub mod adder_show;
 pub mod adder_check_id;
 pub mod adder_function;
 pub mod adder_property;

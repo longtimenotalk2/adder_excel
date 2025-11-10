@@ -1,7 +1,7 @@
 pub mod excel_to_datalist;
 use std::collections::BTreeMap;
 
-use crate::adder_v2::Id;
+use crate::adder_v2::{adder::adder_create::EndSpecial, Id};
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Hash, Eq, Ord)]
 pub struct ExcelKey {
@@ -22,6 +22,7 @@ pub struct ExcelMultiLineData {
 pub struct ExcelFrame {
     pub multi_lines : BTreeMap<ExcelKey, ExcelMultiLineData>,
     pub bits : usize,
+    pub end_special : BTreeMap<usize, EndSpecial>
 }
 
 impl ExcelFrame {
@@ -34,10 +35,21 @@ impl ExcelFrame {
         let mut multi_lines = BTreeMap::new();
         let mut bits = None;
 
+        let mut end_special = BTreeMap::new();
+
         for line in lines {
             let items = line.split("\t").map(|s| s.trim()).collect::<Vec<&str>>();
             if line.starts_with("LY") {
                 bits = Some(items[3].parse::<usize>().unwrap() + 1);
+            } else if line.starts_with("END") {
+                let data_iter = items[3..(3+bits.unwrap())].iter().rev();
+                for (index, item) in data_iter.enumerate() {
+                    match item.trim() {
+                        "" => (),
+                        "SUM" => {end_special.insert(index, EndSpecial::SUM);},
+                        _ => panic!("invalid end special {item}"),
+                    }
+                }
             } else {
                 let layer = items[0].parse::<i32>().unwrap();
                 let name = items[1].to_string();
@@ -73,6 +85,7 @@ impl ExcelFrame {
         Self {
             multi_lines,
             bits : bits.unwrap(),
+            end_special
         }
         
     }

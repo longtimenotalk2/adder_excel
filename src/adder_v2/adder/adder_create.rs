@@ -5,6 +5,12 @@ use rand::seq::index;
 
 use crate::adder_v2::{adder::Adder, cell::{cell_info::CellInfo, Cell}, excel::excel_to_datalist::ExcelDataList, logic::Logic, node::{Node, NodeHint}, wire::{wire_list::WireList, Flag, Wire}, Id, Port};
 
+#[derive(Debug, Clone)]
+pub enum EndSpecial {
+    None,
+    SUM,
+}
+
 impl Adder {
     pub fn create_from_excel_data_list(
         excel_data_list: ExcelDataList<(NodeHint, CellInfo, Option<Vec<i32>>)>,
