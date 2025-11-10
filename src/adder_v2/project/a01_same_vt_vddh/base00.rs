@@ -44,10 +44,10 @@ fn test_adder_cap() {
 #[test]
 fn test_adder_property() {
     let adder = adder();
-    let set = adder.cell_body_set();
-    for cell in set {
-        println!("{}", cell.to_string())
-    }
+    let cell_num = adder.cell_num();
+    println!("cell_num = {}", cell_num);
+    let mos_num = adder.mos_num();
+    println!("mos_num = {}", mos_num);
 }
 
 #[test]
@@ -62,6 +62,7 @@ fn test_cdl() {
     // 将字符串写入文件
     let _ = file.write_all(txt.as_bytes());
 }
+
 
 #[test]
 fn test_draw() {

@@ -78,7 +78,7 @@ impl Adder {
         for inst in inst_line.iter() {
             let mut txt = String::new();
             txt += &format!("   {}", inst.cell_name);
-            txt += &format!(" {}(", inst.inst_name);
+            txt += &format!(" {} (", inst.inst_name);
             for (i, (port, wire)) in inst.port_and_wire.iter().rev().enumerate() {
                 if i != 0 {
                     txt += ",\n\t";

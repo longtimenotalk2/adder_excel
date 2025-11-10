@@ -115,4 +115,96 @@ impl Adder {
         }
         ret
     }
+
+    pub fn vddh_stat_l2h_cell_list(&self, process : Process) -> BTreeSet<String> {
+        let mut ret = BTreeSet::new();
+        for (_, cell) in self.cells.iter() {
+            if cell.to_cell_body().info.is_power_vddh() && cell.to_cell_body().info.is_incr_cell() {
+                ret.insert(cell.to_cell_body().parse(process).0.0.to_string());
+            }
+        }
+        ret
+    }
+
+    pub fn vddh_stat_h2h_cell_list(&self, process : Process) -> BTreeSet<String> {
+        let mut ret = BTreeSet::new();
+        for (_, cell) in self.cells.iter() {
+            if cell.to_cell_body().info.is_power_vddh() && !cell.to_cell_body().info.is_incr_cell() {
+                ret.insert(cell.to_cell_body().parse(process).0.0.to_string());
+            }
+        }
+        ret
+    }
+
+    pub fn vddh_stat_h2l_cell_list(&self, process : Process) -> BTreeSet<String> {
+        let mut ret = BTreeSet::new();
+        for (_, name) in self.get_decr_cell_new_name(process) {
+            ret.insert(name);
+        }
+        ret
+    }
+
+    pub fn vddh_helper_2h_spf_copy(&self, process : Process) {
+        let mut cells = self.vddh_stat_l2h_cell_list(process);
+        cells.append(&mut self.vddh_stat_h2h_cell_list(process));
+        for cell in cells {
+            println!("cp {}/{}/{}{} .", process.lhw_path(), cell, cell, process.spf_suffix());
+        }
+    }
+
+    pub fn vddh_helper_2h_gds_copy(&self, process : Process) {
+        let mut cells = self.vddh_stat_l2h_cell_list(process);
+        cells.append(&mut self.vddh_stat_h2h_cell_list(process));
+        for cell in cells {
+            println!("cp {}/{}.gds .", process.cds_path(), cell);
+        }
+    }
+
+    pub fn vddh_helper_h2l_origin_list(&self, process : Process)  {
+        let h2l_info = self.get_decr_cell_new_name(process);
+        let mut origin_cells = BTreeSet::new();
+        for (id, _) in h2l_info {
+            let cell_origin_name = self.cells[id as usize].1.to_cell_body().parse(process).0.0.to_string();
+            origin_cells.insert(cell_origin_name);
+        }
+        for cell in origin_cells {
+            println!("{}", cell);
+        }
+    }
+
+    pub fn vddh_helper_h2l_new_map_to_origin(&self, process : Process)  {
+        let h2l_info = self.get_decr_cell_new_name(process);
+        let mut new_to_origin_map = BTreeMap::new();
+        for (id, name) in h2l_info {
+            let cell_origin_name = self.cells[id as usize].1.to_cell_body().parse(process).0.0.to_string();
+            new_to_origin_map.insert(name, cell_origin_name);
+        }
+        for (cell_new, cell_origin) in new_to_origin_map {
+            println!("{} {}", cell_new, cell_origin);
+        }
+    }
+
+    pub fn vddh_helper_h2l_gds_origin_copy(&self, process : Process) {
+        let h2l_info = self.get_decr_cell_new_name(process);
+        let mut origin_cell_copys = BTreeSet::new();
+        for (id, _) in h2l_info {
+            let cell_gds_path = self.cells[id as usize].1.to_cell_body().gds_path(process);
+            origin_cell_copys.insert(cell_gds_path);
+        }
+        for cell in origin_cell_copys {
+            println!("cp {} .", cell);
+        }
+    }
+
+    pub fn vddh_helper_h2l_spf_origin_copy(&self, process : Process) {
+        let h2l_info = self.get_decr_cell_new_name(process);
+        let mut origin_cell_copys = BTreeSet::new();
+        for (id, _) in h2l_info {
+            let cell_spf_path = self.cells[id as usize].1.to_cell_body().spf_path(process);
+            origin_cell_copys.insert(cell_spf_path);
+        }
+        for cell in origin_cell_copys {
+            println!("cp {} .", cell);
+        }
+    }
 }

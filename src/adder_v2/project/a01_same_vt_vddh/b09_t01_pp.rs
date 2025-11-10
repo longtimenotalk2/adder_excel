@@ -11,7 +11,7 @@ fn adder()  -> Adder {
 fn adder_and_excel()  -> (Adder, ExcelDataList<Id>) {
     let excel_frame = ExcelFrame::load(PATH);
     let excel_data_list = ExcelDataList::from_excel_frame(&excel_frame);
-    let (adder, excel_map) = Adder::create_from_excel_data_list(excel_data_list, false, true);
+    let (adder, excel_map) = Adder::create_from_excel_data_list(excel_data_list, false, false);
     adder.check_id_all_match();
     (adder, excel_map)
 }
@@ -69,7 +69,7 @@ fn test_cdl() {
 fn test_netlist() {
     let adder = adder();
     let decr_info = adder.get_decr_cell_new_name(Process::N3E);
-    let txt = adder.to_netlist("VDH_UFADDER_PN_B09_T01", Process::N3E, decr_info);
+    let txt = adder.to_netlist("adder_ultrafast_31_l7_2p_pp_SPCK_1_SPCP_8", Process::N3E, decr_info);
     use std::fs::File;
     use std::io::prelude::*;
     let content = "This is the content to write to the file.";
@@ -89,7 +89,18 @@ fn test_draw() {
 #[test]
 fn test_cell_list() {
     let adder = adder();
-    show_string_iter_btreeset(adder.vddh_stat_l2h_cell_list(Process::N3E));
-    show_string_iter_btreeset(adder.vddh_stat_h2h_cell_list(Process::N3E));
+    // show_string_iter_btreeset(adder.vddh_stat_l2h_cell_list(Process::N3E));
+    // show_string_iter_btreeset(adder.vddh_stat_h2h_cell_list(Process::N3E));
     show_string_iter_btreeset(adder.vddh_stat_h2l_cell_list(Process::N3E));
+}
+
+#[test]
+fn test_helper() {
+    let adder = adder();
+    // adder.vddh_helper_2h_spf_copy(Process::N3E);
+    // adder.vddh_helper_2h_gds_copy(Process::N3E);
+    // adder.vddh_helper_h2l_origin_list(Process::N3E);
+    // adder.vddh_helper_h2l_new_map_to_origin(Process::N3E);
+    // adder.vddh_helper_h2l_gds_origin_copy(Process::N3E);
+    adder.vddh_helper_h2l_spf_origin_copy(Process::N3E);
 }

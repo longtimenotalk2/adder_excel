@@ -1,3 +1,5 @@
+use std::collections::BTreeSet;
+
 pub mod wire;
 pub mod logic;
 pub mod node;
@@ -19,5 +21,11 @@ pub struct Port(pub String);
 impl Port {
     pub fn new(name: &str) -> Self {
         Self(name.to_string())
+    }
+}
+
+pub fn show_string_iter_btreeset(list : BTreeSet<String>) {
+    for item in list.iter() {
+        println!("{}", item.to_string());
     }
 }

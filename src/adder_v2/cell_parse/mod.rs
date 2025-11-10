@@ -23,6 +23,32 @@ pub enum Process {
     N3E,
 }
 
+impl Process {
+    pub fn path_base(&self) -> &'static str {
+        match self {
+            Process::N3E => "/ic/projects/BM1374",
+        }
+    }
+
+    pub fn spf_suffix(&self) -> &'static str {
+        match self {
+            Process::N3E => ".Cbest45.spf",
+        }
+    }
+
+    pub fn lhw_path(&self) -> &'static str {
+        match self {
+            Process::N3E => "/ic/projects/BM1374/users/haiwei.li/V0/work/spf/out",
+        }
+    }
+
+    pub fn cds_path(&self) -> &'static str {
+        match self {
+            Process::N3E => "/ic/projects/BM1374/users/haiwei.li/V0/cds",
+        }
+    }
+}
+
 impl CellBody {
     pub fn parse(&self, process : Process) -> (ReadCellName, ReadCellType) {
         match process {
@@ -33,6 +59,12 @@ impl CellBody {
     pub fn spf_path(&self, process : Process) -> String {
         match process {
             Process::N3E => self.spf_path_n3e(),
+        }
+    }
+
+    pub fn gds_path(&self, process : Process) -> String {
+        match process {
+            Process::N3E => self.gds_path_n3e(),
         }
     }
 }
