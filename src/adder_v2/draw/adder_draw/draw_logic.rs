@@ -11,6 +11,9 @@ impl Logic {
             Logic::AOI22 => "#A9D08E",
             Logic::OAI22 => "#E2EFDA",
             Logic::AOAI211 | Logic::OAOI211 | Logic::AOA211 | Logic::OAO211 => "#00FFFF",
+            Logic::ND3 | Logic::NR3 => "#F4B084",
+            Logic::AOAOI2111 | Logic::OAOAI2111 => "#BFBFBF",
+            _ => todo!()
         }
     }
 
@@ -26,9 +29,9 @@ impl Logic {
 
 #[test]
 fn test_rgb() {
-    let r = 0;
-    let g = 255;
-    let b = 255;
+    let r = 191;
+    let g = 191;
+    let b = 191;
     let hex = format!("{:02X}{:02X}{:02X}", r, g, b);
     println!("{}", hex);
 }

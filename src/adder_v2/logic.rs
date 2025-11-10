@@ -27,6 +27,10 @@ pub enum Logic {
     OAOI211,
     AOA211,
     OAO211,
+    ND3,
+    NR3,
+    AOAOI2111,
+    OAOAI2111,
 }
 
 
@@ -57,6 +61,10 @@ impl Logic {
             Logic::OAOI211 => "OAOI211",
             Logic::AOA211 => "AOA211",
             Logic::OAO211 => "OAO211",
+            Logic::ND3 => "ND3",
+            Logic::NR3 => "NR3",
+            Logic::AOAOI2111 => "AOAOI2111",
+            Logic::OAOAI2111 => "OAOAI2111",
         }
     }
 
@@ -92,6 +100,10 @@ impl Logic {
             Logic::OAOI211 => Logic::AOAI211,
             Logic::AOA211 => Logic::OAO211,
             Logic::OAO211 => Logic::AOA211,
+            Logic::ND3 => Logic::NR3,
+            Logic::NR3 => Logic::ND3,
+            Logic::AOAOI2111 => Logic::OAOAI2111,
+            Logic::OAOAI2111 => Logic::AOAOI2111,
         }
     }
 
@@ -99,10 +111,12 @@ impl Logic {
         let i = Port::new("I");
         let a1 = Port::new("A1");
         let a2 = Port::new("A2");
+        let a3 = Port::new("A3");
         let b = Port::new("B");
         let b1 = Port::new("B1");
         let b2 = Port::new("B2");
         let c = Port::new("C");
+        let d = Port::new("D");
         match self {
             Logic::INV => vec![i],
             Logic::ND2 | Logic::NR2 | Logic::AN2 | Logic::OR2 | Logic::XNR2 | Logic::XNR2DOUT | Logic::XOR2 | Logic::XOR2DOUT => vec![a1, a2],
@@ -110,6 +124,8 @@ impl Logic {
             Logic::AOAI211 | Logic::OAOI211 | Logic::AOA211 | Logic::OAO211 => vec![c, b, a1, a2],
             Logic::IND2 | Logic::INR2 => vec![a1, b1],
             Logic::AOI22 | Logic::OAI22 => vec![a1, a2, b1, b2],
+            Logic::ND3 | Logic::NR3 => vec![a1, a2, a3],
+            Logic::AOAOI2111 | Logic::OAOAI2111 => vec![d, c, b, a1, a2],
         }
     }
 
@@ -256,6 +272,34 @@ impl Logic {
                         let c = *inputs.get(&Port::new("C")).unwrap();
                         ((a1 || a2) && b) || c
                     },
+                    Logic::ND3 => {
+                        let a1 = *inputs.get(&Port::new("A1")).unwrap();
+                        let a2 = *inputs.get(&Port::new("A2")).unwrap();
+                        let a3 = *inputs.get(&Port::new("A3")).unwrap();
+                        !(a1 && a2 && a3)
+                    }
+                    Logic::NR3 => {
+                        let a1 = *inputs.get(&Port::new("A1")).unwrap();
+                        let a2 = *inputs.get(&Port::new("A2")).unwrap();
+                        let a3 = *inputs.get(&Port::new("A3")).unwrap();
+                        !(a1 || a2 || a3)
+                    }
+                    Logic::OAOAI2111 => {
+                        let a1 = *inputs.get(&Port::new("A1")).unwrap();
+                        let a2 = *inputs.get(&Port::new("A2")).unwrap();
+                        let b = *inputs.get(&Port::new("B")).unwrap();
+                        let c = *inputs.get(&Port::new("C")).unwrap();
+                        let d = *inputs.get(&Port::new("D")).unwrap();
+                        !((((a1 || a2) && b ) || c) && d)
+                    }
+                    Logic::AOAOI2111 => {
+                        let a1 = *inputs.get(&Port::new("A1")).unwrap();
+                        let a2 = *inputs.get(&Port::new("A2")).unwrap();
+                        let b = *inputs.get(&Port::new("B")).unwrap();
+                        let c = *inputs.get(&Port::new("C")).unwrap();
+                        let d = *inputs.get(&Port::new("D")).unwrap();
+                        !((((a1 && a2) || b ) && c) || d)
+                    }
                 };
                 (out, None)
             }
