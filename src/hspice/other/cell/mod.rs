@@ -2,6 +2,11 @@ use std::fmt::Debug;
 
 pub mod fa1n;
 
+const LOW : &'static str = "i_LOW";
+const HIGH : &'static str = "i_HIGH";
+const FALL : &'static str = "i_FALL";
+const RISE : &'static str = "i_RISE";
+
 #[derive(Clone, PartialEq, Eq, PartialOrd, Ord)]
 enum Signal {
     Zero,
@@ -17,6 +22,47 @@ impl Signal {
             _ => false,
         }
     }
+
+    fn start(&self) -> bool {
+        match self {
+            Signal::Zero | Signal::Rise => false,
+            Signal::One | Signal::Fall => true,
+        }
+    }
+
+    fn end(&self) -> bool {
+        match self {
+            Signal::Zero | Signal::Fall => false,
+            Signal::One | Signal::Rise => true,
+        }
+    }
+
+    fn from_start_and_end(start: bool, end: bool) -> Self {
+        match (start, end) {
+            (false, false) => Signal::Zero,
+            (true, true) => Signal::One,
+            (false, true) => Signal::Rise,
+            (true, false) => Signal::Fall,
+        }
+    }
+
+    fn to_wire(&self) -> &'static str {
+        match self {
+            Signal::Zero => LOW,
+            Signal::One => HIGH,
+            Signal::Fall => FALL,
+            Signal::Rise => RISE,
+        }
+    }
+
+    fn to_string(&self) -> String {
+        match self {
+            Signal::Zero => "0".to_string(),
+            Signal::One => "1".to_string(),
+            Signal::Fall => "f".to_string(),
+            Signal::Rise => "r".to_string(),
+        }
+    }
 }
 
 impl Debug for Signal {
@@ -30,8 +76,22 @@ impl Debug for Signal {
     }
 }
 
-#[derive(Clone)]
+#[derive(Clone, PartialEq, Eq, PartialOrd, Ord)]
 struct InputArc(Vec<Signal>);
+
+impl InputArc {
+    fn start(&self) -> Vec<bool> {
+        self.0.iter().map(|s| s.start()).collect()
+    }
+
+    fn end(&self) -> Vec<bool> {
+        self.0.iter().map(|s| s.end()).collect()
+    }
+
+    fn to_string(&self) -> String {
+        self.0.iter().map(|s| format!("{}", s.to_string())).collect::<String>()
+    }
+}
 
 impl Debug for InputArc {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {

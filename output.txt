@@ -1,192 +1,384 @@
-.inc '/ic/projects/BM1374/public/5_custom/release/stdcell/stdcell_BM/elvt/spf/Cbest45/INVD1BM156H3P48CPDELVT_1.Cbest45.spf'
-.inc '/ic/projects/BM1374/public/5_custom/release/stdcell/stdcell_BM/elvt/spf/Cbest45/ND2D1BM156H3P48CPDELVT_1.Cbest45.spf'
-.inc '/ic/projects/BM1374/public/5_custom/release/stdcell/stdcell_BM/elvt/spf/Cbest45/NR2D1BM156H3P48CPDELVT_1.Cbest45.spf'
-.inc '/ic/projects/BM1374/public/5_custom/release/stdcell/stdcell_BM/elvt/spf/Cbest45/AN2D1BM156H3P48CPDELVT_1.Cbest45.spf'
-.inc '/ic/projects/BM1374/public/5_custom/release/stdcell/stdcell_BM/elvt/spf/Cbest45/OR2D1BM156H3P48CPDELVT_1.Cbest45.spf'
-.inc '/ic/projects/BM1374/public/5_custom/release/custom/elvt/spf/Cbest45/XOR2D1BM156H3P48CPDELVT.Cbest45.spf'
-.inc '/ic/projects/BM1374/public/5_custom/release/custom/elvt/spf/Cbest45/XNR2D1BM156H3P48CPDELVT.Cbest45.spf'
-.inc '/ic/projects/BM1374/public/5_custom/release/custom/elvt/spf/Cbest45/XNR2D1_DUAL_OUT_BM156H3P48CPDELVT.Cbest45.spf'
-.inc '/ic/projects/BM1374/public/5_custom/release/custom/elvt/spf/Cbest45/AOI21D1BM156H3P48CPDELVT.Cbest45.spf'
-.inc '/ic/projects/BM1374/public/5_custom/release/custom/elvt/spf/Cbest45/AOI21D2BM156H3P48CPDELVT.Cbest45.spf'
-.inc '/ic/projects/BM1374/public/5_custom/release/custom/elvt/spf/Cbest45/OAI21D1BM156H3P48CPDELVT.Cbest45.spf'
-.inc '/ic/projects/BM1374/public/5_custom/release/custom/elvt/spf/Cbest45/OAI21D2BM156H3P48CPDELVT.Cbest45.spf'
-.inc '/ic/projects/BM1374/public/5_custom/release/custom/elvt/spf/Cbest45/AO21D1BM156H3P48CPDELVT.Cbest45.spf'
-.inc '/ic/projects/BM1374/public/5_custom/release/custom/elvt/spf/Cbest45/OA21D1BM156H3P48CPDELVT.Cbest45.spf'
-.inc '/ic/projects/BM1374/public/5_custom/release/stdcell/stdcell_BM/elvt/spf/Cbest45/NR3D1BM156H3P48CPDELVT_1.Cbest45.spf'
-.inc '/ic/projects/BM1374/public/5_custom/release/custom/elvt/spf/Cbest45/OAOAI2111D1BM156H3P48CPDELVT.Cbest45.spf'
-.inc '/ic/projects/BM1374/public/5_custom/release/custom/elvt/spf/Cbest45/SUMD1BM156H3P48CPDELVT.Cbest45.spf'
-
-.SUBCKT BK_ADDER_PP_B03 A0 A1 A2 A3 A4 A5 A6 A7 A8 A9 A10 A11 A12 A13 A14 A15 A16 A17 A18 A19 A20 A21 A22 A23 A24 A25 A26 A27 A28 A29 A30 B0 B1 B2 B3 B4 B5 B6 B7 B8 B9 B10 B11 B12 B13 B14 B15 B16 B17 B18 B19 B20 B21 B22 B23 B24 B25 B26 B27 B28 B29 B30 S0 S1 S2 S3 S4 S5 S6 S7 S8 S9 S10 S11 S12 S13 S14 S15 S16 S17 S18 S19 S20 S21 S22 S23 S24 S25 S26 S27 S28 S29 S30 VBB VDD VPP VSS 
-x_U1_ng0            a0      b0      VBB     VDD     VPP     VSS     ng0     ND2D1BM156H3P48CPDELVT_1
-x_U1_ng1            a1      b1      VBB     VDD     VPP     VSS     ng1     ND2D1BM156H3P48CPDELVT_1
-x_U1_ng2            a2      b2      VBB     VDD     VPP     VSS     ng2     ND2D1BM156H3P48CPDELVT_1
-x_U1_ng3            a3      b3      VBB     VDD     VPP     VSS     ng3     ND2D1BM156H3P48CPDELVT_1
-x_U1_ng4            a4      b4      VBB     VDD     VPP     VSS     ng4     ND2D1BM156H3P48CPDELVT_1
-x_U1_ng5            a5      b5      VBB     VDD     VPP     VSS     ng5     ND2D1BM156H3P48CPDELVT_1
-x_U1_ng6            a6      b6      VBB     VDD     VPP     VSS     ng6     ND2D1BM156H3P48CPDELVT_1
-x_U1_ng7            a7      b7      VBB     VDD     VPP     VSS     ng7     ND2D1BM156H3P48CPDELVT_1
-x_U1_ng8            a8      b8      VBB     VDD     VPP     VSS     ng8     ND2D1BM156H3P48CPDELVT_1
-x_U1_ng9            a9      b9      VBB     VDD     VPP     VSS     ng9     ND2D1BM156H3P48CPDELVT_1
-x_U1_ng10           a10     b10     VBB     VDD     VPP     VSS     ng10    ND2D1BM156H3P48CPDELVT_1
-x_U1_ng11           a11     b11     VBB     VDD     VPP     VSS     ng11    ND2D1BM156H3P48CPDELVT_1
-x_U1_ng12           a12     b12     VBB     VDD     VPP     VSS     ng12    ND2D1BM156H3P48CPDELVT_1
-x_U1_ng13           a13     b13     VBB     VDD     VPP     VSS     ng13    ND2D1BM156H3P48CPDELVT_1
-x_U1_ng14           a14     b14     VBB     VDD     VPP     VSS     ng14    ND2D1BM156H3P48CPDELVT_1
-x_U1_ng15           a15     b15     VBB     VDD     VPP     VSS     ng15    ND2D1BM156H3P48CPDELVT_1
-x_U1_ng16_nq16      a16     b16     ng16    VBB     VDD     VPP     VSS     nq16    XNR2D1_DUAL_OUT_BM156H3P48CPDELVT
-x_U1_ng17_nq17      a17     b17     ng17    VBB     VDD     VPP     VSS     nq17    XNR2D1_DUAL_OUT_BM156H3P48CPDELVT
-x_U1_ng18_nq18      a18     b18     ng18    VBB     VDD     VPP     VSS     nq18    XNR2D1_DUAL_OUT_BM156H3P48CPDELVT
-x_U1_ng19_nq19      a19     b19     ng19    VBB     VDD     VPP     VSS     nq19    XNR2D1_DUAL_OUT_BM156H3P48CPDELVT
-x_U1_ng20_nq20      a20     b20     ng20    VBB     VDD     VPP     VSS     nq20    XNR2D1_DUAL_OUT_BM156H3P48CPDELVT
-x_U1_ng21_nq21      a21     b21     ng21    VBB     VDD     VPP     VSS     nq21    XNR2D1_DUAL_OUT_BM156H3P48CPDELVT
-x_U1_ng22_nq22      a22     b22     ng22    VBB     VDD     VPP     VSS     nq22    XNR2D1_DUAL_OUT_BM156H3P48CPDELVT
-x_U1_ng23_nq23      a23     b23     ng23    VBB     VDD     VPP     VSS     nq23    XNR2D1_DUAL_OUT_BM156H3P48CPDELVT
-x_U1_ng24_nq24      a24     b24     ng24    VBB     VDD     VPP     VSS     nq24    XNR2D1_DUAL_OUT_BM156H3P48CPDELVT
-x_U1_ng25_nq25      a25     b25     ng25    VBB     VDD     VPP     VSS     nq25    XNR2D1_DUAL_OUT_BM156H3P48CPDELVT
-x_U1_ng26_nq26      a26     b26     ng26    VBB     VDD     VPP     VSS     nq26    XNR2D1_DUAL_OUT_BM156H3P48CPDELVT
-x_U1_ng27_nq27      a27     b27     ng27    VBB     VDD     VPP     VSS     nq27    XNR2D1_DUAL_OUT_BM156H3P48CPDELVT
-x_U1_ng28_nq28      a28     b28     ng28    VBB     VDD     VPP     VSS     nq28    XNR2D1_DUAL_OUT_BM156H3P48CPDELVT
-x_U1_ng29_nq29      a29     b29     ng29    VBB     VDD     VPP     VSS     nq29    XNR2D1_DUAL_OUT_BM156H3P48CPDELVT
-x_U1_nq30           a30     b30     VBB     VDD     VPP     VSS     nq30    XNR2D1BM156H3P48CPDELVT
-x_U1_np0            a0      b0      VBB     VDD     VPP     VSS     np0     NR2D1BM156H3P48CPDELVT_1
-x_U1_np1            a1      b1      VBB     VDD     VPP     VSS     np1     NR2D1BM156H3P48CPDELVT_1
-x_U1_np2            a2      b2      VBB     VDD     VPP     VSS     np2     NR2D1BM156H3P48CPDELVT_1
-x_U1_np3            a3      b3      VBB     VDD     VPP     VSS     np3     NR2D1BM156H3P48CPDELVT_1
-x_U1_np4            a4      b4      VBB     VDD     VPP     VSS     np4     NR2D1BM156H3P48CPDELVT_1
-x_U1_np5            a5      b5      VBB     VDD     VPP     VSS     np5     NR2D1BM156H3P48CPDELVT_1
-x_U1_np6            a6      b6      VBB     VDD     VPP     VSS     np6     NR2D1BM156H3P48CPDELVT_1
-x_U1_np7            a7      b7      VBB     VDD     VPP     VSS     np7     NR2D1BM156H3P48CPDELVT_1
-x_U1_np8            a8      b8      VBB     VDD     VPP     VSS     np8     NR2D1BM156H3P48CPDELVT_1
-x_U1_np9            a9      b9      VBB     VDD     VPP     VSS     np9     NR2D1BM156H3P48CPDELVT_1
-x_U1_np10           a10     b10     VBB     VDD     VPP     VSS     np10    NR2D1BM156H3P48CPDELVT_1
-x_U1_np11           a11     b11     VBB     VDD     VPP     VSS     np11    NR2D1BM156H3P48CPDELVT_1
-x_U1_np12           a12     b12     VBB     VDD     VPP     VSS     np12    NR2D1BM156H3P48CPDELVT_1
-x_U1_np13           a13     b13     VBB     VDD     VPP     VSS     np13    NR2D1BM156H3P48CPDELVT_1
-x_U1_np14           a14     b14     VBB     VDD     VPP     VSS     np14    NR2D1BM156H3P48CPDELVT_1
-x_U1_np15           a15     b15     VBB     VDD     VPP     VSS     np15    NR2D1BM156H3P48CPDELVT_1
-x_U2_g0             ng0     VBB     VDD     VPP     VSS     g0      INVD1BM156H3P48CPDELVT_1
-x_U2_g1_0           np1     ng0     ng1     VBB     VDD     VPP     VSS     g1_0    OAI21D2BM156H3P48CPDELVT
-x_U2_p3_2           np3     np2     VBB     VDD     VPP     VSS     p3_2    NR2D1BM156H3P48CPDELVT_1
-x_U2_g3_2           np3     ng2     ng3     VBB     VDD     VPP     VSS     g3_2    OAI21D1BM156H3P48CPDELVT
-x_U2_p5_4           np5     np4     VBB     VDD     VPP     VSS     p5_4    NR2D1BM156H3P48CPDELVT_1
-x_U2_g5_4           np5     ng4     ng5     VBB     VDD     VPP     VSS     g5_4    OAI21D1BM156H3P48CPDELVT
-x_U2_p7_6           np7     np6     VBB     VDD     VPP     VSS     p7_6    NR2D1BM156H3P48CPDELVT_1
-x_U2_g7_6           np7     ng6     ng7     VBB     VDD     VPP     VSS     g7_6    OAI21D1BM156H3P48CPDELVT
-x_U2_p9_8           np9     np8     VBB     VDD     VPP     VSS     p9_8    NR2D1BM156H3P48CPDELVT_1
-x_U2_g9_8           np9     ng8     ng9     VBB     VDD     VPP     VSS     g9_8    OAI21D1BM156H3P48CPDELVT
-x_U2_p11_10         np11    np10    VBB     VDD     VPP     VSS     p11_10    NR2D1BM156H3P48CPDELVT_1
-x_U2_g11_10         np11    ng10    ng11    VBB     VDD     VPP     VSS     g11_10    OAI21D1BM156H3P48CPDELVT
-x_U2_p13_12         np13    np12    VBB     VDD     VPP     VSS     p13_12    NR2D1BM156H3P48CPDELVT_1
-x_U2_g13_12         np13    ng12    ng13    VBB     VDD     VPP     VSS     g13_12    OAI21D1BM156H3P48CPDELVT
-x_U2_p15_14         np15    np14    VBB     VDD     VPP     VSS     p15_14    NR2D1BM156H3P48CPDELVT_1
-x_U2_g15_14         np15    ng14    ng15    VBB     VDD     VPP     VSS     g15_14    OAI21D1BM156H3P48CPDELVT
-x_U2_q17_16         nq17    nq16    VBB     VDD     VPP     VSS     q17_16    NR2D1BM156H3P48CPDELVT_1
-x_U2_g17_16         nq17    ng16    ng17    VBB     VDD     VPP     VSS     g17_16    OAI21D1BM156H3P48CPDELVT
-x_U2_q19_18         nq19    nq18    VBB     VDD     VPP     VSS     q19_18    NR2D1BM156H3P48CPDELVT_1
-x_U2_g19_18         nq19    ng18    ng19    VBB     VDD     VPP     VSS     g19_18    OAI21D1BM156H3P48CPDELVT
-x_U2_q21_20         nq21    nq20    VBB     VDD     VPP     VSS     q21_20    NR2D1BM156H3P48CPDELVT_1
-x_U2_g21_20         nq21    ng20    ng21    VBB     VDD     VPP     VSS     g21_20    OAI21D1BM156H3P48CPDELVT
-x_U2_q23_22         nq23    nq22    VBB     VDD     VPP     VSS     q23_22    NR2D1BM156H3P48CPDELVT_1
-x_U2_g23_22         nq23    ng22    ng23    VBB     VDD     VPP     VSS     g23_22    OAI21D1BM156H3P48CPDELVT
-x_U2_q26_24         nq26    nq25    nq24    VBB     VDD     VPP     VSS     q26_24    NR3D1BM156H3P48CPDELVT_1
-x_U2_g26_24         nq25    ng24    ng25    nq26    ng26    VBB     VDD     VPP     VSS     g26_24    OAOAI2111D1BM156H3P48CPDELVT
-x_U2_q28_27         nq28    nq27    VBB     VDD     VPP     VSS     q28_27    NR2D1BM156H3P48CPDELVT_1
-x_U2_g28_27         nq28    ng27    ng28    VBB     VDD     VPP     VSS     g28_27    OAI21D1BM156H3P48CPDELVT
-x_U3_ng3_0          p3_2    g1_0    g3_2    VBB     VDD     VPP     VSS     ng3_0    AOI21D2BM156H3P48CPDELVT
-x_U3_np7_4          p7_6    p5_4    VBB     VDD     VPP     VSS     np7_4    ND2D1BM156H3P48CPDELVT_1
-x_U3_ng7_4          p7_6    g5_4    g7_6    VBB     VDD     VPP     VSS     ng7_4    AOI21D1BM156H3P48CPDELVT
-x_U3_np11_8         p11_10    p9_8    VBB     VDD     VPP     VSS     np11_8    ND2D1BM156H3P48CPDELVT_1
-x_U3_ng11_8         p11_10    g9_8    g11_10    VBB     VDD     VPP     VSS     ng11_8    AOI21D1BM156H3P48CPDELVT
-x_U3_np15_12        p15_14    p13_12    VBB     VDD     VPP     VSS     np15_12    ND2D1BM156H3P48CPDELVT_1
-x_U3_ng15_12        p15_14    g13_12    g15_14    VBB     VDD     VPP     VSS     ng15_12    AOI21D1BM156H3P48CPDELVT
-x_U3_nq19_16        q19_18    q17_16    VBB     VDD     VPP     VSS     nq19_16    ND2D1BM156H3P48CPDELVT_1
-x_U3_ng19_16        q19_18    g17_16    g19_18    VBB     VDD     VPP     VSS     ng19_16    AOI21D1BM156H3P48CPDELVT
-x_U3_nq23_20        q23_22    q21_20    VBB     VDD     VPP     VSS     nq23_20    ND2D1BM156H3P48CPDELVT_1
-x_U3_ng23_20        q23_22    g21_20    g23_22    VBB     VDD     VPP     VSS     ng23_20    AOI21D1BM156H3P48CPDELVT
-x_U3_q28_24         q28_27    q26_24    VBB     VDD     VPP     VSS     q28_24    AN2D1BM156H3P48CPDELVT_1
-x_U3_g28_24         q28_27    g26_24    g28_27    VBB     VDD     VPP     VSS     g28_24    AO21D1BM156H3P48CPDELVT
-x_U4_g7_0           np7_4    ng3_0    ng7_4    VBB     VDD     VPP     VSS     g7_0    OAI21D2BM156H3P48CPDELVT
-x_U4_p15_8          np15_12    np11_8    VBB     VDD     VPP     VSS     p15_8    NR2D1BM156H3P48CPDELVT_1
-x_U4_g15_8          np15_12    ng11_8    ng15_12    VBB     VDD     VPP     VSS     g15_8    OAI21D1BM156H3P48CPDELVT
-x_U4_nq23_16        nq23_20    nq19_16    VBB     VDD     VPP     VSS     nq23_16    OR2D1BM156H3P48CPDELVT_1
-x_U4_ng23_16        nq23_20    ng19_16    ng23_20    VBB     VDD     VPP     VSS     ng23_16    OA21D1BM156H3P48CPDELVT
-x_U5_ng7_0          g7_0    VBB     VDD     VPP     VSS     ng7_0    INVD1BM156H3P48CPDELVT_1
-x_U5_ng15_0         p15_8    g7_0    g15_8    VBB     VDD     VPP     VSS     ng15_0    AOI21D2BM156H3P48CPDELVT
-x_U6_g11_0          np11_8    ng7_0    ng11_8    VBB     VDD     VPP     VSS     g11_0    OAI21D1BM156H3P48CPDELVT
-x_U3_ng0            g0      VBB     VDD     VPP     VSS     ng0_slow_2    INVD1BM156H3P48CPDELVT_1
-x_U3_ng1_0          g1_0    VBB     VDD     VPP     VSS     ng1_0    INVD1BM156H3P48CPDELVT_1
-x_U2_q24            nq24    VBB     VDD     VPP     VSS     q24     INVD1BM156H3P48CPDELVT_1
-x_U2_g24            ng24    VBB     VDD     VPP     VSS     g24     INVD1BM156H3P48CPDELVT_1
-x_U4_g2_0           np2     ng1_0    ng2     VBB     VDD     VPP     VSS     g2_0    OAI21D1BM156H3P48CPDELVT
-x_U4_g3_0           ng3_0    VBB     VDD     VPP     VSS     g3_0    INVD1BM156H3P48CPDELVT_1
-x_U4_g4_0           np4     ng3_0    ng4     VBB     VDD     VPP     VSS     g4_0    OAI21D1BM156H3P48CPDELVT
-x_U5_ng2_0          g2_0    VBB     VDD     VPP     VSS     ng2_0    INVD1BM156H3P48CPDELVT_1
-x_U5_ng3_0          g3_0    VBB     VDD     VPP     VSS     ng3_0_slow_2    INVD1BM156H3P48CPDELVT_1
-x_U5_ng4_0          g4_0    VBB     VDD     VPP     VSS     ng4_0    INVD1BM156H3P48CPDELVT_1
-x_U5_ng5_0          p5_4    g3_0    g5_4    VBB     VDD     VPP     VSS     ng5_0    AOI21D1BM156H3P48CPDELVT
-x_U5_ng9_0          p9_8    g7_0    g9_8    VBB     VDD     VPP     VSS     ng9_0    AOI21D1BM156H3P48CPDELVT
-x_U6_g5_0           ng5_0    VBB     VDD     VPP     VSS     g5_0    INVD1BM156H3P48CPDELVT_1
-x_U6_g6_0           np6     ng5_0    ng6     VBB     VDD     VPP     VSS     g6_0    OAI21D1BM156H3P48CPDELVT
-x_U6_g7_0           ng7_0    VBB     VDD     VPP     VSS     g7_0_slow_2    INVD1BM156H3P48CPDELVT_1
-x_U6_g8_0           np8     ng7_0    ng8     VBB     VDD     VPP     VSS     g8_0    OAI21D1BM156H3P48CPDELVT
-x_U6_g9_0           ng9_0    VBB     VDD     VPP     VSS     g9_0    INVD1BM156H3P48CPDELVT_1
-x_U6_g10_0          np10    ng9_0    ng10    VBB     VDD     VPP     VSS     g10_0    OAI21D1BM156H3P48CPDELVT
-x_U6_g15_0          ng15_0    VBB     VDD     VPP     VSS     g15_0    INVD1BM156H3P48CPDELVT_1
-x_U6_g16_0          nq16    ng15_0    ng16    VBB     VDD     VPP     VSS     g16_0    OAI21D1BM156H3P48CPDELVT
-x_U6_g19_0          nq19_16    ng15_0    ng19_16    VBB     VDD     VPP     VSS     g19_0    OAI21D1BM156H3P48CPDELVT
-x_U6_g23_0          nq23_16    ng15_0    ng23_16    VBB     VDD     VPP     VSS     g23_0    OAI21D2BM156H3P48CPDELVT
-x_U7_ng6_0          g6_0    VBB     VDD     VPP     VSS     ng6_0    INVD1BM156H3P48CPDELVT_1
-x_U7_ng8_0          g8_0    VBB     VDD     VPP     VSS     ng8_0    INVD1BM156H3P48CPDELVT_1
-x_U7_ng10_0         g10_0    VBB     VDD     VPP     VSS     ng10_0    INVD1BM156H3P48CPDELVT_1
-x_U7_ng11_0         g11_0    VBB     VDD     VPP     VSS     ng11_0    INVD1BM156H3P48CPDELVT_1
-x_U7_ng13_0         p13_12    g11_0    g13_12    VBB     VDD     VPP     VSS     ng13_0    AOI21D1BM156H3P48CPDELVT
-x_U7_ng17_0         q17_16    g15_0    g17_16    VBB     VDD     VPP     VSS     ng17_0    AOI21D1BM156H3P48CPDELVT
-x_U7_ng19_0         g19_0    VBB     VDD     VPP     VSS     ng19_0    INVD1BM156H3P48CPDELVT_1
-x_U7_ng21_0         q21_20    g19_0    g21_20    VBB     VDD     VPP     VSS     ng21_0    AOI21D1BM156H3P48CPDELVT
-x_U7_ng23_0         g23_0    VBB     VDD     VPP     VSS     ng23_0    INVD1BM156H3P48CPDELVT_1
-x_U7_ng24_0         q24     g23_0    g24     VBB     VDD     VPP     VSS     ng24_0    AOI21D1BM156H3P48CPDELVT
-x_U7_ng26_0         q26_24    g23_0    g26_24    VBB     VDD     VPP     VSS     ng26_0    AOI21D1BM156H3P48CPDELVT
-x_U7_ng28_0         q28_24    g23_0    g28_24    VBB     VDD     VPP     VSS     ng28_0    AOI21D1BM156H3P48CPDELVT
-x_U8_g12_0          np12    ng11_0    ng12    VBB     VDD     VPP     VSS     g12_0    OAI21D1BM156H3P48CPDELVT
-x_U8_g13_0          ng13_0    VBB     VDD     VPP     VSS     g13_0    INVD1BM156H3P48CPDELVT_1
-x_U8_g14_0          np14    ng13_0    ng14    VBB     VDD     VPP     VSS     g14_0    OAI21D1BM156H3P48CPDELVT
-x_U8_g18_0          nq18    ng17_0    ng18    VBB     VDD     VPP     VSS     g18_0    OAI21D1BM156H3P48CPDELVT
-x_U8_g20_0          nq20    ng19_0    ng20    VBB     VDD     VPP     VSS     g20_0    OAI21D1BM156H3P48CPDELVT
-x_U8_g22_0          nq22    ng21_0    ng22    VBB     VDD     VPP     VSS     g22_0    OAI21D1BM156H3P48CPDELVT
-x_U8_g25_0          nq25    ng24_0    ng25    VBB     VDD     VPP     VSS     g25_0    OAI21D1BM156H3P48CPDELVT
-x_U8_g27_0          nq27    ng26_0    ng27    VBB     VDD     VPP     VSS     g27_0    OAI21D1BM156H3P48CPDELVT
-x_U8_g29_0          nq29    ng28_0    ng29    VBB     VDD     VPP     VSS     g29_0    OAI21D1BM156H3P48CPDELVT
-x_U9_ng12_0         g12_0    VBB     VDD     VPP     VSS     ng12_0    INVD1BM156H3P48CPDELVT_1
-x_U9_ng14_0         g14_0    VBB     VDD     VPP     VSS     ng14_0    INVD1BM156H3P48CPDELVT_1
-x_U3_s0             g0      np0     VBB     VDD     VPP     VSS     s0      NR2D1BM156H3P48CPDELVT_1
-x_U4_s1             ng0_slow_2    ng1     np1     g1_0    s1      VBB     VDD     VPP     VSS     SUMD1BM156H3P48CPDELVT
-x_U5_s2             ng1_0    ng2     np2     g2_0    s2      VBB     VDD     VPP     VSS     SUMD1BM156H3P48CPDELVT
-x_U6_s3             ng2_0    ng3     np3     g3_0    s3      VBB     VDD     VPP     VSS     SUMD1BM156H3P48CPDELVT
-x_U6_s4             ng3_0_slow_2    ng4     np4     g4_0    s4      VBB     VDD     VPP     VSS     SUMD1BM156H3P48CPDELVT
-x_U7_s5             ng4_0    ng5     np5     g5_0    s5      VBB     VDD     VPP     VSS     SUMD1BM156H3P48CPDELVT
-x_U7_s6             ng5_0    ng6     np6     g6_0    s6      VBB     VDD     VPP     VSS     SUMD1BM156H3P48CPDELVT
-x_U8_s7             ng6_0    ng7     np7     g7_0_slow_2    s7      VBB     VDD     VPP     VSS     SUMD1BM156H3P48CPDELVT
-x_U7_s8             ng7_0    ng8     np8     g8_0    s8      VBB     VDD     VPP     VSS     SUMD1BM156H3P48CPDELVT
-x_U8_s9             ng8_0    ng9     np9     g9_0    s9      VBB     VDD     VPP     VSS     SUMD1BM156H3P48CPDELVT
-x_U7_s10            ng9_0    ng10    np10    g10_0    s10     VBB     VDD     VPP     VSS     SUMD1BM156H3P48CPDELVT
-x_U8_s11            ng10_0    ng11    np11    g11_0    s11     VBB     VDD     VPP     VSS     SUMD1BM156H3P48CPDELVT
-x_U9_s12            ng11_0    ng12    np12    g12_0    s12     VBB     VDD     VPP     VSS     SUMD1BM156H3P48CPDELVT
-x_U10_s13           ng12_0    ng13    np13    g13_0    s13     VBB     VDD     VPP     VSS     SUMD1BM156H3P48CPDELVT
-x_U9_s14            ng13_0    ng14    np14    g14_0    s14     VBB     VDD     VPP     VSS     SUMD1BM156H3P48CPDELVT
-x_U10_s15           ng14_0    ng15    np15    g15_0    s15     VBB     VDD     VPP     VSS     SUMD1BM156H3P48CPDELVT
-x_U7_s16            g15_0    nq16    VBB     VDD     VPP     VSS     s16     XNR2D1BM156H3P48CPDELVT
-x_U7_s17            g16_0    nq17    VBB     VDD     VPP     VSS     s17     XNR2D1BM156H3P48CPDELVT
-x_U8_s18            ng17_0    nq18    VBB     VDD     VPP     VSS     s18     XOR2D1BM156H3P48CPDELVT
-x_U9_s19            g18_0    nq19    VBB     VDD     VPP     VSS     s19     XNR2D1BM156H3P48CPDELVT
-x_U8_s20            ng19_0    nq20    VBB     VDD     VPP     VSS     s20     XOR2D1BM156H3P48CPDELVT
-x_U9_s21            g20_0    nq21    VBB     VDD     VPP     VSS     s21     XNR2D1BM156H3P48CPDELVT
-x_U8_s22            ng21_0    nq22    VBB     VDD     VPP     VSS     s22     XOR2D1BM156H3P48CPDELVT
-x_U9_s23            g22_0    nq23    VBB     VDD     VPP     VSS     s23     XNR2D1BM156H3P48CPDELVT
-x_U8_s24            ng23_0    nq24    VBB     VDD     VPP     VSS     s24     XOR2D1BM156H3P48CPDELVT
-x_U8_s25            ng24_0    nq25    VBB     VDD     VPP     VSS     s25     XOR2D1BM156H3P48CPDELVT
-x_U9_s26            g25_0    nq26    VBB     VDD     VPP     VSS     s26     XNR2D1BM156H3P48CPDELVT
-x_U8_s27            ng26_0    nq27    VBB     VDD     VPP     VSS     s27     XOR2D1BM156H3P48CPDELVT
-x_U9_s28            g27_0    nq28    VBB     VDD     VPP     VSS     s28     XNR2D1BM156H3P48CPDELVT
-x_U8_s29            ng28_0    nq29    VBB     VDD     VPP     VSS     s29     XOR2D1BM156H3P48CPDELVT
-x_U9_s30            g29_0    nq30    VBB     VDD     VPP     VSS     s30     XNR2D1BM156H3P48CPDELVT
-.ENDS
+*---- arc : 000 -> 1 ----
+VVDD_PRE_000        VDD_PRE_000    0   DC=avdd
+VVDD_MAIN_000       VDD_MAIN_000    0   DC=avdd
+x_000               i_LOW    i_LOW    i_LOW    VBB     VPP     VSS     VDD_PRE_000    VDD_MAIN_000    VDD     d_A_000    d_B_000    d_CI_000    z_CON_000    z_SN_000    q_CON_000    q_SN_000    cover_FA1N
+.measure Tran power_VDD_MAIN_000    avg i(VVDD_MAIN_000)   from='td' to='time_all'
+*---- arc : 100 -> 0 ----
+VVDD_PRE_100        VDD_PRE_100    0   DC=avdd
+VVDD_MAIN_100       VDD_MAIN_100    0   DC=avdd
+x_100               i_HIGH    i_LOW    i_LOW    VBB     VPP     VSS     VDD_PRE_100    VDD_MAIN_100    VDD     d_A_100    d_B_100    d_CI_100    z_CON_100    z_SN_100    q_CON_100    q_SN_100    cover_FA1N
+.measure Tran power_VDD_MAIN_100    avg i(VVDD_MAIN_100)   from='td' to='time_all'
+*---- arc : 010 -> 0 ----
+VVDD_PRE_010        VDD_PRE_010    0   DC=avdd
+VVDD_MAIN_010       VDD_MAIN_010    0   DC=avdd
+x_010               i_LOW    i_HIGH    i_LOW    VBB     VPP     VSS     VDD_PRE_010    VDD_MAIN_010    VDD     d_A_010    d_B_010    d_CI_010    z_CON_010    z_SN_010    q_CON_010    q_SN_010    cover_FA1N
+.measure Tran power_VDD_MAIN_010    avg i(VVDD_MAIN_010)   from='td' to='time_all'
+*---- arc : 110 -> 1 ----
+VVDD_PRE_110        VDD_PRE_110    0   DC=avdd
+VVDD_MAIN_110       VDD_MAIN_110    0   DC=avdd
+x_110               i_HIGH    i_HIGH    i_LOW    VBB     VPP     VSS     VDD_PRE_110    VDD_MAIN_110    VDD     d_A_110    d_B_110    d_CI_110    z_CON_110    z_SN_110    q_CON_110    q_SN_110    cover_FA1N
+.measure Tran power_VDD_MAIN_110    avg i(VVDD_MAIN_110)   from='td' to='time_all'
+*---- arc : 001 -> 0 ----
+VVDD_PRE_001        VDD_PRE_001    0   DC=avdd
+VVDD_MAIN_001       VDD_MAIN_001    0   DC=avdd
+x_001               i_LOW    i_LOW    i_HIGH    VBB     VPP     VSS     VDD_PRE_001    VDD_MAIN_001    VDD     d_A_001    d_B_001    d_CI_001    z_CON_001    z_SN_001    q_CON_001    q_SN_001    cover_FA1N
+.measure Tran power_VDD_MAIN_001    avg i(VVDD_MAIN_001)   from='td' to='time_all'
+*---- arc : 101 -> 1 ----
+VVDD_PRE_101        VDD_PRE_101    0   DC=avdd
+VVDD_MAIN_101       VDD_MAIN_101    0   DC=avdd
+x_101               i_HIGH    i_LOW    i_HIGH    VBB     VPP     VSS     VDD_PRE_101    VDD_MAIN_101    VDD     d_A_101    d_B_101    d_CI_101    z_CON_101    z_SN_101    q_CON_101    q_SN_101    cover_FA1N
+.measure Tran power_VDD_MAIN_101    avg i(VVDD_MAIN_101)   from='td' to='time_all'
+*---- arc : 011 -> 1 ----
+VVDD_PRE_011        VDD_PRE_011    0   DC=avdd
+VVDD_MAIN_011       VDD_MAIN_011    0   DC=avdd
+x_011               i_LOW    i_HIGH    i_HIGH    VBB     VPP     VSS     VDD_PRE_011    VDD_MAIN_011    VDD     d_A_011    d_B_011    d_CI_011    z_CON_011    z_SN_011    q_CON_011    q_SN_011    cover_FA1N
+.measure Tran power_VDD_MAIN_011    avg i(VVDD_MAIN_011)   from='td' to='time_all'
+*---- arc : 111 -> 0 ----
+VVDD_PRE_111        VDD_PRE_111    0   DC=avdd
+VVDD_MAIN_111       VDD_MAIN_111    0   DC=avdd
+x_111               i_HIGH    i_HIGH    i_HIGH    VBB     VPP     VSS     VDD_PRE_111    VDD_MAIN_111    VDD     d_A_111    d_B_111    d_CI_111    z_CON_111    z_SN_111    q_CON_111    q_SN_111    cover_FA1N
+.measure Tran power_VDD_MAIN_111    avg i(VVDD_MAIN_111)   from='td' to='time_all'
+*---- arc : f00 -> r ----
+VVDD_PRE_f00        VDD_PRE_f00    0   DC=avdd
+VVDD_MAIN_f00       VDD_MAIN_f00    0   DC=avdd
+x_f00               i_FALL    i_LOW    i_LOW    VBB     VPP     VSS     VDD_PRE_f00    VDD_MAIN_f00    VDD     d_A_f00    d_B_f00    d_CI_f00    z_CON_f00    z_SN_f00    q_CON_f00    q_SN_f00    cover_FA1N
+.measure Tran power_VDD_MAIN_f00    avg i(VVDD_MAIN_f00)   from='td' to='time_all'
+*---- arc : r00 -> f ----
+VVDD_PRE_r00        VDD_PRE_r00    0   DC=avdd
+VVDD_MAIN_r00       VDD_MAIN_r00    0   DC=avdd
+x_r00               i_RISE    i_LOW    i_LOW    VBB     VPP     VSS     VDD_PRE_r00    VDD_MAIN_r00    VDD     d_A_r00    d_B_r00    d_CI_r00    z_CON_r00    z_SN_r00    q_CON_r00    q_SN_r00    cover_FA1N
+.measure Tran power_VDD_MAIN_r00    avg i(VVDD_MAIN_r00)   from='td' to='time_all'
+*---- arc : f10 -> f ----
+VVDD_PRE_f10        VDD_PRE_f10    0   DC=avdd
+VVDD_MAIN_f10       VDD_MAIN_f10    0   DC=avdd
+x_f10               i_FALL    i_HIGH    i_LOW    VBB     VPP     VSS     VDD_PRE_f10    VDD_MAIN_f10    VDD     d_A_f10    d_B_f10    d_CI_f10    z_CON_f10    z_SN_f10    q_CON_f10    q_SN_f10    cover_FA1N
+.measure Tran power_VDD_MAIN_f10    avg i(VVDD_MAIN_f10)   from='td' to='time_all'
+*---- arc : r10 -> r ----
+VVDD_PRE_r10        VDD_PRE_r10    0   DC=avdd
+VVDD_MAIN_r10       VDD_MAIN_r10    0   DC=avdd
+x_r10               i_RISE    i_HIGH    i_LOW    VBB     VPP     VSS     VDD_PRE_r10    VDD_MAIN_r10    VDD     d_A_r10    d_B_r10    d_CI_r10    z_CON_r10    z_SN_r10    q_CON_r10    q_SN_r10    cover_FA1N
+.measure Tran power_VDD_MAIN_r10    avg i(VVDD_MAIN_r10)   from='td' to='time_all'
+*---- arc : 0f0 -> r ----
+VVDD_PRE_0f0        VDD_PRE_0f0    0   DC=avdd
+VVDD_MAIN_0f0       VDD_MAIN_0f0    0   DC=avdd
+x_0f0               i_LOW    i_FALL    i_LOW    VBB     VPP     VSS     VDD_PRE_0f0    VDD_MAIN_0f0    VDD     d_A_0f0    d_B_0f0    d_CI_0f0    z_CON_0f0    z_SN_0f0    q_CON_0f0    q_SN_0f0    cover_FA1N
+.measure Tran power_VDD_MAIN_0f0    avg i(VVDD_MAIN_0f0)   from='td' to='time_all'
+*---- arc : 1f0 -> f ----
+VVDD_PRE_1f0        VDD_PRE_1f0    0   DC=avdd
+VVDD_MAIN_1f0       VDD_MAIN_1f0    0   DC=avdd
+x_1f0               i_HIGH    i_FALL    i_LOW    VBB     VPP     VSS     VDD_PRE_1f0    VDD_MAIN_1f0    VDD     d_A_1f0    d_B_1f0    d_CI_1f0    z_CON_1f0    z_SN_1f0    q_CON_1f0    q_SN_1f0    cover_FA1N
+.measure Tran power_VDD_MAIN_1f0    avg i(VVDD_MAIN_1f0)   from='td' to='time_all'
+*---- arc : 0r0 -> f ----
+VVDD_PRE_0r0        VDD_PRE_0r0    0   DC=avdd
+VVDD_MAIN_0r0       VDD_MAIN_0r0    0   DC=avdd
+x_0r0               i_LOW    i_RISE    i_LOW    VBB     VPP     VSS     VDD_PRE_0r0    VDD_MAIN_0r0    VDD     d_A_0r0    d_B_0r0    d_CI_0r0    z_CON_0r0    z_SN_0r0    q_CON_0r0    q_SN_0r0    cover_FA1N
+.measure Tran power_VDD_MAIN_0r0    avg i(VVDD_MAIN_0r0)   from='td' to='time_all'
+*---- arc : 1r0 -> r ----
+VVDD_PRE_1r0        VDD_PRE_1r0    0   DC=avdd
+VVDD_MAIN_1r0       VDD_MAIN_1r0    0   DC=avdd
+x_1r0               i_HIGH    i_RISE    i_LOW    VBB     VPP     VSS     VDD_PRE_1r0    VDD_MAIN_1r0    VDD     d_A_1r0    d_B_1r0    d_CI_1r0    z_CON_1r0    z_SN_1r0    q_CON_1r0    q_SN_1r0    cover_FA1N
+.measure Tran power_VDD_MAIN_1r0    avg i(VVDD_MAIN_1r0)   from='td' to='time_all'
+*---- arc : f01 -> f ----
+VVDD_PRE_f01        VDD_PRE_f01    0   DC=avdd
+VVDD_MAIN_f01       VDD_MAIN_f01    0   DC=avdd
+x_f01               i_FALL    i_LOW    i_HIGH    VBB     VPP     VSS     VDD_PRE_f01    VDD_MAIN_f01    VDD     d_A_f01    d_B_f01    d_CI_f01    z_CON_f01    z_SN_f01    q_CON_f01    q_SN_f01    cover_FA1N
+.measure Tran power_VDD_MAIN_f01    avg i(VVDD_MAIN_f01)   from='td' to='time_all'
+*---- arc : r01 -> r ----
+VVDD_PRE_r01        VDD_PRE_r01    0   DC=avdd
+VVDD_MAIN_r01       VDD_MAIN_r01    0   DC=avdd
+x_r01               i_RISE    i_LOW    i_HIGH    VBB     VPP     VSS     VDD_PRE_r01    VDD_MAIN_r01    VDD     d_A_r01    d_B_r01    d_CI_r01    z_CON_r01    z_SN_r01    q_CON_r01    q_SN_r01    cover_FA1N
+.measure Tran power_VDD_MAIN_r01    avg i(VVDD_MAIN_r01)   from='td' to='time_all'
+*---- arc : f11 -> r ----
+VVDD_PRE_f11        VDD_PRE_f11    0   DC=avdd
+VVDD_MAIN_f11       VDD_MAIN_f11    0   DC=avdd
+x_f11               i_FALL    i_HIGH    i_HIGH    VBB     VPP     VSS     VDD_PRE_f11    VDD_MAIN_f11    VDD     d_A_f11    d_B_f11    d_CI_f11    z_CON_f11    z_SN_f11    q_CON_f11    q_SN_f11    cover_FA1N
+.measure Tran power_VDD_MAIN_f11    avg i(VVDD_MAIN_f11)   from='td' to='time_all'
+*---- arc : r11 -> f ----
+VVDD_PRE_r11        VDD_PRE_r11    0   DC=avdd
+VVDD_MAIN_r11       VDD_MAIN_r11    0   DC=avdd
+x_r11               i_RISE    i_HIGH    i_HIGH    VBB     VPP     VSS     VDD_PRE_r11    VDD_MAIN_r11    VDD     d_A_r11    d_B_r11    d_CI_r11    z_CON_r11    z_SN_r11    q_CON_r11    q_SN_r11    cover_FA1N
+.measure Tran power_VDD_MAIN_r11    avg i(VVDD_MAIN_r11)   from='td' to='time_all'
+*---- arc : 0f1 -> f ----
+VVDD_PRE_0f1        VDD_PRE_0f1    0   DC=avdd
+VVDD_MAIN_0f1       VDD_MAIN_0f1    0   DC=avdd
+x_0f1               i_LOW    i_FALL    i_HIGH    VBB     VPP     VSS     VDD_PRE_0f1    VDD_MAIN_0f1    VDD     d_A_0f1    d_B_0f1    d_CI_0f1    z_CON_0f1    z_SN_0f1    q_CON_0f1    q_SN_0f1    cover_FA1N
+.measure Tran power_VDD_MAIN_0f1    avg i(VVDD_MAIN_0f1)   from='td' to='time_all'
+*---- arc : 1f1 -> r ----
+VVDD_PRE_1f1        VDD_PRE_1f1    0   DC=avdd
+VVDD_MAIN_1f1       VDD_MAIN_1f1    0   DC=avdd
+x_1f1               i_HIGH    i_FALL    i_HIGH    VBB     VPP     VSS     VDD_PRE_1f1    VDD_MAIN_1f1    VDD     d_A_1f1    d_B_1f1    d_CI_1f1    z_CON_1f1    z_SN_1f1    q_CON_1f1    q_SN_1f1    cover_FA1N
+.measure Tran power_VDD_MAIN_1f1    avg i(VVDD_MAIN_1f1)   from='td' to='time_all'
+*---- arc : 0r1 -> r ----
+VVDD_PRE_0r1        VDD_PRE_0r1    0   DC=avdd
+VVDD_MAIN_0r1       VDD_MAIN_0r1    0   DC=avdd
+x_0r1               i_LOW    i_RISE    i_HIGH    VBB     VPP     VSS     VDD_PRE_0r1    VDD_MAIN_0r1    VDD     d_A_0r1    d_B_0r1    d_CI_0r1    z_CON_0r1    z_SN_0r1    q_CON_0r1    q_SN_0r1    cover_FA1N
+.measure Tran power_VDD_MAIN_0r1    avg i(VVDD_MAIN_0r1)   from='td' to='time_all'
+*---- arc : 1r1 -> f ----
+VVDD_PRE_1r1        VDD_PRE_1r1    0   DC=avdd
+VVDD_MAIN_1r1       VDD_MAIN_1r1    0   DC=avdd
+x_1r1               i_HIGH    i_RISE    i_HIGH    VBB     VPP     VSS     VDD_PRE_1r1    VDD_MAIN_1r1    VDD     d_A_1r1    d_B_1r1    d_CI_1r1    z_CON_1r1    z_SN_1r1    q_CON_1r1    q_SN_1r1    cover_FA1N
+.measure Tran power_VDD_MAIN_1r1    avg i(VVDD_MAIN_1r1)   from='td' to='time_all'
+*---- arc : 00f -> r ----
+VVDD_PRE_00f        VDD_PRE_00f    0   DC=avdd
+VVDD_MAIN_00f       VDD_MAIN_00f    0   DC=avdd
+x_00f               i_LOW    i_LOW    i_FALL    VBB     VPP     VSS     VDD_PRE_00f    VDD_MAIN_00f    VDD     d_A_00f    d_B_00f    d_CI_00f    z_CON_00f    z_SN_00f    q_CON_00f    q_SN_00f    cover_FA1N
+.measure Tran power_VDD_MAIN_00f    avg i(VVDD_MAIN_00f)   from='td' to='time_all'
+*---- arc : 10f -> f ----
+VVDD_PRE_10f        VDD_PRE_10f    0   DC=avdd
+VVDD_MAIN_10f       VDD_MAIN_10f    0   DC=avdd
+x_10f               i_HIGH    i_LOW    i_FALL    VBB     VPP     VSS     VDD_PRE_10f    VDD_MAIN_10f    VDD     d_A_10f    d_B_10f    d_CI_10f    z_CON_10f    z_SN_10f    q_CON_10f    q_SN_10f    cover_FA1N
+.measure Tran power_VDD_MAIN_10f    avg i(VVDD_MAIN_10f)   from='td' to='time_all'
+*---- arc : 01f -> f ----
+VVDD_PRE_01f        VDD_PRE_01f    0   DC=avdd
+VVDD_MAIN_01f       VDD_MAIN_01f    0   DC=avdd
+x_01f               i_LOW    i_HIGH    i_FALL    VBB     VPP     VSS     VDD_PRE_01f    VDD_MAIN_01f    VDD     d_A_01f    d_B_01f    d_CI_01f    z_CON_01f    z_SN_01f    q_CON_01f    q_SN_01f    cover_FA1N
+.measure Tran power_VDD_MAIN_01f    avg i(VVDD_MAIN_01f)   from='td' to='time_all'
+*---- arc : 11f -> r ----
+VVDD_PRE_11f        VDD_PRE_11f    0   DC=avdd
+VVDD_MAIN_11f       VDD_MAIN_11f    0   DC=avdd
+x_11f               i_HIGH    i_HIGH    i_FALL    VBB     VPP     VSS     VDD_PRE_11f    VDD_MAIN_11f    VDD     d_A_11f    d_B_11f    d_CI_11f    z_CON_11f    z_SN_11f    q_CON_11f    q_SN_11f    cover_FA1N
+.measure Tran power_VDD_MAIN_11f    avg i(VVDD_MAIN_11f)   from='td' to='time_all'
+*---- arc : 00r -> f ----
+VVDD_PRE_00r        VDD_PRE_00r    0   DC=avdd
+VVDD_MAIN_00r       VDD_MAIN_00r    0   DC=avdd
+x_00r               i_LOW    i_LOW    i_RISE    VBB     VPP     VSS     VDD_PRE_00r    VDD_MAIN_00r    VDD     d_A_00r    d_B_00r    d_CI_00r    z_CON_00r    z_SN_00r    q_CON_00r    q_SN_00r    cover_FA1N
+.measure Tran power_VDD_MAIN_00r    avg i(VVDD_MAIN_00r)   from='td' to='time_all'
+*---- arc : 10r -> r ----
+VVDD_PRE_10r        VDD_PRE_10r    0   DC=avdd
+VVDD_MAIN_10r       VDD_MAIN_10r    0   DC=avdd
+x_10r               i_HIGH    i_LOW    i_RISE    VBB     VPP     VSS     VDD_PRE_10r    VDD_MAIN_10r    VDD     d_A_10r    d_B_10r    d_CI_10r    z_CON_10r    z_SN_10r    q_CON_10r    q_SN_10r    cover_FA1N
+.measure Tran power_VDD_MAIN_10r    avg i(VVDD_MAIN_10r)   from='td' to='time_all'
+*---- arc : 01r -> r ----
+VVDD_PRE_01r        VDD_PRE_01r    0   DC=avdd
+VVDD_MAIN_01r       VDD_MAIN_01r    0   DC=avdd
+x_01r               i_LOW    i_HIGH    i_RISE    VBB     VPP     VSS     VDD_PRE_01r    VDD_MAIN_01r    VDD     d_A_01r    d_B_01r    d_CI_01r    z_CON_01r    z_SN_01r    q_CON_01r    q_SN_01r    cover_FA1N
+.measure Tran power_VDD_MAIN_01r    avg i(VVDD_MAIN_01r)   from='td' to='time_all'
+*---- arc : 11r -> f ----
+VVDD_PRE_11r        VDD_PRE_11r    0   DC=avdd
+VVDD_MAIN_11r       VDD_MAIN_11r    0   DC=avdd
+x_11r               i_HIGH    i_HIGH    i_RISE    VBB     VPP     VSS     VDD_PRE_11r    VDD_MAIN_11r    VDD     d_A_11r    d_B_11r    d_CI_11r    z_CON_11r    z_SN_11r    q_CON_11r    q_SN_11r    cover_FA1N
+.measure Tran power_VDD_MAIN_11r    avg i(VVDD_MAIN_11r)   from='td' to='time_all'
+*---- arc : ff0 -> 1 ----
+VVDD_PRE_ff0        VDD_PRE_ff0    0   DC=avdd
+VVDD_MAIN_ff0       VDD_MAIN_ff0    0   DC=avdd
+x_ff0               i_FALL    i_FALL    i_LOW    VBB     VPP     VSS     VDD_PRE_ff0    VDD_MAIN_ff0    VDD     d_A_ff0    d_B_ff0    d_CI_ff0    z_CON_ff0    z_SN_ff0    q_CON_ff0    q_SN_ff0    cover_FA1N
+.measure Tran power_VDD_MAIN_ff0    avg i(VVDD_MAIN_ff0)   from='td' to='time_all'
+*---- arc : rf0 -> 0 ----
+VVDD_PRE_rf0        VDD_PRE_rf0    0   DC=avdd
+VVDD_MAIN_rf0       VDD_MAIN_rf0    0   DC=avdd
+x_rf0               i_RISE    i_FALL    i_LOW    VBB     VPP     VSS     VDD_PRE_rf0    VDD_MAIN_rf0    VDD     d_A_rf0    d_B_rf0    d_CI_rf0    z_CON_rf0    z_SN_rf0    q_CON_rf0    q_SN_rf0    cover_FA1N
+.measure Tran power_VDD_MAIN_rf0    avg i(VVDD_MAIN_rf0)   from='td' to='time_all'
+*---- arc : fr0 -> 0 ----
+VVDD_PRE_fr0        VDD_PRE_fr0    0   DC=avdd
+VVDD_MAIN_fr0       VDD_MAIN_fr0    0   DC=avdd
+x_fr0               i_FALL    i_RISE    i_LOW    VBB     VPP     VSS     VDD_PRE_fr0    VDD_MAIN_fr0    VDD     d_A_fr0    d_B_fr0    d_CI_fr0    z_CON_fr0    z_SN_fr0    q_CON_fr0    q_SN_fr0    cover_FA1N
+.measure Tran power_VDD_MAIN_fr0    avg i(VVDD_MAIN_fr0)   from='td' to='time_all'
+*---- arc : rr0 -> 1 ----
+VVDD_PRE_rr0        VDD_PRE_rr0    0   DC=avdd
+VVDD_MAIN_rr0       VDD_MAIN_rr0    0   DC=avdd
+x_rr0               i_RISE    i_RISE    i_LOW    VBB     VPP     VSS     VDD_PRE_rr0    VDD_MAIN_rr0    VDD     d_A_rr0    d_B_rr0    d_CI_rr0    z_CON_rr0    z_SN_rr0    q_CON_rr0    q_SN_rr0    cover_FA1N
+.measure Tran power_VDD_MAIN_rr0    avg i(VVDD_MAIN_rr0)   from='td' to='time_all'
+*---- arc : ff1 -> 0 ----
+VVDD_PRE_ff1        VDD_PRE_ff1    0   DC=avdd
+VVDD_MAIN_ff1       VDD_MAIN_ff1    0   DC=avdd
+x_ff1               i_FALL    i_FALL    i_HIGH    VBB     VPP     VSS     VDD_PRE_ff1    VDD_MAIN_ff1    VDD     d_A_ff1    d_B_ff1    d_CI_ff1    z_CON_ff1    z_SN_ff1    q_CON_ff1    q_SN_ff1    cover_FA1N
+.measure Tran power_VDD_MAIN_ff1    avg i(VVDD_MAIN_ff1)   from='td' to='time_all'
+*---- arc : rf1 -> 1 ----
+VVDD_PRE_rf1        VDD_PRE_rf1    0   DC=avdd
+VVDD_MAIN_rf1       VDD_MAIN_rf1    0   DC=avdd
+x_rf1               i_RISE    i_FALL    i_HIGH    VBB     VPP     VSS     VDD_PRE_rf1    VDD_MAIN_rf1    VDD     d_A_rf1    d_B_rf1    d_CI_rf1    z_CON_rf1    z_SN_rf1    q_CON_rf1    q_SN_rf1    cover_FA1N
+.measure Tran power_VDD_MAIN_rf1    avg i(VVDD_MAIN_rf1)   from='td' to='time_all'
+*---- arc : fr1 -> 1 ----
+VVDD_PRE_fr1        VDD_PRE_fr1    0   DC=avdd
+VVDD_MAIN_fr1       VDD_MAIN_fr1    0   DC=avdd
+x_fr1               i_FALL    i_RISE    i_HIGH    VBB     VPP     VSS     VDD_PRE_fr1    VDD_MAIN_fr1    VDD     d_A_fr1    d_B_fr1    d_CI_fr1    z_CON_fr1    z_SN_fr1    q_CON_fr1    q_SN_fr1    cover_FA1N
+.measure Tran power_VDD_MAIN_fr1    avg i(VVDD_MAIN_fr1)   from='td' to='time_all'
+*---- arc : rr1 -> 0 ----
+VVDD_PRE_rr1        VDD_PRE_rr1    0   DC=avdd
+VVDD_MAIN_rr1       VDD_MAIN_rr1    0   DC=avdd
+x_rr1               i_RISE    i_RISE    i_HIGH    VBB     VPP     VSS     VDD_PRE_rr1    VDD_MAIN_rr1    VDD     d_A_rr1    d_B_rr1    d_CI_rr1    z_CON_rr1    z_SN_rr1    q_CON_rr1    q_SN_rr1    cover_FA1N
+.measure Tran power_VDD_MAIN_rr1    avg i(VVDD_MAIN_rr1)   from='td' to='time_all'
+*---- arc : f0f -> 1 ----
+VVDD_PRE_f0f        VDD_PRE_f0f    0   DC=avdd
+VVDD_MAIN_f0f       VDD_MAIN_f0f    0   DC=avdd
+x_f0f               i_FALL    i_LOW    i_FALL    VBB     VPP     VSS     VDD_PRE_f0f    VDD_MAIN_f0f    VDD     d_A_f0f    d_B_f0f    d_CI_f0f    z_CON_f0f    z_SN_f0f    q_CON_f0f    q_SN_f0f    cover_FA1N
+.measure Tran power_VDD_MAIN_f0f    avg i(VVDD_MAIN_f0f)   from='td' to='time_all'
+*---- arc : r0f -> 0 ----
+VVDD_PRE_r0f        VDD_PRE_r0f    0   DC=avdd
+VVDD_MAIN_r0f       VDD_MAIN_r0f    0   DC=avdd
+x_r0f               i_RISE    i_LOW    i_FALL    VBB     VPP     VSS     VDD_PRE_r0f    VDD_MAIN_r0f    VDD     d_A_r0f    d_B_r0f    d_CI_r0f    z_CON_r0f    z_SN_r0f    q_CON_r0f    q_SN_r0f    cover_FA1N
+.measure Tran power_VDD_MAIN_r0f    avg i(VVDD_MAIN_r0f)   from='td' to='time_all'
+*---- arc : f1f -> 0 ----
+VVDD_PRE_f1f        VDD_PRE_f1f    0   DC=avdd
+VVDD_MAIN_f1f       VDD_MAIN_f1f    0   DC=avdd
+x_f1f               i_FALL    i_HIGH    i_FALL    VBB     VPP     VSS     VDD_PRE_f1f    VDD_MAIN_f1f    VDD     d_A_f1f    d_B_f1f    d_CI_f1f    z_CON_f1f    z_SN_f1f    q_CON_f1f    q_SN_f1f    cover_FA1N
+.measure Tran power_VDD_MAIN_f1f    avg i(VVDD_MAIN_f1f)   from='td' to='time_all'
+*---- arc : r1f -> 1 ----
+VVDD_PRE_r1f        VDD_PRE_r1f    0   DC=avdd
+VVDD_MAIN_r1f       VDD_MAIN_r1f    0   DC=avdd
+x_r1f               i_RISE    i_HIGH    i_FALL    VBB     VPP     VSS     VDD_PRE_r1f    VDD_MAIN_r1f    VDD     d_A_r1f    d_B_r1f    d_CI_r1f    z_CON_r1f    z_SN_r1f    q_CON_r1f    q_SN_r1f    cover_FA1N
+.measure Tran power_VDD_MAIN_r1f    avg i(VVDD_MAIN_r1f)   from='td' to='time_all'
+*---- arc : 0ff -> 1 ----
+VVDD_PRE_0ff        VDD_PRE_0ff    0   DC=avdd
+VVDD_MAIN_0ff       VDD_MAIN_0ff    0   DC=avdd
+x_0ff               i_LOW    i_FALL    i_FALL    VBB     VPP     VSS     VDD_PRE_0ff    VDD_MAIN_0ff    VDD     d_A_0ff    d_B_0ff    d_CI_0ff    z_CON_0ff    z_SN_0ff    q_CON_0ff    q_SN_0ff    cover_FA1N
+.measure Tran power_VDD_MAIN_0ff    avg i(VVDD_MAIN_0ff)   from='td' to='time_all'
+*---- arc : 1ff -> 0 ----
+VVDD_PRE_1ff        VDD_PRE_1ff    0   DC=avdd
+VVDD_MAIN_1ff       VDD_MAIN_1ff    0   DC=avdd
+x_1ff               i_HIGH    i_FALL    i_FALL    VBB     VPP     VSS     VDD_PRE_1ff    VDD_MAIN_1ff    VDD     d_A_1ff    d_B_1ff    d_CI_1ff    z_CON_1ff    z_SN_1ff    q_CON_1ff    q_SN_1ff    cover_FA1N
+.measure Tran power_VDD_MAIN_1ff    avg i(VVDD_MAIN_1ff)   from='td' to='time_all'
+*---- arc : 0rf -> 0 ----
+VVDD_PRE_0rf        VDD_PRE_0rf    0   DC=avdd
+VVDD_MAIN_0rf       VDD_MAIN_0rf    0   DC=avdd
+x_0rf               i_LOW    i_RISE    i_FALL    VBB     VPP     VSS     VDD_PRE_0rf    VDD_MAIN_0rf    VDD     d_A_0rf    d_B_0rf    d_CI_0rf    z_CON_0rf    z_SN_0rf    q_CON_0rf    q_SN_0rf    cover_FA1N
+.measure Tran power_VDD_MAIN_0rf    avg i(VVDD_MAIN_0rf)   from='td' to='time_all'
+*---- arc : 1rf -> 1 ----
+VVDD_PRE_1rf        VDD_PRE_1rf    0   DC=avdd
+VVDD_MAIN_1rf       VDD_MAIN_1rf    0   DC=avdd
+x_1rf               i_HIGH    i_RISE    i_FALL    VBB     VPP     VSS     VDD_PRE_1rf    VDD_MAIN_1rf    VDD     d_A_1rf    d_B_1rf    d_CI_1rf    z_CON_1rf    z_SN_1rf    q_CON_1rf    q_SN_1rf    cover_FA1N
+.measure Tran power_VDD_MAIN_1rf    avg i(VVDD_MAIN_1rf)   from='td' to='time_all'
+*---- arc : f0r -> 0 ----
+VVDD_PRE_f0r        VDD_PRE_f0r    0   DC=avdd
+VVDD_MAIN_f0r       VDD_MAIN_f0r    0   DC=avdd
+x_f0r               i_FALL    i_LOW    i_RISE    VBB     VPP     VSS     VDD_PRE_f0r    VDD_MAIN_f0r    VDD     d_A_f0r    d_B_f0r    d_CI_f0r    z_CON_f0r    z_SN_f0r    q_CON_f0r    q_SN_f0r    cover_FA1N
+.measure Tran power_VDD_MAIN_f0r    avg i(VVDD_MAIN_f0r)   from='td' to='time_all'
+*---- arc : r0r -> 1 ----
+VVDD_PRE_r0r        VDD_PRE_r0r    0   DC=avdd
+VVDD_MAIN_r0r       VDD_MAIN_r0r    0   DC=avdd
+x_r0r               i_RISE    i_LOW    i_RISE    VBB     VPP     VSS     VDD_PRE_r0r    VDD_MAIN_r0r    VDD     d_A_r0r    d_B_r0r    d_CI_r0r    z_CON_r0r    z_SN_r0r    q_CON_r0r    q_SN_r0r    cover_FA1N
+.measure Tran power_VDD_MAIN_r0r    avg i(VVDD_MAIN_r0r)   from='td' to='time_all'
+*---- arc : f1r -> 1 ----
+VVDD_PRE_f1r        VDD_PRE_f1r    0   DC=avdd
+VVDD_MAIN_f1r       VDD_MAIN_f1r    0   DC=avdd
+x_f1r               i_FALL    i_HIGH    i_RISE    VBB     VPP     VSS     VDD_PRE_f1r    VDD_MAIN_f1r    VDD     d_A_f1r    d_B_f1r    d_CI_f1r    z_CON_f1r    z_SN_f1r    q_CON_f1r    q_SN_f1r    cover_FA1N
+.measure Tran power_VDD_MAIN_f1r    avg i(VVDD_MAIN_f1r)   from='td' to='time_all'
+*---- arc : r1r -> 0 ----
+VVDD_PRE_r1r        VDD_PRE_r1r    0   DC=avdd
+VVDD_MAIN_r1r       VDD_MAIN_r1r    0   DC=avdd
+x_r1r               i_RISE    i_HIGH    i_RISE    VBB     VPP     VSS     VDD_PRE_r1r    VDD_MAIN_r1r    VDD     d_A_r1r    d_B_r1r    d_CI_r1r    z_CON_r1r    z_SN_r1r    q_CON_r1r    q_SN_r1r    cover_FA1N
+.measure Tran power_VDD_MAIN_r1r    avg i(VVDD_MAIN_r1r)   from='td' to='time_all'
+*---- arc : 0fr -> 0 ----
+VVDD_PRE_0fr        VDD_PRE_0fr    0   DC=avdd
+VVDD_MAIN_0fr       VDD_MAIN_0fr    0   DC=avdd
+x_0fr               i_LOW    i_FALL    i_RISE    VBB     VPP     VSS     VDD_PRE_0fr    VDD_MAIN_0fr    VDD     d_A_0fr    d_B_0fr    d_CI_0fr    z_CON_0fr    z_SN_0fr    q_CON_0fr    q_SN_0fr    cover_FA1N
+.measure Tran power_VDD_MAIN_0fr    avg i(VVDD_MAIN_0fr)   from='td' to='time_all'
+*---- arc : 1fr -> 1 ----
+VVDD_PRE_1fr        VDD_PRE_1fr    0   DC=avdd
+VVDD_MAIN_1fr       VDD_MAIN_1fr    0   DC=avdd
+x_1fr               i_HIGH    i_FALL    i_RISE    VBB     VPP     VSS     VDD_PRE_1fr    VDD_MAIN_1fr    VDD     d_A_1fr    d_B_1fr    d_CI_1fr    z_CON_1fr    z_SN_1fr    q_CON_1fr    q_SN_1fr    cover_FA1N
+.measure Tran power_VDD_MAIN_1fr    avg i(VVDD_MAIN_1fr)   from='td' to='time_all'
+*---- arc : 0rr -> 1 ----
+VVDD_PRE_0rr        VDD_PRE_0rr    0   DC=avdd
+VVDD_MAIN_0rr       VDD_MAIN_0rr    0   DC=avdd
+x_0rr               i_LOW    i_RISE    i_RISE    VBB     VPP     VSS     VDD_PRE_0rr    VDD_MAIN_0rr    VDD     d_A_0rr    d_B_0rr    d_CI_0rr    z_CON_0rr    z_SN_0rr    q_CON_0rr    q_SN_0rr    cover_FA1N
+.measure Tran power_VDD_MAIN_0rr    avg i(VVDD_MAIN_0rr)   from='td' to='time_all'
+*---- arc : 1rr -> 0 ----
+VVDD_PRE_1rr        VDD_PRE_1rr    0   DC=avdd
+VVDD_MAIN_1rr       VDD_MAIN_1rr    0   DC=avdd
+x_1rr               i_HIGH    i_RISE    i_RISE    VBB     VPP     VSS     VDD_PRE_1rr    VDD_MAIN_1rr    VDD     d_A_1rr    d_B_1rr    d_CI_1rr    z_CON_1rr    z_SN_1rr    q_CON_1rr    q_SN_1rr    cover_FA1N
+.measure Tran power_VDD_MAIN_1rr    avg i(VVDD_MAIN_1rr)   from='td' to='time_all'
+*---- arc : fff -> r ----
+VVDD_PRE_fff        VDD_PRE_fff    0   DC=avdd
+VVDD_MAIN_fff       VDD_MAIN_fff    0   DC=avdd
+x_fff               i_FALL    i_FALL    i_FALL    VBB     VPP     VSS     VDD_PRE_fff    VDD_MAIN_fff    VDD     d_A_fff    d_B_fff    d_CI_fff    z_CON_fff    z_SN_fff    q_CON_fff    q_SN_fff    cover_FA1N
+.measure Tran power_VDD_MAIN_fff    avg i(VVDD_MAIN_fff)   from='td' to='time_all'
+*---- arc : rff -> f ----
+VVDD_PRE_rff        VDD_PRE_rff    0   DC=avdd
+VVDD_MAIN_rff       VDD_MAIN_rff    0   DC=avdd
+x_rff               i_RISE    i_FALL    i_FALL    VBB     VPP     VSS     VDD_PRE_rff    VDD_MAIN_rff    VDD     d_A_rff    d_B_rff    d_CI_rff    z_CON_rff    z_SN_rff    q_CON_rff    q_SN_rff    cover_FA1N
+.measure Tran power_VDD_MAIN_rff    avg i(VVDD_MAIN_rff)   from='td' to='time_all'
+*---- arc : frf -> f ----
+VVDD_PRE_frf        VDD_PRE_frf    0   DC=avdd
+VVDD_MAIN_frf       VDD_MAIN_frf    0   DC=avdd
+x_frf               i_FALL    i_RISE    i_FALL    VBB     VPP     VSS     VDD_PRE_frf    VDD_MAIN_frf    VDD     d_A_frf    d_B_frf    d_CI_frf    z_CON_frf    z_SN_frf    q_CON_frf    q_SN_frf    cover_FA1N
+.measure Tran power_VDD_MAIN_frf    avg i(VVDD_MAIN_frf)   from='td' to='time_all'
+*---- arc : rrf -> r ----
+VVDD_PRE_rrf        VDD_PRE_rrf    0   DC=avdd
+VVDD_MAIN_rrf       VDD_MAIN_rrf    0   DC=avdd
+x_rrf               i_RISE    i_RISE    i_FALL    VBB     VPP     VSS     VDD_PRE_rrf    VDD_MAIN_rrf    VDD     d_A_rrf    d_B_rrf    d_CI_rrf    z_CON_rrf    z_SN_rrf    q_CON_rrf    q_SN_rrf    cover_FA1N
+.measure Tran power_VDD_MAIN_rrf    avg i(VVDD_MAIN_rrf)   from='td' to='time_all'
+*---- arc : ffr -> f ----
+VVDD_PRE_ffr        VDD_PRE_ffr    0   DC=avdd
+VVDD_MAIN_ffr       VDD_MAIN_ffr    0   DC=avdd
+x_ffr               i_FALL    i_FALL    i_RISE    VBB     VPP     VSS     VDD_PRE_ffr    VDD_MAIN_ffr    VDD     d_A_ffr    d_B_ffr    d_CI_ffr    z_CON_ffr    z_SN_ffr    q_CON_ffr    q_SN_ffr    cover_FA1N
+.measure Tran power_VDD_MAIN_ffr    avg i(VVDD_MAIN_ffr)   from='td' to='time_all'
+*---- arc : rfr -> r ----
+VVDD_PRE_rfr        VDD_PRE_rfr    0   DC=avdd
+VVDD_MAIN_rfr       VDD_MAIN_rfr    0   DC=avdd
+x_rfr               i_RISE    i_FALL    i_RISE    VBB     VPP     VSS     VDD_PRE_rfr    VDD_MAIN_rfr    VDD     d_A_rfr    d_B_rfr    d_CI_rfr    z_CON_rfr    z_SN_rfr    q_CON_rfr    q_SN_rfr    cover_FA1N
+.measure Tran power_VDD_MAIN_rfr    avg i(VVDD_MAIN_rfr)   from='td' to='time_all'
+*---- arc : frr -> r ----
+VVDD_PRE_frr        VDD_PRE_frr    0   DC=avdd
+VVDD_MAIN_frr       VDD_MAIN_frr    0   DC=avdd
+x_frr               i_FALL    i_RISE    i_RISE    VBB     VPP     VSS     VDD_PRE_frr    VDD_MAIN_frr    VDD     d_A_frr    d_B_frr    d_CI_frr    z_CON_frr    z_SN_frr    q_CON_frr    q_SN_frr    cover_FA1N
+.measure Tran power_VDD_MAIN_frr    avg i(VVDD_MAIN_frr)   from='td' to='time_all'
+*---- arc : rrr -> f ----
+VVDD_PRE_rrr        VDD_PRE_rrr    0   DC=avdd
+VVDD_MAIN_rrr       VDD_MAIN_rrr    0   DC=avdd
+x_rrr               i_RISE    i_RISE    i_RISE    VBB     VPP     VSS     VDD_PRE_rrr    VDD_MAIN_rrr    VDD     d_A_rrr    d_B_rrr    d_CI_rrr    z_CON_rrr    z_SN_rrr    q_CON_rrr    q_SN_rrr    cover_FA1N
+.measure Tran power_VDD_MAIN_rrr    avg i(VVDD_MAIN_rrr)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_000    avg i(VVDD_PRE_000)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_100    avg i(VVDD_PRE_100)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_010    avg i(VVDD_PRE_010)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_110    avg i(VVDD_PRE_110)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_001    avg i(VVDD_PRE_001)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_101    avg i(VVDD_PRE_101)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_011    avg i(VVDD_PRE_011)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_111    avg i(VVDD_PRE_111)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_f00    avg i(VVDD_PRE_f00)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_r00    avg i(VVDD_PRE_r00)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_f10    avg i(VVDD_PRE_f10)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_r10    avg i(VVDD_PRE_r10)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_0f0    avg i(VVDD_PRE_0f0)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_1f0    avg i(VVDD_PRE_1f0)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_0r0    avg i(VVDD_PRE_0r0)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_1r0    avg i(VVDD_PRE_1r0)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_f01    avg i(VVDD_PRE_f01)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_r01    avg i(VVDD_PRE_r01)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_f11    avg i(VVDD_PRE_f11)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_r11    avg i(VVDD_PRE_r11)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_0f1    avg i(VVDD_PRE_0f1)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_1f1    avg i(VVDD_PRE_1f1)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_0r1    avg i(VVDD_PRE_0r1)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_1r1    avg i(VVDD_PRE_1r1)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_00f    avg i(VVDD_PRE_00f)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_10f    avg i(VVDD_PRE_10f)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_01f    avg i(VVDD_PRE_01f)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_11f    avg i(VVDD_PRE_11f)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_00r    avg i(VVDD_PRE_00r)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_10r    avg i(VVDD_PRE_10r)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_01r    avg i(VVDD_PRE_01r)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_11r    avg i(VVDD_PRE_11r)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_ff0    avg i(VVDD_PRE_ff0)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_rf0    avg i(VVDD_PRE_rf0)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_fr0    avg i(VVDD_PRE_fr0)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_rr0    avg i(VVDD_PRE_rr0)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_ff1    avg i(VVDD_PRE_ff1)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_rf1    avg i(VVDD_PRE_rf1)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_fr1    avg i(VVDD_PRE_fr1)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_rr1    avg i(VVDD_PRE_rr1)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_f0f    avg i(VVDD_PRE_f0f)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_r0f    avg i(VVDD_PRE_r0f)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_f1f    avg i(VVDD_PRE_f1f)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_r1f    avg i(VVDD_PRE_r1f)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_0ff    avg i(VVDD_PRE_0ff)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_1ff    avg i(VVDD_PRE_1ff)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_0rf    avg i(VVDD_PRE_0rf)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_1rf    avg i(VVDD_PRE_1rf)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_f0r    avg i(VVDD_PRE_f0r)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_r0r    avg i(VVDD_PRE_r0r)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_f1r    avg i(VVDD_PRE_f1r)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_r1r    avg i(VVDD_PRE_r1r)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_0fr    avg i(VVDD_PRE_0fr)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_1fr    avg i(VVDD_PRE_1fr)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_0rr    avg i(VVDD_PRE_0rr)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_1rr    avg i(VVDD_PRE_1rr)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_fff    avg i(VVDD_PRE_fff)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_rff    avg i(VVDD_PRE_rff)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_frf    avg i(VVDD_PRE_frf)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_rrf    avg i(VVDD_PRE_rrf)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_ffr    avg i(VVDD_PRE_ffr)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_rfr    avg i(VVDD_PRE_rfr)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_frr    avg i(VVDD_PRE_frr)   from='td' to='time_all'
+.measure Tran power_VDD_PRE_rrr    avg i(VVDD_PRE_rrr)   from='td' to='time_all'
