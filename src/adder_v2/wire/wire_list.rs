@@ -11,8 +11,9 @@ impl WireList {
         self.0.len()
     }
 
+    // 默认先找新的后找旧的。
     pub fn find(&self, wire: &Wire) -> Result<(Id, Wire), NodeCreateError> {
-        let iter = self.0.iter();
+        let iter = self.0.iter().rev();
 
         for (id, w) in iter {
             if wire.is_logic_equil(w) {

@@ -1,6 +1,6 @@
 use crate::adder_v2::{adder::Adder, cell_parse::Process, draw::{adder_draw::AdderDraw, adder_frame::AdderFrame}, excel::{excel_to_datalist::ExcelDataList, ExcelFrame}, wire::Wire, Id};
 
-const PATH : &'static str = "src/adder_v2/project/a02_bk/excel/b02.txt";
+const PATH : &'static str = "src/adder_v2/project/a02_bk/excel/b03.txt";
 
 fn adder()  -> Adder {
     adder_and_excel().0
@@ -70,7 +70,7 @@ fn test_draw() {
 #[test]
 fn test_cdl() {
     let adder = adder();
-    let txt = adder.to_cdl("BK_ADDER_PP_B02", Process::N3E);
+    let txt = adder.to_cdl("BK_ADDER_PP_B03", Process::N3E);
     use std::fs::File;
     use std::io::prelude::*;
     let content = "This is the content to write to the file.";

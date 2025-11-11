@@ -7,8 +7,8 @@ use crate::adder_v2::{adder::Adder, cell::{cell_info::CellInfo, Cell}, excel::ex
 
 #[derive(Debug, Clone)]
 pub enum EndSpecial {
-    None,
     SUM,
+    NR_G_NP,
 }
 
 impl Adder {
@@ -88,13 +88,7 @@ impl Adder {
         let is_if_in_posi_than_end_is_neg = output_is_neg ^ input_is_neg;
 
         // 首比特处理
-        let first_s_wire_should = Wire {
-            flag : Flag::Q,
-            is_neg : is_if_in_posi_than_end_is_neg,
-            is_mirror : false,
-            index : 0,
-            len : 1,
-        };
+        let new_wire_id = wire_list.0.len() as Id;
         let first_s_wire = Wire {
             flag : Flag::S,
             is_neg : is_if_in_posi_than_end_is_neg,
@@ -102,38 +96,66 @@ impl Adder {
             index : 0,
             len : 1,
         };
+        // 根据需求来
+        match excel_data_list.end_special.get(&0) {
+            Some(EndSpecial::NR_G_NP) => {
+                let wire_to_a1 = Wire::from_str("g0");
+                let wire_to_a2 = Wire::from_str("np0");
+                
+                let wire_to_a1 = wire_list.find(&wire_to_a1).expect(&format!("to get s[0] with NR_G_NP logic, must have {}", wire_to_a1.to_string()));
+                let wire_to_a2 = wire_list.find(&wire_to_a2).expect(&format!("to get s[0] with NR_G_NP logic, must have {}", wire_to_a2.to_string()));
 
-        if wire_list.find(&first_s_wire_should).is_ok() {
-            // 将该Wire替换为S
-            
-            wire_list.find_and_replace(&first_s_wire_should, first_s_wire.clone());
-            for (_, cell) in cells.iter_mut() {
-                let (_, z_out_wire) = &mut cell.node.io.output_z;
-                if *z_out_wire == first_s_wire_should {
-                    *z_out_wire = first_s_wire;
-                    break;
+                cells.push((cells.len() as Id, Cell::new(Node::create_by_ordered_wires(Logic::NR2, vec![
+                    wire_to_a1,
+                    wire_to_a2,
+                    (wire_list.0.len() as Id, first_s_wire.clone()),
+                ]), CellInfo::default())));
+            },
+            None => {
+                let first_s_wire_should = Wire {
+                    flag : Flag::Q,
+                    is_neg : is_if_in_posi_than_end_is_neg,
+                    is_mirror : false,
+                    index : 0,
+                    len : 1,
+                };
+
+                if wire_list.find(&first_s_wire_should).is_ok() {
+                    // 将该Wire替换为S
+                    
+                    wire_list.find_and_replace(&first_s_wire_should, first_s_wire.clone());
+                    for (_, cell) in cells.iter_mut() {
+                        let (_, z_out_wire) = &mut cell.node.io.output_z;
+                        if *z_out_wire == first_s_wire_should {
+                            *z_out_wire = first_s_wire.clone();
+                            break;
+                        }
+                    }
+                } else {
+                    // 找到与其相反的q并加一个INV
+                    let first_s_wire_should = Wire {
+                        flag : Flag::Q,
+                        is_neg : !is_if_in_posi_than_end_is_neg,
+                        is_mirror : false,
+                        index : 0,
+                        len : 1,
+                    };
+                    let found_wire = wire_list.find(&first_s_wire_should).unwrap();
+
+                    let inv_cell_id = cells.len() as Id;
+                    let inv_cell = Cell::new(
+                        Node::create_by_ordered_wires(Logic::INV, vec![found_wire, (new_wire_id, first_s_wire.clone())]),
+                        CellInfo::default(),
+                    );
+                    cells.push((inv_cell_id, inv_cell));
                 }
-            }
-        } else {
-            // 找到与其相反的q并加一个INV
-            let first_s_wire_should = Wire {
-                flag : Flag::Q,
-                is_neg : !is_if_in_posi_than_end_is_neg,
-                is_mirror : false,
-                index : 0,
-                len : 1,
-            };
-            let found_wire = wire_list.find(&first_s_wire_should).unwrap();
-            let new_wire_id = wire_list.0.len() as Id;
-            wire_list.0.push((new_wire_id, first_s_wire.clone()));
-
-            let inv_cell_id = cells.len() as Id;
-            let inv_cell = Cell::new(
-                Node::create_by_ordered_wires(Logic::INV, vec![found_wire, (new_wire_id, first_s_wire)]),
-                CellInfo::default(),
-            );
-            cells.push((inv_cell_id, inv_cell));
+            },
+            _ => panic!("end special error")
         }
+        
+        wire_list.0.push((new_wire_id, first_s_wire.clone()));
+
+        
 
         // 后续比特处理，默认抓取ID较小者
         for index in 1..bits {
@@ -147,66 +169,101 @@ impl Adder {
             let new_wire_id = wire_list.0.len() as Id;
             wire_list.0.push((new_wire_id, s_wire.clone()));
             let new_cell_id = cells.len() as Id;
-            // find g index-1 to 0
-            let mut g_list : Vec<(Id, Wire)> = vec![];
-            for is_neg in [true, false] {
-                if let Ok(ret) = wire_list.find(&Wire::new(Flag::G, is_neg, index-1, index)) {
-                    g_list.push(ret);
+
+            // 考虑不同的S获取方式
+            match excel_data_list.end_special.get(&index) {
+                Some(EndSpecial::SUM) => {
+                    /*
+                    CI = g3_0
+                    B2 = np3
+                    B1 = ng3
+                    A  = ng2_0
+                    这是对于pp adder，对于nn adder，调换B1和B2
+                    */
+                    let wire_to_ci =  Wire::new(Flag::G, false, index, index+1);
+                    let wire_to_b1 = Wire::new(Flag::G, true, index, 1);
+                    let wire_to_b2 = Wire::new(Flag::P, true, index, 1);
+                    let wire_to_a = Wire::new(Flag::G, true, index-1, index);
+
+                    let wire_to_ci = wire_list.find(&wire_to_ci).expect(&format!("to get s[{index}] with SUM logic, must have {}", wire_to_ci.to_string()));
+                    let wire_to_b2 = wire_list.find(&wire_to_b2).expect(&format!("to get s[{index}] with SUM logic, must have {}", wire_to_b2.to_string()));
+                    let wire_to_b1 = wire_list.find(&wire_to_b1).expect(&format!("to get s[{index}] with SUM logic, must have {}", wire_to_b1.to_string()));
+                    let wire_to_a = wire_list.find(&wire_to_a).expect(&format!("to get s[{index}] with SUM logic, must have {}", wire_to_a.to_string()));
+
+                    cells.push((new_cell_id, Cell::new(Node::create_by_ordered_wires(Logic::SUM, vec![
+                        wire_to_a,
+                        wire_to_b1,
+                        wire_to_b2,
+                        wire_to_ci,
+                        (new_wire_id, s_wire.clone()),
+                    ]), CellInfo::default())));
+                },
+                None => {
+                    // find g index-1 to 0
+                    let mut g_list : Vec<(Id, Wire)> = vec![];
+                    for is_neg in [true, false] {
+                        if let Ok(ret) = wire_list.find(&Wire::new(Flag::G, is_neg, index-1, index)) {
+                            g_list.push(ret);
+                        }
+                    }
+                    g_list.sort_by(|a, b| a.0.cmp(&b.0));
+                    let g_list = if let Some(g_list_given) = give_final_c_map.get(&(index-1)) {
+                        match g_list_given.len() {
+                            1 => g_list_given.clone(),
+                            _ => panic!("at index {}, given g list len must = 1, but {:?} in it", index-1, g_list_given.iter().map(|g| g.1.to_string()).collect::<Vec<_>>().join(", ")),
+                        }
+                    } else {
+                        g_list
+                    };
+                    if g_list.len() > 1 {
+                        let mut txt = format!(">>> {} : for node s{index}, multi c can be select : ", "warning".color(Color::Orange1));
+                        txt += &format!("{} ", g_list[0].1.to_string().color(Color::Green));
+                        for g in &g_list[1..] {
+                            txt += &format!("{} ", g.1.to_string());
+                        }
+                        println!("{}", txt);
+                    }
+                    let g = g_list[0].clone();
+                    // find q index 
+                    let mut q_list : Vec<(Id, Wire)> = vec![];
+                    for is_neg in [true, false] {
+                        if let Ok(ret) = wire_list.find(&Wire::new(Flag::Q, is_neg, index, 1)) {
+                            q_list.push(ret);
+                        }
+                    }
+                    q_list.sort_by(|a, b| a.0.cmp(&b.0));
+                    let q_list = if let Some(q_list_given) = give_final_q_map.get(&(index)) {
+                        match q_list_given.len() {
+                            1 => q_list_given.clone(),
+                            _ => panic!("at index {}, given g list len must = 1, but {:?} in it", index-1, q_list_given.iter().map(|g| g.1.to_string()).collect::<Vec<_>>().join(", ")),
+                        }
+                    } else {
+                        q_list
+                    };
+                    if q_list.len() > 1 {
+                        let mut txt = format!(">>> {} : for node s{index}, multi c can be select : ", "warning".color(Color::Orange1));
+                        txt += &format!("{} ", q_list[0].1.to_string().color(Color::Green));
+                        for q in &q_list[1..] {
+                            txt += &format!("{} ", q.1.to_string());
+                        }
+                        println!("{}", txt);
+                    }
+                    let q = q_list[0].clone();
+                    let logic = if g.1.is_neg ^ q.1.is_neg ^ is_if_in_posi_than_end_is_neg {
+                        Logic::XNR2
+                    } else {
+                        Logic::XOR2
+                    };
+                    cells.push((new_cell_id, Cell::new(Node::create_by_ordered_wires(logic, vec![
+                        g,
+                        q,
+                        (new_wire_id, s_wire.clone()),
+                    ]), CellInfo::default())));
+                },
+                _ => {
+                    panic!();
                 }
             }
-            g_list.sort_by(|a, b| a.0.cmp(&b.0));
-            let g_list = if let Some(g_list_given) = give_final_c_map.get(&(index-1)) {
-                match g_list_given.len() {
-                    1 => g_list_given.clone(),
-                    _ => panic!("at index {}, given g list len must = 1, but {:?} in it", index-1, g_list_given.iter().map(|g| g.1.to_string()).collect::<Vec<_>>().join(", ")),
-                }
-            } else {
-                g_list
-            };
-            if g_list.len() > 1 {
-                let mut txt = format!(">>> {} : for node s{index}, multi c can be select : ", "warning".color(Color::Orange1));
-                txt += &format!("{} ", g_list[0].1.to_string().color(Color::Green));
-                for g in &g_list[1..] {
-                    txt += &format!("{} ", g.1.to_string());
-                }
-                println!("{}", txt);
-            }
-            let g = g_list[0].clone();
-            // find q index 
-            let mut q_list : Vec<(Id, Wire)> = vec![];
-            for is_neg in [true, false] {
-                if let Ok(ret) = wire_list.find(&Wire::new(Flag::Q, is_neg, index, 1)) {
-                    q_list.push(ret);
-                }
-            }
-            q_list.sort_by(|a, b| a.0.cmp(&b.0));
-            let q_list = if let Some(q_list_given) = give_final_q_map.get(&(index)) {
-                match q_list_given.len() {
-                    1 => q_list_given.clone(),
-                    _ => panic!("at index {}, given g list len must = 1, but {:?} in it", index-1, q_list_given.iter().map(|g| g.1.to_string()).collect::<Vec<_>>().join(", ")),
-                }
-            } else {
-                q_list
-            };
-            if q_list.len() > 1 {
-                let mut txt = format!(">>> {} : for node s{index}, multi c can be select : ", "warning".color(Color::Orange1));
-                txt += &format!("{} ", q_list[0].1.to_string().color(Color::Green));
-                for q in &q_list[1..] {
-                    txt += &format!("{} ", q.1.to_string());
-                }
-                println!("{}", txt);
-            }
-            let q = q_list[0].clone();
-            let logic = if g.1.is_neg ^ q.1.is_neg ^ is_if_in_posi_than_end_is_neg {
-                Logic::XNR2
-            } else {
-                Logic::XOR2
-            };
-            cells.push((new_cell_id, Cell::new(Node::create_by_ordered_wires(logic, vec![
-                g,
-                q,
-                (new_wire_id, s_wire.clone()),
-            ]), CellInfo::default())));
         }
 
         // -----处理输入就是反的情况------

@@ -29,10 +29,12 @@ impl Adder {
 
         let layer_map = self.scan_layer_absolute();
 
+        let same_wire_mapping = self.get_same_wire_mapping();
+
         for (i, (_, cell)) in self.cells.iter().enumerate() {
             let layer = layer_map[i];
 
-            let mut port_and_pins = cell.node.to_port_vs_wire_name();
+            let mut port_and_pins = cell.node.to_port_vs_wire_name_with_same_wire_mapping(&same_wire_mapping);
 
             for pg_port in cell.to_cell_body().pg_ports(process) {
                 port_and_pins.insert(pg_port.clone(), pg_port.0);

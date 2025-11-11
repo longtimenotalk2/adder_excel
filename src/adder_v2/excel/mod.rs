@@ -47,6 +47,7 @@ impl ExcelFrame {
                     match item.trim() {
                         "" => (),
                         "SUM" => {end_special.insert(index, EndSpecial::SUM);},
+                        "NR_G_NP" => {end_special.insert(index, EndSpecial::NR_G_NP);},
                         _ => panic!("invalid end special {item}"),
                     }
                 }

@@ -73,6 +73,7 @@ impl Logic {
     pub fn z_port(&self) -> Port {
         match self {
             Logic::AN2 | Logic::OR2 | Logic::XOR2 | Logic::XOR2DOUT | Logic::AO21 | Logic::OA21 | Logic::AOA211 | Logic::OAO211 => Port::new("Z"),
+            Logic::SUM => Port::new("CON"),
             _ => Port::new("ZN"),
         }
     }
@@ -131,7 +132,7 @@ impl Logic {
             Logic::AOI22 | Logic::OAI22 => vec![a1, a2, b1, b2],
             Logic::ND3 | Logic::NR3 => vec![a1, a2, a3],
             Logic::AOAOI2111 | Logic::OAOAI2111 => vec![d, c, b, a1, a2],
-            Logic::SUM => vec![ci, b1, b2, a],
+            Logic::SUM => vec![a, b1, b2, ci],
         }
     }
 

@@ -44,15 +44,47 @@ impl Node {
         map
     }
 
-    pub fn to_port_vs_wire_name(&self) -> BTreeMap<Port, String> {
+    // pub fn to_port_vs_wire_name(&self) -> BTreeMap<Port, String> {
+    //     let mut map = BTreeMap::new();
+    //     for (port, (_, wire)) in self.io.input.iter() {
+    //         map.insert(port.clone(), wire.to_string());
+    //     }
+    //     if let Some((_, o1_wire)) = self.io.output_o1.as_ref() {
+    //         map.insert(Port::new("O1"), o1_wire.to_string());
+    //     }
+    //     map.insert(self.logic.z_port(),  self.io.output_z.1.to_string());
+
+    //     map
+    // }
+
+    pub fn to_port_vs_wire_name_with_same_wire_mapping(&self, same_wire_mapping : &BTreeMap<(Id, Wire), usize>) -> BTreeMap<Port, String> {
         let mut map = BTreeMap::new();
         for (port, (_, wire)) in self.io.input.iter() {
-            map.insert(port.clone(), wire.to_string());
+            let mut wire_name_base = wire.to_string();
+            let sub_id = *same_wire_mapping.get(&(self.io.input[port].0.clone(), wire.clone())).unwrap();
+            if sub_id > 1 {
+                // dbg!("!!");
+                wire_name_base = format!("{wire_name_base}_slow_{sub_id}");
+            }
+            map.insert(port.clone(), wire_name_base);
         }
-        if let Some((_, o1_wire)) = self.io.output_o1.as_ref() {
-            map.insert(Port::new("O1"), o1_wire.to_string());
+        if let Some(o1_wire) = self.io.output_o1.as_ref() {
+            let mut wire_name_base = o1_wire.1.to_string();
+            let sub_id = *same_wire_mapping.get(o1_wire).unwrap();
+            if sub_id > 1 {
+                // dbg!("!!");
+                wire_name_base = format!("{wire_name_base}_slow_{sub_id}");
+            }
+            map.insert(Port::new("O1"), wire_name_base);
         }
-        map.insert(self.logic.z_port(),  self.io.output_z.1.to_string());
+        let z_wire = &self.io.output_z;
+        let mut wire_name_base = z_wire.1.to_string();
+        let sub_id = *same_wire_mapping.get(z_wire).unwrap();
+        if sub_id > 1 {
+            // dbg!("!!");
+            wire_name_base = format!("{wire_name_base}_slow_{sub_id}");
+        }
+        map.insert(self.logic.z_port(),  wire_name_base);
 
         map
     }

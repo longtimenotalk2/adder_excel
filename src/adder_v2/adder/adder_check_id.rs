@@ -2,7 +2,7 @@ use std::collections::BTreeMap;
 
 use colorful::{Color, Colorful};
 
-use crate::adder_v2::{adder::Adder, wire::{self, wire_list::WireList}, Id};
+use crate::adder_v2::{adder::Adder, wire::{self, wire_list::WireList, Wire}, Id};
 
 impl Adder {
     pub fn check_id_all_match(&self) {
@@ -47,5 +47,20 @@ impl Adder {
 
         }
         println!("{}", "pass !".to_string().color(Color::Green));
+    }
+
+    // 给出所有wire的sub id，1，2，3，...
+    pub fn get_same_wire_mapping(&self) -> BTreeMap<(Id, Wire), usize> {
+        let mut wire_stat: BTreeMap<Wire, usize> = BTreeMap::new(); // 这里统计已经有了几个这种wire
+        let mut ret = BTreeMap::new(); // 这里统计wire和它的sub id
+
+        for (id, wire) in &self.wires {
+            *wire_stat.entry(wire.clone()).or_insert(0) += 1;
+            ret.insert((*id, wire.clone()), wire_stat[wire]);
+        }
+
+        // dbg!(&ret);
+
+        ret
     }
 }
