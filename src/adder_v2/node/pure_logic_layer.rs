@@ -230,7 +230,7 @@ impl Ballen {
                 match self {
                     Self::G(bollen_g) => match bollen_g.extend_grey {
                         ExtendGrey::Extend(i) => i == 0,
-                        ExtendGrey::ShrinkOne => false,
+                        ExtendGrey::ShrinkOne => true,
                         ExtendGrey::MayShrinkOne => true, 
                     },
                     Self::P(_) => false,
@@ -278,6 +278,9 @@ impl Ballen {
                         Flag::P | Flag::Q => {
                             (self.index()..=self.index(), (self.index_end()+1)..=(self.index()), Some(AOLogic::Or))
                         },
+                        Flag::G => {
+                            (self.index()..=self.index(), (self.index())..=(self.index()), Some(AOLogic::Or))
+                        }
                         _ => unimplemented!()
                     }
                 }
@@ -353,7 +356,11 @@ impl Ballen {
                             bollen_g.index -= len;
                             bollen_g.extend_grey = ExtendGrey::Extend(len);
                         }
-                        ExtendGrey::ShrinkOne => unimplemented!()
+                        ExtendGrey::ShrinkOne => {
+                            assert_eq!(len, 1);
+                            bollen_g.index -= len;
+                            bollen_g.extend_grey = ExtendGrey::Extend(0);
+                        }
                     }
                 } else {unimplemented!()}
             }

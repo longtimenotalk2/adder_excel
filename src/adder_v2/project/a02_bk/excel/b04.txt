@@ -1,0 +1,41 @@
+LY	LT	type	30	29	28	27	26	25	24	23	22	21	20	19	18	17	16	15	14	13	12	11	10	9	8	7	6	5	4	3	2	1	0
+1	cri	wire	nq	nq~	nq~	nq~	nq~	nq~	nq~	nq~	nq~	nq~	nq~	nq~	nq~	nq~	nq~	ng	ng	ng	ng	ng	ng	ng	ng	ng	ng	ng	ng	ng	ng	ng	ng
+1	cri	code	A	A	A	A	A	A	AO{Q}	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A
+1	cri	cap	4	4,6	4,8	6,8	4,8	6,10	6,8	4,8	6,8	4,8	6,8	4,8	6,8	4,8	6,8	4	6	4	6	4	6	4	6	4	6	4	6	4	6	6	6
+1	cri	wire																np	np	np	np	np	np	np	np	np	np	np	np	np	np	np	np
+1	cri	code																A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A
+1	cri	cap																6	4	6	6	6	6	6	6	6	6	6	6	6	6	6	2
+2	cri	wire			g2	<q2	g3	<q3		g2	<q2	g2	<q2	g2	<q2	g2	<p3	h2	p2	h2	p2	h2	p2	h2	p2	h2	p2	h2	p2	h2	p2	h2	c
+2	cri	code					L{gqgqg}	L{qqq}									L{qqp}	L{gg}		L{gg}		L{gg}		L{gg}		L{gg}		L{gg}		L{gg}		L{gg}	I
+2	cri	cap			2	4	4	4		2	4	4	4	2	4	4	4	2	6	4	4	2	4	4	4	2	4	4	4	4	4	4	4
+3	cri	wire			g5	<q5				ng4	<nq4			ng4	<np5			nh4	np4			nh4	np4			nh4	np4			nh4			
+3	cri	code			N	N																								D			
+3	cri	cap			2	2				2	4			4	4			2	4			4	4			4	4			6			
+4	cri	wire								ng8	<np9							h8	p8							h8							
+4	cri	code								N	N															D							
+4	cri	cap								4	4							4	4							8							
+5	cri	wire																nh16								nh8							
+5	cri	code																D								I							
+5	cri	cap																8								4							
+3	uncri	wire							g	<q									np2													c	nc
+3	uncri	code							I	I									I														I
+3	uncri	cap							2	2									2													4	2
+4	uncri	wire																												c		nc	
+4	uncri	code																												L{ph}		I	
+4	uncri	cap																												6		4	
+5	uncri	wire																						nh10		c		nh6		nc	c		
+5	uncri	code																								L{ph}		L{hpg}		I			
+5	uncri	cap																						2		4		2		4	4		
+6	uncri	wire								g24				c				c				h12		c		nc		c	c		nc		
+6	uncri	code								DL{gph}				L{gph}				L{ph}						L{ph}		I		L{ph}			I		
+6	uncri	cap								8				4				6				4		4		4		4	4		2		
+7	uncri	wire			nc		nc		nc	nc		nc		nc		nc		nc		nh14		nc		nc	c			nc	nc				
+7	uncri	code								IO{C}				IO{C}				IO{C}				L{~ph}		I				I	I				
+7	uncri	cap			6		6		6	4		6		6		6		6		4		6		4	4			4	2				
+8	uncri	wire		c		c		c			c		c		c		c		c	c	c	c	c		nc		c						
+8	uncri	code																	L{gph}	L{ph}		I			I								
+8	uncri	cap		4		4		4			4		4		4		4		4	4	4	2	4		2		4						
+9	uncri	wire																	nc	nc	nc		nc				nc						
+9	uncri	code																	I	I	I		I				I						
+9	uncri	cap																	2	2	2		2				2						
+END																		SUM	SUM	SUM	SUM	SUM	SUM	SUM	SUM	SUM	SUM	SUM	SUM	SUM	SUM	SUM	NR_G_NP

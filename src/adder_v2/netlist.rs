@@ -44,6 +44,19 @@ impl Adder {
 
         let layers = self.scan_layer_end_same();
 
+        let same_wire_mapping = self.get_same_wire_mapping();
+
+        let abs_wire_name = |input : &(Id, Wire)| -> String {
+            let wire = &input.1;
+            let mut base_name = wire.to_string_netlist();
+            let sub_id = *same_wire_mapping.get(input).unwrap();
+            if sub_id > 1 {
+                // dbg!("!!");
+                base_name = format!("{base_name}_slow_{sub_id}");
+            }
+            base_name
+        };
+
         for (cell_id, cell) in self.cells.iter() {
 
             let layer = layers.get(*cell_id as usize).unwrap();
@@ -70,7 +83,7 @@ impl Adder {
         }
 
         for wire in wires.iter() {
-            ret += &format!("   wire {};\n", wire.1.to_string_netlist());
+            ret += &format!("   wire {};\n", abs_wire_name(wire));
         }
 
         ret += "\n";
@@ -83,7 +96,7 @@ impl Adder {
                 if i != 0 {
                     txt += ",\n\t";
                 }
-                txt += &format!(".{}({})", port.0, wire.1.to_string_netlist());
+                txt += &format!(".{}({})", port.0, abs_wire_name(wire));
             }
             txt += ");\n";
             ret += &txt;
