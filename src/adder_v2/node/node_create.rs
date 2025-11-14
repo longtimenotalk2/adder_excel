@@ -182,7 +182,7 @@ impl Node {
             ]) {
                 let a1 = history_wires.find(&Wire::from_str(&format!("a{index}")))?;
                 let a2 = history_wires.find(&Wire::from_str(&format!("b{index}")))?;
-                let b1 = history_wires.find(&Wire::from_str(&format!("p{}", index-1)).to_mirror_if(hint.is_use_mirror))?;
+                let b1 = history_wires.find(&Wire::new(Flag::P, false, index, 2).to_mirror_if(hint.is_use_mirror))?;
                 let b2 = history_wires.find(&Wire::new(Flag::H, false, index-1, hint.given_out_len-1).to_mirror_if(target_wire.is_mirror))?;
                 Some(Node::create_by_ordered_wires(
                     Logic::AOI22,
@@ -207,6 +207,9 @@ impl Node {
             if let Some(mut node) = will_ret {
                 if hint.is_use_mirror {
                     node.logic = node.logic.mirror();
+                }
+                if hint.is_out_addition_inv {
+                    node = node.impl_output_inv();
                 }
                 return Ok(node);
             }

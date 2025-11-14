@@ -34,9 +34,9 @@ impl WireList {
         }
     }
 
-    /// 寻找index的start和end可以浮动的flag extend
+    /// 寻找index的start和end可以浮动的flag extend，先找新的后找旧的
     pub fn find_wire_range(&self, wire_range : &WireRange) -> Vec<(Id, Wire)> {
-        let iter = self.0.iter();
+        let iter = self.0.iter().rev();
 
         let mut ret = vec![];
 

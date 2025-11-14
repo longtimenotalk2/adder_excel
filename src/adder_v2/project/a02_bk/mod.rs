@@ -4,3 +4,5 @@ pub mod b02;
 pub mod b03;
 pub mod b04;
 pub mod b05;
+pub mod b06;
+pub mod b07;

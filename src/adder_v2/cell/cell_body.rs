@@ -19,6 +19,13 @@ impl CellBody {
     pub fn cap_cmos_given_input_port(&self, port : &Port) -> i32 {
         let mut n = match self.logic {
             Logic::XNR2 | Logic::XOR2 | Logic::XNR2DOUT | Logic::XOR2DOUT => 4,
+            Logic::SUM => {
+                if port == &Port::new("A") {
+                    4
+                } else {
+                    2
+                }
+            }
             _ => 2,
         };
         if self.contains_special("SP-BD") && port == &Port::new("B") {

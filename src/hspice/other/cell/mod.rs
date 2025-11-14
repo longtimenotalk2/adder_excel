@@ -1,6 +1,7 @@
 use std::fmt::Debug;
 
 pub mod fa1n;
+pub mod maj;
 
 const LOW : &'static str = "i_LOW";
 const HIGH : &'static str = "i_HIGH";
