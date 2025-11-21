@@ -1,6 +1,6 @@
 LY	LT	type	30	29	28	27	26	25	24	23	22	21	20	19	18	17	16	15	14	13	12	11	10	9	8	7	6	5	4	3	2	1	0
 1	cri	wire	nq	q	nq~	nq~	nq~	nq~	nq~	nq~	nq~	nq~	nq~	nq~	nq~	nq~	nq~	ng	ng	ng	ng	ng	ng	ng	ng	ng	ng	ng	ng	ng	ng	ng	ng
-1	cri	code	A	A	A	A	A	A	A	A	AO{Q}	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A
+1	cri	code	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A
 1	cri	cap	4	8	4,8	4,8	6,10	4,8	6,8	4,8	6,8	4,8	6,8	4,8	6,8	4,8	6,8	4	6	4	6	4	6	4	6	4	6	4	6	4	6	6	6
 1	cri	wire																np	np	np	np	np	np	np	np	np	np	np	np	np	np	np	np
 1	cri	code																A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A
@@ -10,13 +10,13 @@ LY	LT	type	30	29	28	27	26	25	24	23	22	21	20	19	18	17	16	15	14	13	12	11	10	9	8	7	
 2	cri	cap				2	4	6	6	2	4	4	4	2	4	4	4	2	4	4	4	2	4	4	4	2	4	4	4	4	4	8	4
 3	cri	wire				ng4	<nq4			ng4	<nq4			ng4	<nq4			ng4	<np4	ng2	<np2	ng4	<np4			ng4	<np4			ng4			
 3	cri	code																		I	I									D			
-3	cri	cap				4	4			2	4			4	4			2	4	4	4	4	4			4	4			8			
+3	cri	cap				4	4			2	4			4	4			2	4	4	4	4	4			4	4			6			
 4	cri	wire			g5	<q5				ng8	<nq8							g8	<p8			g4	<p4			g8							
 4	cri	code								N	N											I	I			D							
 4	cri	cap			4	4				4	4							4	4			2	2			10							
 5	cri	wire		ng6	<nq6													ng16															
 5	cri	code		L{abqg}														D															
-5	cri	cap		2	2													10															
+5	cri	cap		2	2													8															
 3	uncri	wire					g3	<q3																									nc
 3	uncri	code					L{gq~g}	L{q~q}																									I
 3	uncri	cap					2	2																									4
@@ -25,13 +25,13 @@ LY	LT	type	30	29	28	27	26	25	24	23	22	21	20	19	18	17	16	15	14	13	12	11	10	9	8	7	
 4	uncri	cap																	2	2										6			
 5	uncri	wire																				nc		nc		nc		nc		nc	c	nc	
 5	uncri	code																								I				I		I	
-5	uncri	cap																				8		8		8		8		4	4	6	
+5	uncri	cap																				8		8		8		8		6	4	6	
 6	uncri	wire								c				c				c	c	c	c	c	c	c	c	c	c	c	c		nc		
 6	uncri	code								DO{C}								I				I		I		I		I			I		
 6	uncri	cap								12				4				6	4	4	4	4	4	2	4	2	4	2	4		4		
 7	uncri	wire								nc		nc		nc		nc		nc	nc	nc	nc	nc	nc		nc		nc		nc				
 7	uncri	code								I				IO{C}				IO{C}	I	I	I	I	I		I		I		I				
-7	uncri	cap								6		4		6		4		4	4	4	4	4	4		4		4		4				
+7	uncri	cap								6		4		6		4		6	4	4	4	4	4		4		4		4				
 8	uncri	wire		c		c			c		c	c	c		c	c	c																
 8	uncri	code										IO{C}				IO{C}																	
 8	uncri	cap		4		4			4		4	4	4		4	4	4																

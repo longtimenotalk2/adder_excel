@@ -16,6 +16,18 @@ fn sn_out_signal(input_arc : &InputArc) -> Signal {
     Signal::from_start_and_end(start_out, end_out)
 }
 
+fn con_logic(a : bool, b : bool, ci : bool) -> bool {
+    !((a&b)|(b&ci)|(ci&a))
+}
+
+fn con_out_signal(input_arc : &InputArc) -> Signal {
+    let start = input_arc.start();
+    let end = input_arc.end();
+    let start_out = con_logic(start[0], start[1], start[2]);
+    let end_out = con_logic(end[0], end[1], end[2]);
+    Signal::from_start_and_end(start_out, end_out)
+}
+
 fn fa1n_input_arcs() -> Vec<InputArc> {
     super::get_all_input_arcs(3, 1)
 }
@@ -123,6 +135,54 @@ fn timing_arc_measure_for_sn() -> String {
             }, 
             1
         );
+    }
+
+    txt
+}
+
+fn timing_arc_measure_for_con_attend() -> String {
+    let mut txt = String::new();
+
+    for (type_arc, input_arc) in sorted_fa1n_input_arcs_with_type() {
+        let con_out = con_out_signal(&input_arc);
+        if con_out.is_flip() {
+            txt += &format!("*---- arc_con : <{:?}> {:?} -> {:?} ----\n", type_arc, input_arc, con_out);
+
+            let target_wire_sn = format!("q_CON_type{}_{}", type_arc.to_str(), input_arc.to_string());
+            // txt += &line_cell(&input_arc.to_string(), &[
+            //     input_arc.0[0].to_wire(),
+            //     input_arc.0[1].to_wire(),
+            //     input_arc.0[2].to_wire(),
+            //     "VBB",
+            //     "VPP",
+            //     "VSS",
+            //     "VDD",
+            //     "VDD",
+            //     "VDD",
+            //     format!("d_A_type{}_{}", type_arc.to_str(), input_arc.to_string()).as_str(),
+            //     format!("d_B_type{}_{}", type_arc.to_str(), input_arc.to_string()).as_str(),
+            //     format!("d_CI_type{}_{}", type_arc.to_str(), input_arc.to_string()).as_str(),
+            //     format!("z_CON_type{}_{}", type_arc.to_str(), input_arc.to_string()).as_str(),
+            //     format!("z_SN_type{}_{}", type_arc.to_str(), input_arc.to_string()).as_str(),
+            //     format!("q_CON_type{}_{}", type_arc.to_str(), input_arc.to_string()).as_str(),
+            //     target_wire_sn.as_str(),
+            // ], COVER);
+            // measure delay
+            txt += &line_measure_delay(
+                format!("con_{}", input_arc.to_string()).as_str(), 
+                target_wire_sn.as_str(), 
+                RISE, 
+                true, 
+                1, 
+                match con_out {
+                    Signal::Rise => true,
+                    Signal::Fall => false,
+                    _ => panic!(),
+                }, 
+                1
+            );
+        }
+        
     }
 
     txt
@@ -237,7 +297,7 @@ fn test_leakage() {
 
 #[test]
 fn test_timing() {
-    let txt = timing_arc_measure_for_sn();
+    let txt = timing_arc_measure_for_con_attend();
     use std::fs::File;
     use std::io::prelude::*;
     let content = "This is the content to write to the file.";

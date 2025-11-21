@@ -46,7 +46,7 @@ impl WirePos {
 pub struct CellFrame {
     pub cell_body : CellBody,
     pub inputs : Vec<((Id, Wire), (Pos, CellPos, WirePos))>,
-    pub outputs : Vec<(Id, Wire)>,
+    pub outputs : Vec<(Id, Wire, i32)>, // i32 = cap in MOS num
 }
 
 #[derive(Debug, Clone)]
@@ -85,15 +85,17 @@ impl AdderFrame {
                 inputs.push((wire.clone(), wire_pos_full.clone()));
             }
 
-            let mut outputs = vec![];
+            let mut outputs: Vec<(Id, Wire, i32)> = vec![];
             if let Some(wire) = &cell.node.io.output_o1 {
                 let wire_pos = WirePos::new(outputs.len());
-                outputs.push(wire.clone());
+                let cap = adder.get_cap_cmos_for_wire(wire);
+                outputs.push((wire.0.clone(), wire.1.clone(), cap));
                 detected_wire.insert(wire.clone(), (pos.clone(), cell_pos.clone(), wire_pos));
             }
             let wire = &cell.node.io.output_z;
+            let cap = adder.get_cap_cmos_for_wire(wire);
             let wire_pos = WirePos::new(outputs.len());
-            outputs.push(wire.clone());
+            outputs.push((wire.0.clone(), wire.1.clone(), cap));
             detected_wire.insert(wire.clone(), (pos.clone(), cell_pos, wire_pos));
 
             let cell_frame = CellFrame { cell_body: cell.to_cell_body(), inputs, outputs };

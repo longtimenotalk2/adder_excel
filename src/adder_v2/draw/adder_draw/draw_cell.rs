@@ -9,7 +9,7 @@ impl AdderDraw {
         pos : &Pos, 
         cell_pos : &CellPos,
         inputs : &[((Id, Wire), (Pos, CellPos, WirePos))],
-        outputs : &[(Id, Wire)],
+        outputs : &[(Id, Wire, i32)], // i32 = cap
         ruler : &BigRuler,
         frame : &AdderFrame,
     ) -> ToBeDraw {
@@ -85,27 +85,41 @@ impl AdderDraw {
         }
 
         // out wire name
-        for (wire_pos, (_, wire)) in outputs.iter().enumerate() {
+        for (wire_pos, (_, wire, cap)) in outputs.iter().enumerate() {
             let wire_pos = &WirePos::new(wire_pos);
             let wire_name = wire.to_string();
             let (x, y) = ruler.get_wire_xy(pos, cell_pos, wire_pos);
 
             front.push(Box::new(Text::new(&format!("{wire_name}"))
                 .set("x", x)
-                .set("y", y - self.wire_height / 2.)
+                .set("y", y - self.wire_height *0.5)
                 .set("text-anchor", "middle") // 水平居中
                 .set("dominant-baseline", "middle")   // 垂直居中
                 .set("font-family", "Arial")
                 .set("font-size", self.font_wire_name)
                 .set("fill", border_color)
             ));
+
+            if self.show_fan_out {
+                front.push(Box::new(Text::new(&format!("{cap}"))
+                    .set("x", x)
+                    .set("y", y + self.wire_height *0.3)
+                    .set("text-anchor", "middle") // 水平居中
+                    .set("dominant-baseline", "middle")   // 垂直居中
+                    .set("font-family", "Arial")
+                    .set("font-size", self.font_cap)
+                    .set("fill", border_color)
+            ));
+            }
         }
 
         // input wire line
         let end_point = (cell_x, cell_y - self.cell_height / 2.);
         for (_wire, (input_pos, input_cell_pos, input_wire_pos)) in inputs.iter() {
-            let start_point = ruler.get_wire_xy(input_pos, input_cell_pos, input_wire_pos);
-
+            let mut start_point = ruler.get_wire_xy(input_pos, input_cell_pos, input_wire_pos);
+            if self.show_fan_out {
+                start_point.1 += self.wire_height*0.8;
+            }
 
             
             let input_mark_vddh = if input_pos.layer > 0 {

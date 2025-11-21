@@ -14,6 +14,22 @@ pub struct Node {
 }
 
 impl Node {
+    pub fn to_mirror(&self) -> Node {
+        let new_logic = self.logic.mirror();
+        let mut new_io = self.io.clone();
+        if new_logic == Logic::SUM {
+            // SUM 交换B1和B2
+            let origin_b1_wire = new_io.input.get(&Port::new("B1")).unwrap().clone();
+            let origin_b2_wire = new_io.input.get(&Port::new("B2")).unwrap().clone();
+            new_io.input.insert(Port::new("B1"), origin_b2_wire);
+            new_io.input.insert(Port::new("B2"), origin_b1_wire);
+        }
+        Node {
+            logic : new_logic,
+            io : new_io,
+        }
+    }
+
     pub fn to_string(&self) -> String {
         let inputs = self.get_ordered_input_wires().iter().map(|(_, w)| w.to_string()).collect::<Vec<_>>().join(", ");
         let outputs = self.get_ordered_output_wires().iter().map(|(_, w)| w.to_string()).collect::<Vec<_>>().join(", ");

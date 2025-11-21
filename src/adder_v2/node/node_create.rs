@@ -159,6 +159,7 @@ impl Node {
             // 输入的flagp_chain，默认输入都是正
             // true_flagp_chain，要处理默认输入为反的情况
             let true_flagp_chain = FlagPChain(flagp_chain.0.iter().map(|fp| if input_is_neg {fp.to_rev()} else {fp.clone()}).collect::<Vec<FlagP>>());
+
             // 特殊配置特殊处理
             let will_ret = if true_flagp_chain == FlagPChain(vec![
                 FlagP::new(Flag::A, false), 
@@ -199,6 +200,46 @@ impl Node {
                 Some(Node::create_by_ordered_wires(
                     Logic::AOI21,
                     vec![b, a1, a2, (id_next, target_wire.clone())],
+                ))
+            } else if true_flagp_chain == FlagPChain(vec![
+                FlagP::new(Flag::Q, true), 
+                FlagP::new(Flag::G, true),
+            ]) && target_wire.flag == Flag::H && target_wire.len == 2 {
+                let a1 = history_wires.find(&Wire::from_str(&format!("q{index}")))?;
+                let a2 = history_wires.find(&Wire::from_str(&format!("ng{}", index-1)))?;
+                Some(Node::create_by_ordered_wires(
+                    Logic::ND2,
+                    vec![a1, a2, (id_next, target_wire.clone())],
+                ))
+            } else if true_flagp_chain == FlagPChain(vec![
+                FlagP::new(Flag::G, false), 
+                FlagP::new(Flag::P, false),
+            ]) && target_wire.flag == Flag::Q && target_wire.len == 1 && target_wire.is_neg == false {
+                let a1 = history_wires.find(&Wire::from_str(&format!("ng{index}")))?;
+                let a2 = history_wires.find(&Wire::from_str(&format!("np{index}")))?;
+                Some(Node::create_by_ordered_wires(
+                    Logic::INR2,
+                    vec![a1, a2, (id_next, target_wire.clone())],
+                ))
+            } else if true_flagp_chain == FlagPChain(vec![
+                FlagP::new(Flag::G, true), 
+                FlagP::new(Flag::P, false),
+            ]) && target_wire.flag == Flag::Q && target_wire.len == 1 && target_wire.is_neg == false {
+                let a1 = history_wires.find(&Wire::from_str(&format!("g{index}")))?;
+                let a2 = history_wires.find(&Wire::from_str(&format!("np{index}")))?;
+                Some(Node::create_by_ordered_wires(
+                    Logic::NR2,
+                    vec![a1, a2, (id_next, target_wire.clone())],
+                ))
+            } else if true_flagp_chain == FlagPChain(vec![
+                FlagP::new(Flag::G, true), 
+                FlagP::new(Flag::P, false),
+            ]) && target_wire.flag == Flag::Q && target_wire.len == 1 && target_wire.is_neg == true {
+                let a1 = history_wires.find(&Wire::from_str(&format!("ng{index}")))?;
+                let a2 = history_wires.find(&Wire::from_str(&format!("p{index}")))?;
+                Some(Node::create_by_ordered_wires(
+                    Logic::ND2,
+                    vec![a1, a2, (id_next, target_wire.clone())],
                 ))
             } else {
                 None
