@@ -315,3 +315,12 @@ fn test() {
         println!("{:?}", sn_out_signal(&input_arc));
     }
 }
+
+#[test]
+fn test2() {
+    for (type_arc, input_arc) in sorted_fa1n_input_arcs_with_type() {
+        if con_out_signal(&input_arc).is_flip() {
+            println!("{}\t{}\t{:?}", type_arc.to_str(), input_arc.to_string(), con_out_signal(&input_arc));
+        }
+    }
+}

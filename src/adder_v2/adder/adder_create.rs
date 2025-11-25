@@ -9,6 +9,7 @@ use crate::adder_v2::{adder::Adder, cell::{cell_info::CellInfo, Cell}, excel::ex
 pub enum EndSpecial {
     SUM,
     NR_G_NP,
+    OA,
 }
 
 impl Adder {
@@ -106,6 +107,20 @@ impl Adder {
                 let wire_to_a2 = wire_list.find(&wire_to_a2).expect(&format!("to get s[0] with NR_G_NP logic, must have {}", wire_to_a2.to_string()));
 
                 cells.push((cells.len() as Id, Cell::new(Node::create_by_ordered_wires(Logic::NR2, vec![
+                    wire_to_a1,
+                    wire_to_a2,
+                    (wire_list.0.len() as Id, first_s_wire.clone()),
+                ]), CellInfo::default())));
+            },
+            Some(EndSpecial::OA) => {
+                let wire_to_b = Wire::from_str("ng0");
+                
+                let wire_to_b = wire_list.find(&wire_to_b).expect(&format!("to get s[0] with NR_G_NP logic, must have {}", wire_to_b.to_string()));
+                let wire_to_a1 = wire_list.find(&Wire::from_str("a0")).unwrap();
+                let wire_to_a2 = wire_list.find(&Wire::from_str("b0")).unwrap();
+
+                cells.push((cells.len() as Id, Cell::new(Node::create_by_ordered_wires(Logic::OA21, vec![
+                    wire_to_b,
                     wire_to_a1,
                     wire_to_a2,
                     (wire_list.0.len() as Id, first_s_wire.clone()),
