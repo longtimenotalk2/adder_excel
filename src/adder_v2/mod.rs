@@ -12,6 +12,7 @@ pub mod cell;
 pub mod special;
 pub mod draw;
 pub mod netlist;
+pub mod floorplan;
 
 type Id = u32;
 
