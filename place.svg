@@ -1,0 +1,1364 @@
+<svg viewBox="0 0 8080 5704" xmlns="http://www.w3.org/2000/svg">
+<rect fill="white" height="100%" width="100%" x="0" y="0"/>
+<rect fill="white" height="5304" stroke="black" stroke-width="1" width="7680" x="200" y="200"/>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="200" y="5192"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="5254.4">
+ng0
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="200" y="5036"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="5098.4">
+ng1
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="200" y="4880"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="4942.4">
+ng2
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="200" y="4724"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="4786.4">
+ng3
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="200" y="4568"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="4630.4">
+ng4
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="200" y="4412"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="4474.4">
+ng5
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="200" y="4256"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="4318.4">
+ng6
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="200" y="4100"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="4162.4">
+ng7
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="200" y="3944"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="4006.4">
+ng8
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="200" y="3788"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="3850.4">
+ng9
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="200" y="3632"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="3694.4">
+ng10
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="200" y="3476"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="3538.4">
+ng11
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="200" y="3320"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="3382.4">
+ng12
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="200" y="3164"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="3226.4">
+ng13
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="200" y="3008"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="3070.4">
+ng14
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="200" y="2540"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="2602.4">
+ng15
+</text>
+<rect fill="#FFC000" height="156" stroke="black" stroke-width="1" width="1152" x="200" y="2384"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="2446.4">
+ng16; nq16
+</text>
+<rect fill="#FFC000" height="156" stroke="black" stroke-width="1" width="1152" x="200" y="2228"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="2290.4">
+ng17; nq17
+</text>
+<rect fill="#FFC000" height="156" stroke="black" stroke-width="1" width="1152" x="200" y="2072"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="2134.4">
+ng18; nq18
+</text>
+<rect fill="#FFC000" height="156" stroke="black" stroke-width="1" width="1152" x="200" y="1916"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="1978.4">
+ng19; nq19
+</text>
+<rect fill="#FFC000" height="156" stroke="black" stroke-width="1" width="1152" x="200" y="1760"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="1822.4">
+ng20; nq20
+</text>
+<rect fill="#FFC000" height="156" stroke="black" stroke-width="1" width="1152" x="200" y="1604"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="1666.4">
+ng21; nq21
+</text>
+<rect fill="#FFC000" height="156" stroke="black" stroke-width="1" width="1152" x="200" y="1448"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="1510.4">
+ng22; nq22
+</text>
+<rect fill="#FFC000" height="156" stroke="black" stroke-width="1" width="1152" x="200" y="1292"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="1354.4">
+ng23; nq23
+</text>
+<rect fill="#FFC000" height="156" stroke="black" stroke-width="1" width="1152" x="200" y="1136"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="1198.4">
+ng24; nq24
+</text>
+<rect fill="#FFC000" height="156" stroke="black" stroke-width="1" width="1152" x="200" y="980"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="1042.4">
+ng25; nq25
+</text>
+<rect fill="#FFC000" height="156" stroke="black" stroke-width="1" width="1152" x="200" y="824"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="886.4">
+ng26; nq26
+</text>
+<rect fill="#FFC000" height="156" stroke="black" stroke-width="1" width="1152" x="200" y="668"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="730.4">
+ng27; nq27
+</text>
+<rect fill="#FFC000" height="156" stroke="black" stroke-width="1" width="1152" x="200" y="512"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="574.4">
+ng28; nq28
+</text>
+<rect fill="#FF99CC" height="156" stroke="black" stroke-width="1" width="1152" x="200" y="356"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="418.4">
+q29
+</text>
+<rect fill="#FFC000" height="156" stroke="black" stroke-width="1" width="1152" x="200" y="200"/>
+<text fill="black" font-family="Arial" font-size="80" x="248" y="262.4">
+nq30
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="776" y="5192"/>
+<text fill="black" font-family="Arial" font-size="80" x="824" y="5254.4">
+np0
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="776" y="5036"/>
+<text fill="black" font-family="Arial" font-size="80" x="824" y="5098.4">
+np1
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="776" y="4880"/>
+<text fill="black" font-family="Arial" font-size="80" x="824" y="4942.4">
+np2
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="776" y="4724"/>
+<text fill="black" font-family="Arial" font-size="80" x="824" y="4786.4">
+np3
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="776" y="4568"/>
+<text fill="black" font-family="Arial" font-size="80" x="824" y="4630.4">
+np4
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="776" y="4412"/>
+<text fill="black" font-family="Arial" font-size="80" x="824" y="4474.4">
+np5
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="776" y="4256"/>
+<text fill="black" font-family="Arial" font-size="80" x="824" y="4318.4">
+np6
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="776" y="4100"/>
+<text fill="black" font-family="Arial" font-size="80" x="824" y="4162.4">
+np7
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="776" y="3944"/>
+<text fill="black" font-family="Arial" font-size="80" x="824" y="4006.4">
+np8
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="776" y="3788"/>
+<text fill="black" font-family="Arial" font-size="80" x="824" y="3850.4">
+np9
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="776" y="3632"/>
+<text fill="black" font-family="Arial" font-size="80" x="824" y="3694.4">
+np10
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="776" y="3476"/>
+<text fill="black" font-family="Arial" font-size="80" x="824" y="3538.4">
+np11
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="776" y="3320"/>
+<text fill="black" font-family="Arial" font-size="80" x="824" y="3382.4">
+np12
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="776" y="3164"/>
+<text fill="black" font-family="Arial" font-size="80" x="824" y="3226.4">
+np13
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="776" y="3008"/>
+<text fill="black" font-family="Arial" font-size="80" x="824" y="3070.4">
+np14
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="776" y="2540"/>
+<text fill="black" font-family="Arial" font-size="80" x="824" y="2602.4">
+np15
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="1352" y="5192"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="5254.4">
+g0
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="1344" x="1352" y="5036"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="5098.4">
+g1_0
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="1352" y="4724"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="4786.4">
+p3_2
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="1928" y="4724"/>
+<text fill="black" font-family="Arial" font-size="80" x="1976" y="4786.4">
+g3_2
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="1352" y="4412"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="4474.4">
+p5_4
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="1928" y="4412"/>
+<text fill="black" font-family="Arial" font-size="80" x="1976" y="4474.4">
+g5_4
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="1352" y="4100"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="4162.4">
+p7_6
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="1928" y="4100"/>
+<text fill="black" font-family="Arial" font-size="80" x="1976" y="4162.4">
+g7_6
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="1352" y="3788"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="3850.4">
+p9_8
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="1928" y="3788"/>
+<text fill="black" font-family="Arial" font-size="80" x="1976" y="3850.4">
+g9_8
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="1352" y="3476"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="3538.4">
+p11_10
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="1928" y="3476"/>
+<text fill="black" font-family="Arial" font-size="80" x="1976" y="3538.4">
+g11_10
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="1352" y="3164"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="3226.4">
+p13_12
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="1928" y="3164"/>
+<text fill="black" font-family="Arial" font-size="80" x="1976" y="3226.4">
+g13_12
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="1352" y="2540"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="2602.4">
+p15_14
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="1928" y="2540"/>
+<text fill="black" font-family="Arial" font-size="80" x="1976" y="2602.4">
+g15_14
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="1352" y="2228"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="2290.4">
+q17_16
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="1928" y="2228"/>
+<text fill="black" font-family="Arial" font-size="80" x="1976" y="2290.4">
+g17_16
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="1352" y="1916"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="1978.4">
+q19_18
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="1928" y="1916"/>
+<text fill="black" font-family="Arial" font-size="80" x="1976" y="1978.4">
+g19_18
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="1352" y="1604"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="1666.4">
+q21_20
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="1928" y="1604"/>
+<text fill="black" font-family="Arial" font-size="80" x="1976" y="1666.4">
+g21_20
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="1352" y="1292"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="1354.4">
+q23_22
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="1928" y="1292"/>
+<text fill="black" font-family="Arial" font-size="80" x="1976" y="1354.4">
+g23_22
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="1352" y="980"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="1042.4">
+q25_24
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="1928" y="980"/>
+<text fill="black" font-family="Arial" font-size="80" x="1976" y="1042.4">
+g25_24
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="1352" y="668"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="730.4">
+q27_26
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="1928" y="668"/>
+<text fill="black" font-family="Arial" font-size="80" x="1976" y="730.4">
+g27_26
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="1344" x="2696" y="4724"/>
+<text fill="black" font-family="Arial" font-size="80" x="2744" y="4786.4">
+ng3_0
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="1352" y="4256"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="4318.4">
+np7_4
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="2696" y="4100"/>
+<text fill="black" font-family="Arial" font-size="80" x="2744" y="4162.4">
+ng7_4
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="1352" y="3632"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="3694.4">
+np11_8
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="2696" y="3476"/>
+<text fill="black" font-family="Arial" font-size="80" x="2744" y="3538.4">
+ng11_8
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="2696" y="3164"/>
+<text fill="black" font-family="Arial" font-size="80" x="2744" y="3226.4">
+np13_12
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="3080" y="3164"/>
+<text fill="black" font-family="Arial" font-size="80" x="3128" y="3226.4">
+ng13_12
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="2696" y="2540"/>
+<text fill="black" font-family="Arial" font-size="80" x="2744" y="2602.4">
+np15_12
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="3272" y="2540"/>
+<text fill="black" font-family="Arial" font-size="80" x="3320" y="2602.4">
+ng15_12
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="1352" y="2072"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="2134.4">
+nq19_16
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="2696" y="1916"/>
+<text fill="black" font-family="Arial" font-size="80" x="2744" y="1978.4">
+ng19_16
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="1352" y="1448"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="1510.4">
+nq23_20
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="2696" y="1292"/>
+<text fill="black" font-family="Arial" font-size="80" x="2744" y="1354.4">
+ng23_20
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="1352" y="824"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="886.4">
+nq27_24
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="2696" y="668"/>
+<text fill="black" font-family="Arial" font-size="80" x="2744" y="730.4">
+ng27_24
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="1344" x="1928" y="4256"/>
+<text fill="black" font-family="Arial" font-size="80" x="1976" y="4318.4">
+g7_0
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="1928" y="3632"/>
+<text fill="black" font-family="Arial" font-size="80" x="1976" y="3694.4">
+p11_8
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="3464" y="3476"/>
+<text fill="black" font-family="Arial" font-size="80" x="3512" y="3538.4">
+g11_8
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="1352" y="3008"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="3070.4">
+p15_8
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="4040" y="2540"/>
+<text fill="black" font-family="Arial" font-size="80" x="4088" y="2602.4">
+g15_8
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="768" x="1928" y="1448"/>
+<text fill="black" font-family="Arial" font-size="80" x="1976" y="1510.4">
+nq23_16
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="960" x="2696" y="1448"/>
+<text fill="black" font-family="Arial" font-size="80" x="2744" y="1510.4">
+ng23_16
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="1352" y="512"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="574.4">
+q28_24
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="1928" y="512"/>
+<text fill="black" font-family="Arial" font-size="80" x="1976" y="574.4">
+g28_24
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="1344" x="4808" y="2540"/>
+<text fill="black" font-family="Arial" font-size="80" x="4856" y="2602.4">
+ng15_0
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="1352" y="356"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="418.4">
+nq29_24
+</text>
+<rect fill="#A9D08E" height="156" stroke="black" stroke-width="1" width="960" x="1928" y="356"/>
+<text fill="black" font-family="Arial" font-size="80" x="1976" y="418.4">
+ng29_24
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="1736" y="5192"/>
+<text fill="black" font-family="Arial" font-size="80" x="1784" y="5254.4">
+ng0
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="768" x="1928" y="824"/>
+<text fill="black" font-family="Arial" font-size="80" x="1976" y="886.4">
+q26_24
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="960" x="2696" y="824"/>
+<text fill="black" font-family="Arial" font-size="80" x="2744" y="886.4">
+g26_24
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="4040" y="4724"/>
+<text fill="black" font-family="Arial" font-size="80" x="4088" y="4786.4">
+g3_0
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="768" x="1928" y="3008"/>
+<text fill="black" font-family="Arial" font-size="80" x="1976" y="3070.4">
+np14_12
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="960" x="2696" y="3008"/>
+<text fill="black" font-family="Arial" font-size="80" x="2744" y="3070.4">
+ng14_12
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="2696" y="5036"/>
+<text fill="black" font-family="Arial" font-size="80" x="2744" y="5098.4">
+ng1_0
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="1352" y="4880"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="4942.4">
+g2_0
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="4424" y="4724"/>
+<text fill="black" font-family="Arial" font-size="80" x="4472" y="4786.4">
+ng3_0
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="2696" y="4412"/>
+<text fill="black" font-family="Arial" font-size="80" x="2744" y="4474.4">
+ng5_0
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="3464" y="4100"/>
+<text fill="black" font-family="Arial" font-size="80" x="3512" y="4162.4">
+ng7_0
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="2696" y="3788"/>
+<text fill="black" font-family="Arial" font-size="80" x="2744" y="3850.4">
+ng9_0
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="3848" y="3476"/>
+<text fill="black" font-family="Arial" font-size="80" x="3896" y="3538.4">
+ng11_0
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="2120" y="4880"/>
+<text fill="black" font-family="Arial" font-size="80" x="2168" y="4942.4">
+ng2_0
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="1352" y="4568"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="4630.4">
+g4_0
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="3464" y="4412"/>
+<text fill="black" font-family="Arial" font-size="80" x="3512" y="4474.4">
+g5_0
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="3272" y="4256"/>
+<text fill="black" font-family="Arial" font-size="80" x="3320" y="4318.4">
+g6_0
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="3848" y="4100"/>
+<text fill="black" font-family="Arial" font-size="80" x="3896" y="4162.4">
+g7_0
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="1352" y="3944"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="4006.4">
+g8_0
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="3464" y="3788"/>
+<text fill="black" font-family="Arial" font-size="80" x="3512" y="3850.4">
+g9_0
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="2312" y="3632"/>
+<text fill="black" font-family="Arial" font-size="80" x="2360" y="3694.4">
+g10_0
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="4616" y="3476"/>
+<text fill="black" font-family="Arial" font-size="80" x="4664" y="3538.4">
+g11_0
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="1352" y="3320"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="3382.4">
+g12_0
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="3464" y="3164"/>
+<text fill="black" font-family="Arial" font-size="80" x="3512" y="3226.4">
+g13_0
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="3656" y="3008"/>
+<text fill="black" font-family="Arial" font-size="80" x="3704" y="3070.4">
+g14_0
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="6152" y="2540"/>
+<text fill="black" font-family="Arial" font-size="80" x="6200" y="2602.4">
+g15_0
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="3464" y="1916"/>
+<text fill="black" font-family="Arial" font-size="80" x="3512" y="1978.4">
+g19_0
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="1344" x="3656" y="1448"/>
+<text fill="black" font-family="Arial" font-size="80" x="3704" y="1510.4">
+g23_0
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="2120" y="4568"/>
+<text fill="black" font-family="Arial" font-size="80" x="2168" y="4630.4">
+ng4_0
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="4040" y="4256"/>
+<text fill="black" font-family="Arial" font-size="80" x="4088" y="4318.4">
+ng6_0
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="2120" y="3944"/>
+<text fill="black" font-family="Arial" font-size="80" x="2168" y="4006.4">
+ng8_0
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="3080" y="3632"/>
+<text fill="black" font-family="Arial" font-size="80" x="3128" y="3694.4">
+ng10_0
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="5000" y="3476"/>
+<text fill="black" font-family="Arial" font-size="80" x="5048" y="3538.4">
+ng11_0
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="2120" y="3320"/>
+<text fill="black" font-family="Arial" font-size="80" x="2168" y="3382.4">
+ng12_0
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="4232" y="3164"/>
+<text fill="black" font-family="Arial" font-size="80" x="4280" y="3226.4">
+ng13_0
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="4424" y="3008"/>
+<text fill="black" font-family="Arial" font-size="80" x="4472" y="3070.4">
+ng14_0
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="6536" y="2540"/>
+<text fill="black" font-family="Arial" font-size="80" x="6584" y="2602.4">
+ng15_0
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="2696" y="2228"/>
+<text fill="black" font-family="Arial" font-size="80" x="2744" y="2290.4">
+ng17_0
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="4232" y="1916"/>
+<text fill="black" font-family="Arial" font-size="80" x="4280" y="1978.4">
+ng19_0
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="2696" y="1604"/>
+<text fill="black" font-family="Arial" font-size="80" x="2744" y="1666.4">
+ng21_0
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="5000" y="1448"/>
+<text fill="black" font-family="Arial" font-size="80" x="5048" y="1510.4">
+ng23_0
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="1352" y="2384"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="2446.4">
+g16_0
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="3464" y="2228"/>
+<text fill="black" font-family="Arial" font-size="80" x="3512" y="2290.4">
+g17_0
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="1928" y="2072"/>
+<text fill="black" font-family="Arial" font-size="80" x="1976" y="2134.4">
+g18_0
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="1352" y="1760"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="1822.4">
+g20_0
+</text>
+<rect fill="#DDEBF7" height="156" stroke="black" stroke-width="1" width="384" x="3464" y="1604"/>
+<text fill="black" font-family="Arial" font-size="80" x="3512" y="1666.4">
+g21_0
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="3464" y="1292"/>
+<text fill="black" font-family="Arial" font-size="80" x="3512" y="1354.4">
+g22_0
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="1352" y="1136"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="1198.4">
+g24_0
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="3464" y="668"/>
+<text fill="black" font-family="Arial" font-size="80" x="3512" y="730.4">
+g27_0
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="2888" y="356"/>
+<text fill="black" font-family="Arial" font-size="80" x="2936" y="418.4">
+g29_0
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="2696" y="980"/>
+<text fill="black" font-family="Arial" font-size="80" x="2744" y="1042.4">
+ng25_0
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="3656" y="824"/>
+<text fill="black" font-family="Arial" font-size="80" x="3704" y="886.4">
+ng26_0
+</text>
+<rect fill="#D9D9D9" height="156" stroke="black" stroke-width="1" width="768" x="2696" y="512"/>
+<text fill="black" font-family="Arial" font-size="80" x="2744" y="574.4">
+ng28_0
+</text>
+<rect fill="#F8CBAD" height="156" stroke="black" stroke-width="1" width="576" x="2120" y="5192"/>
+<text fill="black" font-family="Arial" font-size="80" x="2168" y="5254.4">
+s0
+</text>
+<rect fill="#BDD7EE" height="156" stroke="black" stroke-width="1" width="1152" x="3080" y="5036"/>
+<text fill="black" font-family="Arial" font-size="80" x="3128" y="5098.4">
+s1
+</text>
+<rect fill="#BDD7EE" height="156" stroke="black" stroke-width="1" width="1152" x="2504" y="4880"/>
+<text fill="black" font-family="Arial" font-size="80" x="2552" y="4942.4">
+s2
+</text>
+<rect fill="#BDD7EE" height="156" stroke="black" stroke-width="1" width="1152" x="2504" y="4568"/>
+<text fill="black" font-family="Arial" font-size="80" x="2552" y="4630.4">
+s3
+</text>
+<rect fill="#BDD7EE" height="156" stroke="black" stroke-width="1" width="1152" x="3656" y="4568"/>
+<text fill="black" font-family="Arial" font-size="80" x="3704" y="4630.4">
+s4
+</text>
+<rect fill="#BDD7EE" height="156" stroke="black" stroke-width="1" width="1152" x="3848" y="4412"/>
+<text fill="black" font-family="Arial" font-size="80" x="3896" y="4474.4">
+s5
+</text>
+<rect fill="#BDD7EE" height="156" stroke="black" stroke-width="1" width="1152" x="4424" y="4256"/>
+<text fill="black" font-family="Arial" font-size="80" x="4472" y="4318.4">
+s6
+</text>
+<rect fill="#BDD7EE" height="156" stroke="black" stroke-width="1" width="1152" x="4232" y="4100"/>
+<text fill="black" font-family="Arial" font-size="80" x="4280" y="4162.4">
+s7
+</text>
+<rect fill="#BDD7EE" height="156" stroke="black" stroke-width="1" width="1152" x="2504" y="3944"/>
+<text fill="black" font-family="Arial" font-size="80" x="2552" y="4006.4">
+s8
+</text>
+<rect fill="#BDD7EE" height="156" stroke="black" stroke-width="1" width="1152" x="3848" y="3788"/>
+<text fill="black" font-family="Arial" font-size="80" x="3896" y="3850.4">
+s9
+</text>
+<rect fill="#BDD7EE" height="156" stroke="black" stroke-width="1" width="1152" x="3464" y="3632"/>
+<text fill="black" font-family="Arial" font-size="80" x="3512" y="3694.4">
+s10
+</text>
+<rect fill="#BDD7EE" height="156" stroke="black" stroke-width="1" width="1152" x="2504" y="3320"/>
+<text fill="black" font-family="Arial" font-size="80" x="2552" y="3382.4">
+s11
+</text>
+<rect fill="#BDD7EE" height="156" stroke="black" stroke-width="1" width="1152" x="3656" y="3320"/>
+<text fill="black" font-family="Arial" font-size="80" x="3704" y="3382.4">
+s12
+</text>
+<rect fill="#BDD7EE" height="156" stroke="black" stroke-width="1" width="1152" x="4616" y="3164"/>
+<text fill="black" font-family="Arial" font-size="80" x="4664" y="3226.4">
+s13
+</text>
+<rect fill="#BDD7EE" height="156" stroke="black" stroke-width="1" width="1152" x="4808" y="3008"/>
+<text fill="black" font-family="Arial" font-size="80" x="4856" y="3070.4">
+s14
+</text>
+<rect fill="#BDD7EE" height="156" stroke="black" stroke-width="1" width="1152" x="2120" y="2384"/>
+<text fill="black" font-family="Arial" font-size="80" x="2168" y="2446.4">
+s15
+</text>
+<rect fill="#FF99CC" height="156" stroke="black" stroke-width="1" width="1152" x="3272" y="2384"/>
+<text fill="black" font-family="Arial" font-size="80" x="3320" y="2446.4">
+s16
+</text>
+<rect fill="#FFC000" height="156" stroke="black" stroke-width="1" width="1152" x="3848" y="2228"/>
+<text fill="black" font-family="Arial" font-size="80" x="3896" y="2290.4">
+s17
+</text>
+<rect fill="#FFC000" height="156" stroke="black" stroke-width="1" width="1152" x="2696" y="2072"/>
+<text fill="black" font-family="Arial" font-size="80" x="2744" y="2134.4">
+s18
+</text>
+<rect fill="#FFC000" height="156" stroke="black" stroke-width="1" width="1152" x="2120" y="1760"/>
+<text fill="black" font-family="Arial" font-size="80" x="2168" y="1822.4">
+s19
+</text>
+<rect fill="#FF99CC" height="156" stroke="black" stroke-width="1" width="1152" x="3272" y="1760"/>
+<text fill="black" font-family="Arial" font-size="80" x="3320" y="1822.4">
+s20
+</text>
+<rect fill="#FFC000" height="156" stroke="black" stroke-width="1" width="1152" x="3848" y="1604"/>
+<text fill="black" font-family="Arial" font-size="80" x="3896" y="1666.4">
+s21
+</text>
+<rect fill="#FFC000" height="156" stroke="black" stroke-width="1" width="1152" x="4232" y="1292"/>
+<text fill="black" font-family="Arial" font-size="80" x="4280" y="1354.4">
+s22
+</text>
+<rect fill="#FFC000" height="156" stroke="black" stroke-width="1" width="1152" x="2120" y="1136"/>
+<text fill="black" font-family="Arial" font-size="80" x="2168" y="1198.4">
+s23
+</text>
+<rect fill="#FFC000" height="156" stroke="black" stroke-width="1" width="1152" x="3272" y="1136"/>
+<text fill="black" font-family="Arial" font-size="80" x="3320" y="1198.4">
+s24
+</text>
+<rect fill="#FFC000" height="156" stroke="black" stroke-width="1" width="1152" x="3464" y="980"/>
+<text fill="black" font-family="Arial" font-size="80" x="3512" y="1042.4">
+s25
+</text>
+<rect fill="#FF99CC" height="156" stroke="black" stroke-width="1" width="1152" x="4424" y="824"/>
+<text fill="black" font-family="Arial" font-size="80" x="4472" y="886.4">
+s26
+</text>
+<rect fill="#FF99CC" height="156" stroke="black" stroke-width="1" width="1152" x="4232" y="668"/>
+<text fill="black" font-family="Arial" font-size="80" x="4280" y="730.4">
+s27
+</text>
+<rect fill="#FFC000" height="156" stroke="black" stroke-width="1" width="1152" x="3464" y="512"/>
+<text fill="black" font-family="Arial" font-size="80" x="3512" y="574.4">
+s28
+</text>
+<rect fill="#FFC000" height="156" stroke="black" stroke-width="1" width="1152" x="3656" y="356"/>
+<text fill="black" font-family="Arial" font-size="80" x="3704" y="418.4">
+s29
+</text>
+<rect fill="#FFC000" height="156" stroke="black" stroke-width="1" width="1152" x="1352" y="200"/>
+<text fill="black" font-family="Arial" font-size="80" x="1400" y="262.4">
+s30
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="5220"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="5270">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="5064"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="5114">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="4908"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="4958">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="4752"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="4802">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="4596"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="4646">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="4440"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="4490">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="4284"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="4334">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="4128"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="4178">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="3972"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="4022">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="3816"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="3866">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="3660"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="3710">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="3504"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="3554">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="3348"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="3398">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="3192"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="3242">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="3036"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="3086">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="2568"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="2618">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="2412"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="2462">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="2256"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="2306">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="2100"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="2150">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="1944"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="1994">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="1788"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="1838">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="1632"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="1682">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="1476"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="1526">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="1320"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="1370">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="1164"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="1214">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="1008"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="1058">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="852"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="902">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="696"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="746">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="540"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="590">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="384"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="434">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="170" y="228"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="200" y="278">
+2
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="1322" y="5064"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="1352" y="5114">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="1322" y="4752"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="1352" y="4802">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="1322" y="4440"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="1352" y="4490">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="1322" y="4128"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="1352" y="4178">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="1322" y="3816"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="1352" y="3866">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="1322" y="3504"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="1352" y="3554">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="1322" y="3192"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="1352" y="3242">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="1322" y="2568"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="1352" y="2618">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="1322" y="2256"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="1352" y="2306">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="1322" y="1944"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="1352" y="1994">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="1322" y="1632"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="1352" y="1682">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="1322" y="1320"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="1352" y="1370">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="1322" y="1008"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="1352" y="1058">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="1322" y="696"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="1352" y="746">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="2666" y="4752"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="2696" y="4802">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="2666" y="4128"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="2696" y="4178">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="2666" y="3504"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="2696" y="3554">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="2666" y="1944"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="2696" y="1994">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="2666" y="1320"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="2696" y="1370">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="2666" y="696"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="2696" y="746">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="3434" y="3504"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="3464" y="3554">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="4010" y="2568"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="4040" y="2618">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="1322" y="540"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="1352" y="590">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="4778" y="2568"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="4808" y="2618">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="1322" y="384"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="1352" y="434">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="1706" y="5220"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="1736" y="5270">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="4394" y="4752"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="4424" y="4802">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="3818" y="3504"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="3848" y="3554">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="2090" y="4908"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="2120" y="4958">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="3434" y="4440"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="3464" y="4490">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="3818" y="4128"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="3848" y="4178">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="3434" y="3816"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="3464" y="3866">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="4586" y="3504"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="4616" y="3554">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="3626" y="3036"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="3656" y="3086">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="6122" y="2568"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="6152" y="2618">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="2090" y="4596"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="2120" y="4646">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="4010" y="4284"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="4040" y="4334">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="2090" y="3972"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="2120" y="4022">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="3050" y="3660"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="3080" y="3710">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="4970" y="3504"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="5000" y="3554">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="2090" y="3348"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="2120" y="3398">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="4202" y="3192"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="4232" y="3242">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="4394" y="3036"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="4424" y="3086">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="6506" y="2568"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="6536" y="2618">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="4202" y="1944"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="4232" y="1994">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="3434" y="2256"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="3464" y="2306">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="3434" y="1632"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="3464" y="1682">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="2858" y="384"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="2888" y="434">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="3626" y="852"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="3656" y="902">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="3818" y="4440"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="3848" y="4490">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="4202" y="4128"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="4232" y="4178">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="3818" y="3816"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="3848" y="3866">
+1
+</text>
+<rect fill="white" height="90" stroke="red" stroke-width="1" width="60" x="1322" y="228"/>
+<text dominant-baseline="middle" fill="black" font-family="Arial" font-size="100" text-anchor="middle" x="1352" y="278">
+1
+</text>
+<line stroke="black" stroke-dasharray="8, 16" x1="200" x2="200" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="392" x2="392" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="584" x2="584" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="776" x2="776" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="968" x2="968" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="1160" x2="1160" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="1352" x2="1352" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="1544" x2="1544" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="1736" x2="1736" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="1928" x2="1928" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="2120" x2="2120" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="2312" x2="2312" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="2504" x2="2504" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="2696" x2="2696" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="2888" x2="2888" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="3080" x2="3080" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="3272" x2="3272" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="3464" x2="3464" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="3656" x2="3656" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="3848" x2="3848" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="4040" x2="4040" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="4232" x2="4232" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="4424" x2="4424" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="4616" x2="4616" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="4808" x2="4808" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="5000" x2="5000" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="5192" x2="5192" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="5384" x2="5384" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="5576" x2="5576" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="5768" x2="5768" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="5960" x2="5960" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="6152" x2="6152" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="6344" x2="6344" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="6536" x2="6536" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="6728" x2="6728" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="6920" x2="6920" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="7112" x2="7112" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="7304" x2="7304" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="7496" x2="7496" y1="200" y2="5504"/>
+<line stroke="black" stroke-dasharray="8, 16" x1="7688" x2="7688" y1="200" y2="5504"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="296" y="100">
+0
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="296" y="5604">
+0
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="488" y="100">
+1
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="488" y="5604">
+1
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="680" y="100">
+2
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="680" y="5604">
+2
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="872" y="100">
+3
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="872" y="5604">
+3
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="1064" y="100">
+4
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="1064" y="5604">
+4
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="1256" y="100">
+5
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="1256" y="5604">
+5
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="1448" y="100">
+6
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="1448" y="5604">
+6
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="1640" y="100">
+7
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="1640" y="5604">
+7
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="1832" y="100">
+8
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="1832" y="5604">
+8
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="2024" y="100">
+9
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="2024" y="5604">
+9
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="2216" y="100">
+10
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="2216" y="5604">
+10
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="2408" y="100">
+11
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="2408" y="5604">
+11
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="2600" y="100">
+12
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="2600" y="5604">
+12
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="2792" y="100">
+13
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="2792" y="5604">
+13
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="2984" y="100">
+14
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="2984" y="5604">
+14
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="3176" y="100">
+15
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="3176" y="5604">
+15
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="3368" y="100">
+16
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="3368" y="5604">
+16
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="3560" y="100">
+17
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="3560" y="5604">
+17
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="3752" y="100">
+18
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="3752" y="5604">
+18
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="3944" y="100">
+19
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="3944" y="5604">
+19
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="4136" y="100">
+20
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="4136" y="5604">
+20
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="4328" y="100">
+21
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="4328" y="5604">
+21
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="4520" y="100">
+22
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="4520" y="5604">
+22
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="4712" y="100">
+23
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="4712" y="5604">
+23
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="4904" y="100">
+24
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="4904" y="5604">
+24
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="5096" y="100">
+25
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="5096" y="5604">
+25
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="5288" y="100">
+26
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="5288" y="5604">
+26
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="5480" y="100">
+27
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="5480" y="5604">
+27
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="5672" y="100">
+28
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="5672" y="5604">
+28
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="5864" y="100">
+29
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="5864" y="5604">
+29
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="6056" y="100">
+30
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="6056" y="5604">
+30
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="6248" y="100">
+31
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="6248" y="5604">
+31
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="6440" y="100">
+32
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="6440" y="5604">
+32
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="6632" y="100">
+33
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="6632" y="5604">
+33
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="6824" y="100">
+34
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="6824" y="5604">
+34
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="7016" y="100">
+35
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="7016" y="5604">
+35
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="7208" y="100">
+36
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="7208" y="5604">
+36
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="7400" y="100">
+37
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="7400" y="5604">
+37
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="7592" y="100">
+38
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="7592" y="5604">
+38
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="7784" y="100">
+39
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="100" text-anchor="middle" x="7784" y="5604">
+39
+</text>
+</svg>

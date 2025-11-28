@@ -3,9 +3,11 @@
 然后按照cell顺序往里丢cell，找到34种情况中代价最小的点
 */
 
+pub mod draw;
+
 use std::collections::BTreeMap;
 
-use crate::adder_v2::{Id, adder::Adder, excel::{ExcelFrame, excel_to_datalist::ExcelDataList}, wire::Wire};
+use crate::adder_v2::{Id, adder::Adder, cell::Cell, excel::{ExcelFrame, excel_to_datalist::ExcelDataList}, wire::Wire};
 
 #[derive(Debug, Clone)]
 struct PlacePos {
@@ -15,25 +17,28 @@ struct PlacePos {
 
 
 #[derive(Debug, Clone)]
-struct CellPlaceInfo {
+pub struct CellPlaceInfo {
     pos : PlacePos,
     width : i32,
     contain_wire_list : Vec<(Id, Wire)>,
+    left_direct_wire_list : Vec<(Id, Wire)>,
 }
 
 #[derive(Debug, Clone)]
 pub struct PlaceData {
-    data : BTreeMap<Id, CellPlaceInfo>,
-    row_num : i32,
-    input_wire_row : BTreeMap<(Id, Wire), i32>,
-    output_wire_row : BTreeMap<(Id, Wire), i32>,
+    pub data : BTreeMap<Id, CellPlaceInfo>,
+    pub cells : Vec<(Id, Cell)>,
+    pub row_num : i32,
+    pub input_wire_row : BTreeMap<(Id, Wire), i32>,
+    pub output_wire_row : BTreeMap<(Id, Wire), i32>,
 }
 
 
 impl PlaceData {
-    pub fn new(row_num : i32) -> Self {
+    pub fn new(row_num : i32, cells : Vec<(Id, Cell)>) -> Self {
         Self {
             data : BTreeMap::new(),
+            cells,
             row_num,
             input_wire_row : BTreeMap::new(),
             output_wire_row : BTreeMap::new(),
@@ -88,7 +93,8 @@ impl PlaceData {
         }
     }
 
-    fn try_set_given_row_most_left_and_give_cost(&self, row : i32, input_wire_list : &[(Id, Wire)]) -> i32 {
+    // 给出cost和直连的wire
+    fn try_set_given_row_most_left_and_give_cost(&self, row : i32, input_wire_list : &[(Id, Wire)], index_max : usize) -> (i32, Vec<(Id, Wire)>) {
         let col = self.right_most_col_with_row(row);
         let pos = PlacePos { row, col };
 
@@ -102,30 +108,47 @@ impl PlaceData {
         for (cell_id, cell) in self.data.iter() {
             for wire in cell.contain_wire_list.iter() {
                 if input_wire_list.contains(wire) {
-                    let cost = self.cost_from_cell_to_pos(*cell_id, &pos, cell.width);
+                    let mut cost = self.cost_from_cell_to_pos(*cell_id, &pos, cell.width);
+                    // 增添结束位置修正
+                    fn adder_index_to_row(index : usize) -> i32 {
+                        if index <= 14 {
+                            index as i32 + 1
+                        } else {
+                            index as i32 + 3
+                        }
+                    }
+                    cost += {
+                        let out_row = adder_index_to_row(index_max);
+                        let row_diff = (out_row - row).abs();
+                        row_diff * 155
+                    };
                     wire_cost_dict.entry(wire.clone()).and_modify(|x| *x = x.map_or(Some(cost), |v| Some(v + cost)));
                 }
             }
         }
 
+        let mut direct_wires = vec![];
         let mut all_cost = 0;
         for (wire, wire_cost) in wire_cost_dict.iter() {
-            all_cost += wire_cost.expect(&format!("can not find cost for wire {}", wire.1.to_string()))
+            all_cost += wire_cost.expect(&format!("can not find cost for wire {}", wire.1.to_string()));
+            if wire_cost.unwrap() == 0 {
+                direct_wires.push(wire.clone())
+            }
         }
 
-        all_cost
+        (all_cost, direct_wires)
     }
 
-    fn insert_cell_to_row_left(&mut self, cell_id : Id, row : i32, width : i32, contain_wire_list : Vec<(Id, Wire)>) {
+    fn insert_cell_to_row_left(&mut self, cell_id : Id, row : i32, width : i32, contain_wire_list : Vec<(Id, Wire)>, left_direct_wire_list : Vec<(Id, Wire)>) {
         let col = self.right_most_col_with_row(row);
         let pos = PlacePos { row, col };
-        self.data.insert(cell_id, CellPlaceInfo { pos, width, contain_wire_list});
+        self.data.insert(cell_id, CellPlaceInfo { pos, width, contain_wire_list, left_direct_wire_list});
     }
 }
 
 impl Adder {
     pub fn auto_place(&self) -> PlaceData {
-        let mut place_data = PlaceData::new(34);
+        let mut place_data = PlaceData::new(34, self.cells.clone());
 
         fn adder_index_to_row(index : usize) -> i32 {
             if index <= 14 {
@@ -152,17 +175,20 @@ impl Adder {
             }
             let contain_wire_list = [input_wire_list.clone(), output_wire_list.clone()].concat();
 
+            let index = cell.node.io.output_z.1.index;
+
             let mut best_row = 0;
-            let mut best_cost = place_data.try_set_given_row_most_left_and_give_cost(0, &input_wire_list);
+            let  (mut best_cost, mut best_direct_wires) = place_data.try_set_given_row_most_left_and_give_cost(0, &input_wire_list, index);
             for row in 1..=34 {
-                let cost = place_data.try_set_given_row_most_left_and_give_cost(row, &input_wire_list);
+                let (cost, direct_wires) = place_data.try_set_given_row_most_left_and_give_cost(row, &input_wire_list, index);
                 if cost < best_cost {
                     best_cost = cost;
                     best_row = row;
+                    best_direct_wires = direct_wires;
                 }
             }
 
-            place_data.insert_cell_to_row_left(*cell_id, best_row, width, contain_wire_list);
+            place_data.insert_cell_to_row_left(*cell_id, best_row, width, contain_wire_list, best_direct_wires);
 
             println!("cell {} place at row {best_row} : cost = {best_cost}", cell.to_string())
         }
@@ -173,21 +199,3 @@ impl Adder {
     }
 }
 
-#[test]
-fn test() {
-    const PATH : &'static str = "src/adder_v2/project/a05_bkf_76/excel/bkf31_pp_nn_v02.txt";
-
-    fn adder()  -> Adder {
-        adder_and_excel().0
-    }
-
-    fn adder_and_excel()  -> (Adder, ExcelDataList<Id>) {
-        let excel_frame = ExcelFrame::load(PATH);
-        let excel_data_list = ExcelDataList::from_excel_frame(&excel_frame);
-        let (adder, excel_map) = Adder::create_from_excel_data_list(excel_data_list, false, false);
-        adder.check_id_all_match();
-        (adder, excel_map)
-    }
-
-    adder().auto_place();
-}
