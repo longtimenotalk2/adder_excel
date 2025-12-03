@@ -73,6 +73,15 @@ impl PlaceData {
                 .set("font-size", 80.)
                 .set("fill", "black")
             ));
+            // cell ID
+            cell_to_be_draw.push(Box::new(Text::new(&format!("{cell_id}"))
+                .set("x", x+W*place_info.width as f32 -10.)
+                .set("y", y)
+                .set("font-family", "Arial")
+                .set("font-size", 60.)
+                .set("text-anchor", "end") // 向右对齐
+                .set("fill", "black")
+            ));
             // m0左直连个数
             let left_m0_direct_num = place_info.left_direct_wire_list.len();
             if left_m0_direct_num > 0 {

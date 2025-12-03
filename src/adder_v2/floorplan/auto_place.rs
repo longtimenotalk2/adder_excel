@@ -108,21 +108,9 @@ impl PlaceData {
         for (cell_id, cell) in self.data.iter() {
             for wire in cell.contain_wire_list.iter() {
                 if input_wire_list.contains(wire) {
-                    let mut cost = self.cost_from_cell_to_pos(*cell_id, &pos, cell.width);
-                    // 增添结束位置修正
-                    fn adder_index_to_row(index : usize) -> i32 {
-                        if index <= 14 {
-                            index as i32 + 1
-                        } else {
-                            index as i32 + 3
-                        }
-                    }
-                    cost += {
-                        let out_row = adder_index_to_row(index_max);
-                        let row_diff = (out_row - row).abs();
-                        row_diff * 155
-                    };
-                    wire_cost_dict.entry(wire.clone()).and_modify(|x| *x = x.map_or(Some(cost), |v| Some(v + cost)));
+                    let cost = self.cost_from_cell_to_pos(*cell_id, &pos, cell.width);
+                    
+                    wire_cost_dict.entry(wire.clone()).and_modify(|x| *x = x.map_or(Some(cost), |v| Some(v.min(cost))));
                 }
             }
         }
@@ -135,6 +123,20 @@ impl PlaceData {
                 direct_wires.push(wire.clone())
             }
         }
+
+        // 增添结束位置修正
+        fn adder_index_to_row(index : usize) -> i32 {
+            if index <= 14 {
+                index as i32 + 1
+            } else {
+                index as i32 + 3
+            }
+        }
+        all_cost += {
+            let out_row = adder_index_to_row(index_max);
+            let row_diff = (out_row - row).abs();
+            row_diff * 155
+        };
 
         (all_cost, direct_wires)
     }
@@ -151,7 +153,9 @@ impl Adder {
         let mut place_data = PlaceData::new(34, self.cells.clone());
 
         fn adder_index_to_row(index : usize) -> i32 {
-            if index <= 14 {
+            if index < 7{
+                index as i32
+            } else if index <= 14 {
                 index as i32 + 1
             } else {
                 index as i32 + 3
