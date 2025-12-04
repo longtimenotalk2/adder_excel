@@ -1,0 +1,34 @@
+use crate::adder_v2::floorplan_v::{AdderFPMain, CellId, SubArea, SubAreaId};
+
+impl SubArea {
+    pub fn x_len(&self) -> f64 {
+        self.x_max - self.x_min
+    }
+}
+
+impl AdderFPMain {
+    pub fn given_cell_x(&self, cell_id: CellId) -> f64 {
+        self.cell_pos_dict.get(&cell_id).unwrap().x
+    }
+
+    pub fn given_cell_x_border(&self, cell_id: CellId) -> (f64, f64) {
+        let x_middle = self.cell_pos_dict.get(&cell_id).unwrap().x;
+        let cell_width = self.cell_static_dict.get(&cell_id).unwrap().width as f64;
+        (x_middle - cell_width / 2.0, x_middle + cell_width / 2.0)
+    }
+
+    pub fn given_sub_area_x_border(&self, sub_area_id: SubAreaId) -> (f64, f64) {
+        let sub_area = self.sub_area_dict.get(&sub_area_id).unwrap();
+        (sub_area.x_min, sub_area.x_max)
+    }
+
+    pub fn given_cell_y(&self, cell_id: CellId) -> i32 {
+        let sub_area_id = self.cell_pos_dict.get(&cell_id).unwrap().sub_area_id;
+        let y = self.sub_area_dict.get(&sub_area_id).unwrap().y;
+        y
+    }
+
+    pub fn given_cell_width(&self, cell_id: CellId) -> i32 {
+        self.cell_static_dict.get(&cell_id).unwrap().width
+    }
+}

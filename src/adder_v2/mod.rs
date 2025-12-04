@@ -13,6 +13,7 @@ pub mod special;
 pub mod draw;
 pub mod netlist;
 pub mod floorplan;
+pub mod floorplan_v;
 
 type Id = u32;
 
