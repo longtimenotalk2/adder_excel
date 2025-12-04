@@ -3,6 +3,7 @@ pub mod geometry;
 pub mod filter;
 pub mod force;
 pub mod movement;
+mod init;
 
 use std::collections::{BTreeMap, BTreeSet};
 

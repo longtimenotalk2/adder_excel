@@ -1,38 +1,17 @@
 use std::collections::{BTreeMap, BTreeSet};
 
-use crate::adder_v2::{adder::Adder, cell_parse::Process, wire::{Flag, Wire}, Id, Port};
+use crate::adder_v2::{Id, Port, adder::Adder, cell_parse::Process, excel::{ExcelFrame, excel_to_datalist::ExcelDataList}, wire::{Flag, Wire}};
 
-impl Wire {
-    pub fn is_not_a_b_s(&self) -> bool {
-        match self.flag {
-            Flag::S | Flag::A | Flag::B => false,
-            _ => true
-        }
-    }
-
-    pub fn to_string_netlist(&self) -> String {
-        match self.flag {
-            Flag::S => format!("s[{}]", self.index),
-            Flag::A => format!("a[{}]", self.index),
-            Flag::B => format!("b[{}]", self.index),
-            _ => self.to_string()
-        }
-    }
+#[derive(Debug, Clone)]
+pub struct VirtualNetInst {
+    pub inst_name : String,
+    pub cell_logo : String,
+    pub ports : BTreeMap<String, String>,
 }
 
+
 impl Adder {
-    pub fn to_netlist(&self, module_name : &str, process : Process, cell_name_replace_map : BTreeMap<Id, String>) -> String {
-        let bit_up = self.bits - 1;
-        let mut ret = format!("module {module_name} (
-	a, 
-	b, 
-	s);
-   input [{bit_up}:0] a;
-   input [{bit_up}:0] b;
-   output [{bit_up}:0] s;
-
-   // Internal wires\n");
-
+    pub fn to_virtual_netlist(&self, process : Process, cell_name_replace_map : BTreeMap<Id, String>) -> Vec<VirtualNetInst> {
         struct InstLine {
             inst_name : String,
             cell_name : String,
@@ -82,28 +61,43 @@ impl Adder {
             })
         }
 
-        for wire in wires.iter() {
-            ret += &format!("   wire {};\n", abs_wire_name(wire));
-        }
-
-        ret += "\n";
+        let mut ret_list = vec![];
 
         for inst in inst_line.iter() {
-            let mut txt = String::new();
-            txt += &format!("   {}", inst.cell_name);
-            txt += &format!(" {} (", inst.inst_name);
+            let mut ports = BTreeMap::new();
             for (i, (port, wire)) in inst.port_and_wire.iter().rev().enumerate() {
-                if i != 0 {
-                    txt += ",\n\t";
-                }
-                txt += &format!(".{}({})", port.0, abs_wire_name(wire));
+                let port_name = port.0.clone();
+                let wire_name = abs_wire_name(wire);
+                ports.insert(port_name, wire_name);
             }
-            txt += ");\n";
-            ret += &txt;
+            ret_list.push(VirtualNetInst {
+                inst_name: inst.inst_name.clone(),
+                cell_logo: inst.cell_name.clone(),
+                ports,
+            })
         }
 
-        ret += "endmodule";
-
-        ret
+        ret_list
     }
+}
+
+#[test]
+fn test() {
+    const PATH : &'static str = "src/adder_v2/project/a04_uf_76/excel/uf31_pn_np_v01.txt";
+    fn adder()  -> Adder {
+        adder_and_excel().0
+    }
+
+    fn adder_and_excel()  -> (Adder, ExcelDataList<Id>) {
+        let excel_frame = ExcelFrame::load(PATH);
+        let excel_data_list = ExcelDataList::from_excel_frame(&excel_frame);
+        let (adder, excel_map) = Adder::create_from_excel_data_list(excel_data_list, false, true);
+        adder.check_id_all_match();
+        (adder, excel_map)
+    }
+
+    let adder = adder();
+    let process = Process::N3E;
+
+    dbg!(adder.to_virtual_netlist(process, BTreeMap::new()));
 }

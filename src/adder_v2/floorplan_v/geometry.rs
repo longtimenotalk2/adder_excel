@@ -11,6 +11,10 @@ impl AdderFPMain {
         self.cell_pos_dict.get(&cell_id).unwrap().x
     }
 
+    pub fn given_cell_sub_area_id(&self, cell_id: CellId) -> SubAreaId {
+        self.cell_pos_dict.get(&cell_id).unwrap().sub_area_id
+    }
+
     pub fn given_cell_x_border(&self, cell_id: CellId) -> (f64, f64) {
         let x_middle = self.cell_pos_dict.get(&cell_id).unwrap().x;
         let cell_width = self.cell_static_dict.get(&cell_id).unwrap().width as f64;
