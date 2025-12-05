@@ -1,12 +1,11 @@
 use std::collections::{BTreeMap, BTreeSet};
 
-use crate::{adder_v2::{adder::Adder, cell_parse::Process, floorplan_v::{AdderFPMain, CellId, CellStaticInfo, ModelParameters, SubArea, SubAreaId, WireId, WireStaticInfo}}, from_excel::load};
+use crate::{adder_v2::{adder::Adder, cell_parse::Process, floorplan_v::{AdderFPMain, CellId, CellStaticInfo, ModelParameters, Pos, SubArea, SubAreaId, WireId, WireStaticInfo}}, from_excel::load};
 
 impl AdderFPMain {
     pub fn init_from_adder(
         adder: &Adder, 
         model : ModelParameters,
-        sub_area_list: Vec<SubArea>,
         process : Process,
     ) -> Self {
         let virtual_netlist = adder.to_virtual_netlist(process, BTreeMap::new());
@@ -47,11 +46,63 @@ impl AdderFPMain {
         main.cell_static_dict = cells;
         main.wire_static_dict = wires;
 
-        for (i, sub_area) in sub_area_list.into_iter().enumerate() {
-            main.sub_area_dict.insert(SubAreaId(i as u16), sub_area);
-        }
-
         main
+    }
 
+    pub fn load_subarea(&mut self, sub_area_list : Vec<SubArea>) {
+        for (id, sub_area) in sub_area_list.into_iter().enumerate() {
+            self.sub_area_dict.insert(SubAreaId(id as u16), sub_area);
+        }
+    }
+
+    pub fn load_adder_cell_position(&mut self, path : &str) {
+        let file = std::fs::File::open(path).expect(&format!("file {path} not exist"));
+        let reader = std::io::BufReader::new(file);
+        let lines : Vec<String> = std::io::BufRead::lines(reader).map(|l| l.unwrap()).collect();
+
+        for line in lines {
+            let tokens = line.split_whitespace().collect::<Vec<_>>();
+            if tokens.len() > 0 {
+                let name = tokens[0].to_string();
+                let x_input : i32 = tokens[1].parse().unwrap();
+                let y_input : i32 = tokens[2].parse().unwrap();
+
+                let mut cell_id = None;
+                let mut cell_info = None;
+                for (id, cell) in self.cell_static_dict.iter() {
+                    if cell.name == name {
+                        cell_id = Some(*id);
+                        cell_info = Some(cell);
+                        break;
+                    }
+                }
+                let cell_id = if let Some(cell_id) = cell_id {
+                    cell_id
+                } else {
+                    panic!("cell {name} not found!")
+                };
+                let cell_info = cell_info.unwrap();
+
+                let width = cell_info.width;
+
+                let x = x_input as f64 + width as f64 / 2.0 ;
+
+                let mut sub_area_id = None;
+                for (id, sub_area) in self.sub_area_dict.iter() {
+                    if sub_area.contains(x, y_input) {
+                        sub_area_id = Some(*id);
+                        break;
+                    }
+                }
+
+                let sub_area_id = if let Some(sub_area_id) = sub_area_id {
+                    sub_area_id
+                } else {
+                    panic!("cell {name} with x_input {x_input} & y_input {y_input} not found in any sub area!")
+                };
+
+                self.cell_pos_dict.insert(cell_id, Pos { x, sub_area_id });
+            }
+        }
     }
 }

@@ -75,7 +75,7 @@ impl PlaceData {
             ));
             // cell ID
             cell_to_be_draw.push(Box::new(Text::new(&format!("{cell_id}"))
-                .set("x", x+W*place_info.width as f32 -10.)
+                .set("x", x+W*place_info.width as f32)
                 .set("y", y)
                 .set("font-family", "Arial")
                 .set("font-size", 60.)

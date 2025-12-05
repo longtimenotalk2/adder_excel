@@ -5,6 +5,7 @@ pub mod force;
 pub mod movement;
 mod init;
 pub mod project;
+pub mod draw;
 
 use std::{collections::{BTreeMap, BTreeSet}, fmt::Debug};
 
@@ -47,7 +48,6 @@ struct Pos {
 #[derive(Debug, Clone)]
 struct SubArea {
     y : i32,
-    sub_area_index : usize,
     x_min : f64,
     x_max : f64,
 }

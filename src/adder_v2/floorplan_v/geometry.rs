@@ -4,6 +4,10 @@ impl SubArea {
     pub fn x_len(&self) -> f64 {
         self.x_max - self.x_min
     }
+
+    pub fn contains(&self, x: f64, y : i32) -> bool {
+        self.x_min <= x && x <= self.x_max && self.y == y
+    }
 }
 
 impl AdderFPMain {
