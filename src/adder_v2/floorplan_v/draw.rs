@@ -1,6 +1,6 @@
-use svg::{Document, node::element::Rectangle};
+use svg::{Document, node::{element::Text, element::Rectangle}};
 
-use crate::adder_v2::floorplan_v::AdderFPMain;
+use crate::adder_v2::{adder::Adder, floorplan_v::AdderFPMain};
 
 #[derive(Debug, Clone)]
 pub struct Art {
@@ -20,7 +20,7 @@ const ART : Art = Art {
 };
 
 impl AdderFPMain {
-    pub fn draw_default_art(&self) {
+    pub fn draw_default_art(&self, adder : &Adder) {
         let art = ART;
         let mut document = Document::new().set("viewBox", (0, 0, 
                     BORDER*2. + art.x_len as f32 * art.x_px, 
@@ -37,18 +37,92 @@ impl AdderFPMain {
             .set("fill", "white")
         );
 
-        // 创建主要区域的黑色矩形
+        // 创建主要区域的黑色矩形边框，以及黑色的subarea以外区域
         document = document.add(
         Rectangle::new()
             .set("x", BORDER)
             .set("y", BORDER)
             .set("width", art.x_len as f32 * art.x_px)
             .set("height", art.y_len as f32 * art.y_px)
-            .set("fill", "white")
+            .set("fill", "black")
+            .set("stroke", "none")
+        );
+        for sub_area in self.sub_area_dict.values() {
+            let y = sub_area.y as f32;
+            let x_left = sub_area.x_min as f32;
+            let x_right = sub_area.x_max as f32;
+            let width = x_right - x_left;
+            document = document.add(
+        Rectangle::new()
+                .set("x", BORDER + x_left * art.x_px)
+                .set("y", BORDER + (art.y_len as f32 - y - 1.) * art.y_px)
+                .set("width", width * art.x_px)
+                .set("height", art.y_px)
+                .set("fill", "white")
+                .set("stroke", "none")
+            );
+        }
+        document = document.add(
+        Rectangle::new()
+            .set("x", BORDER)
+            .set("y", BORDER)
+            .set("width", art.x_len as f32 * art.x_px)
+            .set("height", art.y_len as f32 * art.y_px)
+            .set("fill", "none")
             .set("stroke", "black")
             .set("stroke-width", 1)
         );
 
+        // draw_cell one by one
+        for (cell_id, cell_pos) in &self.cell_pos_dict {
+            let color = adder.cells[cell_id.0 as usize].1.node.logic.color_hex_inner();
+            let cell_info = self.cell_static_dict.get(cell_id).unwrap();
+            let x_middle = cell_pos.x as f32;
+            let width = cell_info.width as f32;
+            let sub_area_id = cell_pos.sub_area_id;
+            let y = self.sub_area_dict.get(&sub_area_id).unwrap().y as f32;
+
+            let x_given = BORDER + (x_middle - width / 2.) * art.x_px;
+            let y_given = BORDER + (art.y_len as f32 - y - 1.) * art.y_px;
+            let width_given = width * art.x_px;
+            let height_given = art.y_px;
+
+            document = document.add(Rectangle::new()
+                .set("x", x_given)
+                .set("y", y_given)
+                .set("width", width_given)
+                .set("height", height_given)
+                .set("fill", color)
+                .set("stroke", "black")
+                .set("stroke-width", 1)
+                .set("opacity", 0.8)
+            );
+
+            let x_given = BORDER + (x_middle) * art.x_px;
+            let y_given = BORDER + (art.y_len as f32 - y -0.5) * art.y_px;
+
+            document = document.add(Text::new(cell_info.name.as_str())
+                .set("x", x_given)
+                .set("y", y_given)
+                .set("text-anchor", "middle") // 水平居中
+                .set("dominant-baseline", "middle")   // 垂直居中
+                .set("font-family", "Arial")
+                .set("font-size", 20.)
+            );
+        }
+
         svg::save("place.svg", &document).unwrap();
     }
 }
+
+// fn auto_wrap_for_given_txt(
+//     content : &str,
+//     x : f32,
+//     y : f32,
+//     width : f32,
+//     height : f32,
+//     font_size : f32,
+//     color : &str,
+// ) -> Text {
+
+// }

@@ -68,7 +68,7 @@ fn test() {
     fp_main.load_adder_cell_position("src/adder_v2/floorplan_v/project/a01_ufv01/input_adder_placement.txt");
 
     // dbg!(fp_main);
-    fp_main.draw_default_art();
+    fp_main.draw_default_art(&adder);
 }
 
 
