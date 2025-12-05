@@ -1,14 +1,14 @@
 use std::collections::{BTreeMap, BTreeSet};
 
-use crate::{adder_v2::{adder::Adder, cell_parse::Process, floorplan_v::{AdderFPMain, CellId, CellStaticInfo, ModelParameters, SubArea, WireId, WireStaticInfo}}, from_excel::load};
+use crate::{adder_v2::{adder::Adder, cell_parse::Process, floorplan_v::{AdderFPMain, CellId, CellStaticInfo, ModelParameters, SubArea, SubAreaId, WireId, WireStaticInfo}}, from_excel::load};
 
 impl AdderFPMain {
-    pub fn init_from_adder(&mut self, 
+    pub fn init_from_adder(
         adder: &Adder, 
         model : ModelParameters,
         sub_area_list: Vec<SubArea>,
         process : Process,
-    ) {
+    ) -> Self {
         let virtual_netlist = adder.to_virtual_netlist(process, BTreeMap::new());
         let cell_width = adder.cells.iter().map(|x| x.1.to_cell_body().width()).collect::<Vec<_>>();
 
@@ -44,7 +44,14 @@ impl AdderFPMain {
             });
         }
 
-        todo!()
+        main.cell_static_dict = cells;
+        main.wire_static_dict = wires;
+
+        for (i, sub_area) in sub_area_list.into_iter().enumerate() {
+            main.sub_area_dict.insert(SubAreaId(i as u16), sub_area);
+        }
+
+        main
 
     }
 }

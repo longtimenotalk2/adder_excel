@@ -6,7 +6,7 @@ use crate::adder_v2::{Id, Port, adder::Adder, cell_parse::Process, excel::{Excel
 pub struct VirtualNetInst {
     pub inst_name : String,
     pub cell_logo : String,
-    pub ports : BTreeMap<String, String>,
+    pub ports : BTreeMap<String, String>, // Port, Wire
 }
 
 
