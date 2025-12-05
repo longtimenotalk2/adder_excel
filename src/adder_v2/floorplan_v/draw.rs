@@ -14,7 +14,7 @@ const BORDER : f32 = 100. ;
 
 const ART : Art = Art {
     x_len : 192,
-    y_len : 7,
+    y_len : 8,
     x_px : 48.,
     y_px : 156.,
 };
@@ -87,7 +87,7 @@ impl AdderFPMain {
             );
         }
 
-        // draw_cell one by one
+        // draw_cell can move one by one
         for (cell_id, cell_pos) in &self.cell_pos_dict {
             let color = if let Some(adder_cell) = adder.cells.get(cell_id.0 as usize) {
                 adder_cell.1.node.logic.color_hex_inner()
@@ -121,21 +121,100 @@ impl AdderFPMain {
 
             document = document.add(Text::new(&format!("{}", cell_info.name.as_str()))
                 .set("x", x_given)
-                .set("y", y_given-20.)
+                .set("y", y_given-40.)
                 .set("text-anchor", "middle") // 水平居中
                 .set("dominant-baseline", "middle")   // 垂直居中
                 .set("font-family", "Arial")
                 .set("font-size", 20.)
             );
             let wire_num = cell_info.wires.len();
-            document = document.add(Text::new(&format!("{wire_num}"))
+            let wire_x_force_marker = if self.given_cell_x_wire_force_atom(*cell_id) == 0. {
+                " "
+            } else if self.given_cell_x_wire_force_atom(*cell_id) > 0. {
+                ">"
+            } else {
+                "<"
+            };
+            document = document.add(Text::new(&format!("{wire_num} {wire_x_force_marker}"))
                 .set("x", x_given)
-                .set("y", y_given+25.)
+                .set("y", y_given+5.)
                 .set("text-anchor", "middle") // 水平居中
                 .set("dominant-baseline", "middle")   // 垂直居中
                 .set("font-family", "Arial")
                 .set("font-size", 50.)
             );
+            let wire_energu = self.given_cell_wire_energy(*cell_id) as i32;
+            
+            document = document.add(Text::new(&format!("{wire_energu}"))
+                .set("x", x_given)
+                .set("y", y_given+50.)
+                .set("text-anchor", "middle") // 水平居中
+                .set("dominant-baseline", "middle")   // 垂直居中
+                .set("font-family", "Arial")
+                .set("font-size", 30.)
+            );
+
+        }
+
+        // draw_cell can't move one by one
+        for (cell_id, (x, y)) in &self.cell_fixed_pos_dict {
+            let x = *x;
+            let y = *y as f32;
+            let color = "red";
+            let cell_info = self.cell_static_dict.get(cell_id).unwrap();
+            let x_middle = x as f32;
+            let width = cell_info.width as f32;
+
+            let x_given = BORDER + (x_middle - width / 2.) * art.x_px;
+            let y_given = BORDER + (art.y_len as f32 - y - 1.) * art.y_px;
+            let width_given = width * art.x_px;
+            let height_given = art.y_px;
+
+            document = document.add(Rectangle::new()
+                .set("x", x_given)
+                .set("y", y_given)
+                .set("width", width_given)
+                .set("height", height_given)
+                .set("fill", color)
+                .set("stroke", "black")
+                .set("stroke-width", 1)
+                .set("opacity", 0.8)
+            );
+
+            let x_given = BORDER + (x_middle) * art.x_px;
+            let y_given = BORDER + (art.y_len as f32 - y -0.5) * art.y_px;
+
+            document = document.add(Text::new(&format!("{}", cell_info.name.as_str()))
+                .set("x", x_given)
+                .set("y", y_given-50.)
+                .set("text-anchor", "middle") // 水平居中
+                .set("dominant-baseline", "middle")   // 垂直居中
+                .set("font-family", "Arial")
+                .set("font-size", 40.)
+                .set("fill", "white")
+            );
+            let wire_num = cell_info.wires.len();
+            document = document.add(Text::new(&format!("{wire_num}"))
+                .set("x", x_given)
+                .set("y", y_given+5.)
+                .set("text-anchor", "middle") // 水平居中
+                .set("dominant-baseline", "middle")   // 垂直居中
+                .set("font-family", "Arial")
+                .set("font-size", 50.)
+                .set("fill", "white")
+            );
+            let wire_energu = self.given_cell_wire_energy(*cell_id) as i32;
+            
+            document = document.add(Text::new(&format!("{wire_energu}"))
+                .set("x", x_given)
+                .set("y", y_given+50.)
+                .set("text-anchor", "middle") // 水平居中
+                .set("dominant-baseline", "middle")   // 垂直居中
+                .set("font-family", "Arial")
+                .set("font-size", 30.)
+                .set("fill", "white")
+            );
+
         }
 
         svg::save("place.svg", &document).unwrap();

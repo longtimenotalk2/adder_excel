@@ -37,7 +37,7 @@ impl AdderFPMain {
             }
             cells.insert(cell_id, CellStaticInfo { 
                 name: cell_name, 
-                width, 
+                width: width as f64, 
                 can_move: true, 
                 wires: wire_id_set, 
             });
@@ -114,7 +114,7 @@ impl AdderFPMain {
                         let x = x_input as f64 + width as f64 / 2.0 ;
                         self.cell_static_dict.insert(cell_id, CellStaticInfo {
                             name: "s_0".to_string(),
-                            width,
+                            width: width as f64,
                             can_move : true,
                             wires: BTreeSet::from([wire_id]),
                         });
@@ -129,7 +129,7 @@ impl AdderFPMain {
                         let x = x_input as f64 + width as f64 / 2.0 ;
                         self.cell_static_dict.insert(cell_id, CellStaticInfo {
                             name: "co_0".to_string(),
-                            width,
+                            width: width as f64,
                             can_move : true,
                             wires: BTreeSet::from([wire_id]),
                         });
@@ -138,6 +138,33 @@ impl AdderFPMain {
                 }
                 
             }
+        }
+    }
+
+    pub fn set_out_mb_virtual_cell(&mut self, y : i32, x_len : f64, bit : usize) {
+        let n = bit + 1;
+        let width = x_len / n as f64;
+
+        for i in 0..n {
+            let wire_name = if i == 0 {
+                "d[0]".to_string()
+            } else {
+                let index = i-1;
+                format!("s[{index}]")
+            };
+            let wire_id = self.get_wire_id_by_name(&wire_name);
+            let cell_id = CellId(self.cell_static_dict.len() as u16);
+            let cell_name = wire_name.clone();
+            self.cell_static_dict.insert(cell_id, CellStaticInfo {
+                name: cell_name,
+                width: width,
+                can_move : false,
+                wires: BTreeSet::from([wire_id]),
+            });
+            let x = (i as f64 + 0.5) * width;
+            self.cell_fixed_pos_dict.insert(cell_id, (x, y));
+            self.wire_static_dict.get_mut(&wire_id).unwrap().connected_cells.insert(cell_id);
+            
         }
     }
 }

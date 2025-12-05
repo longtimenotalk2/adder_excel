@@ -55,7 +55,7 @@ struct SubArea {
 #[derive(Debug, Clone)]
 struct CellStaticInfo {
     name : String,
-    width : i32,
+    width : f64,
     can_move : bool,
     wires : BTreeSet<WireId>,
 }
@@ -72,6 +72,7 @@ struct AdderFPMain {
     cell_static_dict : BTreeMap<CellId, CellStaticInfo>,
     wire_static_dict : BTreeMap<WireId, WireStaticInfo>,
     cell_pos_dict : BTreeMap<CellId, Pos>,
+    cell_fixed_pos_dict : BTreeMap<CellId, (f64, i32)>,
     model : ModelParameters,
 }
 
@@ -85,6 +86,7 @@ impl AdderFPMain {
     fn new(model : ModelParameters) -> Self {
         Self {
             cell_pos_dict : BTreeMap::new(),
+            cell_fixed_pos_dict : BTreeMap::new(),
             cell_static_dict : BTreeMap::new(),
             wire_static_dict : BTreeMap::new(),
             model,
