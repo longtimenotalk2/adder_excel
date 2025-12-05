@@ -1,4 +1,4 @@
-use svg::{Document, node::{element::Text, element::Rectangle}};
+use svg::{Document, node::element::{Line, Rectangle, Text}};
 
 use crate::adder_v2::{adder::Adder, floorplan_v::AdderFPMain};
 
@@ -38,6 +38,7 @@ impl AdderFPMain {
         );
 
         // 创建主要区域的黑色矩形边框，以及黑色的subarea以外区域
+        
         document = document.add(
         Rectangle::new()
             .set("x", BORDER)
@@ -73,9 +74,26 @@ impl AdderFPMain {
             .set("stroke-width", 1)
         );
 
+        // 画纵向网格线
+        for x in 1..art.x_len - 1 {
+            document = document.add(
+            Line::new()
+                    .set("x1", x as f32 * art.x_px + BORDER)
+                    .set("y1", BORDER)
+                    .set("x2", x as f32 * art.x_px + BORDER)
+                    .set("y2", BORDER + art.y_len as f32 * art.y_px)
+                    .set("stroke", "black")
+                    .set("stroke-dasharray", "8, 16")
+            );
+        }
+
         // draw_cell one by one
         for (cell_id, cell_pos) in &self.cell_pos_dict {
-            let color = adder.cells[cell_id.0 as usize].1.node.logic.color_hex_inner();
+            let color = if let Some(adder_cell) = adder.cells.get(cell_id.0 as usize) {
+                adder_cell.1.node.logic.color_hex_inner()
+            } else {
+                "white"
+            };
             let cell_info = self.cell_static_dict.get(cell_id).unwrap();
             let x_middle = cell_pos.x as f32;
             let width = cell_info.width as f32;
@@ -101,13 +119,22 @@ impl AdderFPMain {
             let x_given = BORDER + (x_middle) * art.x_px;
             let y_given = BORDER + (art.y_len as f32 - y -0.5) * art.y_px;
 
-            document = document.add(Text::new(cell_info.name.as_str())
+            document = document.add(Text::new(&format!("{}", cell_info.name.as_str()))
                 .set("x", x_given)
-                .set("y", y_given)
+                .set("y", y_given-20.)
                 .set("text-anchor", "middle") // 水平居中
                 .set("dominant-baseline", "middle")   // 垂直居中
                 .set("font-family", "Arial")
                 .set("font-size", 20.)
+            );
+            let wire_num = cell_info.wires.len();
+            document = document.add(Text::new(&format!("{wire_num}"))
+                .set("x", x_given)
+                .set("y", y_given+25.)
+                .set("text-anchor", "middle") // 水平居中
+                .set("dominant-baseline", "middle")   // 垂直居中
+                .set("font-family", "Arial")
+                .set("font-size", 50.)
             );
         }
 

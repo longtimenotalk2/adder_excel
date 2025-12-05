@@ -66,6 +66,7 @@ fn test() {
     fp_main.load_subarea(sub_area_list);
 
     fp_main.load_adder_cell_position("src/adder_v2/floorplan_v/project/a01_ufv01/input_adder_placement.txt");
+    fp_main.load_faa_cell_position("src/adder_v2/floorplan_v/project/a01_ufv01/inut_faa_placement.txt");
 
     // dbg!(fp_main);
     fp_main.draw_default_art(&adder);

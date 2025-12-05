@@ -87,21 +87,56 @@ impl AdderFPMain {
 
                 let x = x_input as f64 + width as f64 / 2.0 ;
 
-                let mut sub_area_id = None;
-                for (id, sub_area) in self.sub_area_dict.iter() {
-                    if sub_area.contains(x, y_input) {
-                        sub_area_id = Some(*id);
-                        break;
-                    }
-                }
-
-                let sub_area_id = if let Some(sub_area_id) = sub_area_id {
-                    sub_area_id
-                } else {
-                    panic!("cell {name} with x_input {x_input} & y_input {y_input} not found in any sub area!")
-                };
+                let mut sub_area_id = self.get_sub_area_id(x, y_input);
 
                 self.cell_pos_dict.insert(cell_id, Pos { x, sub_area_id });
+            }
+        }
+    }
+
+    pub fn load_faa_cell_position(&mut self, path : &str) {
+        let file = std::fs::File::open(path).expect(&format!("file {path} not exist"));
+        let reader = std::io::BufReader::new(file);
+        let lines : Vec<String> = std::io::BufRead::lines(reader).map(|l| l.unwrap()).collect();
+
+        for line in lines {
+            let tokens = line.split_whitespace().collect::<Vec<_>>();
+            if tokens.len() > 0 {
+                let name = tokens[0].to_string();
+                if name.ends_with("s_0") || name.ends_with("co_0") {
+                    let x_input : i32 = tokens[1].parse().unwrap();
+                    let y_input : i32 = tokens[2].parse().unwrap();
+
+                    let cell_id = CellId(self.cell_static_dict.len() as u16);
+                    if name.ends_with("s_0") {
+                        let wire_id = WireId(self.wire_static_dict.len() as u16);
+                        let width = 6;
+                        let x = x_input as f64 + width as f64 / 2.0 ;
+                        self.cell_static_dict.insert(cell_id, CellStaticInfo {
+                            name: "s_0".to_string(),
+                            width,
+                            can_move : true,
+                            wires: BTreeSet::from([wire_id]),
+                        });
+                        self.cell_pos_dict.insert(cell_id, Pos { x, sub_area_id : self.get_sub_area_id(x, y_input) });
+                        self.wire_static_dict.insert(wire_id, WireStaticInfo {
+                            name: "d[0]".to_string(),
+                            connected_cells: BTreeSet::from([cell_id]),
+                        });
+                    } else if name.ends_with("co_0") {
+                        let wire_id = self.get_wire_id_by_name("b[0]");
+                        let width = 3;
+                        let x = x_input as f64 + width as f64 / 2.0 ;
+                        self.cell_static_dict.insert(cell_id, CellStaticInfo {
+                            name: "co_0".to_string(),
+                            width,
+                            can_move : true,
+                            wires: BTreeSet::from([wire_id]),
+                        });
+                        self.cell_pos_dict.insert(cell_id, Pos { x, sub_area_id : self.get_sub_area_id(x, y_input) });
+                    }
+                }
+                
             }
         }
     }

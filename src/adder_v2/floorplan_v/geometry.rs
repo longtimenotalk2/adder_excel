@@ -1,4 +1,4 @@
-use crate::adder_v2::floorplan_v::{AdderFPMain, CellId, SubArea, SubAreaId};
+use crate::adder_v2::floorplan_v::{AdderFPMain, CellId, SubArea, SubAreaId, WireId};
 
 impl SubArea {
     pub fn x_len(&self) -> f64 {
@@ -38,5 +38,23 @@ impl AdderFPMain {
 
     pub fn given_cell_width(&self, cell_id: CellId) -> i32 {
         self.cell_static_dict.get(&cell_id).unwrap().width
+    }
+
+    pub fn get_sub_area_id(&self, x : f64, y : i32) -> SubAreaId {
+        for (id, sub_area) in self.sub_area_dict.iter() {
+            if sub_area.contains(x, y) {
+                return *id;
+            }
+        }
+        panic!("No sub area found for x: {}, y: {}", x, y);
+    }
+
+    pub fn get_wire_id_by_name(&self, name: &str) -> WireId {
+        for (wire_id, wire) in self.wire_static_dict.iter() {
+            if wire.name == name {
+                return *wire_id;
+            }
+        }
+        panic!("No wire found for name: {}", name);
     }
 }
