@@ -98,4 +98,12 @@ impl AdderFPMain {
         }
         panic!("No cell found for name: {}", name);
     }
+
+    // pub fn all_cell_ids(&self) -> Vec<CellId> {
+    //     self.cell_static_dict.keys().cloned().collect()
+    // }
+
+    pub fn all_moveable_cell_ids(&self) -> Vec<CellId> {
+        self.cell_static_dict.iter().filter(|(_, cell)| cell.can_move).map(|(id, _)| *id).collect()
+    }
 }

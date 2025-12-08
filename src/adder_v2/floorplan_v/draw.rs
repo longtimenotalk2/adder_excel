@@ -20,7 +20,7 @@ const ART : Art = Art {
 };
 
 impl AdderFPMain {
-    pub fn draw_default_art(&self, adder : &Adder) {
+    pub fn draw_default_art(&self, adder : &Adder, name : &str) {
         let art = ART;
         let mut document = Document::new().set("viewBox", (0, 0, 
                     BORDER*2. + art.x_len as f32 * art.x_px, 
@@ -186,7 +186,7 @@ impl AdderFPMain {
                 .set("fill", color)
                 .set("stroke", "black")
                 .set("stroke-width", 1)
-                .set("opacity", 0.8)
+                .set("opacity", 0.5)
             );
 
             let x_given = BORDER + (x_middle) * art.x_px;
@@ -225,7 +225,7 @@ impl AdderFPMain {
 
         }
 
-        svg::save("place.svg", &document).unwrap();
+        svg::save(&format!("{name}.svg"), &document).unwrap();
     }
 }
 

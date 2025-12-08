@@ -6,6 +6,7 @@ pub mod movement;
 mod init;
 pub mod project;
 pub mod draw;
+pub mod dynamics;
 
 use std::{collections::{BTreeMap, BTreeSet}, fmt::Debug};
 

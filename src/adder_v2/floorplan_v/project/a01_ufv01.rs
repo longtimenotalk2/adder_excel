@@ -1,6 +1,6 @@
 use std::collections::BTreeMap;
 
-use crate::adder_v2::{Id, adder::Adder, cell_parse::Process, excel::{ExcelFrame, excel_to_datalist::ExcelDataList}, floorplan_v::{AdderFPMain, ModelParameters, SubArea}};
+use crate::adder_v2::{Id, adder::Adder, cell_parse::Process, excel::{ExcelFrame, excel_to_datalist::ExcelDataList}, floorplan_v::{AdderFPMain, ModelParameters, SubArea, SuperParameters}};
 
 const PATH : &'static str = "src/adder_v2/project/a04_uf_76/excel/uf31_pn_np_v01.txt";
 
@@ -89,7 +89,22 @@ fn init() -> (AdderFPMain, Adder) {
 #[test]
 fn test_draw() {
     let (fp_main, adder) = init();
-    fp_main.draw_default_art(&adder);
+    fp_main.draw_default_art(&adder, "place_init");
+}
+
+#[test]
+fn test_dynamic() {
+    let (mut fp_main, adder) = init();
+    let super_parameters = SuperParameters {
+        alpha_wire_energy : 1.,
+        alpha_density_energy : 1.,
+        alpha_border_energy : 100.,
+        alpha_overlap_energy : 100.,
+    };
+    fp_main.dynamic_main(&super_parameters);
+    fp_main.draw_default_art(&adder, "place_dynamic1");
+    fp_main.dynamic_main(&super_parameters);
+    fp_main.draw_default_art(&adder, "place_dynamic2");
 }
 
 #[test]
