@@ -89,4 +89,13 @@ impl AdderFPMain {
         }
         None
     }
+
+    pub fn get_cell_id_by_name(&self, name: &str) -> CellId {
+        for (cell_id, cell) in self.cell_static_dict.iter() {
+            if cell.name == name {
+                return *cell_id;
+            }
+        }
+        panic!("No cell found for name: {}", name);
+    }
 }

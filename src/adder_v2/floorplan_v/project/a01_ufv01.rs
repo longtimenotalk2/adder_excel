@@ -68,9 +68,7 @@ fn fa1n_width_dict() -> BTreeMap<usize, f64> {
     dict
 }
 
-
-#[test]
-fn test() {
+fn init() -> (AdderFPMain, Adder) {
     let adder = adder();
     let process = Process::N3E;
     let mut fp_main = AdderFPMain::init_from_adder(&adder, ModelParameters::for_76(), process);
@@ -84,8 +82,22 @@ fn test() {
     fp_main.set_out_mb_virtual_cell(7, 192., 31);
     fp_main.set_in_fa1n_virtual_cell("src/adder_v2/floorplan_v/project/a01_ufv01/input_faa_placement.txt", &fa1n_width_dict());
 
-    // dbg!(&fp_main);
+    (fp_main, adder)
+}
+
+
+#[test]
+fn test_draw() {
+    let (fp_main, adder) = init();
     fp_main.draw_default_art(&adder);
+}
+
+#[test]
+fn test_debug() {
+    let (fp_main, adder) = init();
+
+    let cell_id = fp_main.get_cell_id_by_name("U1_np1_q1");
+    dbg!(fp_main.given_cell_y_wire_force_atom(cell_id));
 }
 
 
