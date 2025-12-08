@@ -167,4 +167,52 @@ impl AdderFPMain {
             
         }
     }
+
+    pub fn set_in_fa1n_virtual_cell(&mut self, path : &str, cell_width_dict : &BTreeMap<usize, f64>) {
+        let file = std::fs::File::open(path).expect(&format!("file {path} not exist"));
+        let reader = std::io::BufReader::new(file);
+        let lines : Vec<String> = std::io::BufRead::lines(reader).map(|l| l.unwrap()).collect();
+
+        for line in lines {
+            if line.starts_with("u_dont_touch_faa_") {
+                let tokens = line.split_whitespace().collect::<Vec<_>>();
+                let index : usize = tokens[0].split("_").last().unwrap().parse().unwrap();
+                if index >= 1{
+                    let adder_index = index - 1;
+                    let x : i32 = tokens[1].parse().unwrap();
+                    let y : i32 = tokens[2].parse().unwrap();
+                    let cell_id = CellId(self.cell_static_dict.len() as u16);
+                    let wire_a_id = self.get_wire_id_by_name(&format!("a[{adder_index}]"));
+                    let wire_b_id = self.get_wire_id_by_name_may(&format!("b[{index}]"));
+
+                    let mut wires =  BTreeSet::from([wire_a_id]);
+                    if let Some(wire_b_id) = wire_b_id {
+                        wires.insert(wire_b_id);
+                    }
+
+                    let mut cell_name = format!("a[{adder_index}]");
+                    if wire_b_id.is_some() {
+                        cell_name += &format!("_b[{index}]");
+                    }
+
+                    let width = *cell_width_dict.get(&index).unwrap();
+
+                    self.cell_static_dict.insert(cell_id, CellStaticInfo {
+                        name: cell_name,
+                        width,
+                        can_move : false,
+                        wires,
+                    });
+
+                    self.cell_fixed_pos_dict.insert(cell_id, (x as f64 + width / 2. , y as i32));
+
+                    self.wire_static_dict.get_mut(&wire_a_id).unwrap().connected_cells.insert(cell_id);
+                    if let Some(wire_b_id) = wire_b_id {
+                        self.wire_static_dict.get_mut(&wire_b_id).unwrap().connected_cells.insert(cell_id);
+                    }
+                }
+            }
+        }
+        
+    }
 }

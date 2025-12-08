@@ -53,7 +53,7 @@ impl AdderFPMain {
                 y
             },
             false => {
-                self.cell_fixed_pos_dict.get(&cell_id).unwrap().1
+                self.cell_fixed_pos_dict.get(&cell_id).expect(&format!("can not find pos for fixed cell id {}", cell_id.0)).1
             }
         }
         
@@ -79,5 +79,14 @@ impl AdderFPMain {
             }
         }
         panic!("No wire found for name: {}", name);
+    }
+
+    pub fn get_wire_id_by_name_may(&self, name: &str) -> Option<WireId> {
+        for (wire_id, wire) in self.wire_static_dict.iter() {
+            if wire.name == name {
+                return Some(*wire_id);
+            }
+        }
+        None
     }
 }

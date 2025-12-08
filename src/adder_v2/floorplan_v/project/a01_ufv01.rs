@@ -1,3 +1,5 @@
+use std::collections::BTreeMap;
+
 use crate::adder_v2::{Id, adder::Adder, cell_parse::Process, excel::{ExcelFrame, excel_to_datalist::ExcelDataList}, floorplan_v::{AdderFPMain, ModelParameters, SubArea}};
 
 const PATH : &'static str = "src/adder_v2/project/a04_uf_76/excel/uf31_pn_np_v01.txt";
@@ -54,6 +56,18 @@ fn get_sub_area_v1() -> Vec<SubArea> {
 
 }
 
+fn fa1n_width_dict() -> BTreeMap<usize, f64> {
+    let mut dict = BTreeMap::new();
+    for i in 1..32 {
+        if  i <= 17 {
+            dict.insert(i, 16./2.);
+        } else {
+            dict.insert(i, 14./2.);
+        }
+    }
+    dict
+}
+
 
 #[test]
 fn test() {
@@ -68,6 +82,7 @@ fn test() {
     fp_main.load_adder_cell_position("src/adder_v2/floorplan_v/project/a01_ufv01/input_adder_placement.txt");
     fp_main.load_faa_cell_position("src/adder_v2/floorplan_v/project/a01_ufv01/input_faa_placement.txt");
     fp_main.set_out_mb_virtual_cell(7, 192., 31);
+    fp_main.set_in_fa1n_virtual_cell("src/adder_v2/floorplan_v/project/a01_ufv01/input_faa_placement.txt", &fa1n_width_dict());
 
     // dbg!(&fp_main);
     fp_main.draw_default_art(&adder);
