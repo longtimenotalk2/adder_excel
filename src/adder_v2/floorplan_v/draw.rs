@@ -1,6 +1,6 @@
 use svg::{Document, node::element::{Line, Rectangle, Text}};
 
-use crate::adder_v2::{adder::Adder, floorplan_v::AdderFPMain};
+use crate::adder_v2::{adder::Adder, floorplan_v::{AdderFPMain, YMove}};
 
 #[derive(Debug, Clone)]
 pub struct Art {
@@ -135,7 +135,15 @@ impl AdderFPMain {
             } else {
                 "<"
             };
-            document = document.add(Text::new(&format!("{wire_num} {wire_x_force_marker}"))
+            let wire_down_force_marker = match self.given_cell_y_wire_force_atom(*cell_id).get(&YMove::Down) {
+                Some(v) => if *v > 0. { "v" } else { " " },
+                None => " ",
+            };
+            let wire_up_force_marker = match self.given_cell_y_wire_force_atom(*cell_id).get(&YMove::Up) {
+                Some(v) => if *v > 0. { "^" } else { " " },
+                None => " ",
+            };
+            document = document.add(Text::new(&format!("{wire_num}{wire_x_force_marker}{wire_down_force_marker}{wire_up_force_marker}"))
                 .set("x", x_given)
                 .set("y", y_given+5.)
                 .set("text-anchor", "middle") // 水平居中
