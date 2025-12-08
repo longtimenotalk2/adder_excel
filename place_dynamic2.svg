@@ -203,225 +203,225 @@
 <line stroke="black" stroke-dasharray="8, 16" x1="9124" x2="9124" y1="100" y2="1348"/>
 <line stroke="black" stroke-dasharray="8, 16" x1="9172" x2="9172" y1="100" y2="1348"/>
 <line stroke="black" stroke-dasharray="8, 16" x1="9220" x2="9220" y1="100" y2="1348"/>
-<rect fill="#A9D08E" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="315.52" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="435.52" y="606">
+<rect fill="#A9D08E" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="340" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="460" y="606">
 U1_nh1_0
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="435.52" y="651">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="460" y="651">
 5&gt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="435.52" y="696">
-1932
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="460" y="696">
+1908
 </text>
-<rect fill="#E2EFDA" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="508.96002" y="880"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="628.96" y="918">
+<rect fill="#E2EFDA" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="532" y="880"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="652" y="918">
 U1_np2_1
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="628.96" y="963">
-5&gt; ^
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="652" y="963">
+5  ^
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="628.96" y="1008">
-2617
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="652" y="1008">
+2628
 </text>
-<rect fill="#A9D08E" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="785.44006" y="724"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="905.44006" y="762">
+<rect fill="#A9D08E" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="802" y="724"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="922" y="762">
 U1_nh3_2
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="905.44006" y="807">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="922" y="807">
 5&lt;v 
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="905.44006" y="852">
-2521
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="922" y="852">
+2538
 </text>
-<rect fill="#E2EFDA" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="1048.48" y="880"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1168.48" y="918">
+<rect fill="#E2EFDA" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="1060" y="880"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1180" y="918">
 U1_np4_3
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1168.48" y="963">
-5  ^
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1180" y="963">
+5&lt; ^
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1168.48" y="1008">
-2447
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1180" y="1008">
+2442
 </text>
-<rect fill="#A9D08E" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="1316.3201" y="880"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1436.3201" y="918">
+<rect fill="#A9D08E" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="1348" y="880"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1468" y="918">
 U1_nh5_4
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1436.3201" y="963">
-5&gt; ^
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1468" y="963">
+5  ^
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1436.3201" y="1008">
-2593
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1468" y="1008">
+2424
 </text>
-<rect fill="#E2EFDA" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="1641.28" y="880"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1761.28" y="918">
+<rect fill="#E2EFDA" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="1588" y="880"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1708" y="918">
 U1_np6_5
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1761.28" y="963">
-5  ^
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1708" y="963">
+5&gt; ^
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1761.28" y="1008">
-3191
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1708" y="1008">
+3126
 </text>
-<rect fill="#A9D08E" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="1921.6001" y="724"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="2041.6001" y="762">
+<rect fill="#A9D08E" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="1924" y="724"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="2044" y="762">
 U1_nh7_6
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="2041.6001" y="807">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="2044" y="807">
 5 v 
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="2041.6001" y="852">
-3012
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="2044" y="852">
+3192
 </text>
-<rect fill="#E2EFDA" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="2426.56" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="2546.56" y="606">
+<rect fill="#E2EFDA" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="2434" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="2554" y="606">
 U1_np8_7
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="2546.56" y="651">
-5&gt;  
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="2554" y="651">
+5&lt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="2546.56" y="696">
-3519
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="2554" y="696">
+3474
 </text>
-<rect fill="#A9D08E" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="2714.56" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="2834.56" y="606">
+<rect fill="#A9D08E" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="2692" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="2812" y="606">
 U1_nh9_8
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="2834.56" y="651">
-5&lt;  
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="2812" y="651">
+5   
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="2834.56" y="696">
-3148
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="2812" y="696">
+2940
 </text>
-<rect fill="#E2EFDA" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="2922.4" y="724"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3042.4" y="762">
+<rect fill="#E2EFDA" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="2980" y="724"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3100" y="762">
 U1_np10_9
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3042.4" y="807">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3100" y="807">
 5&lt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3042.4" y="852">
-3079
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3100" y="852">
+2898
 </text>
-<rect fill="#A9D08E" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="3208.48" y="724"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3328.48" y="762">
+<rect fill="#A9D08E" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="3202" y="724"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3322" y="762">
 U1_nh11_10
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3328.48" y="807">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3322" y="807">
 5&lt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3328.48" y="852">
-2965
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3322" y="852">
+2826
 </text>
-<rect fill="#E2EFDA" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="3359.6802" y="880"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3479.6802" y="918">
+<rect fill="#E2EFDA" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="3388" y="880"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3508" y="918">
 U1_np12_11
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3479.6802" y="963">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3508" y="963">
 5&gt; ^
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3479.6802" y="1008">
-3477
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3508" y="1008">
+3276
 </text>
-<rect fill="#A9D08E" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="3594.88" y="724"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3714.88" y="762">
+<rect fill="#A9D08E" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="3628" y="724"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3748" y="762">
 U1_nh13_12
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3714.88" y="807">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3748" y="807">
 5&gt;v 
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3714.88" y="852">
-3360
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3748" y="852">
+3174
 </text>
-<rect fill="#E2EFDA" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="4129.5996" y="880"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="4249.5996" y="918">
+<rect fill="#E2EFDA" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="4132" y="880"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="4252" y="918">
 U1_np14_13
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="4249.5996" y="963">
-5  ^
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="4252" y="963">
+5&lt; ^
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="4249.5996" y="1008">
-3348
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="4252" y="1008">
+3324
 </text>
-<rect fill="#A9D08E" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="4360.48" y="880"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="4480.48" y="918">
+<rect fill="#A9D08E" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="4372" y="880"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="4492" y="918">
 U1_nh15_14
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="4480.48" y="963">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="4492" y="963">
 5&gt; ^
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="4480.48" y="1008">
-2593
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="4492" y="1008">
+2526
 </text>
-<rect fill="#E2EFDA" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="4749.7603" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="4869.7603" y="606">
+<rect fill="#E2EFDA" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="4708" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="4828" y="606">
 U1_np16_15
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="4869.7603" y="651">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="4828" y="651">
 5&gt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="4869.7603" y="696">
-3331
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="4828" y="696">
+3288
 </text>
-<rect fill="#A9D08E" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="5462.56" y="724"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="5582.56" y="762">
+<rect fill="#A9D08E" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="5428" y="724"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="5548" y="762">
 U1_nh17_16
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="5582.56" y="807">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="5548" y="807">
 5&lt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="5582.56" y="852">
-2932
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="5548" y="852">
+2928
 </text>
-<rect fill="#E2EFDA" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="5393.44" y="880"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="5513.44" y="918">
+<rect fill="#E2EFDA" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="5428" y="880"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="5548" y="918">
 U1_np18_17
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="5513.44" y="963">
-5&gt;  
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="5513.44" y="1008">
-2192
-</text>
-<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="5898.88" y="724"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="5970.88" y="762">
-U1_np19
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="5970.88" y="807">
-3&gt;  
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="5970.88" y="852">
-1569
-</text>
-<rect fill="#A9D08E" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="6070.2397" y="724"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6190.2397" y="762">
-U1_nh20_19
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6190.2397" y="807">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="5548" y="963">
 5&lt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6190.2397" y="852">
-2764
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="5548" y="1008">
+2094
 </text>
-<rect fill="#E2EFDA" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="6292" y="724"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6412" y="762">
+<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="5926" y="724"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="5998" y="762">
+U1_np19
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="5998" y="807">
+3&gt;  
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="5998" y="852">
+1494
+</text>
+<rect fill="#A9D08E" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="6064" y="724"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6184" y="762">
+U1_nh20_19
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6184" y="807">
+5   
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6184" y="852">
+2688
+</text>
+<rect fill="#E2EFDA" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="6268" y="724"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6388" y="762">
 U1_np21_20
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6412" y="807">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6388" y="807">
 5 v 
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6412" y="852">
-2357
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6388" y="852">
+2304
 </text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="6564.16" y="724"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6708.16" y="762">
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="6556" y="724"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6700" y="762">
 U1_ng22_nq22
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6708.16" y="807">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6700" y="807">
 4   
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6708.16" y="852">
-1481
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6700" y="852">
+1470
 </text>
 <rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="6868" y="880"/>
 <text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="7012" y="918">
@@ -431,267 +431,267 @@ U1_ng23_nq23
 4   
 </text>
 <text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="7012" y="1008">
-1532
+1404
 </text>
-<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="7280.32" y="880"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="7424.32" y="918">
+<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="7300" y="880"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="7444" y="918">
 U1_q24
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="7424.32" y="963">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="7444" y="963">
 3&lt; ^
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="7424.32" y="1008">
-1742
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="7444" y="1008">
+1752
 </text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="5656.48" y="880"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="5800.48" y="918">
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="5650" y="880"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="5794" y="918">
 U1_ng18_nq18
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="5800.48" y="963">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="5794" y="963">
 4&lt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="5800.48" y="1008">
-1655
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="5794" y="1008">
+1626
 </text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="6552.6396" y="880"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6696.6396" y="918">
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="6514" y="880"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6658" y="918">
 U1_ng21_nq21
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6696.6396" y="963">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6658" y="963">
 4&lt; ^
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6696.6396" y="1008">
-2087
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6658" y="1008">
+1956
 </text>
 <rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="336" x="676" y="568"/>
 <text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="844" y="606">
 U2_h3_0
 </text>
 <text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="844" y="651">
-4&gt;  
+4   
 </text>
 <text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="844" y="696">
-1115
+1080
 </text>
-<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="1073.92" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1145.92" y="606">
+<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="1078" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1150" y="606">
 U2_p6_3
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1145.92" y="651">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1150" y="651">
 3&gt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1145.92" y="696">
-1051
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1150" y="696">
+990
 </text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="1597.6001" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1693.6001" y="606">
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="1540" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1636" y="606">
 U2_h7_4
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1693.6001" y="651">
-4&lt;v 
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1636" y="651">
+4&gt;v 
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1693.6001" y="696">
-1416
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1636" y="696">
+1338
 </text>
-<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="3413.92" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3485.92" y="606">
+<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="3412" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3484" y="606">
 U2_p10_7
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3485.92" y="651">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3484" y="651">
 3&lt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3485.92" y="696">
-2873
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3484" y="696">
+2826
 </text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="3383.2002" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3479.2002" y="606">
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="3268" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3364" y="606">
 U2_h11_8
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3479.2002" y="651">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3364" y="651">
 4&lt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3479.2002" y="696">
-2858
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3364" y="696">
+2724
 </text>
-<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="3561.28" y="724"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3633.28" y="762">
+<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="3508" y="724"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3580" y="762">
 U2_p14_11
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3633.28" y="807">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3580" y="807">
 3&gt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3633.28" y="852">
-1558
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3580" y="852">
+1596
 </text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="4143.52" y="724"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="4239.52" y="762">
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="4114" y="724"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="4210" y="762">
 U2_h15_12
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="4239.52" y="807">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="4210" y="807">
 4&lt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="4239.52" y="852">
-1752
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="4210" y="852">
+1746
 </text>
-<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="5517.568" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="5589.568" y="606">
+<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="5524" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="5596" y="606">
 U2_p18_15
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="5589.568" y="651">
-3   
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="5589.568" y="696">
-1344
-</text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="5631.232" y="724"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="5727.232" y="762">
-U2_g18_16
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="5727.232" y="807">
-4&lt;  
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="5727.232" y="852">
-1415
-</text>
-<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="6186.88" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6258.88" y="606">
-U2_p21_19
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6258.88" y="651">
-3&lt;  
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6258.88" y="696">
-644
-</text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="6282.4004" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6378.4004" y="606">
-U2_g21_19
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6378.4004" y="651">
-4&gt;  
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6378.4004" y="696">
-1068
-</text>
-<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="7067.1997" y="724"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="7139.1997" y="762">
-U2_q23_22
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="7139.1997" y="807">
-3&lt; ^
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="7139.1997" y="852">
-1297
-</text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="6746.56" y="724"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6842.56" y="762">
-U2_g23_22
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6842.56" y="807">
-4&gt;  
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6842.56" y="852">
-1439
-</text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="336" x="1222.24" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1390.24" y="606">
-U3_nh7_0
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1390.24" y="651">
-4&gt;  
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1390.24" y="696">
-2797
-</text>
-<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="3603.4001" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3675.4001" y="606">
-U3_np14_7
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3675.4001" y="651">
-3   
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3675.4001" y="696">
-1958
-</text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="3751" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3847" y="606">
-U3_nh15_8
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3847" y="651">
-4&lt;  
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3847" y="696">
-2268
-</text>
-<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="6010.048" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6082.048" y="606">
-U3_np21_15
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6082.048" y="651">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="5596" y="651">
 3&gt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6082.048" y="696">
-1591
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="5596" y="696">
+1398
 </text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="6100.192" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6196.192" y="450">
-U3_ng21_16
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="5668" y="724"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="5764" y="762">
+U2_g18_16
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6196.192" y="495">
-4 v 
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6196.192" y="540">
-1424
-</text>
-<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="6999.784" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="7071.784" y="606">
-U3_nq24_22
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="7071.784" y="651">
-3   
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="7071.784" y="696">
-1097
-</text>
-<rect fill="#A9D08E" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="7157.92" y="724"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="7277.92" y="762">
-U3_ng24_22
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="7277.92" y="807">
-5&lt;  
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="7277.92" y="852">
-2612
-</text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="336" x="3941.44" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="4109.44" y="606">
-U4_h15_0
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="4109.44" y="651">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="5764" y="807">
 4&lt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="4109.44" y="696">
-5757
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="5764" y="852">
+1500
 </text>
-<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="6895.84" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6967.84" y="606">
-U4_p24_15
+<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="6172" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6244" y="606">
+U2_p21_19
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6967.84" y="651">
-3  ^
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6244" y="651">
+3&lt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6967.84" y="696">
-1496
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6244" y="696">
+600
 </text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="6783.04" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6879.04" y="450">
-U4_g24_16
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="6340" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6436" y="606">
+U2_g21_19
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6879.04" y="495">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6436" y="651">
+4&lt;  
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6436" y="696">
+996
+</text>
+<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="7012" y="724"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="7084" y="762">
+U2_q23_22
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="7084" y="807">
+3&lt; ^
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="7084" y="852">
+1110
+</text>
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="6820" y="724"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6916" y="762">
+U2_g23_22
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6916" y="807">
 4&gt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6879.04" y="540">
-1492
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6916" y="852">
+1284
+</text>
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="336" x="1216" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1384" y="606">
+U3_nh7_0
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1384" y="651">
+4   
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1384" y="696">
+2748
+</text>
+<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="3604" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3676" y="606">
+U3_np14_7
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3676" y="651">
+3   
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3676" y="696">
+2028
+</text>
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="3748" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3844" y="606">
+U3_nh15_8
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3844" y="651">
+4&lt;  
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3844" y="696">
+2310
+</text>
+<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="6022" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6094" y="606">
+U3_np21_15
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6094" y="651">
+3&gt;  
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6094" y="696">
+1530
+</text>
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="6172" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6268" y="450">
+U3_ng21_16
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6268" y="495">
+4&lt;v 
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6268" y="540">
+1446
+</text>
+<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="7012" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="7084" y="606">
+U3_nq24_22
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="7084" y="651">
+3&gt;  
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="7084" y="696">
+1080
+</text>
+<rect fill="#A9D08E" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="7156" y="724"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="7276" y="762">
+U3_ng24_22
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="7276" y="807">
+5&lt;  
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="7276" y="852">
+2460
+</text>
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="336" x="3940" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="4108" y="606">
+U4_h15_0
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="4108" y="651">
+4&lt;  
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="4108" y="696">
+5760
+</text>
+<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="6868" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6940" y="606">
+U4_p24_15
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6940" y="651">
+3&gt; ^
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6940" y="696">
+1458
+</text>
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="6868" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6964" y="450">
+U4_g24_16
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6964" y="495">
+4&gt;  
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6964" y="540">
+1308
 </text>
 <rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="244" y="412"/>
 <text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="388" y="450">
@@ -711,427 +711,427 @@ U1_np1_q1
 4&lt; ^
 </text>
 <text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="676" y="852">
-1811
+1812
 </text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="774.39996" y="880"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="918.39996" y="918">
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="772" y="880"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="916" y="918">
 U1_ng2_nq2
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="918.39996" y="963">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="916" y="963">
 4  ^
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="918.39996" y="1008">
-2365
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="916" y="1008">
+2376
 </text>
-<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="1013.92004" y="724"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1157.92" y="762">
+<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="1036" y="724"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1180" y="762">
 U1_np3_q3
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1157.92" y="807">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1180" y="807">
 4   
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1157.92" y="852">
-1871
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1180" y="852">
+1878
 </text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="1336.48" y="724"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1480.48" y="762">
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="1324" y="724"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1468" y="762">
 U1_ng4_nq4
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1480.48" y="807">
-4&lt;  
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1468" y="807">
+4   
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1480.48" y="852">
-1823
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1468" y="852">
+1812
 </text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="1589.92" y="724"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1733.92" y="762">
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="1588" y="724"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1732" y="762">
 U1_ng5_nq5
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1733.92" y="807">
-4   
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1732" y="807">
+4&lt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1733.92" y="852">
-1976
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1732" y="852">
+1860
 </text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="1873" y="880"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="2017" y="918">
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="1876" y="880"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="2020" y="918">
 U1_ng6_nq6
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="2017" y="963">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="2020" y="963">
 4  ^
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="2017" y="1008">
-2351
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="2020" y="1008">
+2460
 </text>
-<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="2226.4" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="2370.4" y="606">
+<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="2164" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="2308" y="606">
 U1_np7_q7
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="2370.4" y="651">
-4&lt;  
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="2308" y="651">
+4   
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="2370.4" y="696">
-1805
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="2308" y="696">
+1788
 </text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="2482.72" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="2626.72" y="450">
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="2380" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="2524" y="450">
 U1_ng8_nq8
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="2626.72" y="495">
-4&lt;  
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="2524" y="495">
+4&gt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="2626.72" y="540">
-1583
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="2524" y="540">
+1284
 </text>
-<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="2551.84" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="2695.84" y="450">
+<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="2644" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="2788" y="450">
 U1_np9_q9
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="2695.84" y="495">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="2788" y="495">
 4&gt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="2695.84" y="540">
-1776
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="2788" y="540">
+1500
 </text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="2983" y="880"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3127" y="918">
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="2980" y="880"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3124" y="918">
 U1_ng10_nq10
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3127" y="963">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3124" y="963">
 4  ^
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3127" y="1008">
-2350
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3124" y="1008">
+2298
 </text>
-<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="2922.4" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3066.4" y="606">
+<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="2992" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3136" y="606">
 U1_np11_q11
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3066.4" y="651">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3136" y="651">
 4&gt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3066.4" y="696">
-2362
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3136" y="696">
+2064
 </text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="3631.3599" y="880"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3775.3599" y="918">
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="3604" y="880"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3748" y="918">
 U1_ng12_nq12
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3775.3599" y="963">
-4&lt; ^
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3748" y="963">
+4  ^
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3775.3599" y="1008">
-2255
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3748" y="1008">
+2196
 </text>
-<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="3890.08" y="724"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="4034.08" y="762">
+<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="3844" y="724"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3988" y="762">
 U1_np13_q13
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="4034.08" y="807">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3988" y="807">
 4   
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="4034.08" y="852">
-2355
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3988" y="852">
+2292
 </text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="4300.96" y="724"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="4444.96" y="762">
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="4324" y="724"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="4468" y="762">
 U1_ng14_nq14
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="4444.96" y="807">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="4468" y="807">
 4   
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="4444.96" y="852">
-2020
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="4468" y="852">
+2004
 </text>
-<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="4395.04" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="4539.04" y="606">
+<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="4420" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="4564" y="606">
 U1_np15_q15
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="4539.04" y="651">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="4564" y="651">
 4&gt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="4539.04" y="696">
-1873
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="4564" y="696">
+1740
 </text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="4902.4004" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="5046.4004" y="606">
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="4924" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="5068" y="606">
 U1_ng16_nq16
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="5046.4004" y="651">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="5068" y="651">
 4&gt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="5046.4004" y="696">
-2192
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="5068" y="696">
+2172
 </text>
-<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="5234.08" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="5378.08" y="606">
+<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="5188" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="5332" y="606">
 U1_np17_q17
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="5378.08" y="651">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="5332" y="651">
 4   
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="5378.08" y="696">
-1473
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="5332" y="696">
+1404
 </text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="5953.5996" y="880"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6097.5996" y="918">
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="5956" y="880"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6100" y="918">
 U1_ng19_nq19
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6097.5996" y="963">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6100" y="963">
 4  ^
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6097.5996" y="1008">
-2578
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6100" y="1008">
+2502
 </text>
-<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="6159.04" y="880"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6303.04" y="918">
+<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="6232" y="880"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6376" y="918">
 U1_np20_q20
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6303.04" y="963">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6376" y="963">
 4  ^
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6303.04" y="1008">
-2219
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6376" y="1008">
+2196
 </text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="7621.12" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="7765.12" y="606">
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="7636" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="7780" y="606">
 U1_ng25_nq25
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="7765.12" y="651">
-4   
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="7780" y="651">
+4&gt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="7765.12" y="696">
-1701
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="7780" y="696">
+1626
 </text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="7953.76" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8097.76" y="606">
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="7924" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8068" y="606">
 U1_ng26_nq26
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8097.76" y="651">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8068" y="651">
 4&lt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8097.76" y="696">
-1225
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8068" y="696">
+1092
 </text>
-<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="8269.12" y="724"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8413.12" y="762">
+<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="8260" y="724"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8404" y="762">
 U1_q27
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8413.12" y="807">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8404" y="807">
 3&lt; ^
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8413.12" y="852">
-1652
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8404" y="852">
+1560
 </text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="8303.68" y="880"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8447.68" y="918">
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="8308" y="880"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8452" y="918">
 U1_ng28_nq28
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8447.68" y="963">
-4&lt;  
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8452" y="963">
+4&gt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8447.68" y="1008">
-1726
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8452" y="1008">
+1704
 </text>
-<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="8555.199" y="880"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8699.199" y="918">
+<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="8572" y="880"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8716" y="918">
 U1_q29
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8699.199" y="963">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8716" y="963">
 3&gt; ^
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8699.199" y="1008">
-1654
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8716" y="1008">
+1656
 </text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="8879.68" y="880"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="9023.68" y="918">
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="8836" y="880"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8980" y="918">
 U1_nq30
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="9023.68" y="963">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8980" y="963">
 3   
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="9023.68" y="1008">
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8980" y="1008">
 1248
 </text>
-<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="600.64" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="696.64" y="450">
+<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="628" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="724" y="450">
 U2_ng1_0
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="696.64" y="495">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="724" y="495">
 3&gt;v 
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="696.64" y="540">
-799
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="724" y="540">
+720
 </text>
-<rect fill="#DDEBF7" height="156" opacity="0.8" stroke="black" stroke-width="1" width="96" x="6737.92" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6785.92" y="606">
+<rect fill="#DDEBF7" height="156" opacity="0.8" stroke="black" stroke-width="1" width="96" x="6742" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6790" y="606">
 U2_q22
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6785.92" y="651">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6790" y="651">
 2&gt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6785.92" y="696">
-971
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6790" y="696">
+864
 </text>
-<rect fill="#DDEBF7" height="156" opacity="0.8" stroke="black" stroke-width="1" width="96" x="6672.16" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6720.16" y="606">
+<rect fill="#DDEBF7" height="156" opacity="0.8" stroke="black" stroke-width="1" width="96" x="6676" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6724" y="606">
 U2_g22
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6720.16" y="651">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6724" y="651">
 2&gt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6720.16" y="696">
-647
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6724" y="696">
+648
 </text>
-<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="8173.5996" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8245.6" y="450">
+<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="8116" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8188" y="450">
 U2_q26_25
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8245.6" y="495">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8188" y="495">
 3&lt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8245.6" y="540">
-1566
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8188" y="540">
+1374
 </text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="7877.92" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="7973.92" y="450">
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="7924" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8020" y="450">
 U2_g26_25
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="7973.92" y="495">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8020" y="495">
 4&gt;v 
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="7973.92" y="540">
-1215
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8020" y="540">
+1020
 </text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="847.36" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="943.36" y="450">
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="820" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="916" y="450">
 U3_g2_0
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="943.36" y="495">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="916" y="495">
 4&lt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="943.36" y="540">
-1458
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="916" y="540">
+1404
 </text>
-<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="1227.04" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1323.04" y="450">
+<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="1204" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1300" y="450">
 U3_ng3_0
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1323.04" y="495">
-3 v 
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1300" y="495">
+3&gt;v 
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1323.04" y="540">
-898
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1300" y="540">
+924
 </text>
-<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="8702.752" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8774.752" y="606">
+<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="8632" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8704" y="606">
 U3_nq27_25
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8774.752" y="651">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8704" y="651">
 3&lt; ^
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8774.752" y="696">
-1418
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8704" y="696">
+1308
 </text>
-<rect fill="#A9D08E" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="8246.561" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8366.561" y="606">
+<rect fill="#A9D08E" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="8260" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8380" y="606">
 U3_ng27_25
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8366.561" y="651">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8380" y="651">
 5&gt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8366.561" y="696">
-2344
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8380" y="696">
+2160
 </text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="1478.08" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1598.08" y="450">
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="1492" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1612" y="450">
 U4_ng4_0
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1598.08" y="495">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1612" y="495">
 4&lt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1598.08" y="540">
-1151
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1612" y="540">
+1188
 </text>
-<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="2006.56" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="2102.56" y="606">
+<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="1996" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="2092" y="606">
 U4_ng7_0
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="2102.56" y="651">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="2092" y="651">
 3&gt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="2102.56" y="696">
-3571
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="2092" y="696">
+3444
 </text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="1801.1199" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1921.1199" y="606">
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="1780" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1900" y="606">
 U4_nh11_0
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1921.1199" y="651">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1900" y="651">
 4&gt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1921.1199" y="696">
-7664
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1900" y="696">
+7704
 </text>
-<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="8741.32" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8813.32" y="606">
+<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="8740" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8812" y="606">
 U4_q28_25
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8813.32" y="651">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8812" y="651">
 3&lt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8813.32" y="696">
-1314
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8812" y="696">
+1260
 </text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="8382.88" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8478.88" y="606">
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="8452" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8548" y="606">
 U4_g28_25
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8478.88" y="651">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8548" y="651">
 4&gt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8478.88" y="696">
-1742
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8548" y="696">
+1668
 </text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="1685.92" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1805.92" y="450">
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="1732" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1852" y="450">
 U5_ng5_0
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1805.92" y="495">
-4&gt;  
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1852" y="495">
+4   
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1805.92" y="540">
-1149
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1852" y="540">
+1092
 </text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="2152.48" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="2248.48" y="450">
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="2188" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="2284" y="450">
 U5_g8_0
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="2248.48" y="495">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="2284" y="495">
 4&gt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="2248.48" y="540">
-2087
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="2284" y="540">
+1704
 </text>
-<rect fill="#00FFFF" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="3047.2002" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3191.2002" y="450">
+<rect fill="#00FFFF" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="2932" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3076" y="450">
 U5_ng9_0
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3191.2002" y="495">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3076" y="495">
 5&lt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3191.2002" y="540">
-3012
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3076" y="540">
+2598
 </text>
-<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="3461.92" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3533.92" y="450">
+<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="3412" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3484" y="450">
 U5_g11_0
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3533.92" y="495">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3484" y="495">
 3&lt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3533.92" y="540">
-2572
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3484" y="540">
+2448
 </text>
 <rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="3700" y="412"/>
 <text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3796" y="450">
@@ -1141,107 +1141,107 @@ U5_g12_0
 4   
 </text>
 <text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3796" y="540">
-3395
+3336
 </text>
-<rect fill="#00FFFF" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="3893.92" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="4037.92" y="450">
+<rect fill="#00FFFF" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="3868" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="4012" y="450">
 U5_ng13_0
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="4037.92" y="495">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="4012" y="495">
 5&lt;v 
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="4037.92" y="540">
-4220
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="4012" y="540">
+4146
 </text>
-<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="4854.4004" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="4950.4004" y="450">
+<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="4852" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="4948" y="450">
 U5_ng15_0
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="4950.4004" y="495">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="4948" y="495">
 3   
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="4950.4004" y="540">
-3961
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="4948" y="540">
+3924
 </text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="5728" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="5824" y="450">
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="5764" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="5860" y="450">
 U5_ng18_0
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="5824" y="495">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="5860" y="495">
 4&gt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="5824" y="540">
-4874
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="5860" y="540">
+4854
 </text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="6671.68" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6791.68" y="450">
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="6676" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6796" y="450">
 U5_g21_0
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6791.68" y="495">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6796" y="495">
 4&gt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6791.68" y="540">
-5072
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6796" y="540">
+5070
 </text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="336" x="7301.44" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="7469.44" y="450">
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="336" x="7300" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="7468" y="450">
 U5_ng24_0
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="7469.44" y="495">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="7468" y="495">
 4&lt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="7469.44" y="540">
-5487
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="7468" y="540">
+5424
 </text>
-<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="8926.72" y="724"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8998.72" y="762">
+<rect fill="#F8CBAD" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="8908" y="724"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8980" y="762">
 U5_nq29_25
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8998.72" y="807">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8980" y="807">
 3&lt; ^
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8998.72" y="852">
-1216
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8980" y="852">
+1164
 </text>
-<rect fill="#A9D08E" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="8655.04" y="724"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8775.04" y="762">
+<rect fill="#A9D08E" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="8692" y="724"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8812" y="762">
 U5_ng29_25
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8775.04" y="807">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8812" y="807">
 5&lt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8775.04" y="852">
-2246
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8812" y="852">
+2196
 </text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="1983.52" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="2079.52" y="450">
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="1972" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="2068" y="450">
 U6_g6_0
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="2079.52" y="495">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="2068" y="495">
 4&lt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="2079.52" y="540">
-1461
-</text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="3187.84" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3283.84" y="450">
-U6_g10_0
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3283.84" y="495">
-4   
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3283.84" y="540">
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="2068" y="540">
 1404
 </text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="4542.4004" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="4638.4004" y="450">
-U6_g14_0
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="3220" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3316" y="450">
+U6_g10_0
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="4638.4004" y="495">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3316" y="495">
 4&lt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="4638.4004" y="540">
-1514
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3316" y="540">
+1404
+</text>
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="4564" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="4660" y="450">
+U6_g14_0
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="4660" y="495">
+4&lt;  
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="4660" y="540">
+1548
 </text>
 <rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="5140" y="412"/>
 <text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="5236" y="450">
@@ -1251,277 +1251,277 @@ U6_g16_0
 4   
 </text>
 <text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="5236" y="540">
-1233
+1188
 </text>
-<rect fill="#00FFFF" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="5344.96" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="5464.96" y="450">
+<rect fill="#00FFFF" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="5332" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="5452" y="450">
 U6_g17_0
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="5464.96" y="495">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="5452" y="495">
 5&lt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="5464.96" y="540">
-1591
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="5452" y="540">
+1596
 </text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="5960.32" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6056.32" y="450">
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="5980" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6076" y="450">
 U6_g19_0
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6056.32" y="495">
-4&gt;  
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6056.32" y="540">
-2105
-</text>
-<rect fill="#00FFFF" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="6364.96" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6484.96" y="450">
-U6_g20_0
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6484.96" y="495">
-5&lt;  
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6484.96" y="540">
-2432
-</text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="7103.68" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="7199.68" y="450">
-U6_ng22_0
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="7199.68" y="495">
-4&lt;  
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="7199.68" y="540">
-1733
-</text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="7101.496" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="7197.496" y="606">
-U6_ng23_0
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="7197.496" y="651">
-4&lt;  
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="7197.496" y="696">
-1347
-</text>
-<rect fill="#DDEBF7" height="156" opacity="0.8" stroke="black" stroke-width="1" width="96" x="8213.92" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8261.92" y="450">
-U6_g24_0
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8261.92" y="495">
-2&gt;  
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8261.92" y="540">
-1952
-</text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="7749.2803" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="7845.2803" y="450">
-U6_g25_0
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="7845.2803" y="495">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6076" y="495">
 4   
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="7845.2803" y="540">
-2485
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6076" y="540">
+1962
 </text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="8534.824" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8630.824" y="450">
+<rect fill="#00FFFF" height="156" opacity="0.8" stroke="black" stroke-width="1" width="240" x="6340" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6460" y="450">
+U6_g20_0
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6460" y="495">
+5&lt;  
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6460" y="540">
+2310
+</text>
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="7060" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="7156" y="450">
+U6_ng22_0
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="7156" y="495">
+4&lt;  
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="7156" y="540">
+1662
+</text>
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="7132" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="7228" y="606">
+U6_ng23_0
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="7228" y="651">
+4&lt;  
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="7228" y="696">
+1296
+</text>
+<rect fill="#DDEBF7" height="156" opacity="0.8" stroke="black" stroke-width="1" width="96" x="8260" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8308" y="450">
+U6_g24_0
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8308" y="495">
+2&gt;  
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8308" y="540">
+1920
+</text>
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="7732" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="7828" y="450">
+U6_g25_0
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="7828" y="495">
+4&gt;  
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="7828" y="540">
+2406
+</text>
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="8548" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8644" y="450">
 U6_g27_0
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8630.824" y="495">
-4 v 
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8644" y="495">
+4&lt;v 
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8630.824" y="540">
-2094
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8644" y="540">
+2076
 </text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="8888.92" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8984.92" y="606">
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="8884" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8980" y="606">
 U6_g29_0
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8984.92" y="651">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8980" y="651">
 4&lt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8984.92" y="696">
-2187
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8980" y="696">
+2184
 </text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="8402.08" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8498.08" y="450">
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="8356" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8452" y="450">
 U7_ng26_0
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8498.08" y="495">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8452" y="495">
 4&lt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8498.08" y="540">
-1574
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8452" y="540">
+1440
 </text>
-<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="8698.744" y="412"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8794.744" y="450">
+<rect fill="#D9D9D9" height="156" opacity="0.8" stroke="black" stroke-width="1" width="192" x="8716" y="412"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8812" y="450">
 U7_ng28_0
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8794.744" y="495">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8812" y="495">
 4&lt;  
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8794.744" y="540">
-1334
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8812" y="540">
+1236
 </text>
-<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="397.12" y="256"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="541.12" y="294">
+<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="388" y="256"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="532" y="294">
 U8_s1
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="541.12" y="339">
-3 v 
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="532" y="339">
+3&gt;v 
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="541.12" y="384">
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="532" y="384">
 780
 </text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="687.52" y="256"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="831.52" y="294">
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="676" y="256"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="820" y="294">
 U8_s2
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="831.52" y="339">
-3 v 
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="831.52" y="384">
-990
-</text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="975.52" y="256"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1119.52" y="294">
-U8_s3
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1119.52" y="339">
-3 v 
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1119.52" y="384">
-780
-</text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="1263.52" y="256"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1407.52" y="294">
-U8_s4
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1407.52" y="339">
-3 v 
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1407.52" y="384">
-839
-</text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="1551.52" y="256"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1695.52" y="294">
-U8_s5
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1695.52" y="339">
-3 v 
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1695.52" y="384">
-780
-</text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="1839.52" y="256"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1983.52" y="294">
-U8_s6
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1983.52" y="339">
-3 v 
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1983.52" y="384">
-993
-</text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="2083.84" y="256"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="2227.84" y="294">
-U8_s7
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="2227.84" y="339">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="820" y="339">
 3&gt;v 
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="2227.84" y="384">
-656
-</text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="2459.2002" y="256"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="2603.2002" y="294">
-U8_s8
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="2603.2002" y="339">
-3 v 
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="2603.2002" y="384">
-1610
-</text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="2682.8801" y="256"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="2826.8801" y="294">
-U8_s9
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="2826.8801" y="339">
-3 v 
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="2826.8801" y="384">
-815
-</text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="2968.48" y="256"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3112.48" y="294">
-U8_s10
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3112.48" y="339">
-3&gt;v 
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3112.48" y="384">
-947
-</text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="3302.56" y="256"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3446.56" y="294">
-U8_s11
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3446.56" y="339">
-3&lt;v 
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3446.56" y="384">
-716
-</text>
-<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="3565.12" y="256"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3709.12" y="294">
-U8_s12
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3709.12" y="339">
-3 v 
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3709.12" y="384">
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="820" y="384">
 936
 </text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="3857.92" y="256"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="4001.92" y="294">
-U8_s13
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="964" y="256"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1108" y="294">
+U8_s3
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="4001.92" y="339">
-3 v 
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="4001.92" y="384">
-780
-</text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="4192" y="256"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="4336" y="294">
-U8_s14
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="4336" y="339">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1108" y="339">
 3&gt;v 
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="4336" y="384">
-1202
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1108" y="384">
+780
 </text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="4682.56" y="256"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="4826.56" y="294">
-U8_s15
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="1252" y="256"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1396" y="294">
+U8_s4
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="4826.56" y="339">
-3&lt;v 
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1396" y="339">
+3&gt;v 
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="4826.56" y="384">
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1396" y="384">
+876
+</text>
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="1540" y="256"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1684" y="294">
+U8_s5
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1684" y="339">
+3&gt;v 
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1684" y="384">
+780
+</text>
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="1828" y="256"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="1972" y="294">
+U8_s6
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="1972" y="339">
+3&gt;v 
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="1972" y="384">
+936
+</text>
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="2116" y="256"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="2260" y="294">
+U8_s7
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="2260" y="339">
+3&gt;v 
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="2260" y="384">
 624
 </text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="4993.5996" y="256"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="5137.5996" y="294">
-U8_s16
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="2404" y="256"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="2548" y="294">
+U8_s8
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="5137.5996" y="339">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="2548" y="339">
+3&lt;v 
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="2548" y="384">
+1392
+</text>
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="2692" y="256"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="2836" y="294">
+U8_s9
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="2836" y="339">
+3&lt;v 
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="2836" y="384">
+780
+</text>
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="2980" y="256"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3124" y="294">
+U8_s10
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3124" y="339">
+3&gt;v 
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3124" y="384">
+936
+</text>
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="3268" y="256"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3412" y="294">
+U8_s11
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3412" y="339">
+3&gt;v 
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3412" y="384">
+624
+</text>
+<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="3556" y="256"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3700" y="294">
+U8_s12
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3700" y="339">
 3 v 
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="5137.5996" y="384">
-1077
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3700" y="384">
+936
+</text>
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="3844" y="256"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="3988" y="294">
+U8_s13
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="3988" y="339">
+3&gt;v 
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="3988" y="384">
+780
+</text>
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="4228" y="256"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="4372" y="294">
+U8_s14
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="4372" y="339">
+3&gt;v 
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="4372" y="384">
+1236
+</text>
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="4660" y="256"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="4804" y="294">
+U8_s15
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="4804" y="339">
+3 v 
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="4804" y="384">
+624
+</text>
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="4996" y="256"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="5140" y="294">
+U8_s16
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="5140" y="339">
+3 v 
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="5140" y="384">
+1032
 </text>
 <rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="5284" y="256"/>
 <text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="5428" y="294">
@@ -1533,35 +1533,35 @@ U8_s17
 <text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="5428" y="384">
 624
 </text>
-<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="5574.4004" y="256"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="5718.4004" y="294">
+<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="5572" y="256"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="5716" y="294">
 U8_s18
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="5718.4004" y="339">
-3 v 
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="5718.4004" y="384">
-936
-</text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="5860" y="256"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6004" y="294">
-U8_s19
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6004" y="339">
-3&gt;v 
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6004" y="384">
-1597
-</text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="6191.68" y="256"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6335.68" y="294">
-U8_s20
-</text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6335.68" y="339">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="5716" y="339">
 3&lt;v 
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6335.68" y="384">
-975
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="5716" y="384">
+936
+</text>
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="5878" y="256"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6022" y="294">
+U8_s19
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6022" y="339">
+3&gt;v 
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6022" y="384">
+1494
+</text>
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="6160" y="256"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6304" y="294">
+U8_s20
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6304" y="339">
+3 v 
+</text>
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6304" y="384">
+936
 </text>
 <rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="6436" y="256"/>
 <text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6580" y="294">
@@ -1573,75 +1573,75 @@ U8_s21
 <text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6580" y="384">
 936
 </text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="6703.3604" y="256"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6847.3604" y="294">
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="6724" y="256"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="6868" y="294">
 U8_s22
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6847.3604" y="339">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="6868" y="339">
 3 v 
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6847.3604" y="384">
-1241
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="6868" y="384">
+1218
 </text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="7021.12" y="256"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="7165.12" y="294">
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="7012" y="256"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="7156" y="294">
 U8_s23
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="7165.12" y="339">
-3 v 
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="7156" y="339">
+3&lt;v 
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="7165.12" y="384">
-1064
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="7156" y="384">
+936
 </text>
-<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="7273.5996" y="256"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="7417.5996" y="294">
+<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="7300" y="256"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="7444" y="294">
 U8_s24
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="7417.5996" y="339">
-3 v 
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="7444" y="339">
+3&lt;v 
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="7417.5996" y="384">
-1228
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="7444" y="384">
+1236
 </text>
-<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="7588" y="256"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="7732" y="294">
+<rect fill="#FFC000" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="7606" y="256"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="7750" y="294">
 U8_s25
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="7732" y="339">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="7750" y="339">
 3&gt;v 
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="7732" y="384">
-2329
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="7750" y="384">
+2250
 </text>
-<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="7922.08" y="256"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8066.08" y="294">
+<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="7888" y="256"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8032" y="294">
 U8_s26
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8066.08" y="339">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8032" y="339">
 3 v 
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8066.08" y="384">
-727
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8032" y="384">
+624
 </text>
-<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="8175.5205" y="256"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8319.5205" y="294">
+<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="8188" y="256"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8332" y="294">
 U8_s27
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8319.5205" y="339">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8332" y="339">
 3&gt;v 
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8319.5205" y="384">
-1019
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8332" y="384">
+936
 </text>
-<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="8472.64" y="256"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8616.64" y="294">
+<rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="8452" y="256"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8596" y="294">
 U8_s28
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8616.64" y="339">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="8596" y="339">
 3 v 
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8616.64" y="384">
-1102
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8596" y="384">
+1080
 </text>
 <rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="8740" y="256"/>
 <text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="8884" y="294">
@@ -1651,7 +1651,7 @@ U8_s29
 3 v 
 </text>
 <text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="8884" y="384">
-1019
+984
 </text>
 <rect fill="#FF99CC" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="9028" y="256"/>
 <text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="9172" y="294">
@@ -1663,24 +1663,24 @@ U8_s30
 <text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="9172" y="384">
 1092
 </text>
-<rect fill="white" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="102.399994" y="256"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="246.4" y="294">
+<rect fill="white" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="100" y="256"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="244" y="294">
 s_0
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="246.4" y="339">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="244" y="339">
 1   
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="246.4" y="384">
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="244" y="384">
 156
 </text>
-<rect fill="white" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="102.399994" y="568"/>
-<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="174.4" y="606">
+<rect fill="white" height="156" opacity="0.8" stroke="black" stroke-width="1" width="144" x="100" y="568"/>
+<text dominant-baseline="middle" font-family="Arial" font-size="20" text-anchor="middle" x="172" y="606">
 co_0
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="174.4" y="651">
+<text dominant-baseline="middle" font-family="Arial" font-size="50" text-anchor="middle" x="172" y="651">
 1   
 </text>
-<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="174.4" y="696">
+<text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="172" y="696">
 156
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="100" y="100"/>
@@ -1771,7 +1771,7 @@ s[7]
 1
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="2548" y="228">
-188
+156
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="2692" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="2836" y="128">
@@ -1791,7 +1791,7 @@ s[9]
 1
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="3124" y="228">
-165
+156
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="3268" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="3412" y="128">
@@ -1801,7 +1801,7 @@ s[10]
 1
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="3412" y="228">
-167
+156
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="3556" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="3700" y="128">
@@ -2011,7 +2011,7 @@ a[0]_b[1]
 2
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="292" y="1008">
-827
+828
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="100" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="292" y="1220">
@@ -2021,7 +2021,7 @@ a[1]_b[2]
 2
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="292" y="1320">
-1441
+1458
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="532" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="724" y="1220">
@@ -2031,7 +2031,7 @@ a[2]_b[3]
 2
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="724" y="1320">
-1104
+1110
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="916" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="1108" y="1220">
@@ -2041,7 +2041,7 @@ a[3]_b[4]
 2
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="1108" y="1320">
-1007
+1002
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="1348" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="1540" y="1220">
@@ -2051,7 +2051,7 @@ a[4]_b[5]
 2
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="1540" y="1320">
-1080
+984
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="1732" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="1924" y="1220">
@@ -2061,7 +2061,7 @@ a[5]_b[6]
 2
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="1924" y="1320">
-1151
+1176
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="2164" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="2356" y="1220">
@@ -2071,7 +2071,7 @@ a[6]_b[7]
 2
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="2356" y="1320">
-1639
+1698
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="2164" y="880"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="2356" y="908">
@@ -2081,7 +2081,7 @@ a[7]_b[8]
 2
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="2356" y="1008">
-1211
+1194
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="2596" y="880"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="2788" y="908">
@@ -2091,7 +2091,7 @@ a[8]_b[9]
 2
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="2788" y="1008">
-1066
+1008
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="2548" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="2740" y="1220">
@@ -2101,7 +2101,7 @@ a[9]_b[10]
 2
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="2740" y="1320">
-1607
+1566
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="2980" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="3172" y="1220">
@@ -2111,7 +2111,7 @@ a[10]_b[11]
 2
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="3172" y="1320">
-1287
+1200
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="3364" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="3556" y="1220">
@@ -2121,7 +2121,7 @@ a[11]_b[12]
 2
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="3556" y="1320">
-1277
+1200
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="3796" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="3988" y="1220">
@@ -2131,7 +2131,7 @@ a[12]_b[13]
 2
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="3988" y="1320">
-1427
+1368
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="4180" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="4372" y="1220">
@@ -2141,7 +2141,7 @@ a[13]_b[14]
 2
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="4372" y="1320">
-1281
+1248
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="4612" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="4804" y="1220">
@@ -2151,7 +2151,7 @@ a[14]_b[15]
 2
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="4804" y="1320">
-1483
+1428
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="4612" y="880"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="4804" y="908">
@@ -2161,7 +2161,7 @@ a[15]_b[16]
 2
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="4804" y="1008">
-1246
+1200
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="5044" y="880"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="5236" y="908">
@@ -2171,7 +2171,7 @@ a[16]_b[17]
 2
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="5236" y="1008">
-1131
+1104
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="336" x="5092" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="5260" y="1220">
@@ -2181,7 +2181,7 @@ a[17]_b[18]
 2
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="5260" y="1320">
-1199
+1158
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="336" x="5428" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="5596" y="1220">
@@ -2191,7 +2191,7 @@ a[18]_b[19]
 2
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="5596" y="1320">
-1109
+1080
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="336" x="5764" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="5932" y="1220">
@@ -2201,7 +2201,7 @@ a[19]_b[20]
 2
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="5932" y="1320">
-1155
+1104
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="336" x="6100" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="6268" y="1220">
@@ -2211,7 +2211,7 @@ a[20]_b[21]
 2
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="6268" y="1320">
-1052
+1014
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="336" x="6436" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="6604" y="1220">
@@ -2221,7 +2221,7 @@ a[21]_b[22]
 2
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="6604" y="1320">
-956
+942
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="336" x="6772" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="6940" y="1220">
@@ -2251,7 +2251,7 @@ a[24]_b[25]
 2
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="7612" y="1320">
-1138
+1140
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="336" x="7588" y="880"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="7756" y="908">
@@ -2261,7 +2261,7 @@ a[25]_b[26]
 2
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="7756" y="1008">
-653
+624
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="336" x="7924" y="880"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="8092" y="908">
@@ -2271,7 +2271,7 @@ a[26]_b[27]
 2
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="8092" y="1008">
-633
+624
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="336" x="7972" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="8140" y="1220">
@@ -2291,7 +2291,7 @@ a[28]_b[29]
 2
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="8476" y="1320">
-791
+828
 </text>
 <rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="336" x="8644" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="8812" y="1220">
@@ -2312,5 +2312,8 @@ a[30]
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="9148" y="1320">
 312
+</text>
+<text fill="black" font-family="Arial" font-size="100" x="0" y="0">
+all wire energy : 98316
 </text>
 </svg>

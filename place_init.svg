@@ -1683,7 +1683,7 @@ co_0
 <text dominant-baseline="middle" font-family="Arial" font-size="30" text-anchor="middle" x="172" y="696">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="100" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="100" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="244" y="128">
 d[0]
 </text>
@@ -1693,7 +1693,7 @@ d[0]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="244" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="388" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="388" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="532" y="128">
 s[0]
 </text>
@@ -1703,7 +1703,7 @@ s[0]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="532" y="228">
 312
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="676" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="676" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="820" y="128">
 s[1]
 </text>
@@ -1713,7 +1713,7 @@ s[1]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="820" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="964" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="964" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="1108" y="128">
 s[2]
 </text>
@@ -1723,7 +1723,7 @@ s[2]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="1108" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="1252" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="1252" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="1396" y="128">
 s[3]
 </text>
@@ -1733,7 +1733,7 @@ s[3]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="1396" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="1540" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="1540" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="1684" y="128">
 s[4]
 </text>
@@ -1743,7 +1743,7 @@ s[4]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="1684" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="1828" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="1828" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="1972" y="128">
 s[5]
 </text>
@@ -1753,7 +1753,7 @@ s[5]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="1972" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="2116" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="2116" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="2260" y="128">
 s[6]
 </text>
@@ -1763,7 +1763,7 @@ s[6]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="2260" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="2404" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="2404" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="2548" y="128">
 s[7]
 </text>
@@ -1773,7 +1773,7 @@ s[7]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="2548" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="2692" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="2692" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="2836" y="128">
 s[8]
 </text>
@@ -1783,7 +1783,7 @@ s[8]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="2836" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="2980" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="2980" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="3124" y="128">
 s[9]
 </text>
@@ -1793,7 +1793,7 @@ s[9]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="3124" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="3268" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="3268" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="3412" y="128">
 s[10]
 </text>
@@ -1803,7 +1803,7 @@ s[10]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="3412" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="3556" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="3556" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="3700" y="128">
 s[11]
 </text>
@@ -1813,7 +1813,7 @@ s[11]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="3700" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="3844" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="3844" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="3988" y="128">
 s[12]
 </text>
@@ -1823,7 +1823,7 @@ s[12]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="3988" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="4132" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="4132" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="4276" y="128">
 s[13]
 </text>
@@ -1833,7 +1833,7 @@ s[13]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="4276" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="4420" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="4420" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="4564" y="128">
 s[14]
 </text>
@@ -1843,7 +1843,7 @@ s[14]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="4564" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="4708" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="4708" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="4852" y="128">
 s[15]
 </text>
@@ -1853,7 +1853,7 @@ s[15]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="4852" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="4996" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="4996" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="5140" y="128">
 s[16]
 </text>
@@ -1863,7 +1863,7 @@ s[16]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="5140" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="5284" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="5284" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="5428" y="128">
 s[17]
 </text>
@@ -1873,7 +1873,7 @@ s[17]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="5428" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="5572" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="5572" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="5716" y="128">
 s[18]
 </text>
@@ -1883,7 +1883,7 @@ s[18]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="5716" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="5860" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="5860" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="6004" y="128">
 s[19]
 </text>
@@ -1893,7 +1893,7 @@ s[19]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="6004" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="6148" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="6148" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="6292" y="128">
 s[20]
 </text>
@@ -1903,7 +1903,7 @@ s[20]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="6292" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="6436" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="6436" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="6580" y="128">
 s[21]
 </text>
@@ -1913,7 +1913,7 @@ s[21]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="6580" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="6724" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="6724" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="6868" y="128">
 s[22]
 </text>
@@ -1923,7 +1923,7 @@ s[22]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="6868" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="7012" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="7012" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="7156" y="128">
 s[23]
 </text>
@@ -1933,7 +1933,7 @@ s[23]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="7156" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="7300" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="7300" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="7444" y="128">
 s[24]
 </text>
@@ -1943,7 +1943,7 @@ s[24]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="7444" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="7588" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="7588" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="7732" y="128">
 s[25]
 </text>
@@ -1953,7 +1953,7 @@ s[25]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="7732" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="7876" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="7876" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="8020" y="128">
 s[26]
 </text>
@@ -1963,7 +1963,7 @@ s[26]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="8020" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="8164" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="8164" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="8308" y="128">
 s[27]
 </text>
@@ -1973,7 +1973,7 @@ s[27]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="8308" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="8452" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="8452" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="8596" y="128">
 s[28]
 </text>
@@ -1983,7 +1983,7 @@ s[28]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="8596" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="8740" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="8740" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="8884" y="128">
 s[29]
 </text>
@@ -1993,7 +1993,7 @@ s[29]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="8884" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="288" x="9028" y="100"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="288" x="9028" y="100"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="9172" y="128">
 s[30]
 </text>
@@ -2003,7 +2003,7 @@ s[30]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="9172" y="228">
 156
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="384" x="100" y="880"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="100" y="880"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="292" y="908">
 a[0]_b[1]
 </text>
@@ -2013,7 +2013,7 @@ a[0]_b[1]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="292" y="1008">
 828
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="384" x="100" y="1192"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="100" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="292" y="1220">
 a[1]_b[2]
 </text>
@@ -2023,7 +2023,7 @@ a[1]_b[2]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="292" y="1320">
 1476
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="384" x="532" y="1192"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="532" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="724" y="1220">
 a[2]_b[3]
 </text>
@@ -2033,7 +2033,7 @@ a[2]_b[3]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="724" y="1320">
 1128
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="384" x="916" y="1192"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="916" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="1108" y="1220">
 a[3]_b[4]
 </text>
@@ -2043,7 +2043,7 @@ a[3]_b[4]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="1108" y="1320">
 984
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="384" x="1348" y="1192"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="1348" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="1540" y="1220">
 a[4]_b[5]
 </text>
@@ -2053,7 +2053,7 @@ a[4]_b[5]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="1540" y="1320">
 1080
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="384" x="1732" y="1192"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="1732" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="1924" y="1220">
 a[5]_b[6]
 </text>
@@ -2063,7 +2063,7 @@ a[5]_b[6]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="1924" y="1320">
 1272
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="384" x="2164" y="1192"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="2164" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="2356" y="1220">
 a[6]_b[7]
 </text>
@@ -2073,7 +2073,7 @@ a[6]_b[7]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="2356" y="1320">
 1764
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="384" x="2164" y="880"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="2164" y="880"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="2356" y="908">
 a[7]_b[8]
 </text>
@@ -2083,7 +2083,7 @@ a[7]_b[8]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="2356" y="1008">
 1260
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="384" x="2596" y="880"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="2596" y="880"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="2788" y="908">
 a[8]_b[9]
 </text>
@@ -2093,7 +2093,7 @@ a[8]_b[9]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="2788" y="1008">
 1080
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="384" x="2548" y="1192"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="2548" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="2740" y="1220">
 a[9]_b[10]
 </text>
@@ -2103,7 +2103,7 @@ a[9]_b[10]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="2740" y="1320">
 1584
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="384" x="2980" y="1192"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="2980" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="3172" y="1220">
 a[10]_b[11]
 </text>
@@ -2113,7 +2113,7 @@ a[10]_b[11]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="3172" y="1320">
 1188
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="384" x="3364" y="1192"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="3364" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="3556" y="1220">
 a[11]_b[12]
 </text>
@@ -2123,7 +2123,7 @@ a[11]_b[12]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="3556" y="1320">
 1188
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="384" x="3796" y="1192"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="3796" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="3988" y="1220">
 a[12]_b[13]
 </text>
@@ -2133,7 +2133,7 @@ a[12]_b[13]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="3988" y="1320">
 1416
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="384" x="4180" y="1192"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="4180" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="4372" y="1220">
 a[13]_b[14]
 </text>
@@ -2143,7 +2143,7 @@ a[13]_b[14]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="4372" y="1320">
 1272
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="384" x="4612" y="1192"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="4612" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="4804" y="1220">
 a[14]_b[15]
 </text>
@@ -2153,7 +2153,7 @@ a[14]_b[15]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="4804" y="1320">
 1380
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="384" x="4612" y="880"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="4612" y="880"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="4804" y="908">
 a[15]_b[16]
 </text>
@@ -2163,7 +2163,7 @@ a[15]_b[16]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="4804" y="1008">
 1200
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="384" x="5044" y="880"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="384" x="5044" y="880"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="5236" y="908">
 a[16]_b[17]
 </text>
@@ -2173,7 +2173,7 @@ a[16]_b[17]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="5236" y="1008">
 1152
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="336" x="5092" y="1192"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="336" x="5092" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="5260" y="1220">
 a[17]_b[18]
 </text>
@@ -2183,7 +2183,7 @@ a[17]_b[18]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="5260" y="1320">
 1176
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="336" x="5428" y="1192"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="336" x="5428" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="5596" y="1220">
 a[18]_b[19]
 </text>
@@ -2193,7 +2193,7 @@ a[18]_b[19]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="5596" y="1320">
 1068
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="336" x="5764" y="1192"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="336" x="5764" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="5932" y="1220">
 a[19]_b[20]
 </text>
@@ -2203,7 +2203,7 @@ a[19]_b[20]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="5932" y="1320">
 1128
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="336" x="6100" y="1192"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="336" x="6100" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="6268" y="1220">
 a[20]_b[21]
 </text>
@@ -2213,7 +2213,7 @@ a[20]_b[21]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="6268" y="1320">
 1032
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="336" x="6436" y="1192"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="336" x="6436" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="6604" y="1220">
 a[21]_b[22]
 </text>
@@ -2223,7 +2223,7 @@ a[21]_b[22]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="6604" y="1320">
 936
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="336" x="6772" y="1192"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="336" x="6772" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="6940" y="1220">
 a[22]_b[23]
 </text>
@@ -2233,7 +2233,7 @@ a[22]_b[23]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="6940" y="1320">
 780
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="336" x="7108" y="1192"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="336" x="7108" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="7276" y="1220">
 a[23]_b[24]
 </text>
@@ -2243,7 +2243,7 @@ a[23]_b[24]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="7276" y="1320">
 780
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="336" x="7444" y="1192"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="336" x="7444" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="7612" y="1220">
 a[24]_b[25]
 </text>
@@ -2253,7 +2253,7 @@ a[24]_b[25]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="7612" y="1320">
 1092
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="336" x="7588" y="880"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="336" x="7588" y="880"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="7756" y="908">
 a[25]_b[26]
 </text>
@@ -2263,7 +2263,7 @@ a[25]_b[26]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="7756" y="1008">
 624
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="336" x="7924" y="880"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="336" x="7924" y="880"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="8092" y="908">
 a[26]_b[27]
 </text>
@@ -2273,7 +2273,7 @@ a[26]_b[27]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="8092" y="1008">
 624
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="336" x="7972" y="1192"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="336" x="7972" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="8140" y="1220">
 a[27]_b[28]
 </text>
@@ -2283,7 +2283,7 @@ a[27]_b[28]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="8140" y="1320">
 936
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="336" x="8308" y="1192"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="336" x="8308" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="8476" y="1220">
 a[28]_b[29]
 </text>
@@ -2293,7 +2293,7 @@ a[28]_b[29]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="8476" y="1320">
 876
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="336" x="8644" y="1192"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="336" x="8644" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="8812" y="1220">
 a[29]_b[30]
 </text>
@@ -2303,7 +2303,7 @@ a[29]_b[30]
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="8812" y="1320">
 780
 </text>
-<rect fill="red" height="156" opacity="0.8" stroke="black" stroke-width="1" width="336" x="8980" y="1192"/>
+<rect fill="red" height="156" opacity="0.5" stroke="black" stroke-width="1" width="336" x="8980" y="1192"/>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="9148" y="1220">
 a[30]
 </text>
@@ -2312,5 +2312,8 @@ a[30]
 </text>
 <text dominant-baseline="middle" fill="white" font-family="Arial" font-size="30" text-anchor="middle" x="9148" y="1320">
 312
+</text>
+<text fill="black" font-family="Arial" font-size="100" x="0" y="0">
+all wire energy : 102012
 </text>
 </svg>

@@ -1,4 +1,4 @@
-use std::collections::BTreeMap;
+use std::{cell, collections::BTreeMap};
 
 use crate::adder_v2::{Id, adder::Adder, cell_parse::Process, excel::{ExcelFrame, excel_to_datalist::ExcelDataList}, floorplan_v::{AdderFPMain, ModelParameters, SubArea, SuperParameters}};
 
@@ -98,13 +98,41 @@ fn test_dynamic() {
     let super_parameters = SuperParameters {
         alpha_wire_energy : 1.,
         alpha_density_energy : 1.,
-        alpha_border_energy : 100.,
-        alpha_overlap_energy : 100.,
+        alpha_border_energy : 1e4,
+        alpha_overlap_energy : 1e2,
     };
-    fp_main.dynamic_main(&super_parameters);
+    let mut beta = 1.;
+    let cell_id = fp_main.get_cell_id_by_name("U1_nh3_2");
+    // dbg!(&cell_id);
+    // dbg!(fp_main.given_cell_x_energy(cell_id, &super_parameters));
+    fp_main.dynamic_main(beta, &super_parameters);
+    // dbg!(fp_main.given_cell_x_energy(cell_id, &super_parameters));
     fp_main.draw_default_art(&adder, "place_dynamic1");
-    fp_main.dynamic_main(&super_parameters);
+    fp_main.dynamic_main(beta, &super_parameters);
     fp_main.draw_default_art(&adder, "place_dynamic2");
+    let super_parameters = SuperParameters {
+        alpha_wire_energy : 1.,
+        alpha_density_energy : 1.,
+        alpha_border_energy : 1e8,
+        alpha_overlap_energy : 1e4,
+    };
+    for i in 0..8 {
+        beta *= 0.75;
+        fp_main.dynamic_main(beta, &super_parameters);
+    }
+
+    fp_main.draw_default_art(&adder, "place_dynamic10");
+
+    // let super_parameters = SuperParameters {
+    //     alpha_wire_energy : 1.,
+    //     alpha_density_energy : 1.,
+    //     alpha_border_energy : 100000000.,
+    //     alpha_overlap_energy : 10000.,
+    // };
+    // for i in 0..10 {
+    //     fp_main.dynamic_main(beta, &super_parameters);
+    // }
+    // fp_main.draw_default_art(&adder, "place_dynamic20");
 }
 
 #[test]

@@ -40,6 +40,42 @@ impl AdderFPMain {
         ret
     }
 
+    // 向一个方向，通过二分的方式，找到使得cell自身能量最优的x位置
+    pub fn given_cell_x_itered_displacement(&self, cell_id : CellId, x0 : f64, n_iter : usize, super_parameters : &SuperParameters) -> f64 {
+        let mut start_energy = (0., self.given_cell_x_energy(cell_id, super_parameters));
+        let mut end_energy = (x0, self.given_cell_x_energy_with_movement(cell_id, x0, super_parameters));
+        let mut middle_energy = (x0/2., self.given_cell_x_energy_with_movement(cell_id, x0 / 2., super_parameters));
+
+        for _ in 0..n_iter {
+            // if cell_id == CellId(2) {
+            //     dbg!(&start_energy);
+            //     dbg!(&middle_energy);
+            //     dbg!(&end_energy);
+            // }
+            if start_energy.1 < end_energy.1 {
+                end_energy = middle_energy;   
+            } else {
+                start_energy.1 = middle_energy.1;
+            }
+            let middle_x = (start_energy.0 + end_energy.0) / 2.;
+            middle_energy = (middle_x, self.given_cell_x_energy_with_movement(cell_id, middle_x, super_parameters));
+        }
+
+        let mut sorted = vec![start_energy, middle_energy, end_energy];
+        sorted.sort_by(|a, b| a.1.partial_cmp(&b.1).unwrap());
+
+        let ret = sorted.first().unwrap().0;
+
+        // if cell_id == CellId(2) {
+        //     dbg!(&sorted);
+        //     dbg!(&ret);
+        // }
+
+        ret
+
+        
+    }
+
     pub fn given_cell_x_force(&self, cell_id : CellId, super_parameters : &SuperParameters) -> f64 {
         let get_energy = |x : f64| {
             let mut new_main = self.clone();

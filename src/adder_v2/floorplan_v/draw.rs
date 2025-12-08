@@ -225,6 +225,15 @@ impl AdderFPMain {
 
         }
 
+        let all_wire_energy = self.all_wire_energy();
+        document = document.add(Text::new(&format!("all wire energy : {all_wire_energy}"))
+                .set("x", 0.)
+                .set("y", 0.)
+                .set("font-family", "Arial")
+                .set("font-size", 100.)
+                .set("fill", "black")
+            );
+
         svg::save(&format!("{name}.svg"), &document).unwrap();
     }
 }

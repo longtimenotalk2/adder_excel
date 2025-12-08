@@ -1,6 +1,6 @@
 use std::collections::BTreeSet;
 
-use crate::adder_v2::floorplan_v::{AdderFPMain, CellId, CellStaticInfo, ModelParameters, Pos, SubAreaId, WireId, WireStaticInfo};
+use crate::adder_v2::floorplan_v::{AdderFPMain, CellId, CellStaticInfo, ModelParameters, Pos, SubAreaId, SuperParameters, WireId, WireStaticInfo};
 
 fn row_density_function(density : f64) -> f64 {
     let i = (density - 0.8) * 10.;
@@ -23,7 +23,7 @@ fn overlap_energy(cell_0_min : f64, cell_0_max : f64, cell_1_min : f64, cell_1_m
     if cell_0_max > cell_1_min && cell_0_min < cell_1_max {
         overlap_len = (cell_0_max - cell_1_min).min(cell_1_max - cell_0_min);
     }
-    overlap_len * overlap_len
+    overlap_len.powi(3)
 }
 
 impl AdderFPMain {
@@ -76,6 +76,24 @@ impl AdderFPMain {
 
     pub fn given_cell_wire_energy(&self, cell_id : CellId) -> f64 {
         self.cell_static_dict.get(&cell_id).unwrap().wires.iter().map(|x| self.given_wire_energy(*x)).sum()
+    }
+
+    pub fn given_cell_x_energy(&self, cell_id : CellId, super_parameters : &SuperParameters) -> f64 {
+        let mut energy = 0.;
+        energy += self.given_cell_wire_energy(cell_id) * super_parameters.alpha_wire_energy;
+        energy += self.given_cell_border_energy(cell_id) * super_parameters.alpha_border_energy;
+        energy += self.given_cell_overlap_energy(cell_id) * super_parameters.alpha_overlap_energy;
+        energy
+    }
+
+    pub fn given_cell_x_energy_with_movement(&self, cell_id : CellId, disp : f64, super_parameters : &SuperParameters) -> f64 {
+        let mut new_main = self.clone();
+        new_main.impl_cell_x_movement(cell_id, disp);
+        new_main.given_cell_x_energy(cell_id, super_parameters)
+    }
+
+    pub fn all_wire_energy(&self) -> f64 {
+        self.wire_static_dict.keys().map(|x| self.given_wire_energy(*x)).sum()
     }
 }
 
