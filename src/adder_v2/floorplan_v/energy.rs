@@ -135,6 +135,22 @@ impl AdderFPMain {
         energy
     }
 
+    pub fn given_cell_y_energy(&self, cell_id : CellId, super_parameters : &SuperParameters) -> f64 {
+        let mut energy = 0.;
+        energy += self.given_cell_wire_energy(cell_id) * super_parameters.alpha_wire_energy;
+        energy += self.given_cell_border_energy(cell_id) * super_parameters.alpha_border_energy;
+        energy += self.given_cell_overlap_energy(cell_id) * super_parameters.alpha_overlap_energy;
+        energy
+    }
+
+    pub fn given_cell_y_energy_with_new_pos(&self, cell_id : CellId, pos : &Pos, super_parameters : &SuperParameters) -> f64 {
+        let mut energy = 0.;
+        energy += self.given_cell_wire_energy_with_new_pos(cell_id, pos) * super_parameters.alpha_wire_energy;
+        energy += self.given_cell_border_energy_with_new_pos(cell_id, pos) * super_parameters.alpha_border_energy;
+        energy += self.given_cell_overlap_energy_with_new_pos(cell_id, pos) * super_parameters.alpha_overlap_energy;
+        energy
+    }
+
     pub fn given_cell_x_energy_with_movement(&self, cell_id : CellId, disp : f64, super_parameters : &SuperParameters) -> f64 {
         let mut new_pos = self.cell_pos_dict.get(&cell_id).unwrap().clone();
         new_pos.impl_x_movement(disp);
@@ -146,47 +162,6 @@ impl AdderFPMain {
     }
 }
 
-// #[test]
-// fn test_wire_energy_inner() {
-//     let mut adder_fp_main = AdderFPMain::new(ModelParameters::for_76());
-//     adder_fp_main.cell_pos_dict.insert(CellId(0), Pos {x: 10., y: 0, sub_area_index: 0});
-//     adder_fp_main.cell_pos_dict.insert(CellId(1), Pos {x: 12., y: 4, sub_area_index: 0});
-//     adder_fp_main.cell_pos_dict.insert(CellId(2), Pos {x: 10., y: 1, sub_area_index: 0});
-//     adder_fp_main.cell_pos_dict.insert(CellId(3), Pos {x: 10., y: 2, sub_area_index: 0});
-
-//     adder_fp_main.cell_static_dict.insert(CellId(0), CellStaticInfo {
-//         name : "cell0".to_string(),
-//         width : 6,
-//         can_move : true,
-//         wires : BTreeSet::new(),
-//     });
-//     adder_fp_main.cell_static_dict.insert(CellId(1), CellStaticInfo {
-//         name : "cell1".to_string(),
-//         width : 6,
-//         can_move : true,
-//         wires : BTreeSet::new(),
-//     });
-//     adder_fp_main.cell_static_dict.insert(CellId(2), CellStaticInfo {
-//         name : "cell2".to_string(),
-//         width : 6,
-//         can_move : true,
-//         wires : BTreeSet::new(),
-//     });
-//     adder_fp_main.cell_static_dict.insert(CellId(3), CellStaticInfo {
-//         name : "cell3".to_string(),
-//         width : 3,
-//         can_move : true,
-//         wires : BTreeSet::new(),
-//     });
-
-//     adder_fp_main.wire_static_dict.insert(WireId(0), WireStaticInfo {
-//         name : "wire0".to_string(),
-//         connected_cells : BTreeSet::from([CellId(0), CellId(1), CellId(2), CellId(3)]),
-//     });
-
-//     dbg!(adder_fp_main.given_wire_energy_inner(WireId(0)));
-//     dbg!(adder_fp_main.given_wire_energy(WireId(0)));
-// }
 
 #[test]
 fn test_f64_min() {
