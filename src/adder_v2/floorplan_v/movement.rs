@@ -1,4 +1,16 @@
-use crate::adder_v2::floorplan_v::{AdderFPMain, CellId, SubAreaId, YMove};
+use std::collections::{BTreeMap, BTreeSet};
+
+use crate::adder_v2::floorplan_v::{AdderFPMain, CellId, Pos, SubArea, SubAreaId, YMove};
+
+impl Pos {
+    pub fn impl_x_movement(&mut self, disp : f64) {
+        self.x += disp;
+    }
+
+    pub fn impl_y_movement(&mut self, new_sub_area_id : SubAreaId) {
+        self.sub_area_id = new_sub_area_id;
+    }
+}
 
 impl YMove {
     pub fn all() -> Vec<YMove> {

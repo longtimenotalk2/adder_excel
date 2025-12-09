@@ -1,4 +1,4 @@
-use crate::adder_v2::floorplan_v::{AdderFPMain, CellId, SubArea, SubAreaId, WireId};
+use crate::adder_v2::floorplan_v::{AdderFPMain, CellId, Pos, SubArea, SubAreaId, WireId};
 
 impl SubArea {
     pub fn x_len(&self) -> f64 {
@@ -37,7 +37,24 @@ impl AdderFPMain {
             }
         };
         (x_middle - cell_width / 2.0, x_middle + cell_width / 2.0)
+    }
+
+    pub fn given_cell_x_border_with_cell_new_pos(&self, cell_id: CellId, cell_id_changed: CellId, cell_new_pos: &Pos) -> (f64, f64) {
+        let cell_width = self.cell_static_dict.get(&cell_id).unwrap().width as f64;
+        let x_middle = if cell_id == cell_id_changed {
+            cell_new_pos.x
+        } else {
+            match self.cell_static_dict.get(&cell_id).unwrap().can_move {
+                true => {
+                    self.cell_pos_dict.get(&cell_id).unwrap().x
+                },
+                false => {
+                    self.cell_fixed_pos_dict.get(&cell_id).unwrap().0
+                }
+            }
+        };
         
+        (x_middle - cell_width / 2.0, x_middle + cell_width / 2.0)
     }
 
     pub fn given_sub_area_x_border(&self, sub_area_id: SubAreaId) -> (f64, f64) {
@@ -56,7 +73,24 @@ impl AdderFPMain {
                 self.cell_fixed_pos_dict.get(&cell_id).expect(&format!("can not find pos for fixed cell id {}", cell_id.0)).1
             }
         }
-        
+    }
+
+    pub fn given_cell_y_with_cell_new_pos(&self, cell_id: CellId, cell_id_changed: CellId, cell_new_pos: &Pos) -> i32 {
+        if cell_id == cell_id_changed {
+            let sub_area_id = cell_new_pos.sub_area_id;
+            let y = self.sub_area_dict.get(&sub_area_id).unwrap().y;
+            return y
+        }
+        match self.cell_static_dict.get(&cell_id).unwrap().can_move {
+            true => {
+                let sub_area_id = self.cell_pos_dict.get(&cell_id).unwrap().sub_area_id;
+                let y = self.sub_area_dict.get(&sub_area_id).unwrap().y;
+                y
+            },
+            false => {
+                self.cell_fixed_pos_dict.get(&cell_id).expect(&format!("can not find pos for fixed cell id {}", cell_id.0)).1
+            }
+        }
     }
 
     pub fn given_cell_width(&self, cell_id: CellId) -> f64 {

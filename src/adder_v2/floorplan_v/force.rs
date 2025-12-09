@@ -7,12 +7,10 @@ const DELTA_X : f64 = 0.1;
 impl AdderFPMain {
     pub fn given_cell_x_wire_force_atom(&self, cell_id : CellId) -> f64 {
         let get_energy = |x : f64| {
-            let mut new_main = self.clone();
-            new_main.impl_cell_x_movement(cell_id, x);
+            let mut new_pos = self.cell_pos_dict.get(&cell_id).unwrap().clone();
+            new_pos.impl_x_movement(x);
 
-            let mut energy = 0.;
-            energy += new_main.given_cell_wire_energy(cell_id);
-            energy
+            self.given_cell_wire_energy_with_new_pos(cell_id, &new_pos)
         };
 
         let energy_plus = get_energy(DELTA_X);
@@ -28,9 +26,10 @@ impl AdderFPMain {
         for y_move in YMove::all() {
             if let Some(target_sub_area_id) = self.can_cell_y_move(cell_id, y_move) {
                 let energy = self.given_cell_wire_energy(cell_id);
-                let mut new_main = self.clone();
-                new_main.impl_cell_y_movement(cell_id, y_move);
-                let energy_new = new_main.given_cell_wire_energy(cell_id);
+                let mut new_pos = self.cell_pos_dict.get(&cell_id).unwrap().clone();
+                new_pos.impl_y_movement(target_sub_area_id);
+
+                let energy_new = self.given_cell_wire_energy_with_new_pos(cell_id, &new_pos);
 
                 let force = -(energy_new - energy);
                 ret.insert(y_move, force);
@@ -78,13 +77,13 @@ impl AdderFPMain {
 
     pub fn given_cell_x_force(&self, cell_id : CellId, super_parameters : &SuperParameters) -> f64 {
         let get_energy = |x : f64| {
-            let mut new_main = self.clone();
-            new_main.impl_cell_x_movement(cell_id, x);
+            let mut new_pos = self.cell_pos_dict.get(&cell_id).unwrap().clone();
+            new_pos.impl_x_movement(x);
 
             let mut energy = 0.;
-            energy += new_main.given_cell_wire_energy(cell_id) * super_parameters.alpha_wire_energy;
-            energy += new_main.given_cell_border_energy(cell_id) * super_parameters.alpha_border_energy;
-            energy += new_main.given_cell_overlap_energy(cell_id) * super_parameters.alpha_overlap_energy;
+            energy += self.given_cell_wire_energy_with_new_pos(cell_id, &new_pos) * super_parameters.alpha_wire_energy;
+            energy += self.given_cell_border_energy_with_new_pos(cell_id, &new_pos) * super_parameters.alpha_border_energy;
+            energy += self.given_cell_overlap_energy_with_new_pos(cell_id, &new_pos) * super_parameters.alpha_overlap_energy;
             energy
         };
 

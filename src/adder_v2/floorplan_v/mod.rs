@@ -73,7 +73,7 @@ struct WireStaticInfo {
     connected_cells : BTreeSet<CellId>,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 struct AdderFPMain {
     sub_area_dict : BTreeMap<SubAreaId, SubArea>,
     cell_static_dict : BTreeMap<CellId, CellStaticInfo>,
