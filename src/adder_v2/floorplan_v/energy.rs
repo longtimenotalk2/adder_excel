@@ -23,7 +23,7 @@ fn overlap_energy(cell_0_min : f64, cell_0_max : f64, cell_1_min : f64, cell_1_m
     if cell_0_max > cell_1_min && cell_0_min < cell_1_max {
         overlap_len = (cell_0_max - cell_1_min).min(cell_1_max - cell_0_min);
     }
-    overlap_len.powi(3)
+    overlap_len.powi(2)
 }
 
 impl AdderFPMain {
