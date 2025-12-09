@@ -166,12 +166,47 @@ fn test_dynamic2() {
 
     fp_main.draw_default_art(&adder, "place_dynamic20");
 
+    let super_parameters = SuperParameters {
+        alpha_wire_energy : 1.,
+        alpha_density_energy : 1.,
+        alpha_border_energy : 1e4,
+        alpha_overlap_energy : 1e2,
+    };
+
     for i in 0..6 {
         beta *= 0.9;
         fp_main.dynamic_combine_5_step(beta, &super_parameters);
     } 
 
     fp_main.draw_default_art(&adder, "place_dynamic50");
+
+    let super_parameters = SuperParameters {
+        alpha_wire_energy : 1.,
+        alpha_density_energy : 1.,
+        alpha_border_energy : 1e4,
+        alpha_overlap_energy : 1e3,
+    };
+
+    for i in 0..6 {
+        beta *= 0.95;
+        fp_main.dynamic_combine_5_step(beta, &super_parameters);
+    } 
+
+    fp_main.draw_default_art(&adder, "place_dynamic80");
+
+    let super_parameters = SuperParameters {
+        alpha_wire_energy : 1.,
+        alpha_density_energy : 1.,
+        alpha_border_energy : 1e5,
+        alpha_overlap_energy : 1e4,
+    };
+
+    for i in 0..6 {
+        beta *= 0.95;
+        fp_main.dynamic_combine_5_step(beta, &super_parameters);
+    } 
+
+    fp_main.draw_default_art(&adder, "place_dynamic110");
 
 }
 

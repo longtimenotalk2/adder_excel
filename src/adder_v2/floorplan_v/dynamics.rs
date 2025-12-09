@@ -23,17 +23,25 @@ impl AdderFPMain {
     }
 
     fn once_force_move_y(&mut self, super_parameters : &SuperParameters) {
-        let mut y_move_dict: BTreeMap<CellId, YMove> = BTreeMap::new();
+        let mut y_move_dict: BTreeMap<CellId, (YMove, f64)> = BTreeMap::new();
         for cell_id in self.all_moveable_cell_ids() {
             let force_y = self.given_cell_y_force(cell_id, super_parameters);
             for (y_move, force) in force_y {
                 if force > 0. {
-                    y_move_dict.insert(cell_id, y_move);
+                    y_move_dict.insert(cell_id, (y_move, force));
                 }
             }
         }
-        for (cell_id, y_move) in y_move_dict {
-            self.impl_cell_y_movement(cell_id, y_move);
+        // 按照force最大的先动
+        let mut y_move_list_sorted = y_move_dict.iter().collect::<Vec<_>>();
+        y_move_list_sorted.sort_by(|a, b| b.1.partial_cmp(&a.1).unwrap());
+
+        for (cell_id, (y_move, _)) in y_move_dict {
+            let force_y = self.given_cell_y_force(cell_id, super_parameters);
+            let force = force_y.get(&y_move).unwrap();
+            if force > &0. {
+                self.impl_cell_y_movement(cell_id, y_move);
+            }
         }
     }
 
