@@ -63,10 +63,7 @@ impl AdderFPMain {
     }
 
     pub fn given_sub_area_density_energy(&self, sub_area_id : SubAreaId) -> f64 {
-        let cell_list = self.filter_cell_id_in_given_sub_area_id(sub_area_id);
-        let width_sum = cell_list.iter().map(|x| self.given_cell_width(*x)).sum::<f64>();
-        let sub_area_width = self.sub_area_dict.get(&sub_area_id).unwrap().x_len();
-        let density = width_sum / sub_area_width;
+        let density = self.given_sub_area_density(sub_area_id);
         let density_energy = row_density_function(density);
         density_energy
     }

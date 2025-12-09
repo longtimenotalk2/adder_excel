@@ -62,6 +62,14 @@ impl AdderFPMain {
         (sub_area.x_min, sub_area.x_max)
     }
 
+    pub fn given_sub_area_density(&self, sub_area_id: SubAreaId) -> f64 {
+        let cell_list = self.filter_cell_id_in_given_sub_area_id(sub_area_id);
+        let width_sum = cell_list.iter().map(|x| self.given_cell_width(*x)).sum::<f64>();
+        let sub_area_width = self.sub_area_dict.get(&sub_area_id).unwrap().x_len();
+        let density = width_sum / sub_area_width;
+        density
+    }
+
     pub fn given_cell_y(&self, cell_id: CellId) -> i32 {
         match self.cell_static_dict.get(&cell_id).unwrap().can_move {
             true => {

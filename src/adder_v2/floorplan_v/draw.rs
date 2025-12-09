@@ -10,7 +10,7 @@ pub struct Art {
     y_px : f32,
 }
 
-const BORDER : f32 = 100. ;
+const BORDER : f32 = 400. ;
 
 const ART : Art = Art {
     x_len : 192,
@@ -227,12 +227,41 @@ impl AdderFPMain {
 
         let all_wire_energy = self.all_wire_energy();
         document = document.add(Text::new(&format!("all wire energy : {all_wire_energy}"))
-                .set("x", 0.)
-                .set("y", 0.)
+            .set("x", BORDER)
+            .set("y", 0.)
+            .set("font-family", "Arial")
+            .set("font-size", 100.)
+            .set("fill", "black")
+        );
+
+        // show density
+        for (sub_area_id, sub_area) in &self.sub_area_dict {
+            let x = sub_area.x_min;
+            let y = sub_area.y;
+            let density = self.given_sub_area_density(*sub_area_id);
+            let density_format = format!("{}%", (density*100.).round() as i32);
+
+            let x_given = BORDER - 150. + x as f32 * art.x_px;
+            let y_given = BORDER + (art.y_len as f32 - y as f32 - 0.5) * art.y_px;
+
+            let color = if density > 0.95 {
+                "red"
+            } else {
+                "green"
+            };
+
+            dbg!(&x_given, &y_given);
+
+            document = document.add(Text::new(&format!("{density_format}"))
+                .set("x", x_given)
+                .set("y", y_given )
+                .set("text-anchor", "middle") // 水平居中
+                .set("dominant-baseline", "middle")   // 垂直居中
                 .set("font-family", "Arial")
                 .set("font-size", 100.)
-                .set("fill", "black")
+                .set("fill", color)
             );
+        }
 
         svg::save(&format!("{name}.svg"), &document).unwrap();
     }
