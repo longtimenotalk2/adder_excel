@@ -4,7 +4,11 @@ use crate::adder_v2::floorplan_v::{AdderFPMain, CellId, CellStaticInfo, ModelPar
 
 fn row_density_function(density : f64) -> f64 {
     let i = (density - 0.8) * 10.;
-    f64::exp(i)
+    let mut result = f64::exp(i);
+    if density > 0.95 {
+        result *= 10.;
+    }
+    result
 }
 
 fn border_energy(border_min : f64, border_max : f64, cell_min : f64, cell_max : f64) -> f64 {
@@ -23,7 +27,7 @@ fn overlap_energy(cell_0_min : f64, cell_0_max : f64, cell_1_min : f64, cell_1_m
     if cell_0_max > cell_1_min && cell_0_min < cell_1_max {
         overlap_len = (cell_0_max - cell_1_min).min(cell_1_max - cell_0_min);
     }
-    overlap_len * (overlap_len + 1.)
+    overlap_len * overlap_len
 }
 
 impl AdderFPMain {

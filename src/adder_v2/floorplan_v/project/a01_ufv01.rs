@@ -324,6 +324,113 @@ fn test_dynamic3() {
 }
 
 #[test]
+fn test_dynamic4() {
+    // this is v01
+    let (mut fp_main, adder) = init();
+    let mut super_parameters = SuperParameters {
+        alpha_wire_energy : 1.,
+        alpha_density_energy : 10.,
+        alpha_border_energy : 1e4,
+        alpha_overlap_energy : 10.,
+        alpha_assert_interger : 0.,
+    };
+    let mut beta = 3.;
+
+    for i in 0..20 {
+        beta *= 0.95;
+        fp_main.dynamic_combine_5_step(beta, &super_parameters);
+    }
+
+    fp_main.draw_default_art(&adder, "place_process_01");
+
+    super_parameters.alpha_density_energy = 10.;
+    
+
+    for i in 0..20 {
+        beta *= 0.95;
+        super_parameters.alpha_overlap_energy += 10.;
+        fp_main.dynamic_combine_5_step(beta, &super_parameters);
+    } 
+
+    fp_main.draw_default_art(&adder, "place_process_02");
+
+
+    for i in 0..10 {
+        super_parameters.alpha_overlap_energy += 100.;
+        super_parameters.alpha_border_energy += 1e4;
+        fp_main.dynamic_combine_5_step(beta, &super_parameters);
+    } 
+
+    fp_main.draw_default_art(&adder, "place_process_03");
+
+    for i in 0..10 {
+        super_parameters.alpha_overlap_energy += 1e4;
+        super_parameters.alpha_border_energy += 1e5;
+        fp_main.dynamic_combine_5_step(beta, &super_parameters);
+    } 
+
+    fp_main.draw_default_art(&adder, "place_process_04");
+
+    
+    super_parameters.alpha_overlap_energy = 1e3;
+    super_parameters.alpha_assert_interger = 10.;
+
+    for i in 0..6 {
+        beta *= 0.95;
+        fp_main.dynamic_combine_5_step(beta, &super_parameters);
+    } 
+
+    fp_main.draw_default_art(&adder, "place_process_03");
+
+    fp_main.all_assert_interger();
+    fp_main.all_remove_overlap();
+
+    fp_main.draw_default_art(&adder, "place_process_04");
+
+    super_parameters.alpha_border_energy = 1e8;
+    super_parameters.alpha_overlap_energy = 1e6;
+    super_parameters.alpha_assert_interger = 100.;
+
+     for i in 0..6 {
+        beta *= 0.95;
+        fp_main.dynamic_combine_5_step(beta, &super_parameters);
+    } 
+
+    fp_main.draw_default_art(&adder, "place_process_05");
+
+    fp_main.all_assert_interger();
+    fp_main.all_remove_overlap();
+
+    fp_main.draw_default_art(&adder, "place_dynamic_final");
+
+    fp_main.save_adder_position("src/adder_v2/floorplan_v/project/a01_ufv01/output_adder_placement_dyn_4.txt");
+}
+
+#[test]
+fn test_convert_output() {
+    let mut txt = String::new();
+    let path = "src/adder_v2/floorplan_v/project/a01_ufv01/output_adder_placement_dyn_4.txt";
+    let file = std::fs::File::open(path).expect(&format!("file {path} not exist"));
+    let reader = std::io::BufReader::new(file);
+    let lines : Vec<String> = std::io::BufRead::lines(reader).map(|l| l.unwrap()).collect();
+
+    for line in lines {
+        let tokens : Vec<&str> = line.split(" ").collect();
+        if tokens.len() > 0 {
+            txt += format!("{} {:.03} {:.03}\n", tokens[0], tokens[1].parse::<f32>().unwrap() * 0.048, tokens[2].parse::<f32>().unwrap() * 0.156).as_str();
+        }
+    }
+    
+    use std::fs::File;
+    use std::io::prelude::*;
+    let content = "This is the content to write to the file.";
+    // 创建一个新文件，如果文件已存在，则覆盖
+    let mut file = File::create("src/adder_v2/floorplan_v/project/a01_ufv01/output_adder_placement_dyn_4_float.txt").unwrap();
+    // 将字符串写入文件
+    let _ = file.write_all(txt.as_bytes());
+}
+
+#[test]
 fn test_debug() {
     let (fp_main, adder) = init();
 

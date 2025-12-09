@@ -163,4 +163,22 @@ impl AdderFPMain {
         false
 
     }
+
+    pub fn save_adder_position(&self, path: &str) {
+        let mut txt = String::new();
+        for cell_id in self.all_moveable_cell_ids() {
+            let name = self.cell_static_dict.get(&cell_id).unwrap().name.clone();
+            let x = self.given_cell_x_border(cell_id).0.round() as i32;
+            let y = self.given_cell_y(cell_id);
+            txt.push_str(&format!("{} {} {}\n", name, x, y));
+        }
+
+        use std::fs::File;
+        use std::io::prelude::*;
+        let content = "This is the content to write to the file.";
+        // 创建一个新文件，如果文件已存在，则覆盖
+        let mut file = File::create(path).unwrap();
+        // 将字符串写入文件
+        let _ = file.write_all(txt.as_bytes());
+    }
 }
