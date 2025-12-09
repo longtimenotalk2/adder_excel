@@ -116,4 +116,5 @@ struct SuperParameters {
     alpha_density_energy : f64,
     alpha_border_energy : f64,
     alpha_overlap_energy : f64,
+    alpha_assert_interger : f64,
 }

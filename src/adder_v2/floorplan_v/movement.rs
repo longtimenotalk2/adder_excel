@@ -68,4 +68,19 @@ impl AdderFPMain {
         let sub_area_id = self.can_cell_down_move(cell_id).unwrap();
         self.cell_pos_dict.get_mut(&cell_id).unwrap().sub_area_id = sub_area_id;
     }
+
+    pub fn all_assert_interger(&mut self) {
+        for cell_id in self.all_moveable_cell_ids() {
+            let width = self.given_cell_width(cell_id);
+            // 判断奇偶
+            let is_odd = width.round() as i32 % 2 == 1;
+            let x_now = self.given_cell_x(cell_id);
+            let x_new = if is_odd {
+                (x_now + 0.5).round() - 0.5
+            } else {
+                x_now.round()
+            };
+            self.impl_cell_x_movement(cell_id, x_new - x_now);
+        }
+    }
 }

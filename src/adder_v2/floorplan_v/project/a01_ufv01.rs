@@ -92,66 +92,67 @@ fn test_draw() {
     fp_main.draw_default_art(&adder, "place_init");
 }
 
-#[test]
-fn test_dynamic() {
-    let (mut fp_main, adder) = init();
-    let super_parameters = SuperParameters {
-        alpha_wire_energy : 1.,
-        alpha_density_energy : 1.,
-        alpha_border_energy : 1e4,
-        alpha_overlap_energy : 1e1,
-    };
-    let mut beta = 2.;
-    // let cell_id = fp_main.get_cell_id_by_name("U1_nh3_2");
-    // dbg!(&cell_id);
-    // dbg!(fp_main.given_cell_x_energy(cell_id, &super_parameters));
-    fp_main.dynamic_main_x(beta, &super_parameters);
-    // dbg!(fp_main.given_cell_x_energy(cell_id, &super_parameters));
-    fp_main.draw_default_art(&adder, "place_dynamic1");
-    fp_main.dynamic_main_x(beta, &super_parameters);
-    fp_main.draw_default_art(&adder, "place_dynamic2");
+// #[test]
+// fn test_dynamic() {
+//     let (mut fp_main, adder) = init();
+//     let super_parameters = SuperParameters {
+//         alpha_wire_energy : 1.,
+//         alpha_density_energy : 1.,
+//         alpha_border_energy : 1e4,
+//         alpha_overlap_energy : 1e1,
+//     };
+//     let mut beta = 2.;
+//     // let cell_id = fp_main.get_cell_id_by_name("U1_nh3_2");
+//     // dbg!(&cell_id);
+//     // dbg!(fp_main.given_cell_x_energy(cell_id, &super_parameters));
+//     fp_main.dynamic_main_x(beta, &super_parameters);
+//     // dbg!(fp_main.given_cell_x_energy(cell_id, &super_parameters));
+//     fp_main.draw_default_art(&adder, "place_dynamic1");
+//     fp_main.dynamic_main_x(beta, &super_parameters);
+//     fp_main.draw_default_art(&adder, "place_dynamic2");
     
-    for i in 0..8 {
-        beta *= 0.95;
-        fp_main.dynamic_main_x(beta, &super_parameters);
-    }
+//     for i in 0..8 {
+//         beta *= 0.95;
+//         fp_main.dynamic_main_x(beta, &super_parameters);
+//     }
 
-    fp_main.draw_default_art(&adder, "place_dynamic10");
+//     fp_main.draw_default_art(&adder, "place_dynamic10");
 
-    fp_main.dynamic_main_y(&super_parameters);
-    fp_main.draw_default_art(&adder, "place_dynamic11");
+//     fp_main.dynamic_main_y(&super_parameters);
+//     fp_main.draw_default_art(&adder, "place_dynamic11");
 
-    for i in 0..9 {
-        beta *= 0.95;
-        fp_main.dynamic_main_x(beta, &super_parameters);
-    }
-    fp_main.draw_default_art(&adder, "place_dynamic20");
+//     for i in 0..9 {
+//         beta *= 0.95;
+//         fp_main.dynamic_main_x(beta, &super_parameters);
+//     }
+//     fp_main.draw_default_art(&adder, "place_dynamic20");
 
-    // let super_parameters = SuperParameters {
-    //     alpha_wire_energy : 1.,
-    //     alpha_density_energy : 1.,
-    //     alpha_border_energy : 1e8,
-    //     alpha_overlap_energy : 1e4,
-    // };
+//     // let super_parameters = SuperParameters {
+//     //     alpha_wire_energy : 1.,
+//     //     alpha_density_energy : 1.,
+//     //     alpha_border_energy : 1e8,
+//     //     alpha_overlap_energy : 1e4,
+//     // };
 
-    // for i in 0..30 {
-    //     beta *= 0.95;
-    //     fp_main.dynamic_main_x(beta, &super_parameters);
-    // }
+//     // for i in 0..30 {
+//     //     beta *= 0.95;
+//     //     fp_main.dynamic_main_x(beta, &super_parameters);
+//     // }
 
-    // fp_main.draw_default_art(&adder, "place_dynamic40");
+//     // fp_main.draw_default_art(&adder, "place_dynamic40");
 
 
-}
+// }
 
 #[test]
 fn test_dynamic2() {
     let (mut fp_main, adder) = init();
-    let super_parameters = SuperParameters {
+    let mut super_parameters = SuperParameters {
         alpha_wire_energy : 1.,
-        alpha_density_energy : 1.,
+        alpha_density_energy : 10.,
         alpha_border_energy : 1e4,
         alpha_overlap_energy : 1e1,
+        alpha_assert_interger : 0.,
     };
     let mut beta = 2.;
 
@@ -166,12 +167,7 @@ fn test_dynamic2() {
 
     fp_main.draw_default_art(&adder, "place_dynamic20");
 
-    let super_parameters = SuperParameters {
-        alpha_wire_energy : 1.,
-        alpha_density_energy : 1.,
-        alpha_border_energy : 1e4,
-        alpha_overlap_energy : 1e2,
-    };
+    super_parameters.alpha_overlap_energy = 1e2;
 
     for i in 0..6 {
         beta *= 0.9;
@@ -180,12 +176,7 @@ fn test_dynamic2() {
 
     fp_main.draw_default_art(&adder, "place_dynamic50");
 
-    let super_parameters = SuperParameters {
-        alpha_wire_energy : 1.,
-        alpha_density_energy : 1.,
-        alpha_border_energy : 1e4,
-        alpha_overlap_energy : 1e3,
-    };
+    super_parameters.alpha_overlap_energy = 1e3;
 
     for i in 0..6 {
         beta *= 0.95;
@@ -194,12 +185,8 @@ fn test_dynamic2() {
 
     fp_main.draw_default_art(&adder, "place_dynamic80");
 
-    let super_parameters = SuperParameters {
-        alpha_wire_energy : 1.,
-        alpha_density_energy : 1.,
-        alpha_border_energy : 1e5,
-        alpha_overlap_energy : 1e4,
-    };
+    super_parameters.alpha_border_energy = 1e5;
+    super_parameters.alpha_overlap_energy = 1e4;
 
     for i in 0..6 {
         beta *= 0.95;
@@ -207,6 +194,35 @@ fn test_dynamic2() {
     } 
 
     fp_main.draw_default_art(&adder, "place_dynamic110");
+
+    super_parameters.alpha_density_energy = 0.;
+
+    for i in 0..6 {
+        fp_main.dynamic_combine_5_step(beta, &super_parameters);
+    } 
+
+    fp_main.draw_default_art(&adder, "place_dynamic140");
+
+    // 收尾
+    beta = 1.;
+    super_parameters.alpha_assert_interger = 1e7;
+    super_parameters.alpha_overlap_energy = 1e8;
+    super_parameters.alpha_border_energy = 1e12;
+
+    for i in 0..30 {
+        // super_parameters.alpha_border_energy *= 1.2;
+        // super_parameters.alpha_overlap_energy *= 1.2;
+        // super_parameters.alpha_assert_interger *= 1.2;
+        fp_main.dynamic_main_x(beta, &super_parameters);
+    } 
+
+    fp_main.draw_default_art(&adder, "place_dynamic_prefinal");
+
+    // 强制截断
+
+    fp_main.all_assert_interger();
+    fp_main.draw_default_art(&adder, "place_dynamic_final");
+    
 
 }
 

@@ -23,7 +23,7 @@ fn overlap_energy(cell_0_min : f64, cell_0_max : f64, cell_1_min : f64, cell_1_m
     if cell_0_max > cell_1_min && cell_0_min < cell_1_max {
         overlap_len = (cell_0_max - cell_1_min).min(cell_1_max - cell_0_min);
     }
-    overlap_len.powi(2)
+    overlap_len * (overlap_len + 1.)
 }
 
 impl AdderFPMain {
@@ -116,11 +116,44 @@ impl AdderFPMain {
         self.cell_static_dict.get(&cell_id).unwrap().wires.iter().map(|x| self.given_wire_energy_with_cell_new_pos(*x, cell_id, new_pos)).sum()
     }
 
+    pub fn given_cell_interger_energy(&self, cell_id : CellId) -> f64 {
+        let width = self.given_cell_width(cell_id);
+        let x = self.given_cell_x(cell_id);
+        // 偏差整数格点的距离绝对值的平方
+        let is_odd = width.round() as i32 % 2 == 1;
+        let ref_value = if is_odd {
+            x + 0.5
+        } else {
+            x
+        };
+        let diff = (ref_value.round() - ref_value).abs();
+
+        diff*diff
+    }
+
+    pub fn given_cell_interger_energy_with_new_pos(&self, cell_id : CellId, pos : &Pos) -> f64 {
+        let width = self.given_cell_width(cell_id);
+        let x = pos.x;
+        // 偏差整数格点的距离绝对值的平方
+        let is_odd = width.round() as i32 % 2 == 1;
+        let ref_value = if is_odd {
+            x + 0.5
+        } else {
+            x
+        };
+        let diff = (ref_value.round() - ref_value).abs();
+
+        diff*(diff+1.)
+    }
+
     pub fn given_cell_x_energy(&self, cell_id : CellId, super_parameters : &SuperParameters) -> f64 {
         let mut energy = 0.;
         energy += self.given_cell_wire_energy(cell_id) * super_parameters.alpha_wire_energy;
         energy += self.given_cell_border_energy(cell_id) * super_parameters.alpha_border_energy;
         energy += self.given_cell_overlap_energy(cell_id) * super_parameters.alpha_overlap_energy;
+        if super_parameters.alpha_assert_interger > 0. {
+            energy += self.given_cell_interger_energy(cell_id) * super_parameters.alpha_assert_interger;
+        };
         energy
     }
 
@@ -129,6 +162,9 @@ impl AdderFPMain {
         energy += self.given_cell_wire_energy_with_new_pos(cell_id, pos) * super_parameters.alpha_wire_energy;
         energy += self.given_cell_border_energy_with_new_pos(cell_id, pos) * super_parameters.alpha_border_energy;
         energy += self.given_cell_overlap_energy_with_new_pos(cell_id, pos) * super_parameters.alpha_overlap_energy;
+        if super_parameters.alpha_assert_interger > 0. {
+            energy += self.given_cell_interger_energy_with_new_pos(cell_id, pos) * super_parameters.alpha_assert_interger;
+        };
         energy
     }
 
@@ -137,6 +173,8 @@ impl AdderFPMain {
         energy += self.given_cell_wire_energy(cell_id) * super_parameters.alpha_wire_energy;
         energy += self.given_cell_border_energy(cell_id) * super_parameters.alpha_border_energy;
         energy += self.given_cell_overlap_energy(cell_id) * super_parameters.alpha_overlap_energy;
+        let sub_area_id = self.cell_pos_dict.get(&cell_id).unwrap().sub_area_id;
+        energy += self.given_sub_area_density_energy(sub_area_id) * super_parameters.alpha_density_energy;
         energy
     }
 
@@ -145,6 +183,7 @@ impl AdderFPMain {
         energy += self.given_cell_wire_energy_with_new_pos(cell_id, pos) * super_parameters.alpha_wire_energy;
         energy += self.given_cell_border_energy_with_new_pos(cell_id, pos) * super_parameters.alpha_border_energy;
         energy += self.given_cell_overlap_energy_with_new_pos(cell_id, pos) * super_parameters.alpha_overlap_energy;
+        energy += self.given_sub_area_density_energy(pos.sub_area_id) * super_parameters.alpha_density_energy;
         energy
     }
 
@@ -153,6 +192,8 @@ impl AdderFPMain {
         new_pos.impl_x_movement(disp);
         self.given_cell_x_energy_with_new_pos(cell_id, &new_pos, super_parameters)
     }
+
+
 
     pub fn all_wire_energy(&self) -> f64 {
         self.wire_static_dict.keys().map(|x| self.given_wire_energy(*x)).sum()
