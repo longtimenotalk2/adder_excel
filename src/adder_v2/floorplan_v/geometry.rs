@@ -148,4 +148,19 @@ impl AdderFPMain {
     pub fn all_moveable_cell_ids(&self) -> Vec<CellId> {
         self.cell_static_dict.iter().filter(|(_, cell)| cell.can_move).map(|(id, _)| *id).collect()
     }
+
+    pub fn given_cell_have_left_overlap(&self, cell_id: CellId) -> bool {
+        let (cell_x_min, cell_x_max) = self.given_cell_x_border(cell_id);
+        let sub_area_id = self.cell_pos_dict.get(&cell_id).unwrap().sub_area_id;
+        for other_cell_id in self.filter_cell_id_in_given_sub_area_id(sub_area_id) {
+            if other_cell_id != cell_id {
+                let (other_cell_x_min, other_cell_x_max) = self.given_cell_x_border(other_cell_id);
+                if other_cell_x_min < cell_x_min && cell_x_min < other_cell_x_max {
+                    return true;
+                }
+            }
+        }
+        false
+
+    }
 }

@@ -222,7 +222,104 @@ fn test_dynamic2() {
 
     fp_main.all_assert_interger();
     fp_main.draw_default_art(&adder, "place_dynamic_final");
+
+    fp_main.all_remove_overlap();
+    fp_main.draw_default_art(&adder, "place_dynamic_final2");
     
+
+}
+
+#[test]
+fn test_tail() {
+    let (mut fp_main, adder) = init();
+    let mut super_parameters = SuperParameters {
+        alpha_wire_energy : 1.,
+        alpha_density_energy : 10.,
+        alpha_border_energy : 1e4,
+        alpha_overlap_energy : 1e1,
+        alpha_assert_interger : 0.,
+    };
+    let mut beta = 2.;
+
+
+    fp_main.dynamic_combine_5_step(beta, &super_parameters);
+    fp_main.draw_default_art(&adder, "place_dynamic5");
+
+    // 强制截断
+
+    fp_main.all_assert_interger();
+    fp_main.draw_default_art(&adder, "place_dynamic_final");
+
+    fp_main.all_remove_overlap();
+    fp_main.draw_default_art(&adder, "place_dynamic_final2");
+    
+}
+
+#[test]
+fn test_dynamic3() {
+    let (mut fp_main, adder) = init();
+    let mut super_parameters = SuperParameters {
+        alpha_wire_energy : 1.,
+        alpha_density_energy : 10.,
+        alpha_border_energy : 1e4,
+        alpha_overlap_energy : 10.,
+        alpha_assert_interger : 0.,
+    };
+    let mut beta = 2.;
+
+
+    fp_main.dynamic_combine_5_step(beta, &super_parameters);
+    fp_main.draw_default_art(&adder, "place_dynamic5");
+
+    for i in 0..3 {
+        beta *= 0.95;
+        fp_main.dynamic_combine_5_step(beta, &super_parameters);
+    }
+
+    fp_main.draw_default_art(&adder, "place_dynamic20");
+
+    super_parameters.alpha_density_energy = 10.;
+    super_parameters.alpha_overlap_energy = 1e2;
+
+    for i in 0..6 {
+        beta *= 0.95;
+        fp_main.dynamic_combine_5_step(beta, &super_parameters);
+    } 
+
+    fp_main.draw_default_art(&adder, "place_dynamic50");
+
+    
+    super_parameters.alpha_overlap_energy = 1e3;
+    super_parameters.alpha_assert_interger = 10.;
+
+    for i in 0..6 {
+        beta *= 0.95;
+        fp_main.dynamic_combine_5_step(beta, &super_parameters);
+    } 
+
+    fp_main.draw_default_art(&adder, "place_dynamic80");
+
+    fp_main.all_assert_interger();
+    fp_main.all_remove_overlap();
+
+    fp_main.draw_default_art(&adder, "place_dynamic80r");
+
+    super_parameters.alpha_border_energy = 1e8;
+    super_parameters.alpha_overlap_energy = 1e6;
+    super_parameters.alpha_assert_interger = 100.;
+
+     for i in 0..6 {
+        beta *= 0.95;
+        fp_main.dynamic_combine_5_step(beta, &super_parameters);
+    } 
+
+    fp_main.draw_default_art(&adder, "place_dynamic110");
+
+    fp_main.all_assert_interger();
+    fp_main.all_remove_overlap();
+
+    fp_main.draw_default_art(&adder, "place_dynamic_final");
+
 
 }
 

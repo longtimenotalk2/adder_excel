@@ -83,4 +83,33 @@ impl AdderFPMain {
             self.impl_cell_x_movement(cell_id, x_new - x_now);
         }
     }
+
+    pub fn all_remove_overlap(&mut self) {
+        let mut cell_ids = self.all_moveable_cell_ids();
+
+        
+
+        let mut have_overlap = false;
+        for i in 0..100 {
+            let mut list = vec![];
+            for cell_id in &cell_ids {
+                list.push((self.given_cell_x_border(*cell_id).0, *cell_id));
+            }
+            list.sort_by(|a, b| a.0.partial_cmp(&b.0).unwrap());
+            
+
+            for (_, cell_id) in &list {
+                if self.given_cell_have_left_overlap(*cell_id)  {
+                    self.cell_pos_dict.get_mut(cell_id).unwrap().x += 1.0;
+                    have_overlap = true;
+                }
+            }
+            if !have_overlap {
+                return
+            }
+            have_overlap = false;
+        }
+
+        // panic!("all_remove_overlap failed");
+    }
 }
