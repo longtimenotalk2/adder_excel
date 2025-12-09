@@ -94,6 +94,20 @@ impl AdderFPMain {
         -(energy_plus - energy_minus) / (2. * DELTA_X)
     }
 
+    // pub fn given_cell_y_force(&self, cell_id : CellId, super_parameters : &SuperParameters) -> BTreeMap<YMove, f64> {
+    //     let get_energy = |y_move : Option<YMove>| {
+    //         let mut new_main = self.clone();
+    //         new_main.impl_cell_x_movement(cell_id, x);
+
+    //         let mut energy = 0.;
+    //         energy += new_main.given_cell_wire_energy(cell_id) * super_parameters.alpha_wire_energy;
+    //         energy += new_main.given_cell_border_energy(cell_id) * super_parameters.alpha_border_energy;
+    //         energy += new_main.given_cell_overlap_energy(cell_id) * super_parameters.alpha_overlap_energy;
+    //         energy
+    //     };
+
+    // }
+
     // fn given_cell_up_down_force(&self, is_up : bool, cell_id : CellId, super_parameters : &SuperParameters) -> Option<f64> {
     //     let new_sub_area_id = if is_up { self.can_cell_up_move(cell_id) } else { self.can_cell_down_move(cell_id) };
     //     if let Some(sub_area_id_new) = new_sub_area_id {
