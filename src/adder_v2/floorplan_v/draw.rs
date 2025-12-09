@@ -250,8 +250,6 @@ impl AdderFPMain {
                 "green"
             };
 
-            dbg!(&x_given, &y_given);
-
             document = document.add(Text::new(&format!("{density_format}"))
                 .set("x", x_given)
                 .set("y", y_given )
