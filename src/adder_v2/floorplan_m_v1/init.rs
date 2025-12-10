@@ -61,4 +61,77 @@ impl FloorPlanMV1 {
             }
         }
     }
+
+    pub fn load_faa(&mut self, path : &str) {
+        let file = std::fs::File::open(path).expect(&format!("file {path} not exist"));
+        let reader = std::io::BufReader::new(file);
+        let lines : Vec<String> = std::io::BufRead::lines(reader).map(|l| l.unwrap()).collect();
+
+        for line in lines {
+            let tokens = line.split_whitespace().collect::<Vec<_>>();
+            if tokens.len() > 0 {
+                let name = tokens[0].to_string();
+                if name.ends_with("s_0") || name.ends_with("co_0") {
+                    // 双小cell
+                    
+                    let x_input : i32 = tokens[1].parse().unwrap();
+                    let y_input : i32 = tokens[2].parse().unwrap();
+
+                    let cell_id = CellId(self.cell_static_data.len() as u16);
+                    if name.ends_with("s_0") {
+                        let wire_id = WireId(self.wire_static_data.len() as u16);
+                        let width = 6;
+                        self.cell_static_data.insert(cell_id, CellStaticData {
+                            name: "s_0".to_string(),
+                            width: width as i32,
+                            connected_wire_set: BTreeSet::from([wire_id]),
+                        });
+                        self.cell_pos.insert(cell_id, CellPos { x: x_input, y: y_input });
+                        self.wire_static_data.insert(wire_id, WireStaticData {
+                            name: "d[0]".to_string(),
+                            connected_cell_set: BTreeSet::from([cell_id]),
+                        });
+                    } else if name.ends_with("co_0") {
+                        let wire_id = self.find_wire_id_from_name("b[0]").unwrap();
+                        let width = 3;
+                        let x = x_input as f64 + width as f64 / 2.0 ;
+                        self.cell_static_data.insert(cell_id, CellStaticData {
+                            name: "co_0".to_string(),
+                            width: width as i32,
+                            connected_wire_set: BTreeSet::from([wire_id]),
+                        });
+                        self.cell_pos.insert(cell_id, CellPos { x: x_input, y: y_input });
+                    }
+                } else {
+                    // 大FA1N
+                }
+                
+            }
+        }
+    }
+
+    // pub fn load_mb32(&mut self, mb_data : &[(i32, i32); 32]) {
+    //     for i in 0..32 {
+    //         let (x, y) = mb_data[i];
+    //         let wire_name = if i == 0 {
+    //             "d[0]".to_string()
+    //         } else {
+    //             let bit = i - 1;
+    //             format!("s[{}]", bit)
+    //         };
+            
+
+    //         let cell_id = CellId(self.cell_static_data.len() as u16);
+    //         let wire_id = if let Some(wire_id) = self.find_wire_id_from_name(&wire_name) {
+    //             assert!(i >= 1);
+    //             wire_id
+    //         } else {
+    //             let wire_id = WireId(self.wire_static_data.len() as u16);
+    //             self.wire_static_data.insert(wire_id, WireStaticData {
+    //                 name: wire_name.clone(),
+    //                 connected_cell_set: BTreeSet::new(),
+    //             })
+    //         };
+    //     }
+    // }
 }
