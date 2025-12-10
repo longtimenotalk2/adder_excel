@@ -1,8 +1,8 @@
-use std::collections::BTreeSet;
+use std::collections::{BTreeMap, BTreeSet};
 
 use crate::adder_v2::floorplan_m_v1::{FA1NCate, FA1NInfo, FA1NPose, M1Certain, M1XEnum, M1YRange};
 
-pub fn out_x_v1d8d11(y_mb : i32) -> [(i32, i32); 32] {
+pub(super) fn out_x_v1d8d11(y_mb : i32) -> [(i32, i32); 32] {
     let mut out_x : [(i32, i32); 32] = [(0, 0); 32];
     for index in 0..32 {
         if index <= 16 {
@@ -28,6 +28,28 @@ pub fn out_x_v1d8d11(y_mb : i32) -> [(i32, i32); 32] {
     }
 
     out_x
+}
+
+pub(super) fn in_fa1n_info() -> BTreeMap<usize, FA1NInfo> {
+    let mut ret = BTreeMap::new();
+    for i in 1..32 {
+        if i == 1 {
+            ret.insert(i, FA1NInfo { cate: FA1NCate::CONBUF, pose: FA1NPose::Left });
+        } else if i <= 17 {
+            if i % 2 == 0 {
+                ret.insert(i, FA1NInfo { cate: FA1NCate::CONBUF, pose: FA1NPose::Left });
+            } else {
+                ret.insert(i, FA1NInfo { cate: FA1NCate::CONBUF, pose: FA1NPose::Right });
+            }
+        } else {
+            if i % 2 == 0 {
+                ret.insert(i, FA1NInfo { cate: FA1NCate::W, pose: FA1NPose::Left });
+            } else {
+                ret.insert(i, FA1NInfo { cate: FA1NCate::W, pose: FA1NPose::Right });
+            }
+        }
+    }
+    ret
 }
 
 impl FA1NInfo {
