@@ -1,6 +1,6 @@
 use std::{collections::{BTreeMap, BTreeSet}, os::windows::process};
 
-use crate::adder_v2::{adder::Adder, cell_parse::Process, draw::adder_frame::Pos, floorplan_m_v1::{CellId, CellPos, CellStaticData, FloorPlanMV1, WireId, WireStaticData}};
+use crate::adder_v2::{adder::Adder, cell_parse::Process, draw::adder_frame::Pos, floorplan_m_v1::{CellId, CellPos, CellStaticData, FA1NInfo, FloorPlanMV1, WireId, WireStaticData}};
 
 impl FloorPlanMV1 {
     pub fn init_from_adder(adder : &Adder, process: Process) -> Self {
@@ -62,7 +62,7 @@ impl FloorPlanMV1 {
         }
     }
 
-    pub fn load_faa(&mut self, path : &str) {
+    pub fn load_faa(&mut self, path : &str, fa1n_info : &BTreeMap<usize, FA1NInfo>) {
         let file = std::fs::File::open(path).expect(&format!("file {path} not exist"));
         let reader = std::io::BufReader::new(file);
         let lines : Vec<String> = std::io::BufRead::lines(reader).map(|l| l.unwrap()).collect();
@@ -73,7 +73,7 @@ impl FloorPlanMV1 {
                 let name = tokens[0].to_string();
                 if name.ends_with("s_0") || name.ends_with("co_0") {
                     // 双小cell
-                    
+
                     let x_input : i32 = tokens[1].parse().unwrap();
                     let y_input : i32 = tokens[2].parse().unwrap();
 
@@ -104,6 +104,39 @@ impl FloorPlanMV1 {
                     }
                 } else {
                     // 大FA1N
+                    let index : usize = tokens[0].split("_").last().unwrap().parse().unwrap();
+                    let adder_index = index - 1;
+                    let x : i32 = tokens[1].parse().unwrap();
+                    let y : i32 = tokens[2].parse().unwrap();
+                    let y = y + 1;
+                    let width = fa1n_info.get(&index).unwrap().width();
+
+                    let cell_id = CellId(self.cell_static_data.len() as u16);
+                    let wire_a_id = self.find_wire_id_from_name(&format!("a[{adder_index}]")).unwrap();
+                    let wire_b_id = self.find_wire_id_from_name(&format!("b[{index}]"));
+
+                    let mut wires =  BTreeSet::from([wire_a_id]);
+                    if let Some(wire_b_id) = wire_b_id {
+                        wires.insert(wire_b_id);
+                    }
+
+                    let mut cell_name = format!("a[{adder_index}]");
+                    if wire_b_id.is_some() {
+                        cell_name += &format!("_b[{index}]");
+                    }
+
+                    self.cell_static_data.insert(cell_id, CellStaticData {
+                        name: cell_name,
+                        width,
+                        connected_wire_set : wires,
+                    });
+
+                    self.cell_pos.insert(cell_id, CellPos{x, y});
+
+                    self.wire_static_data.get_mut(&wire_a_id).unwrap().connected_cell_set.insert(cell_id);
+                    if let Some(wire_b_id) = wire_b_id {
+                        self.wire_static_data.get_mut(&wire_b_id).unwrap().connected_cell_set.insert(cell_id);
+                    }
                 }
                 
             }

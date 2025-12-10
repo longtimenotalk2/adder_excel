@@ -2,6 +2,7 @@ pub mod project;
 pub mod io;
 pub mod init;
 pub mod basic;
+pub mod draw;
 
 use std::collections::{BTreeMap, BTreeSet};
 

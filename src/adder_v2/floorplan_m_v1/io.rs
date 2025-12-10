@@ -30,7 +30,7 @@ pub(super) fn out_x_v1d8d11(y_mb : i32) -> [(i32, i32); 32] {
     out_x
 }
 
-pub(super) fn in_fa1n_info() -> BTreeMap<usize, FA1NInfo> {
+pub(super) fn in_fa1n_info_v1d8d11() -> BTreeMap<usize, FA1NInfo> {
     let mut ret = BTreeMap::new();
     for i in 1..32 {
         if i == 1 {
@@ -53,16 +53,16 @@ pub(super) fn in_fa1n_info() -> BTreeMap<usize, FA1NInfo> {
 }
 
 impl FA1NInfo {
-    // fn width(&self) -> i32 {
-    //     match (self.cate, self.pose) {
-    //         (FA1NCate::CONBUF, FA1NPose::Left) => 9,
-    //         (FA1NCate::CONBUF, FA1NPose::Right) => 8,
-    //         (FA1NCate::W, FA1NPose::Left) => 7,
-    //         (FA1NCate::W, FA1NPose::Right) => 7,
-    //     }
-    // }
+    pub fn width(&self) -> i32 {
+        match (self.cate, self.pose) {
+            (FA1NCate::CONBUF, FA1NPose::Left) => 9,
+            (FA1NCate::CONBUF, FA1NPose::Right) => 8,
+            (FA1NCate::W, FA1NPose::Left) => 7,
+            (FA1NCate::W, FA1NPose::Right) => 7,
+        }
+    }
 
-    fn inner_m1(&self) -> BTreeSet<M1Certain> {
+    pub fn inner_m1(&self) -> BTreeSet<M1Certain> {
         match (self.cate, self.pose) {
             (FA1NCate::CONBUF, FA1NPose::Left) => BTreeSet::from([M1Certain {x : 5, y : M1YRange::new_range(0, 1)}]),
             (FA1NCate::CONBUF, FA1NPose::Right) => BTreeSet::from([M1Certain {x : 2, y : M1YRange::new_range(0, 1)}]),
@@ -71,7 +71,7 @@ impl FA1NInfo {
         }
     }
 
-    fn port_sn(&self) -> BTreeSet<(M1XEnum, M1YRange)> {
+    pub fn port_sn(&self) -> BTreeSet<(M1XEnum, M1YRange)> {
         match (self.cate, self.pose) {
             (FA1NCate::CONBUF, FA1NPose::Left) => BTreeSet::from([(M1XEnum::new(&[4, 6]), M1YRange::new_single(0))]),
             (FA1NCate::CONBUF, FA1NPose::Right) => BTreeSet::from([(M1XEnum::new(&[1, 3]), M1YRange::new_single(0))]),
@@ -80,7 +80,7 @@ impl FA1NInfo {
         }
     }
 
-    fn port_con(&self) -> BTreeSet<(M1XEnum, M1YRange)> {
+    pub fn port_con(&self) -> BTreeSet<(M1XEnum, M1YRange)> {
         match (self.cate, self.pose) {
             (FA1NCate::CONBUF, FA1NPose::Left) => BTreeSet::from([(M1XEnum::new(&[6, 7, 8]), M1YRange::new_single(1))]),
             (FA1NCate::CONBUF, FA1NPose::Right) => BTreeSet::from([(M1XEnum::new(&[0, 1]), M1YRange::new_single(1))]),
