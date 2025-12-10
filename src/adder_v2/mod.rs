@@ -15,6 +15,7 @@ pub mod netlist;
 pub mod floorplan;
 pub mod floorplan_v;
 pub mod virtual_netlist;
+pub mod floorplan_m_v1;
 
 type Id = u32;
 
