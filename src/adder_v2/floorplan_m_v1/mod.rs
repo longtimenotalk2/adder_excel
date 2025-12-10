@@ -1,14 +1,16 @@
 pub mod project;
 pub mod io;
+pub mod init;
+pub mod basic;
 
 use std::collections::{BTreeMap, BTreeSet};
 
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
-struct CellId(u8);
+struct CellId(u16);
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
-struct WireId(u8);
+struct WireId(u16);
 
 #[derive(Debug, Clone)]
 struct CellPos {

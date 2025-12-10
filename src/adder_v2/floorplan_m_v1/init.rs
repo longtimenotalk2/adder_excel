@@ -1,0 +1,64 @@
+use std::{collections::{BTreeMap, BTreeSet}, os::windows::process};
+
+use crate::adder_v2::{adder::Adder, cell_parse::Process, draw::adder_frame::Pos, floorplan_m_v1::{CellId, CellPos, CellStaticData, FloorPlanMV1, WireId, WireStaticData}};
+
+impl FloorPlanMV1 {
+    pub fn init_from_adder(adder : &Adder, process: Process) -> Self {
+        let virtual_netlist = adder.to_virtual_netlist(process, BTreeMap::new());
+        let cell_width = adder.cells.iter().map(|x| x.1.to_cell_body().width()).collect::<Vec<_>>();
+
+        let mut loaded_wire_names : BTreeMap<String, WireId> = BTreeMap::new();
+
+        let mut wires : BTreeMap<WireId, WireStaticData> = BTreeMap::new();
+        let mut cells : BTreeMap<CellId, CellStaticData> = BTreeMap::new();
+
+        for id in 0..cell_width.len() {
+            let width = cell_width[id];
+            let cell_name = virtual_netlist[id].inst_name.clone();
+            let cell_id = CellId(id as u16);
+            let mut wire_id_set = BTreeSet::new();
+            for (_, wire_name) in virtual_netlist[id].ports.iter() {
+                if !loaded_wire_names.contains_key(wire_name) {
+                    let wire_id = WireId(loaded_wire_names.len() as u16);
+                    loaded_wire_names.insert(wire_name.clone(), wire_id);
+                }
+                let wire_id = loaded_wire_names[wire_name];
+                wires.entry(wire_id).or_insert(WireStaticData { 
+                    name: wire_name.clone(), 
+                    connected_cell_set: BTreeSet::new(),
+                }).connected_cell_set.insert(cell_id);
+                wire_id_set.insert(wire_id);
+            }
+            cells.insert(cell_id, CellStaticData { 
+                name: cell_name, 
+                width: width as i32, 
+                connected_wire_set: wire_id_set, 
+            });
+        }
+
+        Self {
+            cell_static_data : cells,
+            wire_static_data : wires,
+            cell_pos : BTreeMap::new(),
+        }
+    }
+
+    pub fn load_adder_position(&mut self, path : &str) {
+        let file = std::fs::File::open(path).expect(&format!("file {path} not exist"));
+        let reader = std::io::BufReader::new(file);
+        let lines : Vec<String> = std::io::BufRead::lines(reader).map(|l| l.unwrap()).collect();
+
+        for line in lines {
+            let tokens = line.split_whitespace().collect::<Vec<_>>();
+            if tokens.len() > 0 {
+                let name = tokens[0].to_string();
+                let x_input : i32 = tokens[1].parse().unwrap();
+                let y_input : i32 = tokens[2].parse().unwrap();
+
+                let cell_id = self.find_cell_id_from_name(&name).unwrap();
+
+                self.cell_pos.insert(cell_id, CellPos { x : x_input, y : y_input });
+            }
+        }
+    }
+}
