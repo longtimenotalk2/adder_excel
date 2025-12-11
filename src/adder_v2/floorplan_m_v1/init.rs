@@ -143,28 +143,29 @@ impl FloorPlanMV1 {
         }
     }
 
-    // pub fn load_mb32(&mut self, mb_data : &[(i32, i32); 32]) {
-    //     for i in 0..32 {
-    //         let (x, y) = mb_data[i];
-    //         let wire_name = if i == 0 {
-    //             "d[0]".to_string()
-    //         } else {
-    //             let bit = i - 1;
-    //             format!("s[{}]", bit)
-    //         };
+    pub fn load_mb32(&mut self, mb_data : &[(i32, i32); 32]) {
+        for i in 0..32 {
+            let (x, y) = mb_data[i];
+            let wire_name = if i == 0 {
+                "d[0]".to_string()
+            } else {
+                let bit = i - 1;
+                format!("s[{}]", bit)
+            };
             
 
-    //         let cell_id = CellId(self.cell_static_data.len() as u16);
-    //         let wire_id = if let Some(wire_id) = self.find_wire_id_from_name(&wire_name) {
-    //             assert!(i >= 1);
-    //             wire_id
-    //         } else {
-    //             let wire_id = WireId(self.wire_static_data.len() as u16);
-    //             self.wire_static_data.insert(wire_id, WireStaticData {
-    //                 name: wire_name.clone(),
-    //                 connected_cell_set: BTreeSet::new(),
-    //             })
-    //         };
-    //     }
-    // }
+            let cell_id = CellId(self.cell_static_data.len() as u16);
+            let wire_id = self.find_wire_id_from_name(&wire_name).unwrap();
+
+            self.cell_static_data.insert(cell_id, CellStaticData {
+                name: wire_name.clone(),
+                width: 1,
+                connected_wire_set: BTreeSet::from([wire_id]),
+            });
+
+            self.cell_pos.insert(cell_id, CellPos { x, y });
+            self.wire_static_data.get_mut(&wire_id).unwrap().connected_cell_set.insert(cell_id);
+
+        }
+    }
 }
