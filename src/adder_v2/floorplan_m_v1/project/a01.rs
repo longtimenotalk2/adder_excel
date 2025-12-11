@@ -20,7 +20,7 @@ fn test_base() {
     let adder = adder();
     let mut fp = FloorPlanMV1::init_from_adder(&adder, Process::N3E);
     fp.load_adder_position("src/adder_v2/floorplan_m_v1/project/a01_data/a01_input_adder.txt");
-    fp.load_faa("src/adder_v2/floorplan_m_v1/project/a01_data/a01_input_faa_fixed.txt", &in_fa1n_info_v1d8d11());
+    fp.load_faa_default("src/adder_v2/floorplan_m_v1/project/a01_data/a01_input_faa_fixed.txt", &in_fa1n_info_v1d8d11());
     fp.load_mb32(&out_x_v1d8d11(8));
 
     fp.draw(vec![

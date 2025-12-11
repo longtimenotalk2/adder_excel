@@ -62,6 +62,88 @@ impl FloorPlanMV1 {
         }
     }
 
+    pub fn load_faa_default(&mut self, path : &str, fa1n_info : &BTreeMap<usize, FA1NInfo>) {
+        let file = std::fs::File::open(path).expect(&format!("file {path} not exist"));
+        let reader = std::io::BufReader::new(file);
+        let lines : Vec<String> = std::io::BufRead::lines(reader).map(|l| l.unwrap()).collect();
+
+        for line in lines {
+            let tokens = line.split_whitespace().collect::<Vec<_>>();
+            if tokens.len() > 0 {
+                let name = tokens[0].to_string();
+                if name.ends_with("s_0") || name.ends_with("co_0") {
+                    // 双小cell
+
+                    let x_input : i32 = tokens[1].parse().unwrap();
+                    let y_input : i32 = tokens[2].parse().unwrap();
+
+                    let cell_id = CellId(self.cell_static_data.len() as u16);
+                    if name.ends_with("s_0") {
+                        let wire_id = WireId(self.wire_static_data.len() as u16);
+                        let width = 6;
+                        self.cell_static_data.insert(cell_id, CellStaticData {
+                            name: "s_0".to_string(),
+                            width: width as i32,
+                            connected_wire_set: BTreeSet::from([wire_id]),
+                        });
+                        self.cell_pos.insert(cell_id, CellPos { x: x_input, y: y_input });
+                        self.wire_static_data.insert(wire_id, WireStaticData {
+                            name: "d[0]".to_string(),
+                            connected_cell_set: BTreeSet::from([cell_id]),
+                        });
+                    } else if name.ends_with("co_0") {
+                        let wire_id = self.find_wire_id_from_name("b[0]").unwrap();
+                        let width = 3;
+                        let x = x_input as f64 + width as f64 / 2.0 ;
+                        self.cell_static_data.insert(cell_id, CellStaticData {
+                            name: "co_0".to_string(),
+                            width: width as i32,
+                            connected_wire_set: BTreeSet::from([wire_id]),
+                        });
+                        self.cell_pos.insert(cell_id, CellPos { x: x_input, y: y_input });
+                    }
+                } else {
+                    // 大FA1N
+                    let index : usize = tokens[0].split("_").last().unwrap().parse().unwrap();
+                    let adder_index = index - 1;
+                    let x : i32 = tokens[1].parse().unwrap();
+                    let y : i32 = tokens[2].parse().unwrap();
+                    let info = fa1n_info.get(&index).unwrap();
+                    let pos_sn = CellPos { x, y }.add(&info.sn_default());
+                    let pos_con = CellPos { x, y }.add(&info.con_default());
+
+                    // sn -> a
+                    let cell_id = CellId(self.cell_static_data.len() as u16);
+                    let wire_a_id = self.find_wire_id_from_name(&format!("a[{adder_index}]")).unwrap();
+                    let mut cell_name = format!("a[{adder_index}]");
+                    self.cell_static_data.insert(cell_id, CellStaticData {
+                        name: cell_name,
+                        width: 1,
+                        connected_wire_set : BTreeSet::from([wire_a_id]),
+                    });
+                    self.cell_pos.insert(cell_id, pos_sn);
+                    self.wire_static_data.get_mut(&wire_a_id).unwrap().connected_cell_set.insert(cell_id);
+
+                    // con -> b
+
+                    let wire_b_id = self.find_wire_id_from_name(&format!("b[{index}]"));
+                    if let Some(wire_b_id) = wire_b_id {
+                        let cell_id = CellId(self.cell_static_data.len() as u16);
+                        let cell_name = format!("b[{index}]");
+                        self.cell_static_data.insert(cell_id, CellStaticData {
+                            name: cell_name,
+                            width: 1,
+                            connected_wire_set : BTreeSet::from([wire_b_id]),
+                        });
+                        self.cell_pos.insert(cell_id, pos_con);
+                        self.wire_static_data.get_mut(&wire_b_id).unwrap().connected_cell_set.insert(cell_id);
+                    }
+                }
+                
+            }
+        }
+    }
+
     pub fn load_faa(&mut self, path : &str, fa1n_info : &BTreeMap<usize, FA1NInfo>) {
         let file = std::fs::File::open(path).expect(&format!("file {path} not exist"));
         let reader = std::io::BufReader::new(file);

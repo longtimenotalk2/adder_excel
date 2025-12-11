@@ -1,6 +1,6 @@
 use std::collections::{BTreeMap, BTreeSet};
 
-use crate::adder_v2::floorplan_m_v1::{FA1NCate, FA1NInfo, FA1NPose, M1Certain, M1XEnum, M1YRange};
+use crate::adder_v2::floorplan_m_v1::{CellPos, FA1NCate, FA1NInfo, FA1NPose, M1Certain, M1XEnum, M1YRange};
 
 pub(super) fn out_x_v1d8d11(y_mb : i32) -> [(i32, i32); 32] {
     let mut out_x : [(i32, i32); 32] = [(0, 0); 32];
@@ -59,6 +59,24 @@ impl FA1NInfo {
             (FA1NCate::CONBUF, FA1NPose::Right) => 8,
             (FA1NCate::W, FA1NPose::Left) => 7,
             (FA1NCate::W, FA1NPose::Right) => 7,
+        }
+    }
+
+    pub fn sn_default(&self) -> CellPos {
+        match (self.cate, self.pose) {
+            (FA1NCate::CONBUF, FA1NPose::Left) => CellPos {x:6, y:0},
+            (FA1NCate::CONBUF, FA1NPose::Right) => CellPos {x:3, y:0},
+            (FA1NCate::W, FA1NPose::Left) => CellPos {x:4, y:0},
+            (FA1NCate::W, FA1NPose::Right) => CellPos {x:3, y:1},
+        }
+    }
+
+    pub fn con_default(&self) -> CellPos {
+        match (self.cate, self.pose) {
+            (FA1NCate::CONBUF, FA1NPose::Left) => CellPos {x:7, y:1},
+            (FA1NCate::CONBUF, FA1NPose::Right) => CellPos {x:0, y:1},
+            (FA1NCate::W, FA1NPose::Left) => CellPos {x:3, y:0},
+            (FA1NCate::W, FA1NPose::Right) => CellPos {x:2, y:0},
         }
     }
 

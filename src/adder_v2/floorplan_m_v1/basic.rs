@@ -1,6 +1,15 @@
 use std::collections::BTreeSet;
 
-use crate::adder_v2::floorplan_m_v1::{CellId, FloorPlanMV1, M1XEnum, M1YRange, WireId};
+use crate::adder_v2::floorplan_m_v1::{CellId, CellPos, FloorPlanMV1, M1XEnum, M1YRange, WireId};
+
+impl CellPos {
+    pub fn add(&self, other: &CellPos) -> CellPos {
+        CellPos {
+            x: self.x + other.x,
+            y: self.y + other.y,
+        }
+    }
+}
 
 impl M1YRange {
     pub fn new_single(y : i32) -> Self {
