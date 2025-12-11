@@ -1,4 +1,4 @@
-use crate::adder_v2::{Id, adder::Adder, cell_parse::Process, excel::{ExcelFrame, excel_to_datalist::ExcelDataList}, floorplan_m_v1::{FloorPlanMV1, io::in_fa1n_info_v1d8d11}};
+use crate::adder_v2::{Id, adder::Adder, cell_parse::Process, excel::{ExcelFrame, excel_to_datalist::ExcelDataList}, floorplan_m_v1::{FloorPlanMV1, draw::{ART, DrawWhat}, io::in_fa1n_info_v1d8d11}};
 
 const PATH : &'static str = "src/adder_v2/project/a04_uf_76/excel/uf31_pn_np_v01.txt";
 
@@ -22,4 +22,7 @@ fn test_base() {
     fp.load_adder_position("src/adder_v2/floorplan_m_v1/project/a01_data/a01_input_adder.txt");
     fp.load_faa("src/adder_v2/floorplan_m_v1/project/a01_data/a01_input_faa.txt", &in_fa1n_info_v1d8d11());
 
+    fp.draw(vec![
+        DrawWhat::Cell(&adder)
+    ], "src/adder_v2/floorplan_m_v1/project/a01_out/base", 172, 9, &ART);
 }
