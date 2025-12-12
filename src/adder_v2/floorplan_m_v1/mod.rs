@@ -3,6 +3,7 @@ pub mod io;
 pub mod init;
 pub mod basic;
 pub mod draw;
+mod trace_planning;
 
 use std::collections::{BTreeMap, BTreeSet};
 

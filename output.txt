@@ -107,7 +107,7 @@ x_U3_ng23_20        q23_22    g21_20    g23_22    VBB     VDD     VPP     VSS   
 x_U3_nq27_24        q27_26    q25_24    VBB     VDD     VPP     VSS     nq27_24    ND2D1BM156H3P48CPDELVT_1
 x_U3_ng27_24        q27_26    g25_24    g27_26    VBB     VDD     VPP     VSS     ng27_24    AOI21D1BM156H3P48CPDELVT
 x_U4_g7_0           np7_4    ng3_0    ng7_4    VBB     VDD     VPP     VSS     g7_0    OAI21D2BM156H3P48CPDELVT
-x_U4_p11_8          np11_8    VBB     VDD     VPP     VSS     p11_8    INVD1BM156H3P48CPDELVT_1
+x_U4_p11_8          np11_8    VBB     VDD     VPP     VSS     p11_8    alpha_assert_intergerBM156H3P48CPDELVT_1
 x_U4_g11_8          ng11_8    VBB     VDD     VPP     VSS     g11_8    INVD1BM156H3P48CPDELVT_1
 x_U4_p15_8          np15_12    np11_8    VBB     VDD     VPP     VSS     p15_8    NR2D1BM156H3P48CPDELVT_1
 x_U4_g15_8          np15_12    ng11_8    ng15_12    VBB     VDD     VPP     VSS     g15_8    OAI21D1BM156H3P48CPDELVT
