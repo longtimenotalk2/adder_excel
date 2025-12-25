@@ -4,6 +4,7 @@ pub mod random;
 pub(crate) mod multi_vdd_test;
 pub mod measure_adder;
 pub mod cell;
+mod test;
 
 use crate::hspice::line_cell;
 
