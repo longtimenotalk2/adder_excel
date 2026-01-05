@@ -10,6 +10,7 @@ pub enum EndSpecial {
     SUM,
     NR_G_NP,
     OA,
+    Notation(usize),
 }
 
 impl Adder {
@@ -213,7 +214,7 @@ impl Adder {
                         (new_wire_id, s_wire.clone()),
                     ]), CellInfo::default())));
                 },
-                None => {
+                None | Some(EndSpecial::Notation(_))=> {
                     // find g index-1 to 0
                     let mut g_list : Vec<(Id, Wire)> = vec![];
                     for is_neg in [true, false] {
@@ -269,11 +270,15 @@ impl Adder {
                     } else {
                         Logic::XOR2
                     };
+                    let mut cell_info = CellInfo::default();
+                    if let Some(EndSpecial::Notation(notation)) = excel_data_list.end_special.get(&index) {
+                        cell_info.notation = Some(notation.clone());
+                    }
                     cells.push((new_cell_id, Cell::new(Node::create_by_ordered_wires(logic, vec![
                         g,
                         q,
                         (new_wire_id, s_wire.clone()),
-                    ]), CellInfo::default())));
+                    ]), cell_info)));
                 },
                 _ => {
                     panic!();

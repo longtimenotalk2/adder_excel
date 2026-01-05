@@ -1,4 +1,4 @@
-use std::collections::{BTreeMap, BTreeSet};
+use std::{cell, collections::{BTreeMap, BTreeSet}};
 
 use crate::adder_v2::{adder::adder_create::EndSpecial, cell::cell_info::{CellInfo, Drive, SpecialInfo}, excel::ExcelFrame, node::{FlagPChain, NodeHint}, wire::{Flag, FlagP, Wire, WireFloat}, Id};
 
@@ -21,6 +21,7 @@ struct ExcelCode {
     single_chars : BTreeSet<char>,
     flower_braket : BTreeMap<char, String>,
     square_braket : BTreeSet<String>,
+    triangle_braket : Option<usize>,
 }
 
 impl ExcelCode {
@@ -28,13 +29,16 @@ impl ExcelCode {
         let mut single_chars: BTreeSet<char> = BTreeSet::new();
         let mut square_braket: BTreeSet<String> = BTreeSet::new();
         let mut flower_braket: BTreeMap<char, String> = BTreeMap::new();
+        let mut triangle_braket: Option<usize> = None;
 
         let chars = s.chars().collect::<Vec<_>>();
         let mut char_now: Option<char> = None;
         let mut in_flower = String::new();
         let mut in_square = String::new();
+        let mut in_triangle = String::new();
         let mut now_in_flower = false;
         let mut now_in_square = false;
+        let mut now_in_triangle = false;
         for char in chars {
             if char == '{' {
                 now_in_flower = true;
@@ -49,12 +53,20 @@ impl ExcelCode {
                 now_in_square = false;
                 square_braket.insert(in_square);
                 in_square = String::new();
+            } else if char == '<' {
+                now_in_triangle = true;
+            } else if char == '>' {
+                now_in_triangle = false;
+                triangle_braket = Some(in_triangle.parse::<usize>().unwrap());
+                in_triangle = String::new();
             } else {
                 if now_in_flower {
                     in_flower.push(char);
                 } else if now_in_square {
                     in_square.push(char);
-                } else {
+                } else if now_in_triangle {
+                    in_triangle.push(char);
+                }else {
                     if let Some(c) = char_now {
                         single_chars.insert(c);
                     }
@@ -71,14 +83,16 @@ impl ExcelCode {
             single_chars,
             flower_braket,
             square_braket,
+            triangle_braket,
         }
     }
 }
 
 #[test]
 fn test_excel_code() {
-    let code = "IO{Q}";
-    let code = "IO{Q}";
+    // let code = "IO{Q}";
+    // let code = "IO{Q}";
+    let code = "A<1>";
     let excel_code = ExcelCode::from_str(code);
     println!("{:?}", excel_code);
 }
@@ -132,6 +146,7 @@ impl ExcelDataList<(NodeHint, CellInfo, Option<Vec<i32>>)> {
                             }
                         }
                     }
+                    cell_info.notation = code.triangle_braket.clone();
                     match wire_string.as_str() {
                         "nq~" => node_hint.is_start_xnr_dout = true,
                         "q~"  => node_hint.is_start_xor_dout = true,
@@ -192,8 +207,10 @@ impl ExcelDataList<(NodeHint, CellInfo, Option<Vec<i32>>)> {
                                     cell_info.special_infos.insert(SpecialInfo(square.clone()));
                                 }
                             }
+                            
                         }
                     }
+
                     let excel_data_list_key = ExcelDataListKey {
                         multi_line_id,
                         index : index_excel,

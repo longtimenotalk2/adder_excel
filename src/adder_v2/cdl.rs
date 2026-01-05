@@ -50,3 +50,9 @@ impl Adder {
         txt
     }
 }
+
+pub fn find_and_replace(txt : &mut String, list : &[(String, String)]) {
+    for (from, to) in list {
+        *txt = txt.replace(from, to);
+    }
+}

@@ -27,6 +27,7 @@ impl Default for Drive {
 pub struct CellInfo {
     pub drive : Drive,
     pub special_infos: BTreeSet<SpecialInfo>,
+    pub notation : Option<usize>,
 }
 
 impl CellInfo {
@@ -34,6 +35,7 @@ impl CellInfo {
         Self {
             drive : Drive::D1,
             special_infos: BTreeSet::new(),
+            notation : None,
         }
     }
 
@@ -58,6 +60,7 @@ fn test_cell_info() {
     let mut info = CellInfo {
         drive : Drive::D2,
         special_infos: BTreeSet::new(),
+        notation : None,
     };
     info.special_infos.insert(SpecialInfo("L2H".to_string()));
     dbg!(info.to_string());

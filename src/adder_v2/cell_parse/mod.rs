@@ -51,9 +51,11 @@ impl Process {
 
 impl CellBody {
     pub fn parse(&self, process : Process) -> (ReadCellName, ReadCellType) {
-        match process {
+        let (mut name, mut tp) = match process {
             Process::N3E => self.parse_n3e(),
-        }
+        };
+
+        (name, tp)
     }
 
     pub fn spf_path(&self, process : Process) -> String {

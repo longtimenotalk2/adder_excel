@@ -49,7 +49,14 @@ impl ExcelFrame {
                         "SUM" => {end_special.insert(index, EndSpecial::SUM);},
                         "NR_G_NP" => {end_special.insert(index, EndSpecial::NR_G_NP);},
                         "OA" => {end_special.insert(index, EndSpecial::OA);},
-                        _ => panic!("invalid end special {item}"),
+                        _ => {
+                            if item.trim().starts_with("<") {
+                                let notation : usize = item.trim().replace("<", "").replace(">", "").parse().unwrap();
+                                end_special.insert(index, EndSpecial::Notation(notation));
+                            } else {
+                                panic!("invalid end special {item}");
+                            }
+                        }
                     }
                 }
             } else {

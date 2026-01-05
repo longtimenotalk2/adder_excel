@@ -60,7 +60,14 @@ impl CellBody {
             panic!("did not parse {:?}", self);
         };
 
-        (ReadCellName(name.to_string()), cell_type)
+        let (mut name, mut cell_type) = (ReadCellName(name.to_string()), cell_type);
+
+        if let Some(id) = self.info.notation {
+            name = ReadCellName(format!("{}_EXCELSPECIAL_{}", name.0, id));
+            cell_type = ReadCellType::Lhw;
+        }
+
+        (name, cell_type)
     }
 
     pub fn spf_path_n3e(&self) -> String {

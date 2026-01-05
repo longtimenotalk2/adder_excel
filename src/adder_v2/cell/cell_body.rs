@@ -81,7 +81,7 @@ fn test() {
     infos.insert(SpecialInfo::new("SP-BD"));
 
 
-    let body = CellBody { logic : Logic::OAI21, info : CellInfo { drive : Drive::D1, special_infos: infos } };
+    let body = CellBody { logic : Logic::OAI21, info : CellInfo { drive : Drive::D1, special_infos: infos , notation : None} };
     dbg!(body.cap_cmos_given_input_port(&Port::new("B")));
     dbg!(body.cap_cmos_given_input_port(&Port::new("A1")));
 }
